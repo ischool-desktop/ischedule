@@ -8,7 +8,7 @@ using DevComponents.DotNetBar;
 
 namespace ischedule
 {
-    public static class LPViewHelper
+    public static class SchedulerHelper
     {
         private static string GetTimeTableID(string EventID)
         {

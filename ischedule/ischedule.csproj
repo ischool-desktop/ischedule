@@ -123,7 +123,7 @@
     <Compile Include="沒用到的\DecLPView.cs" />
     <Compile Include="沒用到的\DecPeriod.cs" />
     <Compile Include="沒用到的\LabelContent.cs" />
-    <Compile Include="Common\LPViewHelper.cs" />
+    <Compile Include="UserControls\SchedulerViewHelper.cs" />
     <Compile Include="Common\SortableBindingList.cs" />
     <Compile Include="test\PeriodContent.cs" />
     <Compile Include="frmCandidates.cs">
@@ -168,7 +168,7 @@
     <Compile Include="沒用到的\LPViewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Common\EventsViewBL.cs" />
+    <Compile Include="UserControls\EventsView.cs" />
     <Compile Include="UserControls\MainFormBL.cs" />
     <Compile Include="沒用到的\DataGridViewExtendedControls.cs">
       <SubType>Component</SubType>

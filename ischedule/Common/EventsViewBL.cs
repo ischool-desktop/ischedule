@@ -67,7 +67,7 @@ namespace ischedule
         private CEventBindingList evtsTransfers = new CEventBindingList();
         private CEvents evtsTemp = new CEvents();
         private Scheduler schLocal = Scheduler.Instance;
-        private DataGridViewX fgEvents;
+        private DataGridViewX grdEvents;
         private LabelX lblTitle;
         private frmProgress frmASProgress = new frmProgress();
         private Stopwatch mStopwatch = new Stopwatch();
@@ -114,8 +114,8 @@ namespace ischedule
             if (fgEvents == null || lblTitle==null)
                 throw new Exception("DataGrid及LabelX不得為null");
 
-            this.fgEvents = fgEvents;
-            this.fgEvents.AutoGenerateColumns = false;
+            this.grdEvents = fgEvents;
+            this.grdEvents.AutoGenerateColumns = false;
             this.lblTitle = lblTitle;
             this.btnAutoSchedule = btnAutoSchedule;
             this.btnLock = btnLock;
@@ -278,17 +278,17 @@ namespace ischedule
         /// <param name="e"></param>
         private void SelectionChanged(object sender,EventArgs e)
         {
-            this.btnAutoSchedule.Enabled = fgEvents.SelectedRows.Count > 0;
-            this.btnLock.Enabled = fgEvents.SelectedRows.Count > 0;
-            this.btnUnLock.Enabled = fgEvents.SelectedRows.Count > 0;
-            this.btnFree.Enabled = fgEvents.SelectedRows.Count > 0;
-            this.btnProperty.Enabled = fgEvents.SelectedRows.Count == 1;
-            this.btnPrint.Enabled = fgEvents.SelectedRows.Count > 0;
+            this.btnAutoSchedule.Enabled = grdEvents.SelectedRows.Count > 0;
+            this.btnLock.Enabled = grdEvents.SelectedRows.Count > 0;
+            this.btnUnLock.Enabled = grdEvents.SelectedRows.Count > 0;
+            this.btnFree.Enabled = grdEvents.SelectedRows.Count > 0;
+            this.btnProperty.Enabled = grdEvents.SelectedRows.Count == 1;
+            this.btnPrint.Enabled = grdEvents.SelectedRows.Count > 0;
 
             //當選取分課為一門時進行作業
-            if (fgEvents.SelectedRows.Count == 1)
+            if (grdEvents.SelectedRows.Count == 1)
             {
-                CEvent EventTransfer = fgEvents.SelectedRows[0].DataBoundItem as CEvent;
+                CEvent EventTransfer = grdEvents.SelectedRows[0].DataBoundItem as CEvent;
 
                 CEvent Event = schLocal.CEvents[EventTransfer.EventID];
 
@@ -410,7 +410,7 @@ namespace ischedule
                 }); 
             }
 
-            this.fgEvents.ContextMenuStrip = ContextMenuStrip;
+            this.grdEvents.ContextMenuStrip = ContextMenuStrip;
         }
 
         /// <summary>
@@ -420,7 +420,7 @@ namespace ischedule
         {
             get
             {
-                return fgEvents.SelectedRows.Count;
+                return grdEvents.SelectedRows.Count;
             }
         }
 
@@ -432,7 +432,7 @@ namespace ischedule
         {
             CEvents evtsSelected = new CEvents();            
 
-            foreach (DataGridViewRow SelectedItem in fgEvents.SelectedRows)
+            foreach (DataGridViewRow SelectedItem in grdEvents.SelectedRows)
             {
                 string SelectedEventID = "" + SelectedItem.Cells[colEventID].Value;
 
@@ -671,7 +671,9 @@ namespace ischedule
             if (evtsTransfers == null || evtsTransfers.Count ==0)
                 return;
 
-            fgEvents.SuspendLayout();
+            mStopwatch.Restart();
+            grdEvents.SuspendLayout();
+            grdEvents.SelectionChanged -= SelectionChanged;
 
             if (evtsTransfers == null) return;
 
@@ -722,7 +724,6 @@ namespace ischedule
                             evtExistTransfer = evtsTransfers
                                 .Single(x => x.EventID.Equals(evtRefresh.EventID));
 
-                            mStopwatch.Restart();
 
                             UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
                             evtsTransfers.RemoveAt(UpdateIndex);
@@ -741,13 +742,7 @@ namespace ischedule
 
                             UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
 
-                            mStopwatch.Restart();
-
                             evtsTransfers.RemoveAt(UpdateIndex);
-
-                            mStopwatch.Stop();
-                            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
-
 
                             evtsTransfers.Insert(UpdateIndex, evtNewTransfer);
                             break;
@@ -774,9 +769,12 @@ namespace ischedule
                 }
             }
 
-            fgEvents.ClearSelection();
+            grdEvents.ClearSelection();
+            grdEvents.SelectionChanged += SelectionChanged;
+            grdEvents.ResumeLayout();
 
-            fgEvents.ResumeLayout();
+            mStopwatch.Stop();
+            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
         }
 
         /// <summary>
@@ -884,9 +882,9 @@ namespace ischedule
                 evtsCustom = evtsTemp;
             }
 
-            fgEvents.Rows.Clear();
+            grdEvents.Rows.Clear();
 
-            fgEvents.SuspendLayout();
+            grdEvents.SuspendLayout();
 
             Stopwatch watch = new Stopwatch();
 
@@ -898,17 +896,17 @@ namespace ischedule
                 evtsTransfers.Add(evtPaint);
 
             
-            fgEvents.SelectionChanged -= SelectionChanged;
+            grdEvents.SelectionChanged -= SelectionChanged;
 
-            fgEvents.DataSource = evtsTransfers;
+            grdEvents.DataSource = evtsTransfers;
 
-            fgEvents.SelectionChanged += SelectionChanged;
+            grdEvents.SelectionChanged += SelectionChanged;
 
-            fgEvents.ClearSelection();
+            grdEvents.ClearSelection();
 
             watch.Stop();
 
-            fgEvents.ResumeLayout();
+            grdEvents.ResumeLayout();
 
             Console.WriteLine("" + watch.Elapsed.TotalMilliseconds);       
         }
@@ -920,11 +918,11 @@ namespace ischedule
         /// </summary>
         public void UnLockEvents()
         {
-            if (fgEvents.SelectedRows.Count > 0)
+            if (grdEvents.SelectedRows.Count > 0)
             {
                 List<string> EventIDs = new List<string>();
 
-                foreach (DataGridViewRow SelectedItem in fgEvents.SelectedRows)
+                foreach (DataGridViewRow SelectedItem in grdEvents.SelectedRows)
                 {
                     string EventID = "" + SelectedItem.Cells[21].Value;
 
@@ -942,11 +940,11 @@ namespace ischedule
         /// </summary>
         public void LockEvents()
         {
-            if (fgEvents.SelectedRows.Count > 0)
+            if (grdEvents.SelectedRows.Count > 0)
             {
                 List<string> EventIDs = new List<string>();
 
-                foreach (DataGridViewRow SelectedItem in fgEvents.SelectedRows)
+                foreach (DataGridViewRow SelectedItem in grdEvents.SelectedRows)
                 {
                     string EventID = "" + SelectedItem.Cells[colEventID].Value;
                     if (!schLocal.CEvents[EventID].ManualLock)
@@ -967,11 +965,11 @@ namespace ischedule
 
             mWatch.Start();
 
-            if (fgEvents.SelectedRows.Count > 0)
+            if (grdEvents.SelectedRows.Count > 0)
             {
                 CEvents evtsFree = new CEvents();
 
-                foreach (DataGridViewRow SelectedItem in fgEvents.SelectedRows)
+                foreach (DataGridViewRow SelectedItem in grdEvents.SelectedRows)
                 {
                     string EventID = "" + SelectedItem.Cells[colEventID].Value;
 
@@ -1043,9 +1041,9 @@ namespace ischedule
         /// </summary>
         public void ChangeProperty()
         {
-            if (fgEvents.SelectedRows.Count == 1)
+            if (grdEvents.SelectedRows.Count == 1)
             {
-                string SelectedEventID = "" + fgEvents.SelectedRows[0].Cells[colEventID].Value;
+                string SelectedEventID = "" + grdEvents.SelectedRows[0].Cells[colEventID].Value;
 
                 frmEventProperty frmProperty = new frmEventProperty(SelectedEventID);
 
@@ -1058,9 +1056,9 @@ namespace ischedule
         /// </summary>
         public void QueryCandidates()
         {
-            if (fgEvents.SelectedRows.Count == 1)
+            if (grdEvents.SelectedRows.Count == 1)
             {
-                string SelectedEventID = "" + fgEvents.SelectedRows[0].Cells[colEventID].Value;
+                string SelectedEventID = "" + grdEvents.SelectedRows[0].Cells[colEventID].Value;
 
                 frmCandidates frmCand = new frmCandidates(SelectedEventID);
 

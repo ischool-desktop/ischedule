@@ -112,9 +112,9 @@ namespace ischedule
 
             /* 建立 label */
             this.dicLables = new Dictionary<string, Label>();
-            int initX = 6;
-            int initY = 6;
-            int labelHeight = 20;
+            int initX = 5;
+            int initY = 5;
+            int labelHeight = 18;
             for (int i = 0; i < lblCount; i++)
             {
                 Label lbl = new Label();

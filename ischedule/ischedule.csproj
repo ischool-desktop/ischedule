@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ischedule</RootNamespace>
+    <AssemblyName>ischedule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ischedule_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLib\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA.Authentication">
+      <HintPath>..\SharedLib\FISCA.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA.Core, Version=1.0.1.3, Culture=neutral, PublicKeyToken=a269f410f9e2a287, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLib\FISCA.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA.Deployment, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLib\FISCA.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA.DSAClient">
+      <HintPath>LibraryProject\FISCA.DSAClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\BaseForm.designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUploadConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUploadConfirm.Designer.cs">
+      <DependentUpon>frmUploadConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test\DecPeriod.cs" />
+    <Compile Include="test\DecScheduler.cs" />
+    <Compile Include="test\frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test\frmTestScheduleDecorator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\frmTestScheduleDecorator.Designer.cs">
+      <DependentUpon>frmTestScheduleDecorator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test\frmTestScheduler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\frmTestScheduler.Designer.cs">
+      <DependentUpon>frmTestScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test\JSScriptManager.cs" />
+    <Compile Include="test\TeacherWrapper.cs" />
+    <Compile Include="UserControls\DecPeriod.cs" />
+    <Compile Include="UserControls\DecScheduler.cs" />
+    <Compile Include="沒用到的\CEventTransfer.cs" />
+    <Compile Include="沒用到的\DecLPView.cs" />
+    <Compile Include="沒用到的\DecPeriod.cs" />
+    <Compile Include="沒用到的\LabelContent.cs" />
+    <Compile Include="Common\LPViewHelper.cs" />
+    <Compile Include="Common\SortableBindingList.cs" />
+    <Compile Include="test\PeriodContent.cs" />
+    <Compile Include="frmCandidates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCandidates.Designer.cs">
+      <DependentUpon>frmCandidates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEventSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEventSelector.Designer.cs">
+      <DependentUpon>frmEventSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEventSplit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEventSplit.Designer.cs">
+      <DependentUpon>frmEventSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPasspordInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPasspordInput.Designer.cs">
+      <DependentUpon>frmPasspordInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgress.Designer.cs">
+      <DependentUpon>frmProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CEventBindingList.cs" />
+    <Compile Include="frmEventProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEventProperty.Designer.cs">
+      <DependentUpon>frmEventProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LPViewOption.cs" />
+    <Compile Include="沒用到的\LPViewLayoutHelper.cs" />
+    <Compile Include="沒用到的\LPViewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\EventsViewBL.cs" />
+    <Compile Include="UserControls\MainFormBL.cs" />
+    <Compile Include="沒用到的\DataGridViewExtendedControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmDownloadConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDownloadConfirm.Designer.cs">
+      <DependentUpon>frmDownloadConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDownloadDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDownloadDetail.Designer.cs">
+      <DependentUpon>frmDownloadDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="沒用到的\usrLPView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="沒用到的\usrLPView.designer.cs">
+      <DependentUpon>usrLPView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestConnection.Designer.cs">
+      <DependentUpon>frmTestConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="沒用到的\ucPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="沒用到的\ucPeriod.designer.cs">
+      <DependentUpon>ucPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="沒用到的\ucScheduler_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="沒用到的\ucScheduler_1.designer.cs">
+      <DependentUpon>ucScheduler_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\usrClassroomList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\usrClassroomList.Designer.cs">
+      <DependentUpon>usrClassroomList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\usrTeacherList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\usrTeacherList.Designer.cs">
+      <DependentUpon>usrTeacherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\usrClassList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\usrClassList.Designer.cs">
+      <DependentUpon>usrClassList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Common\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUploadConfirm.resx">
+      <DependentUpon>frmUploadConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDownloadConfirm.resx">
+      <DependentUpon>frmDownloadConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDownloadDetail.resx">
+      <DependentUpon>frmDownloadDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEventProperty.resx">
+      <DependentUpon>frmEventProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEventSplit.resx">
+      <DependentUpon>frmEventSplit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPasspordInput.resx">
+      <DependentUpon>frmPasspordInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgress.resx">
+      <DependentUpon>frmProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="test\frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test\frmTestScheduleDecorator.resx">
+      <DependentUpon>frmTestScheduleDecorator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test\frmTestScheduler.resx">
+      <DependentUpon>frmTestScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="沒用到的\usrLPView.resx">
+      <DependentUpon>usrLPView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestConnection.resx">
+      <DependentUpon>frmTestConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="沒用到的\ucPeriod.resx">
+      <DependentUpon>ucPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="沒用到的\ucScheduler_1.resx">
+      <DependentUpon>ucScheduler_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\usrClassroomList.resx">
+      <DependentUpon>usrClassroomList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\usrTeacherList.resx">
+      <DependentUpon>usrTeacherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\usrClassList.resx">
+      <DependentUpon>usrClassList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="html\img\.DS_Store" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上載.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\下載.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\另存新檔.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\設定.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\開啟檔案.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\選項設定.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\儲存.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\關閉.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\關閉檔案.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\css\bootstrap-responsive.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\css\bootstrap-responsive.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\css\default.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\busy-.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\busy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\delete-.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\forbidden.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\glyphicons-halflings-white.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\glyphicons-halflings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\icon_forbidden.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\lock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\lock2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\lock_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\lock_o.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\img\stripeBg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\default.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\jquery-1.9.1.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\PeriodController.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\js\ScheduleController.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\Scheduler.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ischedule_logo.ico" />
+    <None Include="Resources\ImageClock.png" />
+    <None Include="Resources\刪除.png" />
+    <None Include="Resources\不排課時段.png" />
+    <None Include="Resources\blank.png" />
+    <None Include="Resources\鎖定.png" />
+    <None Include="Resources\解除鎖定.png" />
+    <None Include="Resources\查詢分課屬性72.png" />
+    <None Include="Resources\自動排課.png" />
+    <None Include="Resources\回復至未排課72.png" />
+    <None Include="Resources\列印.png" />
+    <None Include="Resources\代課查詢.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sunset.Data.Integration\Sunset.Data.Integration.csproj">
+      <Project>{fe668da3-b2d4-417d-985e-3703c6fc78d2}</Project>
+      <Name>Sunset.Data.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sunset.Data\Sunset.Data.csproj">
+      <Project>{60cb6bbf-9147-4117-9053-db3accbaacb2}</Project>
+      <Name>Sunset.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

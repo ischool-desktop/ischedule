@@ -1,0 +1,94 @@
+﻿           table{
+                border:1px solid lightblue;
+            }
+
+            table td{
+				border-style:solid;
+				border-width:1px;
+				border-color:#eee #aaa #aaa #eee;
+				padding:5px;
+            }
+            
+            table td.invalid 
+            {
+            	border-color:#eee #aaa #eee #eee;
+            	background-image: url(../img/stripeBg.png);
+            	background-size: 100% 100%;
+            }
+            
+            td.columnHeader, td.rowHeader 
+            {
+            	text-align:center;
+            }
+            
+            td.dataCell 
+            {
+            	overflow:hidden;
+            }
+            
+            td.selected 
+            {
+            	border: 1px solid red;
+            }
+            
+            td.mi 
+            {
+            	cursor:pointer;
+            	border: 1px solid yellow;
+            	overflow-y: auto;
+            }
+            
+            div.cellContainer 
+            {            	
+            	width: 100%; 
+            	height: 100%;
+            	position:relative;
+            }
+            
+            div.cellLabel 
+            {
+            	width: 100%;
+            	margin-left: 4px;
+            }
+            
+            div.cellLabel_mi
+            {
+            	color: Red;
+            	text-decoration: underline;
+            }
+            
+            img.icon 
+            {
+            	position:absolute;
+            	right: 0px;
+            	bottom: 0px;
+            	display:inline-block;
+            	/*width:24px;
+            	height:24px;*/
+            }
+            
+            td.unselectable 
+            {
+            	background-color: #eaeaea;
+            	cursor:no-drop;
+            }
+            
+            th
+			{
+				background: #eef4fb;
+				background: -moz-linear-gradient(top,  #eef4fb 0%, #e2edfa 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eef4fb), color-stop(100%,#e2edfa)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #eef4fb 0%,#e2edfa 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #eef4fb 0%,#e2edfa 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #eef4fb 0%,#e2edfa 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #eef4fb 0%,#e2edfa 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef4fb', endColorstr='#e2edfa',GradientType=0 ); /* IE6-8 */
+				border-right:1px solid #849dbd;
+				border-bottom:1px solid #849dbd;
+				font-weight: normal;
+			}
+			
+			th:last-child
+			{
+				border-right: none;
+			}

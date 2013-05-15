@@ -41,21 +41,27 @@
   <ItemGroup>
     <Reference Include="FISCA">
       <HintPath>..\SharedLib\FISCA.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Authentication">
       <HintPath>..\SharedLib\FISCA.Authentication.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Data">
       <HintPath>..\SharedLib\FISCA.Data.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.DSAClient">
       <HintPath>..\SharedLib\FISCA.DSAClient.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.DSAUtil">
       <HintPath>..\SharedLib\FISCA.DSAUtil.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.UDT">
       <HintPath>..\SharedLib\FISCA.UDT.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -709,6 +709,8 @@ namespace Sunset.Data.Integration
                 if (!string.IsNullOrEmpty(result.Item2))
                     throw new Exception(result.Item2);
 
+              
+
                 Envelope Response = result.Item1.CallService("GetMyDomainInfo", new Envelope());
 
                 XElement Element = XElement.Load(new StringReader(Response.Body.XmlString));

@@ -599,7 +599,7 @@ namespace ischedule
         /// </summary>
         /// <param name="AssocType"></param>
         /// <param name="AssocID"></param>
-        public DecScheduler OpenTeacherLPView(int AssocType, 
+        public DecScheduler OpenTeacherSchedule(int AssocType, 
             string AssocID, 
             bool OpenNew=false,
             string SyncTimeTableEventID = "",
@@ -716,7 +716,7 @@ namespace ischedule
         /// </summary>
         /// <param name="AssocType"></param>
         /// <param name="AssocID"></param>
-        public DecScheduler OpenClassLPView(int AssocType,
+        public DecScheduler OpenClassSchedule(int AssocType,
             string AssocID,
             bool OpenNew = false,
             string SyncTimeTableEventID = "",
@@ -833,7 +833,7 @@ namespace ischedule
         /// </summary>
         /// <param name="AssocType"></param>
         /// <param name="AssocID"></param>
-        public DecScheduler OpenClassroomLPView(int AssocType, 
+        public DecScheduler OpenClassroomSchedule(int AssocType, 
             string AssocID, 
             bool OpenNew=false,
             string SyncTimeTableEventID = "",

@@ -69,7 +69,7 @@ namespace ischedule
 
                 if (!string.IsNullOrEmpty(AssocID))
                     if (!AssocID.StartsWith("所有"))
-                        MainFormBL.Instance.OpenTeacherLPView(Constants.lvWho, AssocID, true);
+                        MainFormBL.Instance.OpenTeacherSchedule(Constants.lvWho, AssocID, true);
             };
 
             menuExpand.Click += (sender, e) =>
@@ -501,7 +501,7 @@ namespace ischedule
                 {
                     MainFormBL.Instance.OpenClassroomEventsView(Constants.evWhere, AssocID.Equals("無")?string.Empty:AssocID, e.Node.Text);
                     if (!AssocID.Equals("無"))
-                        MainFormBL.Instance.OpenClassroomLPView(Constants.lvWhere, AssocID);
+                        MainFormBL.Instance.OpenClassroomSchedule(Constants.lvWhere, AssocID);
                 }
             }
         }

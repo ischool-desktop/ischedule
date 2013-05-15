@@ -360,13 +360,13 @@ namespace ischedule
                                 switch (SelectedTab)
                                 {
                                     case "Teacher":
-                                        MainFormBL.Instance.OpenTeacherLPView(lvWho, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenTeacherSchedule(lvWho, AssocID, true, string.Empty, false);
                                         break;
                                     case "Class":
-                                        MainFormBL.Instance.OpenClassLPView(lvWho, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassSchedule(lvWho, AssocID, true, string.Empty, false);
                                         break;
                                     case "Classroom":
-                                        MainFormBL.Instance.OpenClassroomLPView(lvWho, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassroomSchedule(lvWho, AssocID, true, string.Empty, false);
                                         break;
                                 }
                             }
@@ -375,13 +375,13 @@ namespace ischedule
                                 switch (SelectedTab)
                                 {
                                     case "Teacher":
-                                        MainFormBL.Instance.OpenTeacherLPView(lvWhom, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenTeacherSchedule(lvWhom, AssocID, true, string.Empty, false);
                                         break;
                                     case "Class":
-                                        MainFormBL.Instance.OpenClassLPView(lvWhom, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassSchedule(lvWhom, AssocID, true, string.Empty, false);
                                         break;
                                     case "Classroom":
-                                        MainFormBL.Instance.OpenClassroomLPView(lvWhom, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassroomSchedule(lvWhom, AssocID, true, string.Empty, false);
                                         break;
                                 }
                             }
@@ -390,13 +390,13 @@ namespace ischedule
                                 switch (SelectedTab)
                                 {
                                     case "Teacher":
-                                        MainFormBL.Instance.OpenTeacherLPView(lvWhere, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenTeacherSchedule(lvWhere, AssocID, true, string.Empty, false);
                                         break;
                                     case "Class":
-                                        MainFormBL.Instance.OpenClassLPView(lvWhere, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassSchedule(lvWhere, AssocID, true, string.Empty, false);
                                         break;
                                     case "Classroom":
-                                        MainFormBL.Instance.OpenClassroomLPView(lvWhere, AssocID, true, string.Empty, false);
+                                        MainFormBL.Instance.OpenClassroomSchedule(lvWhere, AssocID, true, string.Empty, false);
                                         break;
                                 }
                             }

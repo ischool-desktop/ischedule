@@ -285,7 +285,7 @@ namespace ischedule
                    string AssocType = result[0];
                    string AssocID = result[1];
 
-                   MainFormBL.Instance.OpenTeacherLPView(int.Parse(AssocType), AssocID, true, string.Empty, false);
+                   MainFormBL.Instance.OpenTeacherSchedule(int.Parse(AssocType), AssocID, true, string.Empty, false);
                }
             }
         }

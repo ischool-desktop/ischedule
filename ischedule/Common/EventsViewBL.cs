@@ -300,21 +300,21 @@ namespace ischedule
                     switch (mLPViewType)
                     {
                         case Constants.lvWho:
-                            MainFormBL.Instance.OpenTeacherLPView(
+                            MainFormBL.Instance.OpenTeacherSchedule(
                             Constants.lvWho,
                             Event.TeacherID1,
                             false,
                             Event.EventID, true);
                             break;
                         case Constants.lvWhom:
-                            MainFormBL.Instance.OpenClassLPView(
+                            MainFormBL.Instance.OpenClassSchedule(
                                 Constants.lvWhom,
                                 Event.ClassID,
                                 false,
                                 Event.EventID, true);
                             break;
                         case Constants.lvWhere:
-                            MainFormBL.Instance.OpenClassroomLPView(
+                            MainFormBL.Instance.OpenClassroomSchedule(
                                 Constants.lvWhere,
                                 Event.ClassroomID,
                                 false,

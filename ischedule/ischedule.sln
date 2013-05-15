@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ischedule", "ischedule.csproj", "{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunset.Data", "..\Sunset.Data\Sunset.Data.csproj", "{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}"

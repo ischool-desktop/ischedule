@@ -14,10 +14,14 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -48,19 +52,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FISCA.Authentication">
-      <HintPath>LibraryProject\FISCA.Authentication.dll</HintPath>
+      <HintPath>..\SharedLib\FISCA.Authentication.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FISCA.Core, Version=1.0.1.3, Culture=neutral, PublicKeyToken=a269f410f9e2a287, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Sunset\LibraryProject\FISCA.Core.dll</HintPath>
+      <HintPath>..\SharedLib\FISCA.Core.dll</HintPath>
     </Reference>
     <Reference Include="FISCA.Deployment, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Sunset\LibraryProject\FISCA.Deployment.dll</HintPath>
+      <HintPath>..\SharedLib\FISCA.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="FISCA.DSAClient">
-      <HintPath>LibraryProject\FISCA.DSAClient.dll</HintPath>
+      <HintPath>..\SharedLib\FISCA.DSAClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -330,11 +334,11 @@
     <None Include="Resources\lock.gif" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sunset\Sunset.Data.Integration\Sunset.Data.Integration.csproj">
+    <ProjectReference Include="..\Sunset.Data.Integration\Sunset.Data.Integration.csproj">
       <Project>{FE668DA3-B2D4-417D-985E-3703C6FC78D2}</Project>
       <Name>Sunset.Data.Integration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sunset\Sunset.Data\Sunset.Data.csproj">
+    <ProjectReference Include="..\Sunset.Data\Sunset.Data.csproj">
       <Project>{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}</Project>
       <Name>Sunset.Data</Name>
     </ProjectReference>

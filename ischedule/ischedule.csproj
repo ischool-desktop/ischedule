@@ -123,7 +123,7 @@
     <Compile Include="沒用到的\DecLPView.cs" />
     <Compile Include="沒用到的\DecPeriod.cs" />
     <Compile Include="沒用到的\LabelContent.cs" />
-    <Compile Include="UserControls\SchedulerViewHelper.cs" />
+    <Compile Include="UserControls\SchedulerHelper.cs" />
     <Compile Include="Common\SortableBindingList.cs" />
     <Compile Include="test\PeriodContent.cs" />
     <Compile Include="frmCandidates.cs">

@@ -291,10 +291,10 @@ namespace ischedule
         {
             picBox.Image = Resources.blank;
             BackColor = SchedulerColor.lvSchedulableBackColor;
-            lbl1.Visible = false;
-            lbl2.Visible = false;
-            lbl3.Visible = false;
-            lbl4.Visible = false;
+            lbl1.Visible = true;
+            lbl2.Visible = true;
+            lbl3.Visible = true;
+            lbl4.Visible = true;
             this._events = new List<CEvent>();
         }
 
@@ -354,44 +354,53 @@ namespace ischedule
                     CEvent eventS = this._events[0];
                     CEvent eventD = this._events[1];
 
+                    
+
                     this.picBox.Image = eventS.ManualLock || eventD.ManualLock ? Resources.lock_3 : Resources.blank;
                     this.picBox.Tag = eventS.ManualLock || eventD.ManualLock ? "lock" : string.Empty;
-
-                    this.lbl1.Text = eventS.DisplaySubjectName + "(單)";
 
                     switch (this._schType)
                     {
                         case SchedulerType.Teacher:
+                            this.lbl1.Text = eventS.DisplaySubjectName + eventS.WeekFlag.GetWeekFlagStr();
+                            this.lbl1.Tag = string.Empty;
+
                             this.lbl2.Text = eventS.DisplayClassName;
                             this.lbl2.Tag = !string.IsNullOrEmpty(eventS.ClassID) ? string.Format("Class：{0}", eventS.ClassID) : string.Empty;
 
-                            this.lbl3.Text = eventS.DisplayClassroomName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(eventS.ClassroomID) ? string.Format("Classroom：{0}", eventS.ClassroomID) : string.Empty;
+                            this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
+                            this.lbl3.Tag = string.Empty;
 
-                            this.lbl4.Text = "單雙週...";
-                            this.lbl4.Tag = this._events;
+                            this.lbl4.Text = eventD.DisplayClassName;
+                            this.lbl4.Tag = !string.IsNullOrEmpty(eventD.ClassID) ? string.Format("Class：{0}", eventD.ClassID) : string.Empty;
 
                             break;
                         case SchedulerType.Class:
+                            this.lbl1.Text = eventS.DisplaySubjectName + eventS.WeekFlag.GetWeekFlagStr();
+                            this.lbl1.Tag = string.Empty;
+
                             this.lbl2.Text = eventS.DisplayTeacherName;
                             this.lbl2.Tag = !string.IsNullOrEmpty(eventS.TeacherID1) ? string.Format("Teacher：{0}", eventS.TeacherID1) : string.Empty;
 
-                            this.lbl3.Text = eventS.DisplayClassroomName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(eventS.ClassroomID) ? string.Format("Classroom：{0}", eventS.ClassroomID) : string.Empty;
+                            this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
+                            this.lbl3.Tag = string.Empty;
 
-                            this.lbl4.Text = "單雙週...";
-                            this.lbl4.Tag = this._events;
+                            this.lbl4.Text = eventD.DisplayTeacherName;
+                            this.lbl4.Tag = !string.IsNullOrEmpty(eventD.TeacherID1) ? string.Format("Teacher：{0}", eventD.TeacherID1) : string.Empty;
 
                             break;
-                        case SchedulerType.Place:
-                            this.lbl2.Text = eventS.DisplayTeacherName;
-                            this.lbl2.Tag = !string.IsNullOrEmpty(eventS.TeacherID1) ? string.Format("Teacher：{0}", eventS.TeacherID1) : string.Empty;
+                        case SchedulerType.Classroom:
+                            this.lbl1.Text = eventS.DisplaySubjectName + eventS.WeekFlag.GetWeekFlagStr();
+                            this.lbl1.Tag = string.Empty;
 
-                            this.lbl3.Text = eventS.DisplayClassName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(eventS.ClassID) ? string.Format("Class：{0}", eventS.ClassID) : string.Empty;
+                            this.lbl2.Text = eventS.DisplayClassName;
+                            this.lbl2.Tag = !string.IsNullOrEmpty(eventS.ClassID) ? string.Format("Class：{0}", eventS.ClassID) : string.Empty;
 
-                            this.lbl4.Text = "單雙週...";
-                            this.lbl4.Tag = this._events;
+                            this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
+                            this.lbl3.Tag = string.Empty;
+
+                            this.lbl4.Text = eventD.DisplayClassName;
+                            this.lbl4.Tag = !string.IsNullOrEmpty(eventD.ClassID) ? string.Format("Class：{0}", eventD.ClassID) : string.Empty;
 
                             break;
                     }
@@ -413,7 +422,7 @@ namespace ischedule
                 }
                 #endregion
                 #region 場地容納多課程
-                else if (_schType == SchedulerType.Place)
+                else if (_schType == SchedulerType.Classroom)
                 {
                     CEvent eventWhere = this._events[0];
 
@@ -468,7 +477,7 @@ namespace ischedule
                         this.lbl4.Tag = this._events;
                         
                         break;
-                    case SchedulerType.Place:
+                    case SchedulerType.Classroom:
                         this.lbl2.Text = eventLocal.DisplayTeacherName;
                         this.lbl2.Tag = !string.IsNullOrEmpty(eventLocal.TeacherID1) ? string.Format("Teacher：{0}", eventLocal.TeacherID1) : string.Empty;
 
@@ -521,7 +530,7 @@ namespace ischedule
                             this.lbl3.Text = _vo.DisplayClassroomName;
                             this.lbl3.Tag = !string.IsNullOrEmpty(_vo.ClassroomID) ? string.Format("Classroom：{0}", _vo.ClassroomID) : string.Empty;
                             break;
-                        case SchedulerType.Place:
+                        case SchedulerType.Classroom:
                             this.lbl2.Text = _vo.DisplayTeacherName;
                             this.lbl2.Tag = !string.IsNullOrEmpty(_vo.TeacherID1) ? string.Format("Teacher：{0}", _vo.TeacherID1) : string.Empty;
 

@@ -46,7 +46,7 @@ namespace ischedule
         {
             string sType = "t";
             if (this._schedulerType == SchedulerType.Class) sType = "c";
-            if (this._schedulerType == SchedulerType.Place) sType = "p";
+            if (this._schedulerType == SchedulerType.Classroom) sType = "p";
 
             object[] obj = new object[] { sType };
             this._wbr.Document.InvokeScript("setSchedulerType", obj);
@@ -157,6 +157,6 @@ namespace ischedule
     /// </summary>
     public enum SchedulerType
     {
-        Teacher, Class, Place
+        Teacher, Class, Classroom
     }
 }

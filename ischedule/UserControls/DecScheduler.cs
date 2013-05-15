@@ -939,7 +939,7 @@ namespace ischedule
                     vSchedulerType = SchedulerType.Class;
                     break;
                 case lvWhere:
-                    vSchedulerType = SchedulerType.Place;
+                    vSchedulerType = SchedulerType.Classroom;
                     break;
             }
 

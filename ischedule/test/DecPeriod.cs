@@ -201,7 +201,7 @@ namespace ischedule.test
                         this.lbl2.Text = this._vo.DisplayTeacherName;
                         this.lbl3.Text = this._vo.DisplayClassroomName;
                         break;
-                    case SchedulerType.Place:
+                    case SchedulerType.Classroom:
                         this.lbl2.Text = this._vo.DisplayTeacherName;
                         this.lbl3.Text = this._vo.DisplayClassName;
                         break;

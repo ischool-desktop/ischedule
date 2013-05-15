@@ -1,32 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ischedule", "ischedule.csproj", "{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryProject", "LibraryProject\LibraryProject.csproj", "{8EEF3711-FB62-464C-A222-F022B0D4958F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunset.Data", "..\Sunset.Data\Sunset.Data.csproj", "{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunset.Data.Integration", "..\Sunset\Sunset.Data.Integration\Sunset.Data.Integration.csproj", "{FE668DA3-B2D4-417D-985E-3703C6FC78D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunset.Data", "..\Sunset\Sunset.Data\Sunset.Data.csproj", "{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunset.Data.Integration", "..\Sunset.Data.Integration\Sunset.Data.Integration.csproj", "{FE668DA3-B2D4-417D-985E-3703C6FC78D2}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://10.1.1.204:8080/tfs/tfs2008
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ischedule.csproj
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = LibraryProject\\LibraryProject.csproj
-		SccProjectName2 = LibraryProject
-		SccLocalPath2 = LibraryProject
-		SccProjectUniqueName3 = ..\\Sunset\\Sunset.Data.Integration\\Sunset.Data.Integration.csproj
-		SccProjectName3 = ../Sunset/Sunset.Data.Integration
-		SccLocalPath3 = ..\\Sunset\\Sunset.Data.Integration
-		SccProjectUniqueName4 = ..\\Sunset\\Sunset.Data\\Sunset.Data.csproj
-		SccProjectName4 = ../Sunset/Sunset.Data
-		SccLocalPath4 = ..\\Sunset\\Sunset.Data
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -46,26 +27,6 @@ Global
 		{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}.Release|Mixed Platforms.Build.0 = Release|x86
 		{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}.Release|x86.ActiveCfg = Release|x86
 		{1FE53840-A4E6-4FB7-B5CF-B5797042DB63}.Release|x86.Build.0 = Release|x86
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8EEF3711-FB62-464C-A222-F022B0D4958F}.Release|x86.ActiveCfg = Release|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|x86.ActiveCfg = Release|Any CPU
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -76,6 +37,16 @@ Global
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FE668DA3-B2D4-417D-985E-3703C6FC78D2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

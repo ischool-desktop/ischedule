@@ -125,12 +125,19 @@ namespace ischedule
             this.btnPrint = btnPrint;
             this.mLPViewType = LPViewType;
 
-            btnAutoSchedule.Click += (sender, e) => AutoSchedule();
-            btnLock.Click += (sender, e) => LockEvents();
-            btnUnLock.Click += (sender, e) => UnLockEvents();
-            btnFree.Click += (sender, e) => FreeEvents();
-            btnProperty.Click += (sender, e) => ChangeProperty();
-            btnPrint.Click += (sender, e) => Print();
+            btnAutoSchedule.Click -= new EventHandler(btnAutoSchedule_Click);
+            btnLock.Click -= new EventHandler(btnLock_Click);
+            btnUnLock.Click -= new EventHandler(btnUnLock_Click);
+            btnFree.Click -= new EventHandler(btnFree_Click);
+            btnProperty.Click -= new EventHandler(btnProperty_Click);
+            btnPrint.Click -= new EventHandler(btnPrint_Click);
+
+            btnAutoSchedule.Click += new EventHandler(btnAutoSchedule_Click);
+            btnLock.Click += new EventHandler(btnLock_Click);
+            btnUnLock.Click += new EventHandler(btnUnLock_Click);
+            btnFree.Click += new EventHandler(btnFree_Click);
+            btnProperty.Click += new EventHandler(btnProperty_Click);
+            btnPrint.Click += new EventHandler(btnPrint_Click);
 
             this.grdEvents.CellFormatting += (sender, e) =>
             {
@@ -269,6 +276,36 @@ namespace ischedule
                 if (IsRelatedEvent(e.EventID))
                     RefreshEvent(e.EventID);
             };
+        }
+
+        void btnPrint_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        void btnProperty_Click(object sender, EventArgs e)
+        {
+            ChangeProperty();
+        }
+
+        void btnFree_Click(object sender, EventArgs e)
+        {
+            FreeEvents();
+        }
+
+        void btnUnLock_Click(object sender, EventArgs e)
+        {
+            UnLockEvents();
+        }
+
+        void btnLock_Click(object sender, EventArgs e)
+        {
+            LockEvents();
+        }
+
+        void btnAutoSchedule_Click(object sender, EventArgs e)
+        {
+            AutoSchedule();
         }
 
         /// <summary>

@@ -116,10 +116,10 @@ namespace ischedule
             };
             #endregion
 
-            this.TeacherEventsView = new EventsViewBL(Constants.lvWho,grdTeacherEvent,lblTeacher,
+            this.TeacherEventsView = new EventsViewBL(Constants.lvWho, grdTeacherEvent, lblTeacher,
                 btnTeacherAutoSchedule,
                 btnTeacherLock,
-                btnTeacherUnlock ,
+                btnTeacherUnlock,
                 btnTeacherFree,
                 btnTeacherProperty,
                 btnTeacherPrint);
@@ -394,29 +394,29 @@ namespace ischedule
             WhereList.Dock = DockStyle.Fill;
             pnlClassroom.Controls.Add(WhereList);
 
-            this.TeacherEventsView = new EventsViewBL(Constants.lvWho, grdTeacherEvent, lblTeacher,
-                btnTeacherAutoSchedule,
-                btnTeacherLock,
-                btnTeacherUnlock,
-                btnTeacherFree,
-                btnTeacherProperty,
-                btnTeacherPrint);
+            //this.TeacherEventsView = new EventsViewBL(Constants.lvWho, grdTeacherEvent, lblTeacher,
+            //    btnTeacherAutoSchedule,
+            //    btnTeacherLock,
+            //    btnTeacherUnlock,
+            //    btnTeacherFree,
+            //    btnTeacherProperty,
+            //    btnTeacherPrint);
 
-            this.ClassEventsView = new EventsViewBL(Constants.lvWhom, grdClassEvent, lblClass,
-                btnClassAutoSchedule,
-                btnClassLock,
-                btnClassUnLock,
-                btnClassFree,
-                btnClassProperty,
-                btnClassPrint);
+            //this.ClassEventsView = new EventsViewBL(Constants.lvWhom, grdClassEvent, lblClass,
+            //    btnClassAutoSchedule,
+            //    btnClassLock,
+            //    btnClassUnLock,
+            //    btnClassFree,
+            //    btnClassProperty,
+            //    btnClassPrint);
 
-            this.ClassroomEventsView = new EventsViewBL(Constants.lvWhere, grdClassroomEvent, lblClassroom,
-                btnClassroomAutoSchedule,
-                btnClassroomLock,
-                btnClassroomUnLock,
-                btnClassroomFree,
-                btnClassroomProperty,
-                btnClassroomPrint);
+            //this.ClassroomEventsView = new EventsViewBL(Constants.lvWhere, grdClassroomEvent, lblClassroom,
+            //    btnClassroomAutoSchedule,
+            //    btnClassroomLock,
+            //    btnClassroomUnLock,
+            //    btnClassroomFree,
+            //    btnClassroomProperty,
+            //    btnClassroomPrint);
         }
 
         /// <summary>

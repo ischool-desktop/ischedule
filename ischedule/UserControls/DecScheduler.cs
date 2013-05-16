@@ -1498,9 +1498,11 @@ namespace ischedule
                                 CEvent eventLocal = schLocal.CEvents[appTests[i].EventID];
                                 CEvents.Add(eventLocal);
 
+                                #region 多門分課選取情況，在時間表不同時會有盲點...
                                 if (eventLocal.EventID.Equals(idTestEvent) &&
                                     !eventLocal.ManualLock)
                                     SelectedPeriods.Add(decPeriod);
+                                #endregion
                             }
                         }
 

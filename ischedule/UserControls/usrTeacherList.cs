@@ -524,7 +524,9 @@ namespace ischedule
                 {
                     MainFormBL.Instance.OpenTeacherEventsView(Constants.evWho, AssocID,e.Node.Text);
 
-                    if (!AssocID.Equals("無"))
+                    string[] IDs = AssocID.Split(new char[] { ';' });
+
+                    if (!AssocID.Equals("無") && IDs.Length==1)
                         MainFormBL.Instance.OpenTeacherSchedule(Constants.lvWho, AssocID);
                 }
             }

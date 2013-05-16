@@ -167,6 +167,7 @@ namespace ischedule
             this.BackColor = Color.White;
             this._pnl.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
             this._pnl.Style.BorderWidth = 1;
+            this._events.Clear();
         }
 
         void picBox_Click(object sender, EventArgs e)

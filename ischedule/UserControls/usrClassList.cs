@@ -491,7 +491,10 @@ namespace ischedule
                 else
                 {
                     MainFormBL.Instance.OpenClassEventsView(Constants.evWhom, AssocID.Equals("無")?string.Empty:AssocID, e.Node.Text);
-                    if (!AssocID.Equals("無"))
+
+                    string[] IDs = AssocID.Split(new char[] { ';' });
+
+                    if (!AssocID.Equals("無") && IDs.Length == 1)
                         MainFormBL.Instance.OpenClassSchedule(Constants.lvWhom, AssocID);
                 }
             }

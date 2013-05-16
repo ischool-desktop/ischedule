@@ -352,9 +352,7 @@ namespace ischedule
                 if (this._events.IsSDAppointments())
                 {
                     CEvent eventS = this._events[0];
-                    CEvent eventD = this._events[1];
-
-                    
+                    CEvent eventD = this._events[1];                    
 
                     this.picBox.Image = eventS.ManualLock || eventD.ManualLock ? Resources.lock_3 : Resources.blank;
                     this.picBox.Tag = eventS.ManualLock || eventD.ManualLock ? "lock" : string.Empty;
@@ -417,8 +415,9 @@ namespace ischedule
                     this.picBox.Tag = eventGroup.ManualLock ? "lock" : string.Empty;
 
                     this.lbl1.Text = eventGroup.CourseGroup;
-                    this.lbl2.Text = "群組課程...";
-                    this.lbl2.Tag = this._events;
+                    this.lbl1.Tag = this._events;
+                    //this.lbl2.Text = "群組課程...";
+                    //this.lbl2.Tag = this._events;
                 }
                 #endregion
                 #region 場地容納多課程

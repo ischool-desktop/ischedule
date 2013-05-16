@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ischedule.Properties;
 using Sunset.Data;
 
 namespace ischedule
@@ -1169,6 +1168,8 @@ namespace ischedule
                 return string.Empty;
             else if (appTests.Count == 1 && !string.IsNullOrEmpty(appTests[0].EventID))
                 appTest = appTests[0];
+            else if (appTests.IsGroupAppointments())
+                appTest = appTests[0];
             else if (appTests.Count >= 2)
             {
                 List<string> EventIDs = new List<string>();
@@ -1430,7 +1431,6 @@ namespace ischedule
             int nSolution = 0;
             string idLast = string.Empty;
             bool bLastXchgable = false;
-            Panel strEvtInfo = null;
 
             Stopwatch watch = Stopwatch.StartNew();
 
@@ -1438,7 +1438,7 @@ namespace ischedule
 
             Console.WriteLine("" + watch.ElapsedMilliseconds);
 
-            foreach(DecPeriod Period in this.decPeriods.Values)
+            foreach (DecPeriod Period in this.decPeriods.Values)
                 Period.InitialContent(ttCur.TimeTableID);
 
             #region  針對時間表當中的每個時段
@@ -1497,6 +1497,10 @@ namespace ischedule
                             {
                                 CEvent eventLocal = schLocal.CEvents[appTests[i].EventID];
                                 CEvents.Add(eventLocal);
+
+                                if (eventLocal.EventID.Equals(idTestEvent) &&
+                                    !eventLocal.ManualLock)
+                                    SelectedPeriods.Add(decPeriod);
                             }
                         }
 

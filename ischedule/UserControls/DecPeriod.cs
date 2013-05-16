@@ -276,8 +276,6 @@ namespace ischedule
                 {
                     this._pnl.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
                     this._pnl.Style.BorderWidth = 1;
-
-                    if (this._events.Count>0)
                     this.picBox.Image = Resources.blank;
                     this.picBox.Tag = string.Empty;
                 }
@@ -416,8 +414,6 @@ namespace ischedule
 
                     this.lbl1.Text = eventGroup.CourseGroup;
                     this.lbl1.Tag = this._events;
-                    //this.lbl2.Text = "群組課程...";
-                    //this.lbl2.Tag = this._events;
                 }
                 #endregion
                 #region 場地容納多課程

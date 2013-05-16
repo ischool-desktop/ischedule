@@ -71,7 +71,7 @@ namespace ischedule
         private LabelX lblTitle;
         private frmProgress frmASProgress = new frmProgress();
         private Stopwatch mStopwatch = new Stopwatch();
-
+        private bool IsSelectionChanged = false;
         private ButtonItem btnAutoSchedule;
         private ButtonItem btnLock;
         private ButtonItem btnUnLock;
@@ -102,8 +102,8 @@ namespace ischedule
         /// <summary>
         /// 建構式，傳入分課表實體
         /// </summary>
-        /// <param name="fgEvents"></param>
-        public EventsViewBL(int LPViewType,DataGridViewX fgEvents,LabelX lblTitle,
+        /// <param name="grdEvents"></param>
+        public EventsViewBL(int LPViewType,DataGridViewX grdEvents,LabelX lblTitle,
             ButtonItem btnAutoSchedule,
             ButtonItem btnLock,
             ButtonItem btnUnLock,
@@ -111,10 +111,10 @@ namespace ischedule
             ButtonItem btnProperty,
             ButtonItem btnPrint)
         {
-            if (fgEvents == null || lblTitle==null)
+            if (grdEvents == null || lblTitle==null)
                 throw new Exception("DataGrid及LabelX不得為null");
 
-            this.grdEvents = fgEvents;
+            this.grdEvents = grdEvents;
             this.grdEvents.AutoGenerateColumns = false;
             this.lblTitle = lblTitle;
             this.btnAutoSchedule = btnAutoSchedule;
@@ -132,7 +132,7 @@ namespace ischedule
             btnProperty.Click += (sender, e) => ChangeProperty();
             btnPrint.Click += (sender, e) => Print();
 
-            fgEvents.CellFormatting += (sender, e) =>
+            this.grdEvents.CellFormatting += (sender, e) =>
             {
                 DataGridViewX dgv = sender as DataGridViewX;
                 CEvent evtTransfer = dgv.Rows[e.RowIndex].DataBoundItem as CEvent;
@@ -163,7 +163,7 @@ namespace ischedule
                 }
             };
 
-            fgEvents.SelectionChanged += SelectionChanged;
+            this.grdEvents.SelectionChanged += SelectionChanged;
 
             //當自動排課完成時更新
             schLocal.AutoScheduleComplete += (sender, e) =>
@@ -278,6 +278,9 @@ namespace ischedule
         /// <param name="e"></param>
         private void SelectionChanged(object sender,EventArgs e)
         {
+            if (!IsSelectionChanged)
+                return;
+
             this.btnAutoSchedule.Enabled = grdEvents.SelectedRows.Count > 0;
             this.btnLock.Enabled = grdEvents.SelectedRows.Count > 0;
             this.btnUnLock.Enabled = grdEvents.SelectedRows.Count > 0;
@@ -673,9 +676,7 @@ namespace ischedule
 
             mStopwatch.Restart();
             grdEvents.SuspendLayout();
-            grdEvents.SelectionChanged -= SelectionChanged;
-
-            if (evtsTransfers == null) return;
+            IsSelectionChanged = false;
 
             bool bAdd = false;
             int nIndex = -1;
@@ -770,7 +771,7 @@ namespace ischedule
             }
 
             grdEvents.ClearSelection();
-            grdEvents.SelectionChanged += SelectionChanged;
+            IsSelectionChanged = true;
             grdEvents.ResumeLayout();
 
             mStopwatch.Stop();
@@ -895,18 +896,17 @@ namespace ischedule
             foreach (CEvent evtPaint in evtPaints)
                 evtsTransfers.Add(evtPaint);
 
-            
-            grdEvents.SelectionChanged -= SelectionChanged;
+            IsSelectionChanged = false;
 
-            grdEvents.DataSource = evtsTransfers;
+            this.grdEvents.DataSource = evtsTransfers;
 
-            grdEvents.SelectionChanged += SelectionChanged;
+            this.grdEvents.ClearSelection();
 
-            grdEvents.ClearSelection();
+            IsSelectionChanged = true;
 
             watch.Stop();
 
-            grdEvents.ResumeLayout();
+            this.grdEvents.ResumeLayout();
 
             Console.WriteLine("" + watch.Elapsed.TotalMilliseconds);       
         }

@@ -393,6 +393,30 @@ namespace ischedule
             usrClassroomList WhereList = new usrClassroomList();
             WhereList.Dock = DockStyle.Fill;
             pnlClassroom.Controls.Add(WhereList);
+
+            this.TeacherEventsView = new EventsViewBL(Constants.lvWho, grdTeacherEvent, lblTeacher,
+                btnTeacherAutoSchedule,
+                btnTeacherLock,
+                btnTeacherUnlock,
+                btnTeacherFree,
+                btnTeacherProperty,
+                btnTeacherPrint);
+
+            this.ClassEventsView = new EventsViewBL(Constants.lvWhom, grdClassEvent, lblClass,
+                btnClassAutoSchedule,
+                btnClassLock,
+                btnClassUnLock,
+                btnClassFree,
+                btnClassProperty,
+                btnClassPrint);
+
+            this.ClassroomEventsView = new EventsViewBL(Constants.lvWhere, grdClassroomEvent, lblClassroom,
+                btnClassroomAutoSchedule,
+                btnClassroomLock,
+                btnClassroomUnLock,
+                btnClassroomFree,
+                btnClassroomProperty,
+                btnClassroomPrint);
         }
 
         /// <summary>

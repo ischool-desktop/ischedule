@@ -14,9 +14,10 @@
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Deployment\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-The thread 'vshost.NotifyLoad' (0xd64) has exited with code 0 (0x0).
-The thread '<No Name>' (0x1444) has exited with code 0 (0x0).
-The thread 'vshost.LoadReference' (0x410) has exited with code 0 (0x0).
+The thread 'vshost.NotifyLoad' (0x13ec) has exited with code 0 (0x0).
+The thread '<No Name>' (0x1288) has exited with code 0 (0x0).
+The thread '<No Name>' (0x1428) has exited with code 0 (0x0).
+The thread 'vshost.LoadReference' (0x180c) has exited with code 0 (0x0).
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'D:\ischedule\ischedule\bin\Debug\ischedule.exe', Symbols loaded.
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar2\9.5.0.1__7eb7c3a35b91de04\DevComponents.DotNetBar2.dll'
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'D:\ischedule\ischedule\bin\Debug\FISCA.Core.dll', Symbols loaded.
@@ -29,8 +30,91 @@ A first chance exception of type 'System.ArgumentException' occurred in System.W
 A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
 A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
 'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\mscorlib.resources\v4.0_4.0.0.0_zh-Hant_b77a5c561934e089\mscorlib.resources.dll'
-'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.resources\v4.0_4.0.0.0_zh-Hant_b77a5c561934e089\System.resources.dll'
-The thread 'vshost.RunParkingWindow' (0x17c8) has exited with code 0 (0x0).
-The thread '<No Name>' (0x1764) has exited with code 0 (0x0).
-The program '[3024] ischedule.vshost.exe: Managed (v4.0.30319)' has exited with code 0 (0x0).
-The program '[3024] ischedule.vshost.exe: Program Trace' has exited with code 0 (0x0).
+'ischedule.vshost.exe' (Managed (v4.0.30319)): Loaded 'D:\ischedule\ischedule\bin\Debug\FISCA.DSAClient.dll', Symbols loaded.
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+69.7395
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+The thread '<No Name>' (0xdc) has exited with code 0 (0x0).
+The thread '<No Name>' (0xc28) has exited with code 0 (0x0).
+60.5428
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+The thread '<No Name>' (0xe14) has exited with code 0 (0x0).
+69.0604
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+A first chance exception of type 'System.ArgumentException' occurred in System.Windows.Forms.dll
+0
+0.0036
+0
+0.0022
+0
+0.0025
+0
+0.0022
+0
+0.0025
+0
+0.0022
+4113.1529
+4.1617747
+0
+0.0025
+0
+0.0025
+0
+0.0022
+1814.5649
+1.850662
+0
+0.0022
+0
+0.0025
+0
+0.0022
+1766.4921
+1.8020402
+0
+0.0022
+0
+0.0022
+0
+0.0022
+0
+0.0022
+1794.0341
+1.8299012
+0
+0.0022
+0
+0.0022
+0
+0.0025
+0
+0.0025
+0
+0.0025
+0
+0.0022
+0
+0.0022
+0
+0.0027
+0
+0.0022
+0
+0.0025
+0
+0.0022
+2152.2132
+2.1887427
+0
+0.0025
+The thread 'vshost.RunParkingWindow' (0x178c) has exited with code 0 (0x0).
+The thread '<No Name>' (0x1b70) has exited with code 0 (0x0).
+The program '[6796] ischedule.vshost.exe: Managed (v4.0.30319)' has exited with code 0 (0x0).
+The program '[6796] ischedule.vshost.exe: Program Trace' has exited with code 0 (0x0).

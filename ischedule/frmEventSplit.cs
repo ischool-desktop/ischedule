@@ -179,6 +179,7 @@ namespace ischedule
 
                         NextComboBox.Enabled = true;
                         NextComboBox.SelectedIndex = nPrdsLeft - 1;
+                        NextComboBox.SelectedItem = nPrdsLeft;
                         nSectionCount++;
                     }
                 }
@@ -189,7 +190,8 @@ namespace ischedule
             if (Index <= 3)
             {
                 lblPeriodsLeft.Text = "" + (nTotPeriods - nTotAlloc);
-                btnConfirm.Enabled = (nTotPeriods - nTotAlloc) == 0;
+                btnConfirm.Enabled = true;
+                //btnConfirm.Enabled = (nTotPeriods - nTotAlloc) == 0;
             }
             else
             {

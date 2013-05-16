@@ -125,52 +125,25 @@ namespace ischedule
             this.btnPrint = btnPrint;
             this.mLPViewType = LPViewType;
 
-            btnAutoSchedule.Click -= new EventHandler(btnAutoSchedule_Click);
-            btnLock.Click -= new EventHandler(btnLock_Click);
-            btnUnLock.Click -= new EventHandler(btnUnLock_Click);
-            btnFree.Click -= new EventHandler(btnFree_Click);
-            btnProperty.Click -= new EventHandler(btnProperty_Click);
-            btnPrint.Click -= new EventHandler(btnPrint_Click);
+            this.btnAutoSchedule.Click -= new EventHandler(btnAutoSchedule_Click);
+            this.btnLock.Click -= new EventHandler(btnLock_Click);
+            this.btnUnLock.Click -= new EventHandler(btnUnLock_Click);
+            this.btnFree.Click -= new EventHandler(btnFree_Click);
+            this.btnProperty.Click -= new EventHandler(btnProperty_Click);
+            this.btnPrint.Click -= new EventHandler(btnPrint_Click);
 
-            btnAutoSchedule.Click += new EventHandler(btnAutoSchedule_Click);
-            btnLock.Click += new EventHandler(btnLock_Click);
-            btnUnLock.Click += new EventHandler(btnUnLock_Click);
-            btnFree.Click += new EventHandler(btnFree_Click);
-            btnProperty.Click += new EventHandler(btnProperty_Click);
-            btnPrint.Click += new EventHandler(btnPrint_Click);
+            this.grdEvents.CellFormatting -= new DataGridViewCellFormattingEventHandler(grdEvents_CellFormatting);
+            this.grdEvents.SelectionChanged -= new EventHandler(grdEvents_SelectionChanged);
 
-            this.grdEvents.CellFormatting += (sender, e) =>
-            {
-                DataGridViewX dgv = sender as DataGridViewX;
-                CEvent evtTransfer = dgv.Rows[e.RowIndex].DataBoundItem as CEvent;
+            this.btnAutoSchedule.Click += new EventHandler(btnAutoSchedule_Click);
+            this.btnLock.Click += new EventHandler(btnLock_Click);
+            this.btnUnLock.Click += new EventHandler(btnUnLock_Click);
+            this.btnFree.Click += new EventHandler(btnFree_Click);
+            this.btnProperty.Click += new EventHandler(btnProperty_Click);
+            this.btnPrint.Click += new EventHandler(btnPrint_Click);
 
-                if (evtTransfer == null)
-                    return;
-
-                if (evtTransfer.ColorIndex == 0)
-                {
-                    e.CellStyle.BackColor = Color.White;
-                    e.CellStyle.ForeColor = Color.Black;
-                }
-                else if (evtTransfer.ColorIndex == 1)
-                {
-                    e.CellStyle.BackColor = Color.Red;
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.SelectionForeColor = Color.Red;
-                }
-                else if (evtTransfer.ColorIndex == 2)
-                {
-                    e.CellStyle.BackColor = Color.FromArgb(254, 252, 128);
-                    e.CellStyle.ForeColor = Color.Black;
-                }
-                else if (evtTransfer.ColorIndex == 3)
-                {
-                    e.CellStyle.BackColor = Color.White;
-                    e.CellStyle.ForeColor = Color.Black;
-                }
-            };
-
-            this.grdEvents.SelectionChanged += SelectionChanged;
+            this.grdEvents.CellFormatting += new DataGridViewCellFormattingEventHandler(grdEvents_CellFormatting);
+            this.grdEvents.SelectionChanged += new EventHandler(grdEvents_SelectionChanged);
 
             //當自動排課完成時更新
             schLocal.AutoScheduleComplete += (sender, e) =>
@@ -278,42 +251,7 @@ namespace ischedule
             };
         }
 
-        void btnPrint_Click(object sender, EventArgs e)
-        {
-            Print();
-        }
-
-        void btnProperty_Click(object sender, EventArgs e)
-        {
-            ChangeProperty();
-        }
-
-        void btnFree_Click(object sender, EventArgs e)
-        {
-            FreeEvents();
-        }
-
-        void btnUnLock_Click(object sender, EventArgs e)
-        {
-            UnLockEvents();
-        }
-
-        void btnLock_Click(object sender, EventArgs e)
-        {
-            LockEvents();
-        }
-
-        void btnAutoSchedule_Click(object sender, EventArgs e)
-        {
-            AutoSchedule();
-        }
-
-        /// <summary>
-        /// 選取改變
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SelectionChanged(object sender,EventArgs e)
+        void grdEvents_SelectionChanged(object sender, EventArgs e)
         {
             if (!IsSelectionChanged)
                 return;
@@ -362,7 +300,68 @@ namespace ischedule
                             break;
                     }
                 }
-            } 
+            }
+        }
+
+        void grdEvents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridViewX dgv = sender as DataGridViewX;
+            CEvent evtTransfer = dgv.Rows[e.RowIndex].DataBoundItem as CEvent;
+
+            if (evtTransfer == null)
+                return;
+
+            if (evtTransfer.ColorIndex == 0)
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
+            else if (evtTransfer.ColorIndex == 1)
+            {
+                e.CellStyle.BackColor = Color.Red;
+                e.CellStyle.ForeColor = Color.White;
+                e.CellStyle.SelectionForeColor = Color.Red;
+            }
+            else if (evtTransfer.ColorIndex == 2)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(254, 252, 128);
+                e.CellStyle.ForeColor = Color.Black;
+            }
+            else if (evtTransfer.ColorIndex == 3)
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
+        }
+
+        void btnPrint_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        void btnProperty_Click(object sender, EventArgs e)
+        {
+            ChangeProperty();
+        }
+
+        void btnFree_Click(object sender, EventArgs e)
+        {
+            FreeEvents();
+        }
+
+        void btnUnLock_Click(object sender, EventArgs e)
+        {
+            UnLockEvents();
+        }
+
+        void btnLock_Click(object sender, EventArgs e)
+        {
+            LockEvents();
+        }
+
+        void btnAutoSchedule_Click(object sender, EventArgs e)
+        {
+            AutoSchedule();
         }
 
         #region Methods

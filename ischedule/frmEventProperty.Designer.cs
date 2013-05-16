@@ -113,7 +113,6 @@
             // 
             this.txtLength.Border.Class = "TextBoxBorder";
             this.txtLength.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtLength.Enabled = false;
             this.txtLength.Location = new System.Drawing.Point(61, 216);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(53, 25);
@@ -163,7 +162,6 @@
             // 
             this.cboWhat.DisplayMember = "WhatID";
             this.cboWhat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboWhat.Enabled = false;
             this.cboWhat.FormattingEnabled = true;
             this.cboWhat.ItemHeight = 19;
             this.cboWhat.Location = new System.Drawing.Point(60, 153);
@@ -190,7 +188,6 @@
             // 
             this.cboWhom.DisplayMember = "WhomID";
             this.cboWhom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboWhom.Enabled = false;
             this.cboWhom.FormattingEnabled = true;
             this.cboWhom.ItemHeight = 19;
             this.cboWhom.Location = new System.Drawing.Point(60, 122);

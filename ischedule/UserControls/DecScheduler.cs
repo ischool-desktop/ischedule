@@ -1037,36 +1037,6 @@ namespace ischedule
                 appTest = appTests[0];
             else if (appTests.Count >= 2)
             {
-                //List<string> EventIDs = new List<string>();
-
-                //foreach(Appointment app in appTests)
-                //{
-                //    if (!string.IsNullOrEmpty(app.EventID))
-                //        EventIDs.Add(app.EventID);
-                //}
-
-                //if (EventIDs.Count > 0)
-                //{
-                //    frmEventSelector EventSelector = new frmEventSelector(EventIDs);
-
-                //    if (EventSelector.ShowDialog()== true)
-                //    {
-                //        #region 沒有鎖定才繼續
-                //        CEvent localEvent = schLocal.CEvents[appTest.EventID];
-
-                //        if (localEvent.ManualLock) return string.Empty;
-                //        #endregion
-
-                //        #region 嘗試釋放事件
-                //        if (GetTimeTableID(appTest.EventID) == ttCur.TimeTableID)
-                //        {
-                //            schLocal.FreeEvent(appTest.EventID);
-                //            return appTest.EventID;
-                //        }
-                //        #endregion
-                //    }
-                //}
-
                 appTest = appTests[0];
 
                 foreach (Appointment vapp in appTests)
@@ -1335,8 +1305,8 @@ namespace ischedule
             this.pnlContainer.SuspendLayout();
             this.pnlContainer.Controls.Clear();
 
-            int pnlWidth = (this.pnlContainer.Size.Width - this.rowHeaderWidth) / colCount;
-            int pnlHeight = (this.pnlContainer.Size.Height - this.colHeaderHeight) / rowCount;
+            int pnlWidth = colCount>0  ? (this.pnlContainer.Size.Width - this.rowHeaderWidth) / colCount :0;
+            int pnlHeight = rowCount > 0 ? (this.pnlContainer.Size.Height - this.colHeaderHeight) / rowCount : 0;
 
             #region Create Headers
             //建立星期物件

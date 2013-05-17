@@ -7,6 +7,7 @@ using DevComponents.DotNetBar;
 using FISCA.DSAClient;
 using Sunset.Data;
 using Sunset.Data.Integration;
+using System.IO;
 
 namespace ischedule
 {
@@ -54,7 +55,8 @@ namespace ischedule
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            Program.Update();
+            if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
+                Program.Update();
 
             SetScheduleSourceCloseMenu();
 

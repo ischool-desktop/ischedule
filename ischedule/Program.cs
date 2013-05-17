@@ -14,12 +14,15 @@ namespace ischedule
         [STAThread]
         static void Main()
         {
-            string updatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "update_padding.xml");
-
-            if (System.IO.File.Exists(updatePath))
+            if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
             {
-                FISCA.Deployment.UpdateHelper.ExecuteScript( updatePath , true);
-                return;
+                string updatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "update_padding.xml");
+
+                if (System.IO.File.Exists(updatePath))
+                {
+                    FISCA.Deployment.UpdateHelper.ExecuteScript(updatePath, true);
+                    return;
+                }
             }
 
             Application.EnableVisualStyles();

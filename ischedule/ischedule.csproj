@@ -242,6 +242,9 @@
     <EmbeddedResource Include="Common\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEventSelector.resx">
+      <DependentUpon>frmEventSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUploadConfirm.resx">
       <DependentUpon>frmUploadConfirm.cs</DependentUpon>
     </EmbeddedResource>

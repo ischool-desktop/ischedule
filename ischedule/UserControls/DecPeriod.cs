@@ -427,9 +427,14 @@ namespace ischedule
                     this.picBox.Image = eventWhere.ManualLock ? Resources.lock_3 : Resources.blank;
                     this.picBox.Tag = eventWhere.ManualLock ? "lock" : string.Empty;
 
-                    this.lbl1.Text = eventWhere.CourseGroup;
-                    this.lbl2.Text = "場地多課程...";
-                    this.lbl2.Tag = this._events;
+                    this.lbl1.Text = eventWhere.DisplaySubjectName;
+                    this.lbl1.Tag = string.Empty;
+
+                    this.lbl2.Text = eventWhere.DisplayClassName;
+                    this.lbl2.Tag = !string.IsNullOrEmpty(eventWhere.ClassID) ? string.Format("Class：{0}", eventWhere.ClassID) : string.Empty;
+
+                    this.lbl3.Text = "共有" + this._events.Count + "門分課";
+                    this.lbl3.Tag = string.Empty;
                 }
                 #endregion
                 else
@@ -507,7 +512,7 @@ namespace ischedule
                     if (!string.IsNullOrEmpty(TimeTableID) && !TimeTableID.Equals(_vo.TimeTableID))
                         this.BackColor = this.unselectedColor;
                     else
-                        this.BackColor = Color.White;
+                        this.BackColor = SchedulerColor.lvScheduledBackColor;
 
                     this.lbl1.Text = (_vo == null ? "" : _vo.DisplaySubjectName);
                     switch (this._schType)

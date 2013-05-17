@@ -113,6 +113,7 @@
             // 
             this.txtLength.Border.Class = "TextBoxBorder";
             this.txtLength.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtLength.Enabled = false;
             this.txtLength.Location = new System.Drawing.Point(61, 216);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(53, 25);
@@ -162,6 +163,7 @@
             // 
             this.cboWhat.DisplayMember = "WhatID";
             this.cboWhat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWhat.Enabled = false;
             this.cboWhat.FormattingEnabled = true;
             this.cboWhat.ItemHeight = 19;
             this.cboWhat.Location = new System.Drawing.Point(60, 153);
@@ -188,6 +190,7 @@
             // 
             this.cboWhom.DisplayMember = "WhomID";
             this.cboWhom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWhom.Enabled = false;
             this.cboWhom.FormattingEnabled = true;
             this.cboWhom.ItemHeight = 19;
             this.cboWhom.Location = new System.Drawing.Point(60, 122);
@@ -522,7 +525,7 @@
             this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnConfirm.BackColor = System.Drawing.Color.Transparent;
             this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnConfirm.Location = new System.Drawing.Point(257, 384);
+            this.btnConfirm.Location = new System.Drawing.Point(252, 388);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -536,7 +539,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(338, 384);
+            this.btnCancel.Location = new System.Drawing.Point(333, 388);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -547,14 +550,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 413);
+            this.ClientSize = new System.Drawing.Size(422, 423);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(430, 440);
+            this.MaximumSize = new System.Drawing.Size(430, 450);
+            this.MinimumSize = new System.Drawing.Size(430, 450);
             this.Name = "frmEventProperty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "分課內容";

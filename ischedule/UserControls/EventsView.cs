@@ -40,9 +40,9 @@ namespace ischedule
 
         #region 分課表相關變數
         private int mType;    //Associate object type
-        private List<string> mObjIDs;  //Private mObjID As Long
+        private List<string> mObjIDs = new List<string>();  //Private mObjID As Long
         private int mLPViewType;
-        private CEvents evtsCustom;
+        private CEvents evtsCustom = new CEvents();
         #endregion
 
         #region 分課表資源類別
@@ -98,6 +98,18 @@ namespace ischedule
         /// </summary>
         public event EventHandler<TempUpdateEventArgs> TempUpdate;
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Close()
+        {
+            this.mObjIDs.Clear();
+            this.evtsCustom.Clear();
+            this.evtsTemp.Clear();
+            this.grdEvents.DataSource = null;
+            this.lblTitle.Text = string.Empty;
+        }
 
         /// <summary>
         /// 建構式，傳入分課表實體

@@ -929,6 +929,57 @@ namespace Sunset.Data
         //}
 
         /// <summary>
+        /// 將CourseSection物件轉為CEvent物件
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        private CEvent SCourseSectionToCEvent(SCourseSection x)
+        {
+            CEvent evtNew = new CEvent();
+
+            evtNew.EventID = x.ID;
+            evtNew.TeacherID1 = x.TeacherName1;
+            evtNew.TeacherID2 = x.TeacherName2;
+            evtNew.TeacherID3 = x.TeacherName3;
+            evtNew.ClassroomID = x.ClassroomID;
+            evtNew.ClassID = x.ClassID;
+            evtNew.SubjectID = x.Subject;
+            evtNew.SubjectAlias = x.SubjectAlias;
+            evtNew.CourseName = x.CourseName;
+            evtNew.Length = x.Length;
+            evtNew.WeekFlag = x.WeekFlag;
+            evtNew.Priority = 1;
+            evtNew.WeekDayCondition = x.WeekdayCond;
+            evtNew.PeriodCondition = x.PeriodCond;
+            evtNew.ManualLock = x.Lock;
+            evtNew.AllowLongBreak = x.Longbreak;
+            evtNew.AllowDuplicate = x.AllowDup;
+            evtNew.CourseGroup = x.CourseGroup;
+            evtNew.LimitNextDay = x.LimitNextDay;
+            evtNew.Comment = x.Comment;
+
+            evtNew.WeekDay = 0;
+            evtNew.PeriodNo = 0;
+
+            evtNew.SolutionCount = -1;
+
+            evtNew.CourseID = x.CourseID;
+            evtNew.TimeTableID = x.TimeTableID;
+
+            #region Check ID validility
+            if (!Teachers.Exists(evtNew.TeacherID1)) evtNew.TeacherID1 = Constants.NullString;
+            if (!Teachers.Exists(evtNew.TeacherID2)) evtNew.TeacherID2 = Constants.NullString;
+            if (!Teachers.Exists(evtNew.TeacherID3)) evtNew.TeacherID3 = Constants.NullString;
+
+            if (!Classes.Exists(evtNew.ClassID)) evtNew.ClassID = Constants.NullString;
+            if (!Classrooms.Exists(evtNew.ClassroomID)) evtNew.ClassroomID = Constants.NullString;
+            if (!Subjects.Exists(evtNew.SubjectID)) evtNew.SubjectID = Constants.NullString;
+            #endregion
+
+            return evtNew;
+        }
+
+        /// <summary>
         /// 從Sunset.Data.Integration匯入排課資料
         /// </summary>
         /// <param name="Connections">多個資料來源</param>
@@ -1267,127 +1318,135 @@ namespace Sunset.Data
             if (ImportSourceStart != null)
                 ImportSourceStart(this, new ImportSourceStartEventArgs(nTotRec));
 
+            //在匯入課程分段的課程中，可能會有群組課程，需要先行轉換的情況
+            List<SCourseSection> AllocGroupSections = new List<SCourseSection>();
+
             schSource.CourseSectionResult.Data.ForEach
             (x =>
                {
-                CEvent evtNew = new CEvent();
-                evtNew.EventID = x.ID;
-                evtNew.TeacherID1 = x.TeacherName1;
-                evtNew.TeacherID2 = x.TeacherName2;
-                evtNew.TeacherID3 = x.TeacherName3;
-                evtNew.ClassroomID = x.ClassroomID;
-                evtNew.ClassID = x.ClassID;
-                evtNew.SubjectID = x.Subject;
-                evtNew.SubjectAlias = x.SubjectAlias;
-                evtNew.CourseName = x.CourseName;
-                evtNew.Length = x.Length;
-                evtNew.WeekFlag = x.WeekFlag;
-                evtNew.Priority = 1;
-                evtNew.WeekDayCondition = x.WeekdayCond;
-                evtNew.PeriodCondition = x.PeriodCond;
-                evtNew.ManualLock = x.Lock;
-                evtNew.AllowLongBreak = x.Longbreak;
-                evtNew.AllowDuplicate = x.AllowDup;
-                evtNew.CourseGroup = x.CourseGroup;
-                evtNew.LimitNextDay = x.LimitNextDay;
-                evtNew.Comment = x.Comment;
-               
-                evtNew.WeekDay = 0;
-                evtNew.PeriodNo = 0;
-                evtNew.SolutionCount = -1;
-                //設定nTestWeekDay及nTestPeriod，用來測試可否排定Scheduler
-                nTestWeekDay = x.WeekDay;
-                nTestPeriod = x.PeriodNo;
-                //Validate weekday and period
-                if (nTestWeekDay == 0) nTestPeriod = 0;
-                if (nTestPeriod == 0) nTestWeekDay = 0;
+                   //是否不在已安排的群組課程分段中
+                   if (!AllocGroupSections.Contains(x))
+                   {
+                       CEvent evtNew = SCourseSectionToCEvent(x);
 
-                int WeekDayVar;
-                int PeriodVar;
+                       //設定nTestWeekDay及nTestPeriod，用來測試可否排定Scheduler
+                       nTestWeekDay = x.WeekDay;
+                       nTestPeriod = x.PeriodNo;
+                       //Validate weekday and period
+                       if (nTestWeekDay == 0) nTestPeriod = 0;
+                       if (nTestPeriod == 0) nTestWeekDay = 0;
 
-                //Fill weekday and period if the condition is set
-                //若有指定星期及節次，則直接改為指定的星期及節次
-                if ((evtNew.WeekDayOp == Constants.opEqual) && 
-                    (evtNew.PeriodOp == Constants.opEqual) &&
-                    (int.TryParse(evtNew.WeekDayVar, out WeekDayVar) && 
-                    int.TryParse(evtNew.PeriodVar, out PeriodVar)))
-                {
-                    nTestWeekDay = WeekDayVar;
-                    nTestPeriod = PeriodVar;
-                    evtNew.ManualLock = true;
-                }
+                       int WeekDayVar;
+                       int PeriodVar;
 
-                evtNew.CourseID = x.CourseID;
-                evtNew.TimeTableID = x.TimeTableID;
+                       //Fill weekday and period if the condition is set
+                       //若有指定星期及節次，則直接改為指定的星期及節次
+                       if ((evtNew.WeekDayOp == Constants.opEqual) &&
+                           (evtNew.PeriodOp == Constants.opEqual) &&
+                           (int.TryParse(evtNew.WeekDayVar, out WeekDayVar) &&
+                           int.TryParse(evtNew.PeriodVar, out PeriodVar)))
+                       {
+                           nTestWeekDay = WeekDayVar;
+                           nTestPeriod = PeriodVar;
+                           evtNew.ManualLock = true;
+                       }
 
-                #region Check ID validility
-                if (!Teachers.Exists(evtNew.TeacherID1)) evtNew.TeacherID1 = Constants.NullString;
-                if (!Teachers.Exists(evtNew.TeacherID2)) evtNew.TeacherID2 = Constants.NullString;
-                if (!Teachers.Exists(evtNew.TeacherID3)) evtNew.TeacherID3 = Constants.NullString;
+                       idNext = GetNext(idNext, x.ID);
 
-                if (!Classes.Exists(evtNew.ClassID)) evtNew.ClassID = Constants.NullString;
-                if (!Classrooms.Exists(evtNew.ClassroomID)) evtNew.ClassroomID = Constants.NullString;
-                if (!Subjects.Exists(evtNew.SubjectID)) evtNew.SubjectID = Constants.NullString;
-                #endregion
+                       if (!evtNew.TimeTableID.IsNullValue())
+                       {
+                           if (nTestWeekDay != 0)
+                           {
+                               #region 判斷是否為群組課程做特殊處理
+                               if (!string.IsNullOrEmpty(x.CourseGroup))
+                               {
+                                   #region 針對群組課程先行轉換
+                                   //尋找對應的群組課程，不含自己
+                                   List<SCourseSection> Sections = schSource.CourseSectionResult.Data
+                                       .FindAll(y=>y.CourseGroup.Equals(x.CourseGroup) && !y.ID.Equals(x.ID));
 
-                idNext = GetNext(idNext, x.ID);
+                                   List<CEvent> evtsGroup = new List<CEvent>();
 
-                #region 測試排定事件，需測試TestSchedule、AllocEvent
-                //    If Not IsNullValue(evtNew.TimeTableID) Then
-                //        If nTestWeekDay <> 0 Then
-                //            mReason = TestSchedule(evtNew, nTestWeekDay, nTestPeriod)
-                //            If mReason = 0 Then
-                //                AllocEvent
-                //            Else
-                //                RaiseEvent EventLoadConflict(evtNew.EventID)
-                //            End If
-                //        End If
-                //        mCEvents.Add evtNew
-                //        'Calculate WHOs,WHOMs and WHEREs TotalHour and AllocHour
-                //        IncTotalHour evtNew
-                //        If evtNew.WeekDay <> 0 Then
-                //            IncAllocHour evtNew
-                //        End If
-                //    End If
+                                   //針對群組課程的課課程分段
+                                   foreach (SCourseSection Section in Sections)
+                                   {
+                                       //轉換為內部實際使用的課程分段
+                                       CEvent evtGroup = SCourseSectionToCEvent(Section);
 
+                                       //加入到已安排的課程分段
+                                       AllocGroupSections.Add(Section);
 
-                if (!evtNew.TimeTableID.IsNullValue())
-                {
-                    if (nTestWeekDay != 0)
-                    {
-                        //測試可否排定事件，將evtNew安排在nTestWeekDay及nTestPeriod
-                        Reason = TestSchedule(evtNew, nTestWeekDay, nTestPeriod,false);
+                                       //加入到事件列表中
+                                       CEvents.Add(evtGroup);
 
-                        //假設傳回0則實際安排事件
-                        if (Reason == 0)
-                            AllocEvent(false);
-                        else
-                        {
-                            strEvtConflict.AppendLine(
-                                "課程名稱：" + evtNew.CourseName +
-                                ",星期："+evtNew.WeekDay +
-                                ",節次：" + evtNew.PeriodNo+",衝突原因：("+ReasonDesc.AssocType+")"+ReasonDesc.AssocName+","+ReasonDesc.Desc);
+                                       //加入到群組課程中，等下實際安排
+                                       evtsGroup.Add(evtGroup);
 
-                            if (EventLoadConflict != null)
-                                EventLoadConflict(this, new EventLoadConflictEventArgs(evtNew.EventID));
-                        }
-                    }
+                                       //增加時數
+                                       IncTotalHour(evtGroup);
+                                   }
+                                   #endregion
 
-                    CEvents.Add(evtNew);
+                                   //測試可否排定事件，將evtNew安排在nTestWeekDay及nTestPeriod
+                                    Reason = TestSchedule(evtNew, nTestWeekDay, nTestPeriod, true);
 
-                    //Calculate WHOs,WHOMs and WHEREs TotalHour and AllocHour
-                    IncTotalHour(evtNew);
+                                    //假設傳回0則實際安排事件
+                                    if (Reason == 0)
+                                    {
+                                        AllocEvent(true);
+                                    }
+                                    else
+                                    {
+                                        strEvtConflict.AppendLine(
+                                            "課程名稱：" + evtNew.CourseName +
+                                            ",星期：" + evtNew.WeekDay +
+                                            ",節次：" + evtNew.PeriodNo + ",衝突原因：(" + ReasonDesc.AssocType + ")" + ReasonDesc.AssocName + "," + ReasonDesc.Desc);
 
-                    if (evtNew.WeekDay != 0)
-                        IncAllocHour(evtNew);
+                                        if (EventLoadConflict != null)
+                                            EventLoadConflict(this, new EventLoadConflictEventArgs(evtNew.EventID));
+                                    }
 
-                    //Update progress indicator
-                    nProgress++;
+                                    foreach (CEvent evtGroup in evtsGroup)
+                                        if (evtNew.WeekDay != 0)
+                                            IncAllocHour(evtNew);
+                               }
+                               #endregion
+                               else
+                               {
+                                   //測試可否排定事件，將evtNew安排在nTestWeekDay及nTestPeriod
+                                   Reason = TestSchedule(evtNew, nTestWeekDay, nTestPeriod, false);
 
-                    if (ImportSourceProgress != null)
-                        ImportSourceProgress(this, new ImportSourceProgressEventArgs(nProgress));
-                }
-                #endregion
+                                   //假設傳回0則實際安排事件
+                                   if (Reason == 0)
+                                       AllocEvent(false);
+                                   else
+                                   {
+                                       strEvtConflict.AppendLine(
+                                           "課程名稱：" + evtNew.CourseName +
+                                           ",星期：" + evtNew.WeekDay +
+                                           ",節次：" + evtNew.PeriodNo + ",衝突原因：(" + ReasonDesc.AssocType + ")" + ReasonDesc.AssocName + "," + ReasonDesc.Desc);
+
+                                       if (EventLoadConflict != null)
+                                           EventLoadConflict(this, new EventLoadConflictEventArgs(evtNew.EventID));
+                                   }
+                               }
+                           }
+
+                           CEvents.Add(evtNew);
+
+                           //Calculate WHOs,WHOMs and WHEREs TotalHour and AllocHour
+                           IncTotalHour(evtNew);
+
+                           if (evtNew.WeekDay != 0)
+                               IncAllocHour(evtNew);
+
+                           //Update progress indicator
+                           nProgress++;
+
+                           if (ImportSourceProgress != null)
+                               ImportSourceProgress(this, new ImportSourceProgressEventArgs(nProgress));
+                       }
+                   }
                }
             );
             #endregion

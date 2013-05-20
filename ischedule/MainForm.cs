@@ -391,30 +391,6 @@ namespace ischedule
             usrClassroomList WhereList = new usrClassroomList();
             WhereList.Dock = DockStyle.Fill;
             pnlClassroom.Controls.Add(WhereList);
-
-            //this.TeacherEventsView.Close(); = new EventsViewBL(Constants.lvWho, grdTeacherEvent, lblTeacher,
-            //    btnTeacherAutoSchedule,
-            //    btnTeacherLock,
-            //    btnTeacherUnlock,
-            //    btnTeacherFree,
-            //    btnTeacherProperty,
-            //    btnTeacherPrint);
-
-            //this.ClassEventsView = new EventsViewBL(Constants.lvWhom, grdClassEvent, lblClass,
-            //    btnClassAutoSchedule,
-            //    btnClassLock,
-            //    btnClassUnLock,
-            //    btnClassFree,
-            //    btnClassProperty,
-            //    btnClassPrint);
-
-            //this.ClassroomEventsView = new EventsViewBL(Constants.lvWhere, grdClassroomEvent, lblClassroom,
-            //    btnClassroomAutoSchedule,
-            //    btnClassroomLock,
-            //    btnClassroomUnLock,
-            //    btnClassroomFree,
-            //    btnClassroomProperty,
-            //    btnClassroomPrint);
         }
 
         /// <summary>
@@ -614,6 +590,33 @@ namespace ischedule
             watch.Stop();
 
             Console.WriteLine("" + watch.Elapsed.TotalSeconds);
+        }
+
+        /// <summary>
+        /// 清除教師預設功課表
+        /// </summary>
+        public void ClearTeacherDefaultSchedule()
+        {
+            tabTeacherLPView.Tabs[0].Text = "功課表";
+            tabTeacherLPView.Tabs[0].AttachedControl.Controls.Clear();
+        }
+
+        /// <summary>
+        /// 清除班級預設功課表
+        /// </summary>
+        public void ClearClassDefaultSchedule()
+        {
+            tabClassLPView.Tabs[0].Text = "功課表";
+            tabClassLPView.Tabs[0].AttachedControl.Controls.Clear();
+        }
+
+        /// <summary>
+        /// 清除場地預設功課表
+        /// </summary>
+        public void ClearClassroomDefaultSchedule()
+        {
+            tabClassroomLPView.Tabs[0].Text = "功課表";
+            tabClassroomLPView.Tabs[0].AttachedControl.Controls.Clear();
         }
 
         /// <summary>

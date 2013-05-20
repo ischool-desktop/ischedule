@@ -72,8 +72,10 @@ namespace ischedule
                     script.StartProcess(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
                     script.Save(script_path);
-                    MessageBox.Show("更新完成，請重新啟動程式。");
-                    Application.Exit();
+
+                    MessageBox.Show("系統自動更新完成，將重新啟動。");
+
+                    Application.Restart();
                 }
                 else
                 {

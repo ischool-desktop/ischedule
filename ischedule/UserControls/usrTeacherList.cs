@@ -519,15 +519,20 @@ namespace ischedule
             if (!string.IsNullOrEmpty(AssocID))
             {
                 if (AssocID.StartsWith("所有"))
-                    MainFormBL.Instance.OpenTeacherEventsView(Constants.evAll, string.Empty,"所有");
+                {
+                    MainFormBL.Instance.OpenTeacherEventsView(Constants.evAll, string.Empty, "所有");
+                    MainFormBL.Instance.ClearTeacherDefaultSchedule();
+                }
                 else
                 {
-                    MainFormBL.Instance.OpenTeacherEventsView(Constants.evWho, AssocID,e.Node.Text);
+                    MainFormBL.Instance.OpenTeacherEventsView(Constants.evWho, AssocID, e.Node.Text);
 
                     string[] IDs = AssocID.Split(new char[] { ';' });
 
-                    if (!AssocID.Equals("無") && IDs.Length==1)
+                    if (!AssocID.Equals("無") && IDs.Length == 1)
                         MainFormBL.Instance.OpenTeacherSchedule(Constants.lvWho, AssocID);
+                    else if (AssocID.Equals("無"))
+                        MainFormBL.Instance.ClearTeacherDefaultSchedule();
                 }
             }
         }

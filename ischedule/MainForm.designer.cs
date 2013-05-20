@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -113,33 +113,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabContent = new DevComponents.DotNetBar.SuperTabControl();
-            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.pnlWhoList = new System.Windows.Forms.Panel();
-            this.grdTeacherEvent = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblTeacher = new DevComponents.DotNetBar.LabelX();
-            this.btnTeacherEventExpand = new DevComponents.DotNetBar.ButtonX();
-            this.splTeacher = new DevComponents.DotNetBar.ExpandableSplitter();
-            this.pnlWhoLPView = new System.Windows.Forms.Panel();
-            this.tabTeacherLPView = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabTeacher = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel3 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.pnlWhereList = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.grdClassroomEvent = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblClassroom = new DevComponents.DotNetBar.LabelX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.btnClassroomEventExpand = new DevComponents.DotNetBar.ButtonX();
-            this.splClassroom = new DevComponents.DotNetBar.ExpandableSplitter();
-            this.pnlWhereLPView = new System.Windows.Forms.Panel();
-            this.tabClassroomLPView = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabClassroom = new DevComponents.DotNetBar.SuperTabItem();
             this.superTabControlPanel2 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.splClass = new DevComponents.DotNetBar.ExpandableSplitter();
             this.pnlWhomLPView = new System.Windows.Forms.Panel();
@@ -155,6 +128,33 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnClassEventExpand = new DevComponents.DotNetBar.ButtonX();
             this.tabClass = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel3 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.pnlWhereList = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.grdClassroomEvent = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblClassroom = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.btnClassroomEventExpand = new DevComponents.DotNetBar.ButtonX();
+            this.splClassroom = new DevComponents.DotNetBar.ExpandableSplitter();
+            this.pnlWhereLPView = new System.Windows.Forms.Panel();
+            this.tabClassroomLPView = new DevComponents.DotNetBar.TabControl();
+            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabClassroom = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.pnlWhoList = new System.Windows.Forms.Panel();
+            this.grdTeacherEvent = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblTeacher = new DevComponents.DotNetBar.LabelX();
+            this.btnTeacherEventExpand = new DevComponents.DotNetBar.ButtonX();
+            this.splTeacher = new DevComponents.DotNetBar.ExpandableSplitter();
+            this.pnlWhoLPView = new System.Windows.Forms.Panel();
+            this.tabTeacherLPView = new DevComponents.DotNetBar.TabControl();
+            this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabTeacher = new DevComponents.DotNetBar.SuperTabItem();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
             this.LeftNavigationPanel = new DevComponents.DotNetBar.NavigationPane();
             this.pnlClassroom = new DevComponents.DotNetBar.NavigationPanePanel();
@@ -170,6 +170,7 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.panel8 = new System.Windows.Forms.Panel();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -238,17 +239,19 @@
             this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.colLock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSolutionCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWeekDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPeriodNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWhoName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWhomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWhereName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWhatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWhatAliasName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCourseGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWeekDayCondition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPeriodCondition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -260,39 +263,17 @@
             this.colTimeTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEventID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn99 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn103 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn104 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn105 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn106 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn107 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn108 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn109 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn110 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn79 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn81 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn82 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -304,6 +285,28 @@
             this.dataGridViewTextBoxColumn88 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn89 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn99 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn103 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn104 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn105 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn106 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn107 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn108 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn109 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn110 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
@@ -315,21 +318,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabContent)).BeginInit();
             this.tabContent.SuspendLayout();
-            this.superTabControlPanel1.SuspendLayout();
-            this.pnlWhoList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdTeacherEvent)).BeginInit();
-            this.panel5.SuspendLayout();
-            this.pnlWhoLPView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabTeacherLPView)).BeginInit();
-            this.tabTeacherLPView.SuspendLayout();
-            this.superTabControlPanel3.SuspendLayout();
-            this.pnlWhereList.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdClassroomEvent)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.pnlWhereLPView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabClassroomLPView)).BeginInit();
-            this.tabClassroomLPView.SuspendLayout();
             this.superTabControlPanel2.SuspendLayout();
             this.pnlWhomLPView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabClassLPView)).BeginInit();
@@ -338,6 +326,21 @@
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdClassEvent)).BeginInit();
             this.panel3.SuspendLayout();
+            this.superTabControlPanel3.SuspendLayout();
+            this.pnlWhereList.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdClassroomEvent)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.pnlWhereLPView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabClassroomLPView)).BeginInit();
+            this.tabClassroomLPView.SuspendLayout();
+            this.superTabControlPanel1.SuspendLayout();
+            this.pnlWhoList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTeacherEvent)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.pnlWhoLPView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabTeacherLPView)).BeginInit();
+            this.tabTeacherLPView.SuspendLayout();
             this.LeftNavigationPanel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
@@ -1033,8 +1036,8 @@
             this.tabContent.ControlBox.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.tabContent.ControlBox.MenuBox,
             this.tabContent.ControlBox.CloseBox});
-            this.tabContent.Controls.Add(this.superTabControlPanel2);
             this.tabContent.Controls.Add(this.superTabControlPanel3);
+            this.tabContent.Controls.Add(this.superTabControlPanel2);
             this.tabContent.Controls.Add(this.superTabControlPanel1);
             this.tabContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabContent.Location = new System.Drawing.Point(209, 0);
@@ -1052,209 +1055,251 @@
             this.tabContent.TabsVisible = false;
             this.tabContent.Text = "superTabControl1";
             // 
-            // superTabControlPanel1
+            // superTabControlPanel2
             // 
-            this.superTabControlPanel1.Controls.Add(this.pnlWhoList);
-            this.superTabControlPanel1.Controls.Add(this.splTeacher);
-            this.superTabControlPanel1.Controls.Add(this.pnlWhoLPView);
-            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 30);
-            this.superTabControlPanel1.Name = "superTabControlPanel1";
-            this.superTabControlPanel1.Size = new System.Drawing.Size(739, 544);
-            this.superTabControlPanel1.TabIndex = 1;
-            this.superTabControlPanel1.TabItem = this.tabTeacher;
+            this.superTabControlPanel2.Controls.Add(this.splClass);
+            this.superTabControlPanel2.Controls.Add(this.pnlWhomList);
+            this.superTabControlPanel2.Controls.Add(this.pnlWhomLPView);
+            this.superTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel2.Location = new System.Drawing.Point(0, 30);
+            this.superTabControlPanel2.Name = "superTabControlPanel2";
+            this.superTabControlPanel2.Size = new System.Drawing.Size(739, 544);
+            this.superTabControlPanel2.TabIndex = 0;
+            this.superTabControlPanel2.TabItem = this.tabClass;
             // 
-            // pnlWhoList
+            // splClass
             // 
-            this.pnlWhoList.Controls.Add(this.grdTeacherEvent);
-            this.pnlWhoList.Controls.Add(this.panel5);
-            this.pnlWhoList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlWhoList.Location = new System.Drawing.Point(0, 0);
-            this.pnlWhoList.Name = "pnlWhoList";
-            this.pnlWhoList.Size = new System.Drawing.Size(136, 544);
-            this.pnlWhoList.TabIndex = 6;
+            this.splClass.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splClass.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splClass.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.splClass.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splClass.ExpandableControl = this.pnlWhomLPView;
+            this.splClass.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splClass.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splClass.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splClass.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splClass.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splClass.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splClass.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
+            this.splClass.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.splClass.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(200)))), ((int)(((byte)(103)))));
+            this.splClass.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(135)))));
+            this.splClass.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+            this.splClass.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+            this.splClass.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splClass.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splClass.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splClass.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splClass.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splClass.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splClass.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
+            this.splClass.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.splClass.Location = new System.Drawing.Point(136, 0);
+            this.splClass.Name = "splClass";
+            this.splClass.Size = new System.Drawing.Size(3, 544);
+            this.splClass.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
+            this.splClass.TabIndex = 2;
+            this.splClass.TabStop = false;
             // 
-            // grdTeacherEvent
+            // pnlWhomLPView
             // 
-            this.grdTeacherEvent.AllowUserToAddRows = false;
-            this.grdTeacherEvent.AllowUserToDeleteRows = false;
-            this.grdTeacherEvent.AllowUserToOrderColumns = true;
-            this.grdTeacherEvent.AllowUserToResizeRows = false;
-            this.grdTeacherEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.grdTeacherEvent.BackgroundColor = System.Drawing.Color.White;
-            this.grdTeacherEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTeacherEvent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colLock,
-            this.colSolutionCount,
-            this.colWeekDay,
-            this.colPeriodNo,
-            this.colLength,
-            this.colWhoName,
-            this.colWhomName,
-            this.colWhereName,
-            this.colWhatName,
-            this.colWhatAliasName,
-            this.colCourseName,
-            this.colCourseGroup,
-            this.colWeekDayCondition,
-            this.colPeriodCondition,
-            this.colAllowLongBreak,
-            this.colAllowDuplicate,
-            this.colLimitNextDay,
-            this.colWeekFlag,
-            this.colPriority,
-            this.colTimeTable,
-            this.colColorIndex,
-            this.colEventID});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle18;
-            this.grdTeacherEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdTeacherEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.grdTeacherEvent.Location = new System.Drawing.Point(0, 35);
-            this.grdTeacherEvent.Name = "grdTeacherEvent";
-            this.grdTeacherEvent.ReadOnly = true;
-            this.grdTeacherEvent.RowHeadersVisible = false;
-            this.grdTeacherEvent.RowTemplate.Height = 24;
-            this.grdTeacherEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdTeacherEvent.Size = new System.Drawing.Size(136, 509);
-            this.grdTeacherEvent.TabIndex = 9;
-            this.grdTeacherEvent.VirtualMode = true;
+            this.pnlWhomLPView.Controls.Add(this.tabClassLPView);
+            this.pnlWhomLPView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlWhomLPView.Location = new System.Drawing.Point(139, 0);
+            this.pnlWhomLPView.Name = "pnlWhomLPView";
+            this.pnlWhomLPView.Size = new System.Drawing.Size(600, 544);
+            this.pnlWhomLPView.TabIndex = 0;
             // 
-            // panel5
+            // tabClassLPView
             // 
-            this.panel5.Controls.Add(this.lblTeacher);
-            this.panel5.Controls.Add(this.btnTeacherEventExpand);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(136, 35);
-            this.panel5.TabIndex = 8;
+            this.tabClassLPView.AutoCloseTabs = true;
+            this.tabClassLPView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.tabClassLPView.CanReorderTabs = true;
+            this.tabClassLPView.CloseButtonOnTabsVisible = true;
+            this.tabClassLPView.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
+            this.tabClassLPView.Controls.Add(this.tabControlPanel2);
+            this.tabClassLPView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabClassLPView.Location = new System.Drawing.Point(0, 0);
+            this.tabClassLPView.Name = "tabClassLPView";
+            this.tabClassLPView.SelectedTabFont = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold);
+            this.tabClassLPView.SelectedTabIndex = -1;
+            this.tabClassLPView.Size = new System.Drawing.Size(600, 544);
+            this.tabClassLPView.TabIndex = 2;
+            this.tabClassLPView.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+            this.tabClassLPView.Tabs.Add(this.tabItem3);
+            this.tabClassLPView.Text = "tabControl1";
             // 
-            // lblTeacher
+            // tabControlPanel2
             // 
-            this.lblTeacher.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTeacher.AutoSize = true;
-            // 
-            // 
-            // 
-            this.lblTeacher.BackgroundStyle.Class = "";
-            this.lblTeacher.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblTeacher.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblTeacher.Location = new System.Drawing.Point(7, 4);
-            this.lblTeacher.Name = "lblTeacher";
-            this.lblTeacher.Size = new System.Drawing.Size(0, 0);
-            this.lblTeacher.TabIndex = 1;
-            // 
-            // btnTeacherEventExpand
-            // 
-            this.btnTeacherEventExpand.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTeacherEventExpand.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnTeacherEventExpand.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTeacherEventExpand.Location = new System.Drawing.Point(102, 5);
-            this.btnTeacherEventExpand.Name = "btnTeacherEventExpand";
-            this.btnTeacherEventExpand.Size = new System.Drawing.Size(28, 23);
-            this.btnTeacherEventExpand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTeacherEventExpand.TabIndex = 0;
-            this.btnTeacherEventExpand.Text = ">>";
-            // 
-            // splTeacher
-            // 
-            this.splTeacher.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splTeacher.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splTeacher.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.splTeacher.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splTeacher.ExpandableControl = this.pnlWhoLPView;
-            this.splTeacher.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splTeacher.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splTeacher.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splTeacher.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splTeacher.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splTeacher.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splTeacher.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
-            this.splTeacher.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.splTeacher.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(200)))), ((int)(((byte)(103)))));
-            this.splTeacher.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(135)))));
-            this.splTeacher.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
-            this.splTeacher.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-            this.splTeacher.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splTeacher.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splTeacher.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splTeacher.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splTeacher.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splTeacher.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splTeacher.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
-            this.splTeacher.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.splTeacher.Location = new System.Drawing.Point(136, 0);
-            this.splTeacher.Name = "splTeacher";
-            this.splTeacher.Size = new System.Drawing.Size(3, 544);
-            this.splTeacher.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
-            this.splTeacher.TabIndex = 5;
-            this.splTeacher.TabStop = false;
-            // 
-            // pnlWhoLPView
-            // 
-            this.pnlWhoLPView.Controls.Add(this.tabTeacherLPView);
-            this.pnlWhoLPView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlWhoLPView.Location = new System.Drawing.Point(139, 0);
-            this.pnlWhoLPView.Name = "pnlWhoLPView";
-            this.pnlWhoLPView.Size = new System.Drawing.Size(600, 544);
-            this.pnlWhoLPView.TabIndex = 4;
-            // 
-            // tabTeacherLPView
-            // 
-            this.tabTeacherLPView.AutoCloseTabs = true;
-            this.tabTeacherLPView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.tabTeacherLPView.CanReorderTabs = true;
-            this.tabTeacherLPView.CloseButtonOnTabsVisible = true;
-            this.tabTeacherLPView.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
-            this.tabTeacherLPView.Controls.Add(this.tabControlPanel1);
-            this.tabTeacherLPView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabTeacherLPView.Location = new System.Drawing.Point(0, 0);
-            this.tabTeacherLPView.Name = "tabTeacherLPView";
-            this.tabTeacherLPView.SelectedTabFont = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold);
-            this.tabTeacherLPView.SelectedTabIndex = -1;
-            this.tabTeacherLPView.Size = new System.Drawing.Size(600, 544);
-            this.tabTeacherLPView.TabIndex = 1;
-            this.tabTeacherLPView.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-            this.tabTeacherLPView.Tabs.Add(this.tabItem2);
-            this.tabTeacherLPView.Text = "tabControl1";
-            // 
-            // tabControlPanel1
-            // 
-            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel1.Name = "tabControlPanel1";
-            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(600, 516);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(600, 516);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel1.Style.GradientAngle = 90;
-            this.tabControlPanel1.TabIndex = 1;
-            this.tabControlPanel1.TabItem = this.tabItem2;
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 1;
+            this.tabControlPanel2.TabItem = this.tabItem3;
             // 
-            // tabItem2
+            // tabItem3
             // 
-            this.tabItem2.AttachedControl = this.tabControlPanel1;
-            this.tabItem2.CloseButtonVisible = false;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "功課表";
+            this.tabItem3.AttachedControl = this.tabControlPanel2;
+            this.tabItem3.CloseButtonVisible = false;
+            this.tabItem3.Name = "tabItem3";
+            this.tabItem3.Text = "功課表";
             // 
-            // tabTeacher
+            // pnlWhomList
             // 
-            this.tabTeacher.AttachedControl = this.superTabControlPanel1;
-            this.tabTeacher.GlobalItem = false;
-            this.tabTeacher.Name = "tabTeacher";
-            this.tabTeacher.Text = "教師";
+            this.pnlWhomList.Controls.Add(this.panel10);
+            this.pnlWhomList.Controls.Add(this.panel3);
+            this.pnlWhomList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlWhomList.Location = new System.Drawing.Point(0, 0);
+            this.pnlWhomList.Name = "pnlWhomList";
+            this.pnlWhomList.Size = new System.Drawing.Size(139, 544);
+            this.pnlWhomList.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.grdClassEvent);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 35);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(139, 509);
+            this.panel10.TabIndex = 10;
+            // 
+            // grdClassEvent
+            // 
+            this.grdClassEvent.AllowUserToAddRows = false;
+            this.grdClassEvent.AllowUserToDeleteRows = false;
+            this.grdClassEvent.AllowUserToOrderColumns = true;
+            this.grdClassEvent.AllowUserToResizeRows = false;
+            this.grdClassEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdClassEvent.BackgroundColor = System.Drawing.Color.White;
+            this.grdClassEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdClassEvent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn69,
+            this.dataGridViewTextBoxColumn70,
+            this.dataGridViewTextBoxColumn71,
+            this.dataGridViewTextBoxColumn72,
+            this.dataGridViewTextBoxColumn78,
+            this.dataGridViewTextBoxColumn80,
+            this.dataGridViewTextBoxColumn73,
+            this.dataGridViewTextBoxColumn74,
+            this.dataGridViewTextBoxColumn75,
+            this.dataGridViewTextBoxColumn76,
+            this.dataGridViewTextBoxColumn77,
+            this.dataGridViewTextBoxColumn79,
+            this.dataGridViewTextBoxColumn81,
+            this.dataGridViewTextBoxColumn82,
+            this.dataGridViewTextBoxColumn83,
+            this.dataGridViewTextBoxColumn84,
+            this.dataGridViewTextBoxColumn85,
+            this.dataGridViewTextBoxColumn86,
+            this.dataGridViewTextBoxColumn87,
+            this.dataGridViewTextBoxColumn88,
+            this.dataGridViewTextBoxColumn89,
+            this.dataGridViewTextBoxColumn90});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle12;
+            this.grdClassEvent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdClassEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdClassEvent.Location = new System.Drawing.Point(0, 0);
+            this.grdClassEvent.Name = "grdClassEvent";
+            this.grdClassEvent.ReadOnly = true;
+            this.grdClassEvent.RowHeadersVisible = false;
+            this.grdClassEvent.RowTemplate.Height = 24;
+            this.grdClassEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdClassEvent.Size = new System.Drawing.Size(139, 509);
+            this.grdClassEvent.TabIndex = 10;
+            this.grdClassEvent.VirtualMode = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.labelX6);
+            this.panel3.Controls.Add(this.lblClass);
+            this.panel3.Controls.Add(this.labelX3);
+            this.panel3.Controls.Add(this.labelX1);
+            this.panel3.Controls.Add(this.btnClassEventExpand);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(139, 35);
+            this.panel3.TabIndex = 9;
+            // 
+            // lblClass
+            // 
+            this.lblClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblClass.AutoSize = true;
+            // 
+            // 
+            // 
+            this.lblClass.BackgroundStyle.Class = "";
+            this.lblClass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblClass.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblClass.Location = new System.Drawing.Point(7, 4);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(0, 0);
+            this.lblClass.TabIndex = 3;
+            // 
+            // labelX3
+            // 
+            this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelX3.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.Class = "";
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelX3.Location = new System.Drawing.Point(7, 4);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(0, 0);
+            this.labelX3.TabIndex = 2;
+            // 
+            // labelX1
+            // 
+            this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelX1.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.Class = "";
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelX1.Location = new System.Drawing.Point(7, 4);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(0, 0);
+            this.labelX1.TabIndex = 1;
+            // 
+            // btnClassEventExpand
+            // 
+            this.btnClassEventExpand.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClassEventExpand.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnClassEventExpand.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClassEventExpand.Location = new System.Drawing.Point(105, 5);
+            this.btnClassEventExpand.Name = "btnClassEventExpand";
+            this.btnClassEventExpand.Size = new System.Drawing.Size(28, 23);
+            this.btnClassEventExpand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClassEventExpand.TabIndex = 0;
+            this.btnClassEventExpand.Text = ">>";
+            // 
+            // tabClass
+            // 
+            this.tabClass.AttachedControl = this.superTabControlPanel2;
+            this.tabClass.GlobalItem = false;
+            this.tabClass.Name = "tabClass";
+            this.tabClass.Text = "班級";
             // 
             // superTabControlPanel3
             // 
@@ -1301,13 +1346,13 @@
             this.dataGridViewTextBoxColumn92,
             this.dataGridViewTextBoxColumn93,
             this.dataGridViewTextBoxColumn94,
+            this.dataGridViewTextBoxColumn100,
             this.dataGridViewTextBoxColumn102,
             this.dataGridViewTextBoxColumn95,
             this.dataGridViewTextBoxColumn96,
             this.dataGridViewTextBoxColumn97,
             this.dataGridViewTextBoxColumn98,
             this.dataGridViewTextBoxColumn99,
-            this.dataGridViewTextBoxColumn100,
             this.dataGridViewTextBoxColumn101,
             this.dataGridViewTextBoxColumn103,
             this.dataGridViewTextBoxColumn104,
@@ -1319,14 +1364,14 @@
             this.dataGridViewTextBoxColumn110,
             this.dataGridViewTextBoxColumn111,
             this.dataGridViewTextBoxColumn112});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdClassroomEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdClassroomEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdClassroomEvent.Location = new System.Drawing.Point(0, 0);
@@ -1341,6 +1386,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.labelX7);
             this.panel6.Controls.Add(this.lblClassroom);
             this.panel6.Controls.Add(this.labelX4);
             this.panel6.Controls.Add(this.labelX5);
@@ -1501,250 +1547,210 @@
             this.tabClassroom.Name = "tabClassroom";
             this.tabClassroom.Text = "場地";
             // 
-            // superTabControlPanel2
+            // superTabControlPanel1
             // 
-            this.superTabControlPanel2.Controls.Add(this.splClass);
-            this.superTabControlPanel2.Controls.Add(this.pnlWhomList);
-            this.superTabControlPanel2.Controls.Add(this.pnlWhomLPView);
-            this.superTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel2.Location = new System.Drawing.Point(0, 30);
-            this.superTabControlPanel2.Name = "superTabControlPanel2";
-            this.superTabControlPanel2.Size = new System.Drawing.Size(739, 544);
-            this.superTabControlPanel2.TabIndex = 0;
-            this.superTabControlPanel2.TabItem = this.tabClass;
+            this.superTabControlPanel1.Controls.Add(this.pnlWhoList);
+            this.superTabControlPanel1.Controls.Add(this.splTeacher);
+            this.superTabControlPanel1.Controls.Add(this.pnlWhoLPView);
+            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 30);
+            this.superTabControlPanel1.Name = "superTabControlPanel1";
+            this.superTabControlPanel1.Size = new System.Drawing.Size(739, 544);
+            this.superTabControlPanel1.TabIndex = 1;
+            this.superTabControlPanel1.TabItem = this.tabTeacher;
             // 
-            // splClass
+            // pnlWhoList
             // 
-            this.splClass.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splClass.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splClass.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.splClass.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splClass.ExpandableControl = this.pnlWhomLPView;
-            this.splClass.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splClass.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splClass.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splClass.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splClass.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splClass.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splClass.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
-            this.splClass.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.splClass.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(200)))), ((int)(((byte)(103)))));
-            this.splClass.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(135)))));
-            this.splClass.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
-            this.splClass.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-            this.splClass.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splClass.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splClass.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
-            this.splClass.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.splClass.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
-            this.splClass.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.splClass.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
-            this.splClass.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.splClass.Location = new System.Drawing.Point(136, 0);
-            this.splClass.Name = "splClass";
-            this.splClass.Size = new System.Drawing.Size(3, 544);
-            this.splClass.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
-            this.splClass.TabIndex = 2;
-            this.splClass.TabStop = false;
+            this.pnlWhoList.Controls.Add(this.grdTeacherEvent);
+            this.pnlWhoList.Controls.Add(this.panel5);
+            this.pnlWhoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlWhoList.Location = new System.Drawing.Point(0, 0);
+            this.pnlWhoList.Name = "pnlWhoList";
+            this.pnlWhoList.Size = new System.Drawing.Size(136, 544);
+            this.pnlWhoList.TabIndex = 6;
             // 
-            // pnlWhomLPView
+            // grdTeacherEvent
             // 
-            this.pnlWhomLPView.Controls.Add(this.tabClassLPView);
-            this.pnlWhomLPView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlWhomLPView.Location = new System.Drawing.Point(139, 0);
-            this.pnlWhomLPView.Name = "pnlWhomLPView";
-            this.pnlWhomLPView.Size = new System.Drawing.Size(600, 544);
-            this.pnlWhomLPView.TabIndex = 0;
+            this.grdTeacherEvent.AllowUserToAddRows = false;
+            this.grdTeacherEvent.AllowUserToDeleteRows = false;
+            this.grdTeacherEvent.AllowUserToOrderColumns = true;
+            this.grdTeacherEvent.AllowUserToResizeRows = false;
+            this.grdTeacherEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdTeacherEvent.BackgroundColor = System.Drawing.Color.White;
+            this.grdTeacherEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTeacherEvent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colLock,
+            this.colSolutionCount,
+            this.colWeekDay,
+            this.colPeriodNo,
+            this.colCourseName,
+            this.colLength,
+            this.colWhoName,
+            this.colWhomName,
+            this.colWhereName,
+            this.colWhatName,
+            this.colWhatAliasName,
+            this.colCourseGroup,
+            this.colWeekDayCondition,
+            this.colPeriodCondition,
+            this.colAllowLongBreak,
+            this.colAllowDuplicate,
+            this.colLimitNextDay,
+            this.colWeekFlag,
+            this.colPriority,
+            this.colTimeTable,
+            this.colColorIndex,
+            this.colEventID});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle18;
+            this.grdTeacherEvent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdTeacherEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.grdTeacherEvent.Location = new System.Drawing.Point(0, 35);
+            this.grdTeacherEvent.Name = "grdTeacherEvent";
+            this.grdTeacherEvent.ReadOnly = true;
+            this.grdTeacherEvent.RowHeadersVisible = false;
+            this.grdTeacherEvent.RowTemplate.Height = 24;
+            this.grdTeacherEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdTeacherEvent.Size = new System.Drawing.Size(136, 509);
+            this.grdTeacherEvent.TabIndex = 9;
+            this.grdTeacherEvent.VirtualMode = true;
             // 
-            // tabClassLPView
+            // panel5
             // 
-            this.tabClassLPView.AutoCloseTabs = true;
-            this.tabClassLPView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.tabClassLPView.CanReorderTabs = true;
-            this.tabClassLPView.CloseButtonOnTabsVisible = true;
-            this.tabClassLPView.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
-            this.tabClassLPView.Controls.Add(this.tabControlPanel2);
-            this.tabClassLPView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabClassLPView.Location = new System.Drawing.Point(0, 0);
-            this.tabClassLPView.Name = "tabClassLPView";
-            this.tabClassLPView.SelectedTabFont = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold);
-            this.tabClassLPView.SelectedTabIndex = -1;
-            this.tabClassLPView.Size = new System.Drawing.Size(600, 544);
-            this.tabClassLPView.TabIndex = 2;
-            this.tabClassLPView.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-            this.tabClassLPView.Tabs.Add(this.tabItem3);
-            this.tabClassLPView.Text = "tabControl1";
+            this.panel5.Controls.Add(this.labelX2);
+            this.panel5.Controls.Add(this.lblTeacher);
+            this.panel5.Controls.Add(this.btnTeacherEventExpand);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(136, 35);
+            this.panel5.TabIndex = 8;
             // 
-            // tabControlPanel2
+            // lblTeacher
             // 
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(600, 516);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            this.lblTeacher.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTeacher.AutoSize = true;
+            // 
+            // 
+            // 
+            this.lblTeacher.BackgroundStyle.Class = "";
+            this.lblTeacher.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblTeacher.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblTeacher.Location = new System.Drawing.Point(7, 4);
+            this.lblTeacher.Name = "lblTeacher";
+            this.lblTeacher.Size = new System.Drawing.Size(0, 0);
+            this.lblTeacher.TabIndex = 1;
+            // 
+            // btnTeacherEventExpand
+            // 
+            this.btnTeacherEventExpand.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTeacherEventExpand.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnTeacherEventExpand.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTeacherEventExpand.Location = new System.Drawing.Point(102, 5);
+            this.btnTeacherEventExpand.Name = "btnTeacherEventExpand";
+            this.btnTeacherEventExpand.Size = new System.Drawing.Size(28, 23);
+            this.btnTeacherEventExpand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTeacherEventExpand.TabIndex = 0;
+            this.btnTeacherEventExpand.Text = ">>";
+            // 
+            // splTeacher
+            // 
+            this.splTeacher.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splTeacher.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splTeacher.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.splTeacher.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splTeacher.ExpandableControl = this.pnlWhoLPView;
+            this.splTeacher.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splTeacher.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splTeacher.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splTeacher.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splTeacher.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splTeacher.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splTeacher.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
+            this.splTeacher.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.splTeacher.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(200)))), ((int)(((byte)(103)))));
+            this.splTeacher.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(135)))));
+            this.splTeacher.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+            this.splTeacher.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+            this.splTeacher.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splTeacher.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splTeacher.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(57)))), ((int)(((byte)(120)))));
+            this.splTeacher.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.splTeacher.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
+            this.splTeacher.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.splTeacher.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
+            this.splTeacher.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.splTeacher.Location = new System.Drawing.Point(136, 0);
+            this.splTeacher.Name = "splTeacher";
+            this.splTeacher.Size = new System.Drawing.Size(3, 544);
+            this.splTeacher.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
+            this.splTeacher.TabIndex = 5;
+            this.splTeacher.TabStop = false;
+            // 
+            // pnlWhoLPView
+            // 
+            this.pnlWhoLPView.Controls.Add(this.tabTeacherLPView);
+            this.pnlWhoLPView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlWhoLPView.Location = new System.Drawing.Point(139, 0);
+            this.pnlWhoLPView.Name = "pnlWhoLPView";
+            this.pnlWhoLPView.Size = new System.Drawing.Size(600, 544);
+            this.pnlWhoLPView.TabIndex = 4;
+            // 
+            // tabTeacherLPView
+            // 
+            this.tabTeacherLPView.AutoCloseTabs = true;
+            this.tabTeacherLPView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.tabTeacherLPView.CanReorderTabs = true;
+            this.tabTeacherLPView.CloseButtonOnTabsVisible = true;
+            this.tabTeacherLPView.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
+            this.tabTeacherLPView.Controls.Add(this.tabControlPanel1);
+            this.tabTeacherLPView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabTeacherLPView.Location = new System.Drawing.Point(0, 0);
+            this.tabTeacherLPView.Name = "tabTeacherLPView";
+            this.tabTeacherLPView.SelectedTabFont = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold);
+            this.tabTeacherLPView.SelectedTabIndex = -1;
+            this.tabTeacherLPView.Size = new System.Drawing.Size(600, 544);
+            this.tabTeacherLPView.TabIndex = 1;
+            this.tabTeacherLPView.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+            this.tabTeacherLPView.Tabs.Add(this.tabItem2);
+            this.tabTeacherLPView.Text = "tabControl1";
+            // 
+            // tabControlPanel1
+            // 
+            this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel1.Name = "tabControlPanel1";
+            this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel1.Size = new System.Drawing.Size(600, 516);
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 1;
-            this.tabControlPanel2.TabItem = this.tabItem3;
+            this.tabControlPanel1.Style.GradientAngle = 90;
+            this.tabControlPanel1.TabIndex = 1;
+            this.tabControlPanel1.TabItem = this.tabItem2;
             // 
-            // tabItem3
+            // tabItem2
             // 
-            this.tabItem3.AttachedControl = this.tabControlPanel2;
-            this.tabItem3.CloseButtonVisible = false;
-            this.tabItem3.Name = "tabItem3";
-            this.tabItem3.Text = "功課表";
+            this.tabItem2.AttachedControl = this.tabControlPanel1;
+            this.tabItem2.CloseButtonVisible = false;
+            this.tabItem2.Name = "tabItem2";
+            this.tabItem2.Text = "功課表";
             // 
-            // pnlWhomList
+            // tabTeacher
             // 
-            this.pnlWhomList.Controls.Add(this.panel10);
-            this.pnlWhomList.Controls.Add(this.panel3);
-            this.pnlWhomList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlWhomList.Location = new System.Drawing.Point(0, 0);
-            this.pnlWhomList.Name = "pnlWhomList";
-            this.pnlWhomList.Size = new System.Drawing.Size(139, 544);
-            this.pnlWhomList.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.grdClassEvent);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 35);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(139, 509);
-            this.panel10.TabIndex = 10;
-            // 
-            // grdClassEvent
-            // 
-            this.grdClassEvent.AllowUserToAddRows = false;
-            this.grdClassEvent.AllowUserToDeleteRows = false;
-            this.grdClassEvent.AllowUserToOrderColumns = true;
-            this.grdClassEvent.AllowUserToResizeRows = false;
-            this.grdClassEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.grdClassEvent.BackgroundColor = System.Drawing.Color.White;
-            this.grdClassEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdClassEvent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn69,
-            this.dataGridViewTextBoxColumn70,
-            this.dataGridViewTextBoxColumn71,
-            this.dataGridViewTextBoxColumn72,
-            this.dataGridViewTextBoxColumn80,
-            this.dataGridViewTextBoxColumn73,
-            this.dataGridViewTextBoxColumn74,
-            this.dataGridViewTextBoxColumn75,
-            this.dataGridViewTextBoxColumn76,
-            this.dataGridViewTextBoxColumn77,
-            this.dataGridViewTextBoxColumn78,
-            this.dataGridViewTextBoxColumn79,
-            this.dataGridViewTextBoxColumn81,
-            this.dataGridViewTextBoxColumn82,
-            this.dataGridViewTextBoxColumn83,
-            this.dataGridViewTextBoxColumn84,
-            this.dataGridViewTextBoxColumn85,
-            this.dataGridViewTextBoxColumn86,
-            this.dataGridViewTextBoxColumn87,
-            this.dataGridViewTextBoxColumn88,
-            this.dataGridViewTextBoxColumn89,
-            this.dataGridViewTextBoxColumn90});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle6;
-            this.grdClassEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdClassEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.grdClassEvent.Location = new System.Drawing.Point(0, 0);
-            this.grdClassEvent.Name = "grdClassEvent";
-            this.grdClassEvent.ReadOnly = true;
-            this.grdClassEvent.RowHeadersVisible = false;
-            this.grdClassEvent.RowTemplate.Height = 24;
-            this.grdClassEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdClassEvent.Size = new System.Drawing.Size(139, 509);
-            this.grdClassEvent.TabIndex = 10;
-            this.grdClassEvent.VirtualMode = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblClass);
-            this.panel3.Controls.Add(this.labelX3);
-            this.panel3.Controls.Add(this.labelX1);
-            this.panel3.Controls.Add(this.btnClassEventExpand);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(139, 35);
-            this.panel3.TabIndex = 9;
-            // 
-            // lblClass
-            // 
-            this.lblClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblClass.AutoSize = true;
-            // 
-            // 
-            // 
-            this.lblClass.BackgroundStyle.Class = "";
-            this.lblClass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblClass.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblClass.Location = new System.Drawing.Point(7, 4);
-            this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(0, 0);
-            this.lblClass.TabIndex = 3;
-            // 
-            // labelX3
-            // 
-            this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelX3.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.Class = "";
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelX3.Location = new System.Drawing.Point(7, 4);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(0, 0);
-            this.labelX3.TabIndex = 2;
-            // 
-            // labelX1
-            // 
-            this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelX1.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.Class = "";
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelX1.Location = new System.Drawing.Point(7, 4);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(0, 0);
-            this.labelX1.TabIndex = 1;
-            // 
-            // btnClassEventExpand
-            // 
-            this.btnClassEventExpand.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnClassEventExpand.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnClassEventExpand.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClassEventExpand.Location = new System.Drawing.Point(105, 5);
-            this.btnClassEventExpand.Name = "btnClassEventExpand";
-            this.btnClassEventExpand.Size = new System.Drawing.Size(28, 23);
-            this.btnClassEventExpand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnClassEventExpand.TabIndex = 0;
-            this.btnClassEventExpand.Text = ">>";
-            // 
-            // tabClass
-            // 
-            this.tabClass.AttachedControl = this.superTabControlPanel2;
-            this.tabClass.GlobalItem = false;
-            this.tabClass.Name = "tabClass";
-            this.tabClass.Text = "班級";
+            this.tabTeacher.AttachedControl = this.superTabControlPanel1;
+            this.tabTeacher.GlobalItem = false;
+            this.tabTeacher.Name = "tabTeacher";
+            this.tabTeacher.Text = "教師";
             // 
             // expandableSplitter1
             // 
@@ -1945,6 +1951,22 @@
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.Size = new System.Drawing.Size(61, 4);
             // 
+            // labelX2
+            // 
+            this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX2.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.Class = "";
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelX2.Location = new System.Drawing.Point(-23, 3);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(123, 26);
+            this.labelX2.TabIndex = 2;
+            this.labelX2.Text = "黃色為末排分課";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -1955,6 +1977,7 @@
             this.dataGridViewTextBoxColumn1.MinimumWidth = 30;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 54;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1967,6 +1990,7 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn2.Width = 54;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1978,6 +2002,7 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 54;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1988,6 +2013,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "星期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 54;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1998,6 +2024,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "場地";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 54;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -2006,6 +2033,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "科目";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 54;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -2014,6 +2042,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "科目簡稱";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 54;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -2022,6 +2051,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "課程名稱";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 54;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -2030,6 +2060,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "課程群組";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 54;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -2038,6 +2069,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "星期";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 78;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -2046,6 +2078,7 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "節次";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 78;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -2054,6 +2087,7 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "節數";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 78;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -2062,6 +2096,7 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "星期條件";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 78;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -2070,6 +2105,7 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "節次條件";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 78;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -2078,6 +2114,7 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "跨中午";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 66;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -2086,6 +2123,7 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "可重複";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 66;
             // 
             // dataGridViewTextBoxColumn17
             // 
@@ -2094,6 +2132,7 @@
             this.dataGridViewTextBoxColumn17.HeaderText = "不連天";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 66;
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -2102,6 +2141,7 @@
             this.dataGridViewTextBoxColumn18.HeaderText = "單雙週";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 66;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -2110,6 +2150,7 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "優先";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 54;
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -2118,6 +2159,7 @@
             this.dataGridViewTextBoxColumn20.HeaderText = "時間表";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 66;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -2127,6 +2169,7 @@
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             this.dataGridViewTextBoxColumn21.Visible = false;
+            this.dataGridViewTextBoxColumn21.Width = 54;
             // 
             // dataGridViewTextBoxColumn22
             // 
@@ -2136,6 +2179,7 @@
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             this.dataGridViewTextBoxColumn22.Visible = false;
+            this.dataGridViewTextBoxColumn22.Width = 78;
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -2147,6 +2191,7 @@
             this.dataGridViewTextBoxColumn23.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 54;
             // 
             // dataGridViewTextBoxColumn24
             // 
@@ -2158,6 +2203,7 @@
             this.dataGridViewTextBoxColumn24.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Width = 54;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -2191,6 +2237,7 @@
             this.dataGridViewTextBoxColumn27.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Width = 54;
             // 
             // dataGridViewTextBoxColumn28
             // 
@@ -2201,6 +2248,7 @@
             this.dataGridViewTextBoxColumn28.HeaderText = "節次";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 54;
             // 
             // dataGridViewTextBoxColumn29
             // 
@@ -2209,6 +2257,7 @@
             this.dataGridViewTextBoxColumn29.HeaderText = "教師";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            this.dataGridViewTextBoxColumn29.Width = 54;
             // 
             // dataGridViewTextBoxColumn30
             // 
@@ -2217,6 +2266,7 @@
             this.dataGridViewTextBoxColumn30.HeaderText = "班級";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.dataGridViewTextBoxColumn30.Width = 54;
             // 
             // dataGridViewTextBoxColumn31
             // 
@@ -2225,6 +2275,7 @@
             this.dataGridViewTextBoxColumn31.HeaderText = "場地";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            this.dataGridViewTextBoxColumn31.Width = 54;
             // 
             // dataGridViewTextBoxColumn32
             // 
@@ -2233,6 +2284,7 @@
             this.dataGridViewTextBoxColumn32.HeaderText = "科目";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            this.dataGridViewTextBoxColumn32.Width = 78;
             // 
             // dataGridViewTextBoxColumn33
             // 
@@ -2241,6 +2293,7 @@
             this.dataGridViewTextBoxColumn33.HeaderText = "科目簡稱";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            this.dataGridViewTextBoxColumn33.Width = 78;
             // 
             // dataGridViewTextBoxColumn34
             // 
@@ -2249,6 +2302,7 @@
             this.dataGridViewTextBoxColumn34.HeaderText = "課程名稱";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            this.dataGridViewTextBoxColumn34.Width = 78;
             // 
             // dataGridViewTextBoxColumn35
             // 
@@ -2257,6 +2311,7 @@
             this.dataGridViewTextBoxColumn35.HeaderText = "課程群組";
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
             this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            this.dataGridViewTextBoxColumn35.Width = 78;
             // 
             // dataGridViewTextBoxColumn36
             // 
@@ -2265,6 +2320,7 @@
             this.dataGridViewTextBoxColumn36.HeaderText = "節數";
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
             this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            this.dataGridViewTextBoxColumn36.Width = 78;
             // 
             // dataGridViewTextBoxColumn37
             // 
@@ -2273,6 +2329,7 @@
             this.dataGridViewTextBoxColumn37.HeaderText = "星期條件";
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             this.dataGridViewTextBoxColumn37.ReadOnly = true;
+            this.dataGridViewTextBoxColumn37.Width = 66;
             // 
             // dataGridViewTextBoxColumn38
             // 
@@ -2281,6 +2338,7 @@
             this.dataGridViewTextBoxColumn38.HeaderText = "節次條件";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            this.dataGridViewTextBoxColumn38.Width = 66;
             // 
             // dataGridViewTextBoxColumn39
             // 
@@ -2289,6 +2347,7 @@
             this.dataGridViewTextBoxColumn39.HeaderText = "跨中午";
             this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
             this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            this.dataGridViewTextBoxColumn39.Width = 66;
             // 
             // dataGridViewTextBoxColumn40
             // 
@@ -2297,6 +2356,7 @@
             this.dataGridViewTextBoxColumn40.HeaderText = "可重複";
             this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
             this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            this.dataGridViewTextBoxColumn40.Width = 66;
             // 
             // dataGridViewTextBoxColumn41
             // 
@@ -2305,6 +2365,7 @@
             this.dataGridViewTextBoxColumn41.HeaderText = "不連天";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.dataGridViewTextBoxColumn41.Width = 54;
             // 
             // dataGridViewTextBoxColumn42
             // 
@@ -2313,6 +2374,7 @@
             this.dataGridViewTextBoxColumn42.HeaderText = "單雙週";
             this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
             this.dataGridViewTextBoxColumn42.ReadOnly = true;
+            this.dataGridViewTextBoxColumn42.Width = 66;
             // 
             // dataGridViewTextBoxColumn43
             // 
@@ -2322,6 +2384,7 @@
             this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
             this.dataGridViewTextBoxColumn43.ReadOnly = true;
             this.dataGridViewTextBoxColumn43.Visible = false;
+            this.dataGridViewTextBoxColumn43.Width = 54;
             // 
             // dataGridViewTextBoxColumn44
             // 
@@ -2330,6 +2393,7 @@
             this.dataGridViewTextBoxColumn44.HeaderText = "時間表";
             this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
             this.dataGridViewTextBoxColumn44.ReadOnly = true;
+            this.dataGridViewTextBoxColumn44.Width = 78;
             // 
             // dataGridViewTextBoxColumn45
             // 
@@ -2386,6 +2450,7 @@
             this.dataGridViewTextBoxColumn49.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
             this.dataGridViewTextBoxColumn49.ReadOnly = true;
+            this.dataGridViewTextBoxColumn49.Width = 54;
             // 
             // dataGridViewTextBoxColumn50
             // 
@@ -2396,6 +2461,7 @@
             this.dataGridViewTextBoxColumn50.HeaderText = "節次";
             this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
             this.dataGridViewTextBoxColumn50.ReadOnly = true;
+            this.dataGridViewTextBoxColumn50.Width = 54;
             // 
             // dataGridViewTextBoxColumn51
             // 
@@ -2404,6 +2470,7 @@
             this.dataGridViewTextBoxColumn51.HeaderText = "教師";
             this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
             this.dataGridViewTextBoxColumn51.ReadOnly = true;
+            this.dataGridViewTextBoxColumn51.Width = 54;
             // 
             // dataGridViewTextBoxColumn52
             // 
@@ -2412,6 +2479,7 @@
             this.dataGridViewTextBoxColumn52.HeaderText = "班級";
             this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
             this.dataGridViewTextBoxColumn52.ReadOnly = true;
+            this.dataGridViewTextBoxColumn52.Width = 54;
             // 
             // dataGridViewTextBoxColumn53
             // 
@@ -2420,6 +2488,7 @@
             this.dataGridViewTextBoxColumn53.HeaderText = "場地";
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.ReadOnly = true;
+            this.dataGridViewTextBoxColumn53.Width = 54;
             // 
             // dataGridViewTextBoxColumn54
             // 
@@ -2428,6 +2497,7 @@
             this.dataGridViewTextBoxColumn54.HeaderText = "科目";
             this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
             this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            this.dataGridViewTextBoxColumn54.Width = 78;
             // 
             // dataGridViewTextBoxColumn55
             // 
@@ -2436,6 +2506,7 @@
             this.dataGridViewTextBoxColumn55.HeaderText = "科目簡稱";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.Width = 78;
             // 
             // dataGridViewTextBoxColumn56
             // 
@@ -2444,6 +2515,7 @@
             this.dataGridViewTextBoxColumn56.HeaderText = "課程名稱";
             this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
             this.dataGridViewTextBoxColumn56.ReadOnly = true;
+            this.dataGridViewTextBoxColumn56.Width = 78;
             // 
             // dataGridViewTextBoxColumn57
             // 
@@ -2452,6 +2524,7 @@
             this.dataGridViewTextBoxColumn57.HeaderText = "課程群組";
             this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            this.dataGridViewTextBoxColumn57.Width = 78;
             // 
             // dataGridViewTextBoxColumn58
             // 
@@ -2460,6 +2533,7 @@
             this.dataGridViewTextBoxColumn58.HeaderText = "節數";
             this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
             this.dataGridViewTextBoxColumn58.ReadOnly = true;
+            this.dataGridViewTextBoxColumn58.Width = 78;
             // 
             // dataGridViewTextBoxColumn59
             // 
@@ -2468,6 +2542,7 @@
             this.dataGridViewTextBoxColumn59.HeaderText = "星期條件";
             this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
             this.dataGridViewTextBoxColumn59.ReadOnly = true;
+            this.dataGridViewTextBoxColumn59.Width = 66;
             // 
             // dataGridViewTextBoxColumn60
             // 
@@ -2476,6 +2551,7 @@
             this.dataGridViewTextBoxColumn60.HeaderText = "節次條件";
             this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
             this.dataGridViewTextBoxColumn60.ReadOnly = true;
+            this.dataGridViewTextBoxColumn60.Width = 66;
             // 
             // dataGridViewTextBoxColumn61
             // 
@@ -2484,6 +2560,7 @@
             this.dataGridViewTextBoxColumn61.HeaderText = "跨中午";
             this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
             this.dataGridViewTextBoxColumn61.ReadOnly = true;
+            this.dataGridViewTextBoxColumn61.Width = 66;
             // 
             // dataGridViewTextBoxColumn62
             // 
@@ -2492,6 +2569,7 @@
             this.dataGridViewTextBoxColumn62.HeaderText = "可重複";
             this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
             this.dataGridViewTextBoxColumn62.ReadOnly = true;
+            this.dataGridViewTextBoxColumn62.Width = 66;
             // 
             // dataGridViewTextBoxColumn63
             // 
@@ -2500,6 +2578,7 @@
             this.dataGridViewTextBoxColumn63.HeaderText = "不連天";
             this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
             this.dataGridViewTextBoxColumn63.ReadOnly = true;
+            this.dataGridViewTextBoxColumn63.Width = 54;
             // 
             // dataGridViewTextBoxColumn64
             // 
@@ -2508,6 +2587,7 @@
             this.dataGridViewTextBoxColumn64.HeaderText = "單雙週";
             this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
             this.dataGridViewTextBoxColumn64.ReadOnly = true;
+            this.dataGridViewTextBoxColumn64.Width = 66;
             // 
             // dataGridViewTextBoxColumn65
             // 
@@ -2517,6 +2597,7 @@
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             this.dataGridViewTextBoxColumn65.ReadOnly = true;
             this.dataGridViewTextBoxColumn65.Visible = false;
+            this.dataGridViewTextBoxColumn65.Width = 54;
             // 
             // dataGridViewTextBoxColumn66
             // 
@@ -2525,6 +2606,7 @@
             this.dataGridViewTextBoxColumn66.HeaderText = "時間表";
             this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
             this.dataGridViewTextBoxColumn66.ReadOnly = true;
+            this.dataGridViewTextBoxColumn66.Width = 78;
             // 
             // dataGridViewTextBoxColumn67
             // 
@@ -2542,6 +2624,38 @@
             this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
             this.dataGridViewTextBoxColumn68.ReadOnly = true;
             this.dataGridViewTextBoxColumn68.Width = 81;
+            // 
+            // labelX6
+            // 
+            this.labelX6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX6.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.Class = "";
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelX6.Location = new System.Drawing.Point(-20, 4);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(123, 26);
+            this.labelX6.TabIndex = 4;
+            this.labelX6.Text = "黃色為末排分課";
+            // 
+            // labelX7
+            // 
+            this.labelX7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX7.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.Class = "";
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelX7.Location = new System.Drawing.Point(-23, 4);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(123, 26);
+            this.labelX7.TabIndex = 5;
+            this.labelX7.Text = "黃色為末排分課";
             // 
             // colLock
             // 
@@ -2585,6 +2699,15 @@
             this.colPeriodNo.Name = "colPeriodNo";
             this.colPeriodNo.ReadOnly = true;
             this.colPeriodNo.Width = 57;
+            // 
+            // colCourseName
+            // 
+            this.colCourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colCourseName.DataPropertyName = "CourseName";
+            this.colCourseName.HeaderText = "課程名稱";
+            this.colCourseName.Name = "colCourseName";
+            this.colCourseName.ReadOnly = true;
+            this.colCourseName.Width = 81;
             // 
             // colLength
             // 
@@ -2640,15 +2763,6 @@
             this.colWhatAliasName.Name = "colWhatAliasName";
             this.colWhatAliasName.ReadOnly = true;
             this.colWhatAliasName.Width = 81;
-            // 
-            // colCourseName
-            // 
-            this.colCourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colCourseName.DataPropertyName = "CourseName";
-            this.colCourseName.HeaderText = "課程名稱";
-            this.colCourseName.Name = "colCourseName";
-            this.colCourseName.ReadOnly = true;
-            this.colCourseName.Width = 81;
             // 
             // colCourseGroup
             // 
@@ -2748,216 +2862,11 @@
             this.colEventID.ReadOnly = true;
             this.colEventID.Width = 81;
             // 
-            // dataGridViewTextBoxColumn91
-            // 
-            this.dataGridViewTextBoxColumn91.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn91.HeaderText = "鎖定";
-            this.dataGridViewTextBoxColumn91.MinimumWidth = 40;
-            this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
-            this.dataGridViewTextBoxColumn91.ReadOnly = true;
-            this.dataGridViewTextBoxColumn91.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn92
-            // 
-            this.dataGridViewTextBoxColumn92.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn92.HeaderText = "方案";
-            this.dataGridViewTextBoxColumn92.MinimumWidth = 40;
-            this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
-            this.dataGridViewTextBoxColumn92.ReadOnly = true;
-            this.dataGridViewTextBoxColumn92.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn93
-            // 
-            this.dataGridViewTextBoxColumn93.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn93.HeaderText = "星期";
-            this.dataGridViewTextBoxColumn93.MinimumWidth = 40;
-            this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
-            this.dataGridViewTextBoxColumn93.ReadOnly = true;
-            this.dataGridViewTextBoxColumn93.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn94
-            // 
-            this.dataGridViewTextBoxColumn94.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn94.HeaderText = "節次";
-            this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
-            this.dataGridViewTextBoxColumn94.ReadOnly = true;
-            this.dataGridViewTextBoxColumn94.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn102
-            // 
-            this.dataGridViewTextBoxColumn102.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn102.DataPropertyName = "Length";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn102.HeaderText = "節數";
-            this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
-            this.dataGridViewTextBoxColumn102.ReadOnly = true;
-            this.dataGridViewTextBoxColumn102.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn95
-            // 
-            this.dataGridViewTextBoxColumn95.DataPropertyName = "DisplayTeacherName";
-            this.dataGridViewTextBoxColumn95.HeaderText = "教師";
-            this.dataGridViewTextBoxColumn95.Name = "dataGridViewTextBoxColumn95";
-            this.dataGridViewTextBoxColumn95.ReadOnly = true;
-            this.dataGridViewTextBoxColumn95.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn96
-            // 
-            this.dataGridViewTextBoxColumn96.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn96.DataPropertyName = "DisplayClassName";
-            this.dataGridViewTextBoxColumn96.HeaderText = "班級";
-            this.dataGridViewTextBoxColumn96.Name = "dataGridViewTextBoxColumn96";
-            this.dataGridViewTextBoxColumn96.ReadOnly = true;
-            this.dataGridViewTextBoxColumn96.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn97
-            // 
-            this.dataGridViewTextBoxColumn97.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn97.DataPropertyName = "DisplayClassroomName";
-            this.dataGridViewTextBoxColumn97.HeaderText = "場地";
-            this.dataGridViewTextBoxColumn97.Name = "dataGridViewTextBoxColumn97";
-            this.dataGridViewTextBoxColumn97.ReadOnly = true;
-            this.dataGridViewTextBoxColumn97.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn98
-            // 
-            this.dataGridViewTextBoxColumn98.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn98.DataPropertyName = "DisplaySubjectName";
-            this.dataGridViewTextBoxColumn98.HeaderText = "科目";
-            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
-            this.dataGridViewTextBoxColumn98.ReadOnly = true;
-            this.dataGridViewTextBoxColumn98.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn99
-            // 
-            this.dataGridViewTextBoxColumn99.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn99.DataPropertyName = "SubjectAlias";
-            this.dataGridViewTextBoxColumn99.HeaderText = "科目簡稱";
-            this.dataGridViewTextBoxColumn99.Name = "dataGridViewTextBoxColumn99";
-            this.dataGridViewTextBoxColumn99.ReadOnly = true;
-            this.dataGridViewTextBoxColumn99.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn100
-            // 
-            this.dataGridViewTextBoxColumn100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn100.DataPropertyName = "CourseName";
-            this.dataGridViewTextBoxColumn100.HeaderText = "課程名稱";
-            this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
-            this.dataGridViewTextBoxColumn100.ReadOnly = true;
-            this.dataGridViewTextBoxColumn100.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn101
-            // 
-            this.dataGridViewTextBoxColumn101.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn101.DataPropertyName = "CourseGroup";
-            this.dataGridViewTextBoxColumn101.HeaderText = "課程群組";
-            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
-            this.dataGridViewTextBoxColumn101.ReadOnly = true;
-            this.dataGridViewTextBoxColumn101.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn103
-            // 
-            this.dataGridViewTextBoxColumn103.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn103.DataPropertyName = "WeekDayCondition";
-            this.dataGridViewTextBoxColumn103.HeaderText = "星期條件";
-            this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
-            this.dataGridViewTextBoxColumn103.ReadOnly = true;
-            this.dataGridViewTextBoxColumn103.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn104
-            // 
-            this.dataGridViewTextBoxColumn104.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn104.DataPropertyName = "PeriodCondition";
-            this.dataGridViewTextBoxColumn104.HeaderText = "節次條件";
-            this.dataGridViewTextBoxColumn104.Name = "dataGridViewTextBoxColumn104";
-            this.dataGridViewTextBoxColumn104.ReadOnly = true;
-            this.dataGridViewTextBoxColumn104.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn105
-            // 
-            this.dataGridViewTextBoxColumn105.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn105.DataPropertyName = "DisplayAllowLongBreak";
-            this.dataGridViewTextBoxColumn105.HeaderText = "跨中午";
-            this.dataGridViewTextBoxColumn105.Name = "dataGridViewTextBoxColumn105";
-            this.dataGridViewTextBoxColumn105.ReadOnly = true;
-            this.dataGridViewTextBoxColumn105.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn106
-            // 
-            this.dataGridViewTextBoxColumn106.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn106.DataPropertyName = "DisplayAllowDuplicate";
-            this.dataGridViewTextBoxColumn106.HeaderText = "可重複";
-            this.dataGridViewTextBoxColumn106.Name = "dataGridViewTextBoxColumn106";
-            this.dataGridViewTextBoxColumn106.ReadOnly = true;
-            this.dataGridViewTextBoxColumn106.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn107
-            // 
-            this.dataGridViewTextBoxColumn107.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn107.DataPropertyName = "DisplayLimitNextDay";
-            this.dataGridViewTextBoxColumn107.HeaderText = "不連天";
-            this.dataGridViewTextBoxColumn107.Name = "dataGridViewTextBoxColumn107";
-            this.dataGridViewTextBoxColumn107.ReadOnly = true;
-            this.dataGridViewTextBoxColumn107.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn108
-            // 
-            this.dataGridViewTextBoxColumn108.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn108.DataPropertyName = "DisplayWeekFlag";
-            this.dataGridViewTextBoxColumn108.HeaderText = "單雙週";
-            this.dataGridViewTextBoxColumn108.Name = "dataGridViewTextBoxColumn108";
-            this.dataGridViewTextBoxColumn108.ReadOnly = true;
-            this.dataGridViewTextBoxColumn108.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn109
-            // 
-            this.dataGridViewTextBoxColumn109.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn109.DataPropertyName = "Priority";
-            this.dataGridViewTextBoxColumn109.HeaderText = "優先";
-            this.dataGridViewTextBoxColumn109.Name = "dataGridViewTextBoxColumn109";
-            this.dataGridViewTextBoxColumn109.ReadOnly = true;
-            this.dataGridViewTextBoxColumn109.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn110
-            // 
-            this.dataGridViewTextBoxColumn110.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn110.DataPropertyName = "DispalyTimeTableName";
-            this.dataGridViewTextBoxColumn110.HeaderText = "時間表";
-            this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
-            this.dataGridViewTextBoxColumn110.ReadOnly = true;
-            this.dataGridViewTextBoxColumn110.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn111
-            // 
-            this.dataGridViewTextBoxColumn111.DataPropertyName = "ColorIndex";
-            this.dataGridViewTextBoxColumn111.HeaderText = "顏色";
-            this.dataGridViewTextBoxColumn111.Name = "dataGridViewTextBoxColumn111";
-            this.dataGridViewTextBoxColumn111.ReadOnly = true;
-            this.dataGridViewTextBoxColumn111.Visible = false;
-            this.dataGridViewTextBoxColumn111.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn112
-            // 
-            this.dataGridViewTextBoxColumn112.DataPropertyName = "EventID";
-            this.dataGridViewTextBoxColumn112.HeaderText = "分課編號";
-            this.dataGridViewTextBoxColumn112.Name = "dataGridViewTextBoxColumn112";
-            this.dataGridViewTextBoxColumn112.ReadOnly = true;
-            this.dataGridViewTextBoxColumn112.Width = 81;
-            // 
             // dataGridViewTextBoxColumn69
             // 
             this.dataGridViewTextBoxColumn69.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn69.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn69.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn69.Name = "dataGridViewTextBoxColumn69";
@@ -2967,8 +2876,8 @@
             // dataGridViewTextBoxColumn70
             // 
             this.dataGridViewTextBoxColumn70.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn70.HeaderText = "方案";
             this.dataGridViewTextBoxColumn70.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
@@ -2978,8 +2887,8 @@
             // dataGridViewTextBoxColumn71
             // 
             this.dataGridViewTextBoxColumn71.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn71.HeaderText = "星期";
             this.dataGridViewTextBoxColumn71.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
@@ -2989,19 +2898,28 @@
             // dataGridViewTextBoxColumn72
             // 
             this.dataGridViewTextBoxColumn72.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn72.HeaderText = "節次";
             this.dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
             this.dataGridViewTextBoxColumn72.ReadOnly = true;
             this.dataGridViewTextBoxColumn72.Width = 57;
             // 
+            // dataGridViewTextBoxColumn78
+            // 
+            this.dataGridViewTextBoxColumn78.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn78.DataPropertyName = "CourseName";
+            this.dataGridViewTextBoxColumn78.HeaderText = "課程名稱";
+            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
+            this.dataGridViewTextBoxColumn78.ReadOnly = true;
+            this.dataGridViewTextBoxColumn78.Width = 81;
+            // 
             // dataGridViewTextBoxColumn80
             // 
             this.dataGridViewTextBoxColumn80.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn80.DataPropertyName = "Length";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn80.HeaderText = "節數";
             this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
             this.dataGridViewTextBoxColumn80.ReadOnly = true;
@@ -3050,15 +2968,6 @@
             this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
             this.dataGridViewTextBoxColumn77.ReadOnly = true;
             this.dataGridViewTextBoxColumn77.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn78
-            // 
-            this.dataGridViewTextBoxColumn78.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn78.DataPropertyName = "CourseName";
-            this.dataGridViewTextBoxColumn78.HeaderText = "課程名稱";
-            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
-            this.dataGridViewTextBoxColumn78.ReadOnly = true;
-            this.dataGridViewTextBoxColumn78.Width = 81;
             // 
             // dataGridViewTextBoxColumn79
             // 
@@ -3158,6 +3067,211 @@
             this.dataGridViewTextBoxColumn90.ReadOnly = true;
             this.dataGridViewTextBoxColumn90.Width = 81;
             // 
+            // dataGridViewTextBoxColumn91
+            // 
+            this.dataGridViewTextBoxColumn91.DataPropertyName = "DisplayManualLock";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn91.HeaderText = "鎖定";
+            this.dataGridViewTextBoxColumn91.MinimumWidth = 40;
+            this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
+            this.dataGridViewTextBoxColumn91.ReadOnly = true;
+            this.dataGridViewTextBoxColumn91.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn92
+            // 
+            this.dataGridViewTextBoxColumn92.DataPropertyName = "DisplaySolutionCount";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn92.HeaderText = "方案";
+            this.dataGridViewTextBoxColumn92.MinimumWidth = 40;
+            this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
+            this.dataGridViewTextBoxColumn92.ReadOnly = true;
+            this.dataGridViewTextBoxColumn92.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn93
+            // 
+            this.dataGridViewTextBoxColumn93.DataPropertyName = "WeekDay";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn93.HeaderText = "星期";
+            this.dataGridViewTextBoxColumn93.MinimumWidth = 40;
+            this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
+            this.dataGridViewTextBoxColumn93.ReadOnly = true;
+            this.dataGridViewTextBoxColumn93.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn94
+            // 
+            this.dataGridViewTextBoxColumn94.DataPropertyName = "PeriodNo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn94.HeaderText = "節次";
+            this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
+            this.dataGridViewTextBoxColumn94.ReadOnly = true;
+            this.dataGridViewTextBoxColumn94.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn100
+            // 
+            this.dataGridViewTextBoxColumn100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn100.DataPropertyName = "CourseName";
+            this.dataGridViewTextBoxColumn100.HeaderText = "課程名稱";
+            this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
+            this.dataGridViewTextBoxColumn100.ReadOnly = true;
+            this.dataGridViewTextBoxColumn100.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn102
+            // 
+            this.dataGridViewTextBoxColumn102.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn102.DataPropertyName = "Length";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn102.HeaderText = "節數";
+            this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
+            this.dataGridViewTextBoxColumn102.ReadOnly = true;
+            this.dataGridViewTextBoxColumn102.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn95
+            // 
+            this.dataGridViewTextBoxColumn95.DataPropertyName = "DisplayTeacherName";
+            this.dataGridViewTextBoxColumn95.HeaderText = "教師";
+            this.dataGridViewTextBoxColumn95.Name = "dataGridViewTextBoxColumn95";
+            this.dataGridViewTextBoxColumn95.ReadOnly = true;
+            this.dataGridViewTextBoxColumn95.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn96
+            // 
+            this.dataGridViewTextBoxColumn96.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn96.DataPropertyName = "DisplayClassName";
+            this.dataGridViewTextBoxColumn96.HeaderText = "班級";
+            this.dataGridViewTextBoxColumn96.Name = "dataGridViewTextBoxColumn96";
+            this.dataGridViewTextBoxColumn96.ReadOnly = true;
+            this.dataGridViewTextBoxColumn96.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn97
+            // 
+            this.dataGridViewTextBoxColumn97.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn97.DataPropertyName = "DisplayClassroomName";
+            this.dataGridViewTextBoxColumn97.HeaderText = "場地";
+            this.dataGridViewTextBoxColumn97.Name = "dataGridViewTextBoxColumn97";
+            this.dataGridViewTextBoxColumn97.ReadOnly = true;
+            this.dataGridViewTextBoxColumn97.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn98
+            // 
+            this.dataGridViewTextBoxColumn98.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn98.DataPropertyName = "DisplaySubjectName";
+            this.dataGridViewTextBoxColumn98.HeaderText = "科目";
+            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
+            this.dataGridViewTextBoxColumn98.ReadOnly = true;
+            this.dataGridViewTextBoxColumn98.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn99
+            // 
+            this.dataGridViewTextBoxColumn99.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn99.DataPropertyName = "SubjectAlias";
+            this.dataGridViewTextBoxColumn99.HeaderText = "科目簡稱";
+            this.dataGridViewTextBoxColumn99.Name = "dataGridViewTextBoxColumn99";
+            this.dataGridViewTextBoxColumn99.ReadOnly = true;
+            this.dataGridViewTextBoxColumn99.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn101
+            // 
+            this.dataGridViewTextBoxColumn101.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn101.DataPropertyName = "CourseGroup";
+            this.dataGridViewTextBoxColumn101.HeaderText = "課程群組";
+            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
+            this.dataGridViewTextBoxColumn101.ReadOnly = true;
+            this.dataGridViewTextBoxColumn101.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn103
+            // 
+            this.dataGridViewTextBoxColumn103.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn103.DataPropertyName = "WeekDayCondition";
+            this.dataGridViewTextBoxColumn103.HeaderText = "星期條件";
+            this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
+            this.dataGridViewTextBoxColumn103.ReadOnly = true;
+            this.dataGridViewTextBoxColumn103.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn104
+            // 
+            this.dataGridViewTextBoxColumn104.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn104.DataPropertyName = "PeriodCondition";
+            this.dataGridViewTextBoxColumn104.HeaderText = "節次條件";
+            this.dataGridViewTextBoxColumn104.Name = "dataGridViewTextBoxColumn104";
+            this.dataGridViewTextBoxColumn104.ReadOnly = true;
+            this.dataGridViewTextBoxColumn104.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn105
+            // 
+            this.dataGridViewTextBoxColumn105.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn105.DataPropertyName = "DisplayAllowLongBreak";
+            this.dataGridViewTextBoxColumn105.HeaderText = "跨中午";
+            this.dataGridViewTextBoxColumn105.Name = "dataGridViewTextBoxColumn105";
+            this.dataGridViewTextBoxColumn105.ReadOnly = true;
+            this.dataGridViewTextBoxColumn105.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn106
+            // 
+            this.dataGridViewTextBoxColumn106.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn106.DataPropertyName = "DisplayAllowDuplicate";
+            this.dataGridViewTextBoxColumn106.HeaderText = "可重複";
+            this.dataGridViewTextBoxColumn106.Name = "dataGridViewTextBoxColumn106";
+            this.dataGridViewTextBoxColumn106.ReadOnly = true;
+            this.dataGridViewTextBoxColumn106.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn107
+            // 
+            this.dataGridViewTextBoxColumn107.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn107.DataPropertyName = "DisplayLimitNextDay";
+            this.dataGridViewTextBoxColumn107.HeaderText = "不連天";
+            this.dataGridViewTextBoxColumn107.Name = "dataGridViewTextBoxColumn107";
+            this.dataGridViewTextBoxColumn107.ReadOnly = true;
+            this.dataGridViewTextBoxColumn107.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn108
+            // 
+            this.dataGridViewTextBoxColumn108.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn108.DataPropertyName = "DisplayWeekFlag";
+            this.dataGridViewTextBoxColumn108.HeaderText = "單雙週";
+            this.dataGridViewTextBoxColumn108.Name = "dataGridViewTextBoxColumn108";
+            this.dataGridViewTextBoxColumn108.ReadOnly = true;
+            this.dataGridViewTextBoxColumn108.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn109
+            // 
+            this.dataGridViewTextBoxColumn109.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn109.DataPropertyName = "Priority";
+            this.dataGridViewTextBoxColumn109.HeaderText = "優先";
+            this.dataGridViewTextBoxColumn109.Name = "dataGridViewTextBoxColumn109";
+            this.dataGridViewTextBoxColumn109.ReadOnly = true;
+            this.dataGridViewTextBoxColumn109.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn110
+            // 
+            this.dataGridViewTextBoxColumn110.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn110.DataPropertyName = "DispalyTimeTableName";
+            this.dataGridViewTextBoxColumn110.HeaderText = "時間表";
+            this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
+            this.dataGridViewTextBoxColumn110.ReadOnly = true;
+            this.dataGridViewTextBoxColumn110.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn111
+            // 
+            this.dataGridViewTextBoxColumn111.DataPropertyName = "ColorIndex";
+            this.dataGridViewTextBoxColumn111.HeaderText = "顏色";
+            this.dataGridViewTextBoxColumn111.Name = "dataGridViewTextBoxColumn111";
+            this.dataGridViewTextBoxColumn111.ReadOnly = true;
+            this.dataGridViewTextBoxColumn111.Visible = false;
+            this.dataGridViewTextBoxColumn111.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn112
+            // 
+            this.dataGridViewTextBoxColumn112.DataPropertyName = "EventID";
+            this.dataGridViewTextBoxColumn112.HeaderText = "分課編號";
+            this.dataGridViewTextBoxColumn112.Name = "dataGridViewTextBoxColumn112";
+            this.dataGridViewTextBoxColumn112.ReadOnly = true;
+            this.dataGridViewTextBoxColumn112.Width = 81;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -3184,23 +3298,6 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabContent)).EndInit();
             this.tabContent.ResumeLayout(false);
-            this.superTabControlPanel1.ResumeLayout(false);
-            this.pnlWhoList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdTeacherEvent)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.pnlWhoLPView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabTeacherLPView)).EndInit();
-            this.tabTeacherLPView.ResumeLayout(false);
-            this.superTabControlPanel3.ResumeLayout(false);
-            this.pnlWhereList.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdClassroomEvent)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.pnlWhereLPView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabClassroomLPView)).EndInit();
-            this.tabClassroomLPView.ResumeLayout(false);
             this.superTabControlPanel2.ResumeLayout(false);
             this.pnlWhomLPView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabClassLPView)).EndInit();
@@ -3210,6 +3307,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdClassEvent)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.superTabControlPanel3.ResumeLayout(false);
+            this.pnlWhereList.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdClassroomEvent)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.pnlWhereLPView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabClassroomLPView)).EndInit();
+            this.tabClassroomLPView.ResumeLayout(false);
+            this.superTabControlPanel1.ResumeLayout(false);
+            this.pnlWhoList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdTeacherEvent)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.pnlWhoLPView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabTeacherLPView)).EndInit();
+            this.tabTeacherLPView.ResumeLayout(false);
             this.LeftNavigationPanel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -3391,17 +3505,42 @@
         private DevComponents.DotNetBar.ButtonX btnClassroomEventExpand;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdClassroomEvent;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdTeacherEvent;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSolutionCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPeriodNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhoName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhomName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhereName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhatName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhatAliasName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCourseGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekDayCondition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPeriodCondition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAllowLongBreak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAllowDuplicate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLimitNextDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPriority;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn69;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn75;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn76;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn82;
@@ -3417,13 +3556,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn92;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn93;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn94;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn95;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn96;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn97;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn99;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
@@ -3435,28 +3574,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn110;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn111;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn112;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSolutionCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPeriodNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhoName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhomName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhereName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhatName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhatAliasName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCourseGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekDayCondition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPeriodCondition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAllowLongBreak;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAllowDuplicate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLimitNextDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWeekFlag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriority;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEventID;
     }
 }
 

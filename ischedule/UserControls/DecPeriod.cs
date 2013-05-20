@@ -57,6 +57,7 @@ namespace ischedule
     /// </summary>
     public class DecPeriod
     {
+        private LPViewOption Option;
         private const int lblCount = 4;
         private string TimeTableID = string.Empty;
         private DevComponents.DotNetBar.PanelEx _pnl;
@@ -71,7 +72,7 @@ namespace ischedule
         private Label lbl2;
         private Label lbl3;
         private Label lbl4;
-        private Panel pnlCover;
+        //private Panel pnlCover;
         private Color unselectedColor = Color.FromArgb(234, 234, 234);
 
         private bool isBindEvent = false;
@@ -177,8 +178,9 @@ namespace ischedule
         /// 根據時間表編號初始化內容
         /// </summary>
         /// <param name="TimeTableID"></param>
-        public void InitialContent(string TimeTableID)
+        public void InitialContent(string TimeTableID,LPViewOption Option)
         {
+            this.Option = Option;
             this.TimeTableID = TimeTableID;
             this.lbl1.Text = string.Empty;
             this.lbl1.Visible = true;
@@ -562,6 +564,77 @@ namespace ischedule
             }
         }
 
+        private void SetLabelText(ref int Index,string Text, string Tag)
+        {
+            if (Index == 1)
+            {
+                lbl1.Text = Text;
+                lbl1.Tag = Tag;
+                if (!string.IsNullOrEmpty(Tag))
+                    EnableLabel1Event();
+            }
+            else if (Index == 2)
+            {
+                lbl2.Text = Text;
+                lbl2.Tag = Tag;
+                if (!string.IsNullOrEmpty(Tag))
+                    EnableLabel2Event();
+            }
+            else if (Index == 3)
+            {
+                lbl3.Text = Text;
+                lbl3.Tag = Tag;
+                if (!string.IsNullOrEmpty(Tag))
+                    EnableLabel3Event();
+            }
+            else if (Index == 4)
+            {
+                lbl4.Text = Text;
+                lbl4.Tag = Tag;
+                if (!string.IsNullOrEmpty(Tag))
+                    EnableLabel4Event();
+            }
+
+            Index++;
+        }
+
+        private void SetSingleEvent(CEvent _vo)
+        {
+            this.picBox.Image = (_vo.ManualLock) ? Properties.Resources.lock_3 : null;
+            this.picBox.Tag = (_vo.ManualLock) ? "lock" : string.Empty;
+
+            if (!string.IsNullOrEmpty(TimeTableID) && !TimeTableID.Equals(_vo.TimeTableID))
+                this.BackColor = this.unselectedColor;
+            else
+                this.BackColor = SchedulerColor.lvScheduledBackColor;           
+
+            int index = 1;
+
+            if (Option.IsSubject)
+                SetLabelText(ref index,_vo.DisplaySubjectName,string.Empty);
+
+            if (Option.IsSubjectAlias)
+                SetLabelText(ref index, _vo.SubjectAlias, string.Empty);
+
+            if (Option.IsClass)
+                SetLabelText(
+                    ref index,
+                    _vo.DisplayClassName,
+                    !string.IsNullOrEmpty(_vo.ClassID) ? string.Format("Class：{0}", _vo.ClassID) : string.Empty);
+
+            if (Option.IsTeacher)
+                SetLabelText(
+                    ref index,
+                    _vo.DisplayTeacherName,
+                    !string.IsNullOrEmpty(_vo.TeacherID1) ? string.Format("Teacher：{0}", _vo.TeacherID1) : string.Empty);
+
+            if (Option.IsClassroom)
+                SetLabelText(
+                    ref index, 
+                    _vo.DisplayClassroomName,
+                    !string.IsNullOrEmpty(_vo.ClassID) ? string.Format("Class：{0}", _vo.ClassID) : string.Empty);
+        }
+
         /// <summary>
         /// 指定事件
         /// </summary>
@@ -575,54 +648,7 @@ namespace ischedule
                 {
                     CEvent _vo = _events[0];
 
-                    this.picBox.Image = (_vo.ManualLock) ? Properties.Resources.lock_3 : null;
-                    this.picBox.Tag = (_vo.ManualLock) ? "lock" : string.Empty;
-
-                    if (!string.IsNullOrEmpty(TimeTableID) && !TimeTableID.Equals(_vo.TimeTableID))
-                        this.BackColor = this.unselectedColor;
-                    else
-                        this.BackColor = SchedulerColor.lvScheduledBackColor;
-
-                    this.lbl1.Text = (_vo == null ? "" : _vo.DisplaySubjectName);
-                    switch (this._schType)
-                    {
-                        case SchedulerType.Teacher:
-                            this.lbl2.Text = _vo.DisplayClassName;                            
-                            this.lbl2.Tag = !string.IsNullOrEmpty(_vo.ClassID) ? string.Format("Class：{0}", _vo.ClassID):string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.ClassID))
-                                EnableLabel2Event();
-
-                            this.lbl3.Text = _vo.DisplayClassroomName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(_vo.ClassroomID) ? string.Format("Classroom：{0}", _vo.ClassroomID) : string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.ClassroomID))
-                                EnableLabel3Event();
-
-                            break;
-                        case SchedulerType.Class:
-                            this.lbl2.Text = _vo.DisplayTeacherName;
-                            this.lbl2.Tag = !string.IsNullOrEmpty(_vo.TeacherID1) ? string.Format("Teacher：{0}", _vo.TeacherID1) : string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.TeacherID1))
-                                EnableLabel2Event();
-
-                            this.lbl3.Text = _vo.DisplayClassroomName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(_vo.ClassroomID) ? string.Format("Classroom：{0}", _vo.ClassroomID) : string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.ClassroomID))
-                                EnableLabel3Event();
-
-                            break;
-                        case SchedulerType.Classroom:
-                            this.lbl2.Text = _vo.DisplayTeacherName;
-                            this.lbl2.Tag = !string.IsNullOrEmpty(_vo.TeacherID1) ? string.Format("Teacher：{0}", _vo.TeacherID1) : string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.TeacherID1))
-                                EnableLabel2Event();
-
-                            this.lbl3.Text = _vo.DisplayClassName;
-                            this.lbl3.Tag = !string.IsNullOrEmpty(_vo.ClassID) ? string.Format("Class：{0}", _vo.ClassID) : string.Empty;
-                            if (!string.IsNullOrEmpty(_vo.ClassID))
-                                EnableLabel3Event();
-                            
-                            break;
-                    }
+                    SetSingleEvent(_vo);
                 }else 
                     SetMultipleEvents();
             }

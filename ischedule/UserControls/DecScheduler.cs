@@ -71,6 +71,7 @@ namespace ischedule
             this.cells = new Dictionary<string, DevComponents.DotNetBar.PanelEx>();
             this.decPeriods = new Dictionary<string, DecPeriod>();
             this.headerCells = new Dictionary<string, DevComponents.DotNetBar.PanelEx>();
+            SetContextMenu();
 
             #region Scheduler相關事件
             schLocal.AutoScheduleComplete += (sender, e) =>
@@ -149,6 +150,80 @@ namespace ischedule
                     UpdateContent();
             };
             #endregion
+        }
+
+        /// <summary>
+        /// 設定右鍵選單
+        /// </summary>
+        private void SetContextMenu()
+        {
+            ContextMenu Menu = new ContextMenu();
+            this.pnlContainer.ContextMenu = Menu;
+            Menu.Popup += new EventHandler(Menu_Popup);
+        }
+
+        /// <summary>
+        /// 選單開啟時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Menu_Popup(object sender, EventArgs e)
+        {
+            ContextMenu Menu = this.pnlContainer.ContextMenu;
+
+            Menu.MenuItems.Clear();
+
+            MenuItem itemSubject = new MenuItem();
+            itemSubject.Text = "科目";
+            itemSubject.Checked = mOption.IsSubject;
+            itemSubject.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemSubject);
+
+            MenuItem itemSubjectAlias = new MenuItem();
+            itemSubjectAlias.Text = "科目別名";
+            itemSubjectAlias.Checked = mOption.IsSubjectAlias;
+            itemSubjectAlias.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemSubjectAlias);
+
+            MenuItem itemClass = new MenuItem();
+            itemClass.Text = "班級";
+            itemClass.Checked = mOption.IsClass;
+            itemClass.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemClass);
+
+            MenuItem itemTeacher = new MenuItem();
+            itemTeacher.Text = "教師";
+            itemTeacher.Checked = mOption.IsTeacher;
+            itemTeacher.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemTeacher);
+
+            MenuItem itemClassroom = new MenuItem();
+            itemClassroom.Text = "場地";
+            itemClassroom.Checked = mOption.IsClassroom;
+            itemClassroom.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemClassroom);
+        }
+
+        private void ContextItem_Click(object sender, EventArgs e)
+        {
+            MenuItem Item = sender as MenuItem;
+
+            if (Item.Text.EndsWith("科目"))
+                mOption.IsSubject = !mOption.IsSubject;
+
+            if (Item.Text.EndsWith("科目別名"))
+                mOption.IsSubjectAlias = !mOption.IsSubjectAlias;
+
+            if (Item.Text.EndsWith("教師"))
+                mOption.IsTeacher = !mOption.IsTeacher;
+
+            if (Item.Text.EndsWith("班級"))
+                mOption.IsClass = !mOption.IsClass;
+
+            if (Item.Text.EndsWith("場地"))
+                mOption.IsClassroom = !mOption.IsClassroom;
+
+            UpdateContent();
         }
 
         [DllImport("kernel32.dll")]
@@ -865,25 +940,25 @@ namespace ischedule
             switch (AssocType)
             {
                 case lvWho:
-                    mOption.IsWho = false;
-                    mOption.IsWhom = true;
-                    mOption.IsWhere = true;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = false;
+                    mOption.IsClass = true;
+                    mOption.IsClassroom = true;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
                 case lvWhom:
-                    mOption.IsWho = true;
-                    mOption.IsWhom = false;
-                    mOption.IsWhere = true;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = true;
+                    mOption.IsClass = false;
+                    mOption.IsClassroom = true;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
                 case lvWhere:
-                    mOption.IsWho = true;
-                    mOption.IsWhom = true;
-                    mOption.IsWhere = false;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = true;
+                    mOption.IsClass = true;
+                    mOption.IsClassroom = false;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
             }
             #endregion
@@ -1394,7 +1469,7 @@ namespace ischedule
         /// </summary>
         private void UpdateContent()
         {
-            this.SelectedPeriods.ForEach(x => x.InitialContent(this.ttCur.TimeTableID));
+            this.SelectedPeriods.ForEach(x => x.InitialContent(this.ttCur.TimeTableID,mOption));
             this.SelectedPeriods.Clear();
 
             Appointment appTest = null;
@@ -1409,7 +1484,7 @@ namespace ischedule
             Console.WriteLine("" + watch.ElapsedMilliseconds);
 
             foreach (DecPeriod Period in this.decPeriods.Values)
-                Period.InitialContent(ttCur.TimeTableID);
+                Period.InitialContent(ttCur.TimeTableID,mOption);
 
             #region  針對時間表當中的每個時段
             foreach (Period prdMember in ttCur.Periods)

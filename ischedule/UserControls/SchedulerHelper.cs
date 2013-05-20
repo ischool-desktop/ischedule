@@ -238,28 +238,28 @@ namespace ischedule
 
             CEvent eventLocal = schLocal.CEvents[EventID];
 
-            if (Option.IsWhom)
+            if (Option.IsClass)
             {
                 LabelX Label = Period.GetLabel(DefaultIndex);
                 SetAssocUI(Label,Constants.lvWhom, eventLocal.ClassID, LPViewAssocObjType, LPViewAssocID, schLocal.Classes[eventLocal.ClassID].Name);
                 DefaultIndex++;
             }
 
-            if (Option.IsWhat)
+            if (Option.IsSubject)
             {
                 LabelX Label = Period.GetLabel(DefaultIndex);
                 Label.Text = schLocal.Subjects[eventLocal.SubjectID].Name + GetWeekFlagStr(eventLocal.WeekFlag);
                 DefaultIndex++;
             }
 
-            if (Option.IsWhatAlias)
+            if (Option.IsSubjectAlias)
             {
                 LabelX Label = Period.GetLabel(DefaultIndex);
                 Label.Text = eventLocal.SubjectAlias + GetWeekFlagStr(eventLocal.WeekFlag);
                 DefaultIndex++;
             }
 
-            if (Option.IsWho)
+            if (Option.IsTeacher)
             {
                 LabelX Label = Period.GetLabel(DefaultIndex);
                 List<string> WhoNames = new List<string>();
@@ -300,7 +300,7 @@ namespace ischedule
                 DefaultIndex++;
             }
 
-            if (Option.IsWhere)
+            if (Option.IsClassroom)
             {
                 LabelX Label = Period.GetLabel(DefaultIndex);
                 SetAssocUI(Label,Constants.lvWhere, eventLocal.ClassroomID, LPViewAssocObjType, LPViewAssocID, schLocal.Classrooms[eventLocal.ClassroomID].Name);
@@ -340,7 +340,7 @@ namespace ischedule
 
             CEvent eventLocal = schLocal.CEvents[EventID];
 
-            if (Option.IsWhom)
+            if (Option.IsClass)
             {
                 //Label lbl = GetAssocUI(Constants.lvWhom, eventLocal.WhomID, LPViewAssocObjType, LPViewAssocID, schLocal.Whoms[eventLocal.WhomID].Name);
                 //sPanel.Children.Add(lbl);
@@ -350,7 +350,7 @@ namespace ischedule
                 //vLeft += eventLocal.WhomID.Length * vDelta;
             }
 
-            if (Option.IsWhat)
+            if (Option.IsSubject)
             {
                 Label lbl = new Label();
                 lbl.Text = schLocal.Subjects[eventLocal.SubjectID].Name + GetWeekFlagStr(eventLocal.WeekFlag);
@@ -361,7 +361,7 @@ namespace ischedule
                 //vLeft += (schLocal.Whats[eventLocal.WhatID].Name + GetWeekFlagStr(eventLocal.WeekFlag)).Length * vDelta;
             }
 
-            if (Option.IsWhatAlias)
+            if (Option.IsSubjectAlias)
             {
                 Label lbl = new Label();
                 lbl.Text = eventLocal.SubjectAlias + GetWeekFlagStr(eventLocal.WeekFlag);
@@ -372,7 +372,7 @@ namespace ischedule
                 //vLeft += (eventLocal.WhatAlias + GetWeekFlagStr(eventLocal.WeekFlag)).Length * vDelta;
             }
 
-            if (Option.IsWho)
+            if (Option.IsTeacher)
             {
                 List<string> WhoNames = new List<string>();
 
@@ -410,7 +410,7 @@ namespace ischedule
                 }
             }
 
-            if (Option.IsWhere)
+            if (Option.IsClassroom)
             {
                 //Label lbl = GetAssocUI(Constants.lvWhere, eventLocal.WhereID, LPViewAssocObjType, LPViewAssocID, schLocal.Wheres[eventLocal.WhereID].Name);
                 //sPanel.Children.Add(lbl);

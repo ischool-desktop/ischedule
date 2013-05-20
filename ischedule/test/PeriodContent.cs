@@ -56,16 +56,16 @@ namespace ischedule
 
             CEvent eventLocal = schLocal.CEvents[EventID];
 
-            if (Option.IsWhom)
+            if (Option.IsClass)
                 LabelContents.Add(GetAssocUI(Constants.lvWhom, eventLocal.ClassID, LPViewAssocObjType, LPViewAssocID, schLocal.Classes[eventLocal.ClassID].Name));
 
-            if (Option.IsWhat)
+            if (Option.IsSubject)
                 LabelContents.Add(new LabelContent(schLocal.Subjects[eventLocal.SubjectID].Name + eventLocal.WeekFlag.GetWeekFlagStr(),string.Empty));
 
-            if (Option.IsWhatAlias)
+            if (Option.IsSubjectAlias)
                 LabelContents.Add(new LabelContent(eventLocal.SubjectAlias + eventLocal.WeekFlag.GetWeekFlagStr(), string.Empty));
 
-            if (Option.IsWho)
+            if (Option.IsTeacher)
             {
                 List<string> WhoNames = new List<string>();
                 if (!string.IsNullOrEmpty(eventLocal.TeacherID1))
@@ -86,7 +86,7 @@ namespace ischedule
                 }
             }
 
-            if (Option.IsWhere)
+            if (Option.IsClassroom)
             {
                 LabelContent lblContent = GetAssocUI(Constants.lvWhere, eventLocal.ClassroomID, LPViewAssocObjType, LPViewAssocID, schLocal.Classrooms[eventLocal.ClassroomID].Name);
                 LabelContents.Add(lblContent);

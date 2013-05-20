@@ -13,15 +13,15 @@ namespace ischedule
 
         public byte WeekFlag { get; set; }
 
-        public bool IsWho { get; set; }
+        public bool IsTeacher { get; set; }
 
-        public bool IsWhere { get; set; }
+        public bool IsClassroom { get; set; }
 
-        public bool IsWhom { get; set; }
+        public bool IsClass { get; set; }
 
-        public bool IsWhat { get; set; }
+        public bool IsSubject { get; set; }
 
-        public bool IsWhatAlias { get; set; }
+        public bool IsSubjectAlias { get; set; }
 
         public bool IsTimeTable { get; set; }
 
@@ -30,11 +30,11 @@ namespace ischedule
             TimeTableID = string.Empty;
             CapacityIndex = 0;
             WeekFlag = 1;
-            IsWho = false;
-            IsWhere = false;
-            IsWhom = false;
-            IsWhat = false;
-            IsWhatAlias = false;
+            IsTeacher = false;
+            IsClassroom = false;
+            IsClass = false;
+            IsSubject = false;
+            IsSubjectAlias = false;
             IsTimeTable = false;
         }
     }

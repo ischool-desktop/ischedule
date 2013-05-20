@@ -279,25 +279,25 @@ namespace ischedule
             switch (AssocType)
             {
                 case lvWho:
-                    mOption.IsWho = false;
-                    mOption.IsWhom = true;
-                    mOption.IsWhere = true;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = false;
+                    mOption.IsClass = true;
+                    mOption.IsClassroom = true;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
                 case lvWhom:
-                    mOption.IsWho = true;
-                    mOption.IsWhom = false;
-                    mOption.IsWhere = true;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = true;
+                    mOption.IsClass = false;
+                    mOption.IsClassroom = true;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
                 case lvWhere:
-                    mOption.IsWho = true;
-                    mOption.IsWhom = true;
-                    mOption.IsWhere = false;
-                    mOption.IsWhat = true;
-                    mOption.IsWhatAlias = false;
+                    mOption.IsTeacher = true;
+                    mOption.IsClass = true;
+                    mOption.IsClassroom = false;
+                    mOption.IsSubject = true;
+                    mOption.IsSubjectAlias = false;
                     break;
             }
             #endregion

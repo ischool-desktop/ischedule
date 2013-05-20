@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkName = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkTotalHour = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkUnAlloc = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkWhat = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -45,7 +46,6 @@
             this.node1 = new DevComponents.AdvTree.Node();
             this.nodeConnector1 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
-            this.chkName = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +90,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 120);
             this.panel2.TabIndex = 3;
+            // 
+            // chkName
+            // 
+            // 
+            // 
+            // 
+            this.chkName.BackgroundStyle.Class = "";
+            this.chkName.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkName.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
+            this.chkName.Checked = true;
+            this.chkName.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkName.CheckValue = "Y";
+            this.chkName.Location = new System.Drawing.Point(11, 25);
+            this.chkName.Name = "chkName";
+            this.chkName.Size = new System.Drawing.Size(100, 23);
+            this.chkName.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkName.TabIndex = 5;
+            this.chkName.Text = "按照姓名";
             // 
             // chkTotalHour
             // 
@@ -184,6 +202,8 @@
             this.treeWho.Text = "advTree1";
             this.treeWho.NodeMouseDown += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeMouseDown);
             this.treeWho.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeClick);
+            this.treeWho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeWho_KeyDown);
+            this.treeWho.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.treeWho_PreviewKeyDown);
             // 
             // contextMenuStrip1
             // 
@@ -229,25 +249,7 @@
             this.elementStyle1.Name = "elementStyle1";
             this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
             // 
-            // chkName
-            // 
-            // 
-            // 
-            // 
-            this.chkName.BackgroundStyle.Class = "";
-            this.chkName.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkName.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
-            this.chkName.Checked = true;
-            this.chkName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkName.CheckValue = "Y";
-            this.chkName.Location = new System.Drawing.Point(11, 25);
-            this.chkName.Name = "chkName";
-            this.chkName.Size = new System.Drawing.Size(100, 23);
-            this.chkName.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkName.TabIndex = 5;
-            this.chkName.Text = "按照姓名";
-            // 
-            // usrWhoList
+            // usrTeacherList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -255,7 +257,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "usrWhoList";
+            this.Name = "usrTeacherList";
             this.Size = new System.Drawing.Size(200, 500);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

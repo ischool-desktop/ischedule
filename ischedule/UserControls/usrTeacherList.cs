@@ -537,5 +537,21 @@ namespace ischedule
             }
         }
         #endregion
+
+        private void treeWho_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            //Node vSelectedNode = treeWho.SelectedNode;
+
+            //MessageBox.Show(vSelectedNode.Text);
+
+            
+        }
+
+        private void treeWho_KeyDown(object sender, KeyEventArgs e)
+        {
+            Node vSelectedNode = treeWho.SelectedNode;
+
+            MessageBox.Show(vSelectedNode.Text);
+        }
     }
 }

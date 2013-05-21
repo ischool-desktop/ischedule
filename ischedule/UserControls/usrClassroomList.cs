@@ -485,11 +485,11 @@ namespace ischedule
         }
 
         /// <summary>
-        /// 點下節點
+        /// 選取節點
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void treeWho_NodeClick(object sender, TreeNodeMouseEventArgs e)
+        private void nodeTree_AfterNodeSelect(object sender, AdvTreeNodeEventArgs e)
         {
             string AssocID = e.Node.TagString;
 

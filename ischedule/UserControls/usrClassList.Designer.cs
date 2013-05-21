@@ -91,8 +91,8 @@
             this.nodeTree.Styles.Add(this.elementStyle1);
             this.nodeTree.TabIndex = 0;
             this.nodeTree.Text = "advTree1";
+            this.nodeTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.nodeTree_AfterNodeSelect);
             this.nodeTree.NodeMouseDown += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeMouseDown);
-            this.nodeTree.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeClick);
             // 
             // node1
             // 

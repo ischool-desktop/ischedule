@@ -100,8 +100,8 @@
             this.nodeTree.Styles.Add(this.elementStyle1);
             this.nodeTree.TabIndex = 0;
             this.nodeTree.Text = "advTree1";
+            this.nodeTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.nodeTree_AfterNodeSelect);
             this.nodeTree.NodeMouseDown += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeMouseDown);
-            this.nodeTree.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeClick);
             // 
             // node1
             // 
@@ -245,7 +245,7 @@
             this.menuCollapse.Size = new System.Drawing.Size(130, 22);
             this.menuCollapse.Text = "收合";
             // 
-            // usrWhereList
+            // usrClassroomList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,7 +253,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "usrWhereList";
+            this.Name = "usrClassroomList";
             this.Size = new System.Drawing.Size(200, 500);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nodeTree)).EndInit();

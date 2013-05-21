@@ -200,10 +200,8 @@
             this.treeWho.Styles.Add(this.elementStyle1);
             this.treeWho.TabIndex = 0;
             this.treeWho.Text = "advTree1";
+            this.treeWho.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.treeWho_AfterNodeSelect);
             this.treeWho.NodeMouseDown += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeMouseDown);
-            this.treeWho.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeClick);
-            this.treeWho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeWho_KeyDown);
-            this.treeWho.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.treeWho_PreviewKeyDown);
             // 
             // contextMenuStrip1
             // 

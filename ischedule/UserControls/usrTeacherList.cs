@@ -508,11 +508,11 @@ namespace ischedule
         }
 
         /// <summary>
-        /// 點下節點
+        /// 節點被選取
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void treeWho_NodeClick(object sender, TreeNodeMouseEventArgs e)
+        private void treeWho_AfterNodeSelect(object sender, AdvTreeNodeEventArgs e)
         {
             string AssocID = e.Node.TagString;
 
@@ -537,21 +537,5 @@ namespace ischedule
             }
         }
         #endregion
-
-        private void treeWho_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            //Node vSelectedNode = treeWho.SelectedNode;
-
-            //MessageBox.Show(vSelectedNode.Text);
-
-            
-        }
-
-        private void treeWho_KeyDown(object sender, KeyEventArgs e)
-        {
-            Node vSelectedNode = treeWho.SelectedNode;
-
-            MessageBox.Show(vSelectedNode.Text);
-        }
     }
 }

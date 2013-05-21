@@ -972,5 +972,20 @@ namespace ischedule
             return LPView;
         }
         #endregion
+
+        /// <summary>
+        /// 教師不排課時段
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTeacherBusy_Click(object sender, EventArgs e)
+        {
+            TeacherEditor vTeacherEditor = new TeacherEditor();
+            TeacherPackageDataAccess vTeacherDataAccess = new TeacherPackageDataAccess();
+            winConfiguration<TeacherPackage> configTeacher = new winConfiguration<TeacherPackage>(vTeacherDataAccess, vTeacherEditor);
+
+            vTeacherEditor.Prepare();
+            configTeacher.ShowDialog();
+        }
     }
 }

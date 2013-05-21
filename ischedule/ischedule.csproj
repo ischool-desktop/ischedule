@@ -116,6 +116,48 @@
     <Compile Include="test\TeacherWrapper.cs" />
     <Compile Include="UserControls\DecPeriod.cs" />
     <Compile Include="UserControls\DecScheduler.cs" />
+    <Compile Include="Windows\Period.cs" />
+    <Compile Include="Windows\TeacherEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\TeacherEditor.designer.cs">
+      <DependentUpon>TeacherEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TeacherPackage.cs" />
+    <Compile Include="Windows\TeacherPackageDataAccess.cs" />
+    <Compile Include="Windows\Template\CampusConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Template\CampusConfiguration.designer.cs">
+      <DependentUpon>CampusConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Template\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Template\ConfigurationForm.designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Template\ConfigurationItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Template\ConfigurationItem.designer.cs">
+      <DependentUpon>ConfigurationItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Template\IConfigurationItem.cs" />
+    <Compile Include="Windows\Template\Interface\ICommand.cs" />
+    <Compile Include="Windows\Template\Interface\IConfigurationDataAccess.cs" />
+    <Compile Include="Windows\Template\Interface\IContentEditor.cs" />
+    <Compile Include="Windows\Template\Interface\IContentViewer.cs" />
+    <Compile Include="Windows\Template\NameCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Template\NameCreatorForm.designer.cs">
+      <DependentUpon>NameCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Template\winConfiguration.cs" />
+    <Compile Include="Windows\TimeTableBusyEditor.cs" />
+    <Compile Include="Windows\TimeTableSec.cs" />
+    <Compile Include="Windows\Utility.cs" />
     <Compile Include="沒用到的\CEventTransfer.cs" />
     <Compile Include="沒用到的\DecLPView.cs" />
     <Compile Include="沒用到的\DecPeriod.cs" />
@@ -291,6 +333,21 @@
     <EmbeddedResource Include="test\frmTestScheduler.resx">
       <DependentUpon>frmTestScheduler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\TeacherEditor.resx">
+      <DependentUpon>TeacherEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Template\CampusConfiguration.resx">
+      <DependentUpon>CampusConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Template\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Template\ConfigurationItem.resx">
+      <DependentUpon>ConfigurationItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Template\NameCreatorForm.resx">
+      <DependentUpon>NameCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="沒用到的\usrLPView.resx">
       <DependentUpon>usrLPView.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,6 +519,7 @@
     <None Include="Resources\列印.png" />
     <None Include="Resources\代課查詢.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

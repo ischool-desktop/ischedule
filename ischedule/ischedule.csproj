@@ -449,6 +449,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ischedule_logo.ico" />
+    <None Include="Resources\biology_remove_128.png" />
     <None Include="Resources\ImageClock.png" />
     <None Include="Resources\刪除.png" />
     <None Include="Resources\不排課時段.png" />

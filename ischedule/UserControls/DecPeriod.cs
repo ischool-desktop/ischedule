@@ -146,61 +146,38 @@ namespace ischedule
             }
         }
 
-        private void EnableLabel1Event()
-        {
-            this.lbl1.MouseEnter += new EventHandler(lbl_MouseEnter);
-            this.lbl1.MouseLeave += new EventHandler(lbl_MouseLeave);
-            this.lbl1.Click += new EventHandler(_label_Click);
-        }
-
-        private void EnableLabel2Event()
-        {
-            this.lbl2.MouseEnter += new EventHandler(lbl_MouseEnter);
-            this.lbl2.MouseLeave += new EventHandler(lbl_MouseLeave);
-            this.lbl2.Click += new EventHandler(_label_Click);
-        }
-
-        private void EnableLabel3Event()
-        {
-            this.lbl3.MouseEnter += new EventHandler(lbl_MouseEnter);
-            this.lbl3.MouseLeave += new EventHandler(lbl_MouseLeave);
-            this.lbl3.Click += new EventHandler(_label_Click);
-        }
-
-        private void EnableLabel4Event()
-        {
-            this.lbl4.MouseEnter += new EventHandler(lbl_MouseEnter);
-            this.lbl4.MouseLeave += new EventHandler(lbl_MouseLeave);
-            this.lbl4.Click += new EventHandler(_label_Click);
-        }
-
         /// <summary>
         /// 根據時間表編號初始化內容
         /// </summary>
         /// <param name="TimeTableID"></param>
         public void InitialContent(string TimeTableID,LPViewOption Option)
         {
+            this.isBindEvent = false;
             this.Option = Option;
             this.TimeTableID = TimeTableID;
             this.lbl1.Text = string.Empty;
+            this.lbl1.Tag = string.Empty;
             this.lbl1.Visible = true;
             this.lbl1.MouseEnter -= new EventHandler(lbl_MouseEnter);
             this.lbl1.MouseLeave -= new EventHandler(lbl_MouseLeave);
             this.lbl1.Click -= new EventHandler(_label_Click);
 
             this.lbl2.Text = string.Empty;
+            this.lbl2.Tag = string.Empty;
             this.lbl2.Visible = true;
             this.lbl2.MouseEnter -= new EventHandler(lbl_MouseEnter);
             this.lbl2.MouseLeave -= new EventHandler(lbl_MouseLeave);
             this.lbl2.Click -= new EventHandler(_label_Click);
 
             this.lbl3.Text = string.Empty;
+            this.lbl3.Tag = string.Empty;
             this.lbl3.Visible = true;
             this.lbl3.MouseEnter -= new EventHandler(lbl_MouseEnter);
             this.lbl3.MouseLeave -= new EventHandler(lbl_MouseLeave);
             this.lbl3.Click -= new EventHandler(_label_Click);
 
             this.lbl4.Text = string.Empty;
+            this.lbl4.Tag = string.Empty;
             this.lbl4.Visible = true;
             this.lbl4.MouseEnter -= new EventHandler(lbl_MouseEnter);
             this.lbl4.MouseLeave -= new EventHandler(lbl_MouseLeave);
@@ -247,23 +224,36 @@ namespace ischedule
         void _pnl_MouseEnter(object sender, EventArgs e)
         {            
             this.MouseEnterHandler(sender, e);
+
             if (!this.isBindEvent)
-            {                
-                //this.lbl1.MouseEnter += new EventHandler(lbl_MouseEnter);
-                //this.lbl1.MouseLeave += new EventHandler(lbl_MouseLeave);
-                //this.lbl1.Click += new EventHandler(_label_Click);
+            {
+                if (!string.IsNullOrEmpty("" + this.lbl1.Tag))
+                {
+                    this.lbl1.MouseEnter += new EventHandler(lbl_MouseEnter);
+                    this.lbl1.MouseLeave += new EventHandler(lbl_MouseLeave);
+                    this.lbl1.Click += new EventHandler(_label_Click);
+                }
 
-                //this.lbl2.MouseEnter += new EventHandler(lbl_MouseEnter);
-                //this.lbl2.MouseLeave += new EventHandler(lbl_MouseLeave);
-                //this.lbl2.Click += new EventHandler(_label_Click);
+                if (!string.IsNullOrEmpty("" + this.lbl2.Tag))
+                {
+                    this.lbl2.MouseEnter += new EventHandler(lbl_MouseEnter);
+                    this.lbl2.MouseLeave += new EventHandler(lbl_MouseLeave);
+                    this.lbl2.Click += new EventHandler(_label_Click);
+                }
 
-                //this.lbl3.MouseEnter += new EventHandler(lbl_MouseEnter);
-                //this.lbl3.MouseLeave += new EventHandler(lbl_MouseLeave);
-                //this.lbl3.Click += new EventHandler(_label_Click);
+                if (!string.IsNullOrEmpty("" + this.lbl3.Tag))
+                {
+                    this.lbl3.MouseEnter += new EventHandler(lbl_MouseEnter);
+                    this.lbl3.MouseLeave += new EventHandler(lbl_MouseLeave);
+                    this.lbl3.Click += new EventHandler(_label_Click);
+                }
 
-                //this.lbl4.MouseEnter += new EventHandler(lbl_MouseEnter);
-                //this.lbl4.MouseLeave += new EventHandler(lbl_MouseLeave);
-                //this.lbl4.Click += new EventHandler(_label_Click);
+                if (!string.IsNullOrEmpty("" + this.lbl4.Tag))
+                {
+                    this.lbl4.MouseEnter += new EventHandler(lbl_MouseEnter);
+                    this.lbl4.MouseLeave += new EventHandler(lbl_MouseLeave);
+                    this.lbl4.Click += new EventHandler(_label_Click);
+                }
 
                 this._pnl.Click += new EventHandler(_pnl_Click);
                 this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
@@ -409,16 +399,12 @@ namespace ischedule
 
                             this.lbl2.Text = eventS.DisplayClassName;        
                             this.lbl2.Tag = !string.IsNullOrEmpty(eventS.ClassID) ? string.Format("Class：{0}", eventS.ClassID) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventS.ClassID))
-                                EnableLabel2Event();
 
                             this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
                             this.lbl3.Tag = string.Empty;
 
                             this.lbl4.Text = eventD.DisplayClassName;
                             this.lbl4.Tag = !string.IsNullOrEmpty(eventD.ClassID) ? string.Format("Class：{0}", eventD.ClassID) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventD.ClassID))
-                                EnableLabel4Event();
 
                             break;
                         case SchedulerType.Class:
@@ -427,16 +413,12 @@ namespace ischedule
 
                             this.lbl2.Text = eventS.DisplayTeacherName;
                             this.lbl2.Tag = !string.IsNullOrEmpty(eventS.TeacherID1) ? string.Format("Teacher：{0}", eventS.TeacherID1) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventS.TeacherID1))
-                                EnableLabel2Event();
 
                             this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
                             this.lbl3.Tag = string.Empty;
 
                             this.lbl4.Text = eventD.DisplayTeacherName;
                             this.lbl4.Tag = !string.IsNullOrEmpty(eventD.TeacherID1) ? string.Format("Teacher：{0}", eventD.TeacherID1) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventD.TeacherID1))
-                                EnableLabel4Event();
 
                             break;
                         case SchedulerType.Classroom:
@@ -445,16 +427,12 @@ namespace ischedule
 
                             this.lbl2.Text = eventS.DisplayClassName;
                             this.lbl2.Tag = !string.IsNullOrEmpty(eventS.ClassID) ? string.Format("Class：{0}", eventS.ClassID) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventS.ClassID))
-                                EnableLabel2Event();
 
                             this.lbl3.Text = eventD.DisplaySubjectName + eventD.WeekFlag.GetWeekFlagStr();
                             this.lbl3.Tag = string.Empty;
 
                             this.lbl4.Text = eventD.DisplayClassName;
                             this.lbl4.Tag = !string.IsNullOrEmpty(eventD.ClassID) ? string.Format("Class：{0}", eventD.ClassID) : string.Empty;
-                            if (!string.IsNullOrEmpty(eventD.ClassID))
-                                EnableLabel4Event();
 
                             break;
                     }
@@ -489,8 +467,6 @@ namespace ischedule
 
                     this.lbl2.Text = eventWhere.DisplayClassName;
                     this.lbl2.Tag = !string.IsNullOrEmpty(eventWhere.ClassID) ? string.Format("Class：{0}", eventWhere.ClassID) : string.Empty;
-                    if (!string.IsNullOrEmpty(eventWhere.ClassID))
-                        EnableLabel2Event();
 
                     this.lbl3.Text = "共有" + this._events.Count + "門分課";
                     this.lbl3.Tag = string.Empty;
@@ -518,13 +494,9 @@ namespace ischedule
                     case SchedulerType.Teacher:
                         this.lbl2.Text = eventLocal.DisplayClassName;
                         this.lbl2.Tag = !string.IsNullOrEmpty(eventLocal.ClassID) ? string.Format("Class：{0}", eventLocal.ClassID) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.ClassID))
-                            EnableLabel2Event();
 
                         this.lbl3.Text = eventLocal.DisplayClassroomName;
                         this.lbl3.Tag = !string.IsNullOrEmpty(eventLocal.ClassroomID) ? string.Format("Classroom：{0}", eventLocal.ClassroomID) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.ClassroomID))
-                            EnableLabel3Event();
 
                         this.lbl4.Text = "多門分課...";
                         this.lbl4.Tag = this._events;
@@ -533,13 +505,9 @@ namespace ischedule
                     case SchedulerType.Class:
                         this.lbl2.Text = eventLocal.DisplayTeacherName;
                         this.lbl2.Tag = !string.IsNullOrEmpty(eventLocal.TeacherID1) ? string.Format("Teacher：{0}", eventLocal.TeacherID1) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.TeacherID1))
-                            EnableLabel2Event();
 
                         this.lbl3.Text = eventLocal.DisplayClassroomName;
                         this.lbl3.Tag = !string.IsNullOrEmpty(eventLocal.ClassroomID) ? string.Format("Classroom：{0}", eventLocal.ClassroomID) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.ClassroomID))
-                            EnableLabel3Event();
 
                         this.lbl4.Text = "多門分課...";
                         this.lbl4.Tag = this._events;
@@ -548,13 +516,9 @@ namespace ischedule
                     case SchedulerType.Classroom:
                         this.lbl2.Text = eventLocal.DisplayTeacherName;
                         this.lbl2.Tag = !string.IsNullOrEmpty(eventLocal.TeacherID1) ? string.Format("Teacher：{0}", eventLocal.TeacherID1) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.TeacherID1))
-                            EnableLabel2Event();
 
                         this.lbl3.Text = eventLocal.DisplayClassName;
                         this.lbl3.Tag = !string.IsNullOrEmpty(eventLocal.ClassID) ? string.Format("Class：{0}", eventLocal.ClassID) : string.Empty;
-                        if (!string.IsNullOrEmpty(eventLocal.ClassID))
-                            EnableLabel3Event();
 
                         this.lbl4.Text = "多門分課...";
                         this.lbl4.Tag = this._events;
@@ -570,29 +534,21 @@ namespace ischedule
             {
                 lbl1.Text = Text;
                 lbl1.Tag = Tag;
-                if (!string.IsNullOrEmpty(Tag))
-                    EnableLabel1Event();
             }
             else if (Index == 2)
             {
                 lbl2.Text = Text;
                 lbl2.Tag = Tag;
-                if (!string.IsNullOrEmpty(Tag))
-                    EnableLabel2Event();
             }
             else if (Index == 3)
             {
                 lbl3.Text = Text;
                 lbl3.Tag = Tag;
-                if (!string.IsNullOrEmpty(Tag))
-                    EnableLabel3Event();
             }
             else if (Index == 4)
             {
                 lbl4.Text = Text;
                 lbl4.Tag = Tag;
-                if (!string.IsNullOrEmpty(Tag))
-                    EnableLabel4Event();
             }
 
             Index++;
@@ -632,7 +588,7 @@ namespace ischedule
                 SetLabelText(
                     ref index, 
                     _vo.DisplayClassroomName,
-                    !string.IsNullOrEmpty(_vo.ClassID) ? string.Format("Class：{0}", _vo.ClassID) : string.Empty);
+                    !string.IsNullOrEmpty(_vo.ClassroomID) ? string.Format("Classroom：{0}", _vo.ClassroomID) : string.Empty);
         }
 
         /// <summary>

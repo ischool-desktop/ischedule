@@ -514,6 +514,9 @@ namespace ischedule
         /// <param name="e"></param>
         private void treeWho_AfterNodeSelect(object sender, AdvTreeNodeEventArgs e)
         {
+            if (e.Node == null)
+                return;
+
             string AssocID = e.Node.TagString;
 
             if (!string.IsNullOrEmpty(AssocID))

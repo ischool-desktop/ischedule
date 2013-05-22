@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sunset.Data;
-using System.Linq;
 
 namespace ischedule
 {
@@ -244,28 +243,11 @@ namespace ischedule
         /// <returns>成功或失敗的訊息</returns>
         public TeacherPackage Select(string Key)
         {
-            //Tuple<string, string> KeyDetail = GetTeacherDetailName(Key);            
-
             #region 產生預設的TeacherPackage，將Teacher為null，並將TeacherBusys產生為空集合
             TeacherPackage vTeacherPackage = new TeacherPackage();
             vTeacherPackage.Teacher = schLocal.Teachers[Key];
             vTeacherPackage.TeacherBusys = vTeacherPackage.Teacher.GetBusyAppointments();
             #endregion
-
-            //#region 根據鍵值取得時間表
-            //List<TeacherEx> vTeachers = mAccessHelper
-            //    .Select<TeacherEx>("teacher_name='" + KeyDetail.Item1 + "' and " + GetNicknameCondition(KeyDetail.Item2));
-
-            ////若有教師，則設定教師，並再取得教師不排課時段
-            //if (vTeachers.Count == 1)
-            //{
-            //    TeacherEx vTeacher = vTeachers[0];
-            //    vTeacherPackage.Teacher = vTeacher;
-            //    List<TeacherExBusy> vTeacherBusys = mAccessHelper
-            //        .Select<TeacherExBusy>("ref_teacher_id=" + vTeacher.UID);
-            //    vTeacherPackage.TeacherBusys = vTeacherBusys;
-            //}
-            //#endregion
 
             return vTeacherPackage;
         }
@@ -277,18 +259,9 @@ namespace ischedule
         /// <returns>成功或失敗的訊息</returns>
         public string Save(TeacherPackage Value)
         {
-            string a = string.Empty;
+            Value.Teacher.UpdateBusyAppointments(Value.TeacherBusys);
 
             //StringBuilder strBuilder = new StringBuilder();
-
-            ////若Teacher不為null，且TeacherBusys不為空集合
-            //if (Value.Teacher != null)
-            //{
-            //    List<TeacherEx> vClassrooms = new List<TeacherEx>();
-            //    vClassrooms.Add(Value.Teacher);
-            //    mAccessHelper.UpdateValues(vClassrooms);
-            //    strBuilder.AppendLine("已成功更新教師『" + Value.Teacher.FullTeacherName + "』");
-            //}
 
             //#region 將現有教師不排課時段刪除
             //List<TeacherExBusy> Busys = mAccessHelper

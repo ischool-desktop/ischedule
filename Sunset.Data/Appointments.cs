@@ -62,9 +62,9 @@ namespace Sunset.Data
         /// 依照集合中的順序（Index）移除約會 
         /// </summary>
         /// <param name="Index">索引</param>
-        public void Remove(int Index)
+        public void Remove(Appointment App)
         {
-            mAppointments.RemoveAt(Index);
+            mAppointments.Remove(App);
         }
 
         /// <summary>

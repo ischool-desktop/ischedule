@@ -46,6 +46,19 @@ namespace ischedule
 
     public static class PeriodConverter
     {
+        public static Appointment ToAppointment(this SchPeriod vPeriod)
+        {
+            DateTime vDateTime = new DateTime(1900, 1, 1, vPeriod.Hour, vPeriod.Minute, 0);
+
+            Appointment vAppointment = new Appointment(
+                vPeriod.Weekday,
+                vDateTime,
+                vPeriod.Duration,
+                3, string.Empty, string.Empty, string.Empty, vPeriod.Desc);
+
+            return vAppointment;
+        }
+
         public static TimeTableSec ToTimeTableSec(this Period vPeriod)
         {
             TimeTableSec Sec = new TimeTableSec();
@@ -68,6 +81,7 @@ namespace ischedule
             Period.Duration = vApp.Duration;
             Period.Position = 0;
             Period.WeekFlag = 3;
+            Period.Desc = vApp.Description;
 
             return Period;
         }
@@ -79,6 +93,7 @@ namespace ischedule
             Period.Hour = vTimeTableSec.BeginTime.Hour;
             Period.Minute = vTimeTableSec.BeginTime.Minute;
             Period.Duration = vTimeTableSec.Duration;
+            Period.Desc = vTimeTableSec.DisableMessage;
             Period.Position = 0;
             Period.WeekFlag = 3;
 

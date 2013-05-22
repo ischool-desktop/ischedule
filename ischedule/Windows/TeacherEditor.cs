@@ -232,70 +232,14 @@ namespace ischedule
         {
             get
             {
-                #region 取得教師設定值
-
-                #endregion
-
                 mPeriods = mTimeTableBusyEditor.GetPeriods();
 
-                //List<TeacherExBusy> TeacherBusys = new List<TeacherExBusy>();
+                List<Appointment> TeacherBusys = new List<Appointment>();
 
-                //foreach (Period Period in mPeriods)
-                //{
-                //    int ID = K12.Data.Int.Parse(mTeacherPackage.Teacher.UID);
-                //    TeacherBusys.Add(Period.ToTeacherExBusy(ID));
-                //}
+                foreach (SchPeriod Period in mPeriods)
+                    TeacherBusys.Add(Period.ToAppointment());
 
-                //mTeacherPackage.TeacherBusys = TeacherBusys;
-
-                /*
-
-                #region 從UI上取得場地忙碌時段
-
-                foreach (DataGridViewRow row in grdTeacherBusys.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    if (row.Tag != null)
-                    {
-                        TeacherExBusy UpdateTeacherBusy = row.Tag as TeacherExBusy;
-                        UpdateTeacherBusy.TeacherID = K12.Data.Int.Parse(mTeacherPackage.Teacher.UID); 
-                        UpdateTeacherBusy.WeekDay = K12.Data.Int.Parse("" + row.Cells[iWeekDay].Value);   //取得星期
-
-                        #region 將畫面上的開始時間及結束時間，解析為開始時間及持續分鐘
-                        string strStartTime = "" + row.Cells[iStartTime].Value;                           //取得開始時間
-                        string strEndTime = "" + row.Cells[iEndTime].Value;                               //取得結束時間
-
-                        Tuple<DateTime, int> StorageTime = Utility.GetStorageTime(strStartTime, strEndTime);
-
-                        UpdateTeacherBusy.BeginTime = StorageTime.Item1;
-                        UpdateTeacherBusy.Duration = StorageTime.Item2;                                   //取得持續時間
-                        #endregion
-
-                        UpdateTeacherBusy.BusyDesc = "" + row.Cells[iBusyDesc].Value;                     //取得不排課描述                        
-                    }
-                    else
-                    {
-                        TeacherExBusy InsertTeacherBusy = new TeacherExBusy();
-                        InsertTeacherBusy.WeekDay = K12.Data.Int.Parse("" + row.Cells[iWeekDay].Value);   //取得星期
-                        InsertTeacherBusy.TeacherID = K12.Data.Int.Parse(mTeacherPackage.Teacher.UID); 
-                        #region 將畫面上的開始時間及結束時間，解析為開始時間及持續分鐘
-                        string strStartTime = "" + row.Cells[iStartTime].Value;                           //取得開始時間
-                        string strEndTime = "" + row.Cells[iEndTime].Value;                               //取得結束時間
-
-                        Tuple<DateTime, int> StorageTime = Utility.GetStorageTime(strStartTime, strEndTime);
-
-                        InsertTeacherBusy.BeginTime = StorageTime.Item1;
-                        InsertTeacherBusy.Duration = StorageTime.Item2;                                   //取得持續時間
-                        #endregion
-
-                        InsertTeacherBusy.BusyDesc = "" + row.Cells[iBusyDesc].Value;                     //取得忙碌描述
-
-                        mTeacherPackage.TeacherBusys.Add(InsertTeacherBusy);                          //加入場地不排課時段
-                    }
-                }
-                #endregion
-                */
+                mTeacherPackage.TeacherBusys = TeacherBusys;
 
                 grdTeacherBusys.Rows.Clear();
 

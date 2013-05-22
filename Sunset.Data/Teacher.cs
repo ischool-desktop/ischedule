@@ -175,6 +175,30 @@ namespace Sunset.Data
         }
 
         /// <summary>
+        /// 更新不排課時段
+        /// </summary>
+        public void UpdateBusyAppointments(List<Appointment> Apps)
+        {
+            List<Appointment> RemoveApps = new List<Appointment>();
+
+            if (this.mAppointmentsList[0] != null)
+            {
+                //Step1：將不排課時段移除
+                for(int i=0;i<this.mAppointmentsList[0].Count;i++)
+                {
+                    if (string.IsNullOrEmpty(this.mAppointmentsList[0][i].EventID))
+                        RemoveApps.Add(this.mAppointmentsList[0][i]);
+                }
+
+                RemoveApps.ForEach(x => this.mAppointmentsList[0].Remove(x));
+
+                //Step2：新增不排課時段
+                foreach (Appointment App in Apps)
+                    this.mAppointmentsList[0].Add(App);
+            }
+        }
+
+        /// <summary>
         /// 重新整理教師不排課時段。
         /// 當使用者調整教師的不排課時段時，建議呼叫此方法以重新整理記憶體中的資料。
         /// </summary>

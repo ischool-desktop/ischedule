@@ -120,7 +120,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedTabFont = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tabControl1.SelectedTabFont = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.tabControl1.SelectedTabIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(530, 400);
             this.tabControl1.TabIndex = 0;
@@ -158,7 +158,7 @@
             this.grdTimeTableBusyEditor.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -168,7 +168,7 @@
             this.grdTimeTableBusyEditor.ContextMenuStrip = this.contextMenuBusy;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -176,7 +176,7 @@
             this.grdTimeTableBusyEditor.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdTimeTableBusyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTimeTableBusyEditor.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.grdTimeTableBusyEditor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grdTimeTableBusyEditor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdTimeTableBusyEditor.Location = new System.Drawing.Point(1, 35);
             this.grdTimeTableBusyEditor.Name = "grdTimeTableBusyEditor";
             this.grdTimeTableBusyEditor.RowHeadersVisible = false;
@@ -257,7 +257,7 @@
             // 
             // cmbTimeTables
             // 
-            this.cmbTimeTables.DisplayMember = "TimeTableName";
+            this.cmbTimeTables.DisplayMember = "Name";
             this.cmbTimeTables.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbTimeTables.FormattingEnabled = true;
             this.cmbTimeTables.ItemHeight = 19;
@@ -346,7 +346,7 @@
             this.colBusyDesc});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -354,7 +354,7 @@
             this.grdTeacherBusys.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdTeacherBusys.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTeacherBusys.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.grdTeacherBusys.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grdTeacherBusys.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdTeacherBusys.HighlightSelectedColumnHeaders = false;
             this.grdTeacherBusys.Location = new System.Drawing.Point(1, 1);
             this.grdTeacherBusys.MultiSelect = false;
@@ -429,7 +429,7 @@
             // 
             this.lblName.BackgroundStyle.Class = "";
             this.lblName.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblName.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblName.Location = new System.Drawing.Point(3, 1);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(87, 32);
@@ -509,7 +509,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panelEx1);
-            this.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Name = "TeacherEditor";
             this.Size = new System.Drawing.Size(530, 434);
             this.panelEx1.ResumeLayout(false);

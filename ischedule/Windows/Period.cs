@@ -46,10 +46,28 @@ namespace ischedule
 
     public static class PeriodConverter
     {
+        public static TimeTableSec ToTimeTableSec(this Period vPeriod)
+        {
+            TimeTableSec Sec = new TimeTableSec();
+            Sec.WeekDay = vPeriod.WeekDay;
+            Sec.BeginTime = vPeriod.BeginTime;
+            Sec.Duration = vPeriod.Duration;
+            Sec.Period = vPeriod.PeriodNo;
+            Sec.DispPeriod = vPeriod.DisplayPeriod;
+            Sec.DisableMessage = vPeriod.DisableMessage;
+
+            return Sec;
+        }
+
         public static SchPeriod ToPeriod(this Appointment vApp)
         {
             SchPeriod Period = new SchPeriod();
-
+            Period.Weekday = vApp.WeekDay;
+            Period.Hour = vApp.BeginTime.Hour;
+            Period.Minute = vApp.BeginTime.Minute;
+            Period.Duration = vApp.Duration;
+            Period.Position = 0;
+            Period.WeekFlag = 3;
 
             return Period;
         }

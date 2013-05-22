@@ -213,7 +213,8 @@ namespace ischedule
             List<string> Result = new List<string>();
 
             foreach (Teacher vTeacher in schLocal.Teachers)
-                Result.Add(vTeacher.Name);
+                if (!vTeacher.Name.Equals("無"))
+                    Result.Add(vTeacher.Name);
 
             return Result;
         }
@@ -243,11 +244,11 @@ namespace ischedule
         /// <returns>成功或失敗的訊息</returns>
         public TeacherPackage Select(string Key)
         {
-            Tuple<string, string> KeyDetail = GetTeacherDetailName(Key);            
+            //Tuple<string, string> KeyDetail = GetTeacherDetailName(Key);            
 
             #region 產生預設的TeacherPackage，將Teacher為null，並將TeacherBusys產生為空集合
             TeacherPackage vTeacherPackage = new TeacherPackage();
-            vTeacherPackage.Teacher = schLocal.Teachers[KeyDetail.Item1];
+            vTeacherPackage.Teacher = schLocal.Teachers[Key];
             vTeacherPackage.TeacherBusys = vTeacherPackage.Teacher.GetBusyAppointments();
             #endregion
 

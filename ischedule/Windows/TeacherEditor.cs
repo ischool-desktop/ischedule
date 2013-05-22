@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 using Sunset.Data;
 
 namespace ischedule
@@ -31,7 +31,7 @@ namespace ischedule
         private List<SchPeriod> mPeriods = new List<SchPeriod>();
         private string mEditorName = string.Empty;
         private bool mIsDirty = false;
-
+        private Scheduler schLocal = Scheduler.Instance;
         private int mSelectedRowIndex;
 
         /// <summary>
@@ -198,13 +198,14 @@ namespace ischedule
         {
             mTimeTableBusyEditor = new TimeTableBusyEditor(grdTimeTableBusyEditor);
 
-            //List<TimeTable> TimeTables = mHelper.Select<TimeTable>();
-            //TimeTables.Sort(tool.SortTimeTables);
-            //cmbTimeTables.Items.Clear();
-            //TimeTables.ForEach(x => cmbTimeTables.Items.Add(x));
+            TimeTables TimeTables = schLocal.TimeTables;
+            cmbTimeTables.Items.Clear();
 
-            //if (cmbTimeTables.Items.Count > 0)
-            //    cmbTimeTables.SelectedIndex = 0;         
+            foreach (TimeTable vTimeTable in TimeTables)
+                cmbTimeTables.Items.Add(vTimeTable);
+
+            if (cmbTimeTables.Items.Count > 0)
+                cmbTimeTables.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -223,7 +224,6 @@ namespace ischedule
                 lblName.Text = mIsDirty ? mEditorName + "<font color='red'>（已修改）</font>" : mEditorName;
             }
         }
-
 
         /// <summary>
         /// 取得或設定編輯內容
@@ -541,20 +541,24 @@ namespace ischedule
             if (mTimeTableBusyEditor == null)
                 return;
 
-            //if (IsDirty)
-            //    if (MessageBox.Show("您變更的資料尚未儲存，您確定要放棄變更的資料切換時間表？","排課", MessageBoxButtons.YesNo) == DialogResult.No)
-            //        return;
+            if (IsDirty)
+                if (MessageBox.Show("您變更的資料尚未儲存，您確定要放棄變更的資料切換時間表？", "排課", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
 
 
-            //TimeTable TimeTable = cmbTimeTables.SelectedItem as TimeTable;
+            TimeTable vTimeTable = cmbTimeTables.SelectedItem as TimeTable;
 
-            //if (TimeTable != null)
-            //{
-            //    List<TimeTableSec> Secs = mHelper.Select<TimeTableSec>("ref_timetable_id=" + TimeTable.UID);
+            if (vTimeTable != null)
+            {
+                List<TimeTableSec> Secs = new List<TimeTableSec>();
 
-            //    mTimeTableBusyEditor.SetTimeTableSecs(Secs);
-            //    mTimeTableBusyEditor.SetPeriods(mPeriods);
-            //}
+                foreach (Period vPeriod in vTimeTable.Periods)
+                    if (vPeriod.PeriodNo!=0)
+                        Secs.Add(vPeriod.ToTimeTableSec());
+
+                mTimeTableBusyEditor.SetTimeTableSecs(Secs);
+                mTimeTableBusyEditor.SetPeriods(mPeriods);
+            }
         }
 
         private void tabControl1_DoubleClick(object sender, EventArgs e)

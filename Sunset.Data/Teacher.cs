@@ -161,11 +161,14 @@ namespace Sunset.Data
         {
             List<Appointment> Apps = new List<Appointment>();
 
-            foreach (Appointment App in this.mAppointmentsList[0])
+            if (this.mAppointmentsList[0] != null)
             {
-                //如果 eventid 是空值，代表不排課時段所造成的appointment
-                if (string.IsNullOrEmpty(App.EventID))
-                    Apps.Add(App);
+                foreach (Appointment App in this.mAppointmentsList[0])
+                {
+                    //如果 eventid 是空值，代表不排課時段所造成的appointment
+                    if (string.IsNullOrEmpty(App.EventID))
+                        Apps.Add(App);
+                }
             }
 
             return Apps;

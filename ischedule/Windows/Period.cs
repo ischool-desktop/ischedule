@@ -1,4 +1,5 @@
 ﻿using System;
+using Sunset.Data;
 
 namespace ischedule
 {
@@ -45,6 +46,14 @@ namespace ischedule
 
     public static class PeriodConverter
     {
+        public static SchPeriod ToPeriod(this Appointment vApp)
+        {
+            SchPeriod Period = new SchPeriod();
+
+
+            return Period;
+        }
+
         public static SchPeriod ToPeriod(this TimeTableSec vTimeTableSec)
         {
             SchPeriod Period = new SchPeriod();

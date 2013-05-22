@@ -116,12 +116,19 @@ namespace ischedule
 
             Names.Sort();
 
-            foreach (string Name in Names)
+            foreach (string strName in Names)
             {
-                if (Name.Equals(SelectedName))
-                    grdNameList.Rows[grdNameList.Rows.Add(Name)].Selected = true;
-                else
-                    grdNameList.Rows.Add(Name);
+                int RowIndex = grdNameList.Rows.Add();
+
+                grdNameList.Rows[RowIndex].Cells[0].Value = strName;
+
+                if (strName.Equals(SelectedName))
+                    grdNameList.Rows[RowIndex].Selected = true;
+
+                //if (strName.Equals(SelectedName))
+                //    grdNameList.Rows[grdNameList.Rows.Add(strName)].Selected = true;
+                //else
+                //    grdNameList.Rows.Add(strName);
             }
         }
 

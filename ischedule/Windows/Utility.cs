@@ -11,6 +11,17 @@ namespace ischedule
     public static class Utility
     {
         /// <summary>
+        /// 判斷集合是否為null或是空集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Values"></param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty<T>(IEnumerable<T> Values)
+        {
+            return Values == null || Values.ToList().Count == 0;
+        }
+
+        /// <summary>
         /// 取得課程名稱列表
         /// </summary>
         /// <param name="CourseIDs"></param>

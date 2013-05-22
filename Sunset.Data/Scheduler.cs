@@ -4175,7 +4175,7 @@ namespace Sunset.Data
             //若是沒有對應的節次傳回Constants.tsCannotFit
             if (prdTest == null)
             {
-                ReasonDesc.Desc = "未排節數不足"+System.Environment.NewLine+"無法排課";
+                ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                 //ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
                 return Constants.tsCannotFit;
             }
@@ -4187,28 +4187,6 @@ namespace Sunset.Data
 
             #endregion
 
-            #region VB
-            //Dim intTempVal As Integer
-            //Dim bPass As Boolean
-            //Dim prdBreak As Period
-            //Dim prdTest As Period
-            //Dim prdsTest As Periods
-
-            //Set evtTested = Nothing
-
-            //With NewEvent
-            //Set whrTest = IIf(IsNullValue(.WhereID), Nothing, mWheres(CStr(.WhereID)))
-            //Set whmTest = IIf(IsNullValue(.WhomID), Nothing, mWhoms(CStr(.WhomID)))
-            //Set whoTest = IIf(IsNullValue(.WhoID), Nothing, mWhos(CStr(.WhoID)))
-            //Set prdsTest = mTimeTables(CStr(.TimeTableID)).Periods
-            //Set prdBreak = prdsTest.GetBreakPeriod(WeekDay)
-            //Set prdTest = prdsTest.GetPeriod(WeekDay, PeriodNo)
-            //If prdTest Is Nothing Then
-            //    TestSchedule = tsCannotFit
-            //    Exit Function
-            //End If
-            #endregion 
-    
             prdsUse = new Periods();
             prdsUse.Add(prdTest);
 
@@ -4220,15 +4198,6 @@ namespace Sunset.Data
 
             //判斷prdTest的時間是否在prdBreak之前
             if (bPass) bPass = prdTest.BeginTime.Before(prdBreak.BeginTime);
-
-            #region VB
-            //'Check long break And location
-            //Set prdsUse = New Periods
-            //prdsUse.Add prdTest
-            //'bPass is used to check whether it is necessary to check long break
-            //bPass = ((Not (prdBreak Is Nothing)) And (Not .AllowLongBreak)) And (.Length > 1)
-            //If bPass Then bPass = ((prdTest.BeginTime - prdBreak.BeginTime) < 0)
-            #endregion
 
             #region 檢查課程分段中時間表的節次地點，是否與課程分段中的場地地點一致；若不一致的話傳回地點衝突。
             for (intTempVal = PeriodNo +1;intTempVal<= (PeriodNo+NewEvent.Length-1);intTempVal++)
@@ -4258,26 +4227,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //'Check location and period validility
-            //For intTempVal = PeriodNo + 1 To PeriodNo + .Length - 1
-            //    Set prdTest = prdsTest.GetPeriod(WeekDay, intTempVal)
-            //    If prdTest Is Nothing Then
-            //        TestSchedule = tsCannotFit
-            //        Exit Function
-            //    End If
-            //    If Not whrTest Is Nothing Then
-            //        If Not (IsNullValue(prdTest.LocID) Or IsNullValue(whrTest.LocID)) Then
-            //            If prdTest.LocID <> whrTest.LocID Then
-            //                TestSchedule = tsLocConflict
-            //                Exit Function
-            //            End If
-            //        End If
-            //    End If
-            //    prdsUse.Add prdTest
-            //Next intTempVal
-            #endregion
-
             #region Long break check
             if (bPass)
                 if (prdTest.BeginTime.After(prdBreak.BeginTime))
@@ -4286,16 +4235,6 @@ namespace Sunset.Data
                     //ReasonDesc.Desc = "不可跨中午";
                     return Constants.tsLongBreak;
                 }
-            #endregion
-
-            #region VB
-            //'Long break check
-            //If bPass Then
-            //    If (prdTest.BeginTime - prdBreak.BeginTime) > 0 Then
-            //        TestSchedule = tsLongBreak
-            //        Exit Function
-            //    End If
-            //End If
             #endregion
 
             #region Check weekday condition
@@ -4349,42 +4288,6 @@ namespace Sunset.Data
 
             #endregion
 
-            #region VB
-            //'Check weekday condition
-            //If .WeekDayOp > 0 Then
-            //    'We use bPass to store the test condition
-            //    If IsNumeric(.WeekDayVar) Then
-            //        Select Case .WeekDayOp
-            //            Case opEqual
-            //                bPass = (WeekDay = CInt(.WeekDayVar))
-            //            Case opGreater
-            //                bPass = (WeekDay > CInt(.WeekDayVar))
-            //            Case opGreaterOrEqual
-            //                bPass = (WeekDay >= CInt(.WeekDayVar))
-            //            Case opLess
-            //                bPass = (WeekDay < CInt(.WeekDayVar))
-            //            Case opLessOrEqual
-            //                bPass = (WeekDay <= CInt(.WeekDayVar))
-            //            Case opNotEqual
-            //                bPass = (WeekDay <> CInt(.WeekDayVar))
-            //            Case Else
-            //                bPass = True
-            //        End Select
-            //        If Not bPass Then
-            //            TestSchedule = tsWeekDayConflict
-            //            Exit Function
-            //        End If
-            //    ElseIf .WeekDayOp = opEqual Then
-            //        If mWVar.Exists(.WeekDayVar) Then
-            //            If Not mWVar(.WeekDayVar).Fit(WeekDay) Then
-            //                TestSchedule = tsWeekDayConflict
-            //                Exit Function
-            //            End If
-            //        End If
-            //    End If
-            //End If
-            #endregion
-
             #region Check period condition
             if (NewEvent.PeriodOp > 0)
             {
@@ -4435,41 +4338,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //'Check period condition
-            //If .PeriodOp > 0 Then
-            //    If IsNumeric(.PeriodVar) Then
-            //        Select Case .PeriodOp
-            //            Case opEqual
-            //                bPass = (PeriodNo = CInt(.PeriodVar))
-            //            Case opGreater
-            //                bPass = (PeriodNo > CInt(.PeriodVar))
-            //            Case opGreaterOrEqual
-            //                bPass = (PeriodNo >= CInt(.PeriodVar))
-            //            Case opLess
-            //                bPass = (PeriodNo < CInt(.PeriodVar))
-            //            Case opLessOrEqual
-            //                bPass = (PeriodNo <= CInt(.PeriodVar))
-            //            Case opNotEqual
-            //                bPass = (PeriodNo <> CInt(.PeriodVar))
-            //            Case Else
-            //                bPass = True
-            //        End Select
-            //        If Not bPass Then
-            //            TestSchedule = tsPeriodConflict
-            //            Exit Function
-            //        End If
-            //    ElseIf .PeriodOp = opEqual Then
-            //        If mPVar.Exists(.PeriodVar) Then
-            //            If Not mPVar(.PeriodVar).Fit(PeriodNo) Then
-            //                TestSchedule = tsPeriodConflict
-            //                Exit Function
-            //            End If
-            //        End If
-            //    End If
-            //End If
-            #endregion
-
             #region Check WHOM time conflict and duplicate WHAT
             if (whmTest != null)
             {
@@ -4483,7 +4351,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassID;
                             ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
                             ReasonDesc.AssocType = Constants.lvWhom;
-                            ReasonDesc.Desc = "這節已排課";
+                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                             //ReasonDesc.Desc = "塞不下";
                             return Constants.tsWhomConflict;
                         case 3:
@@ -4496,34 +4364,12 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassID;
                             ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
                             ReasonDesc.AssocType = Constants.lvWhom;
-                            ReasonDesc.Desc = "這節已排課";
+                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                             return Constants.tsWhomConflict;
                     }
                 }   
             }
 
-            #endregion
-
-            #region VB
-            //'Check WHOM time conflict and duplicate WHAT
-            //If Not whmTest Is Nothing Then
-            //    If .AllowDuplicate Then
-            //        intTempVal = whmTest.Appointments.CheckWhom(prdsUse, NullValue, .WeekFlag)
-            //    Else
-            //        intTempVal = whmTest.Appointments.CheckWhom(prdsUse, .WhatID, .WeekFlag)
-            //    End If
-            //    If intTempVal <> 0 Then
-            //        Select Case intTempVal
-            //            Case 1
-            //                TestSchedule = tsWhomConflict
-            //            Case 3
-            //                TestSchedule = tsDupWhat
-            //            Case Else
-            //                TestSchedule = tsWhomConflict
-            //        End Select
-            //        Exit Function
-            //    End If
-            //End If
             #endregion
 
             #region Check WHERE time conflict            
@@ -4552,7 +4398,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassroomID;
                             ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
                             ReasonDesc.AssocType = Constants.lvWhere;
-                            ReasonDesc.Desc = "這節已排課";
+                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                             return Constants.tsWhereConflict;
                         }
                     }
@@ -4561,39 +4407,11 @@ namespace Sunset.Data
                         ReasonDesc.AssocID = NewEvent.ClassroomID;
                         ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
                         ReasonDesc.AssocType = Constants.lvWhere;
-                        ReasonDesc.Desc = "這節已排課";
+                        ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                         return Constants.tsWhereConflict;
                     }
                 }
             }
-            #endregion
-
-            #region VB
-            //'Check WHERE time conflict
-            //If Not whrTest Is Nothing Then
-            //    If Not whrTest.LocOnly Then
-            //        If whrTest.Capacity > 1 Then
-            //            intTempVal = 1
-            //            bPass = False
-            //            Do Until intTempVal > whrTest.Capacity
-            //                whrTest.UseAppointments intTempVal
-            //                If whrTest.Appointments.IsFreePeriods(prdsUse, .WeekFlag) Then
-            //                    nWhereAvailable = intTempVal
-            //                    bPass = True
-            //                    Exit Do
-            //                End If
-            //                intTempVal = intTempVal + 1
-            //            Loop
-            //            If Not bPass Then
-            //                TestSchedule = tsWhereConflict
-            //                Exit Function
-            //            End If
-            //        ElseIf Not whrTest.Appointments.IsFreePeriods(prdsUse, .WeekFlag) Then
-            //            TestSchedule = tsWhereConflict
-            //            Exit Function
-            //        End If
-            //    End If
-            //End If
             #endregion
 
             #region Check WHO time conflict and distance conflict
@@ -4630,7 +4448,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                             ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                             ReasonDesc.AssocType = Constants.lvWho;
-                            ReasonDesc.Desc = "這節已排課";
+                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                             return Constants.tsWhoConflict;
                         }
                     }
@@ -4646,7 +4464,7 @@ namespace Sunset.Data
                                     ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                                     ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
-                                    ReasonDesc.Desc = "這節已排課";
+                                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                                     return Constants.tsWhoConflict;
                                 case 2:
                                     ReasonDesc.Desc = "通車來不及";
@@ -4655,50 +4473,13 @@ namespace Sunset.Data
                                     ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                                     ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
-                                    ReasonDesc.Desc = "這節已排課";
+                                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                                     return Constants.tsWhoConflict;
                             }
                         }
                     }
                 }
             }
-            #endregion
-
-            #region VB
-            //'Check WHO time conflict and distance conflict
-            //If Not whoTest Is Nothing Then
-            //    If whoTest.Capacity > 1 Then
-            //        intTempVal = 1
-            //        bPass = False
-            //        Do Until intTempVal > whoTest.Capacity
-            //            whoTest.UseAppointments intTempVal
-            //            If whoTest.Appointments.CheckWho(prdsUse, mDistances, .WeekFlag) = 0 Then
-            //                nWhoAvailable = intTempVal
-            //                bPass = True
-            //                Exit Do
-            //            End If
-            //            intTempVal = intTempVal + 1
-            //        Loop
-            //        If Not bPass Then
-            //            TestSchedule = tsWhoConflict
-            //            Exit Function
-            //        End If
-            //    Else
-            //        intTempVal = whoTest.Appointments.CheckWho(prdsUse, mDistances, .WeekFlag)
-            //        If intTempVal <> 0 Then
-            //            Select Case intTempVal
-            //                Case 1
-            //                    TestSchedule = tsWhoConflict
-            //                Case 2
-            //                    TestSchedule = tsDistanceFar
-            //                Case Else
-            //                    TestSchedule = tsWhoConflict
-            //            End Select
-            //            Exit Function
-            //        End If
-            //    End If
-            //End If
-            //End With
             #endregion
 
             //不連天排課
@@ -4795,13 +4576,6 @@ namespace Sunset.Data
             }
 
             evtTested = NewEvent;
-
-            #region VB
-            //'If the event can be schedule to the specify WeekDay and PeriodNo
-            //'Store event in evtTested for AllocEvent
-
-            //Set evtTested = NewEvent
-            #endregion
 
             return 0;
         }

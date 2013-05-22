@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using Sunset.Data;
 
 namespace ischedule
 {
@@ -195,7 +196,7 @@ namespace ischedule
         /// </summary>
         public void Prepare()
         {
-            //mTimeTableBusyEditor = new TimeTableBusyEditor(grdTimeTableBusyEditor);
+            mTimeTableBusyEditor = new TimeTableBusyEditor(grdTimeTableBusyEditor);
 
             //List<TimeTable> TimeTables = mHelper.Select<TimeTable>();
             //TimeTables.Sort(tool.SortTimeTables);
@@ -203,9 +204,7 @@ namespace ischedule
             //TimeTables.ForEach(x => cmbTimeTables.Items.Add(x));
 
             //if (cmbTimeTables.Items.Count > 0)
-            //    cmbTimeTables.SelectedIndex = 0;
-
-         
+            //    cmbTimeTables.SelectedIndex = 0;         
         }
 
         /// <summary>
@@ -311,39 +310,40 @@ namespace ischedule
 
                 if (value != null)
                 {
-                    //mTeacherPackage = value;
+                    mTeacherPackage = value;
 
-                    //var SortClassroomBusys = from vClassroomBusy in mTeacherPackage.TeacherBusys orderby vClassroomBusy.WeekDay, vClassroomBusy.BeginTime select vClassroomBusy;
+                    var SortTeacherBusys = from vTeacherBusy 
+                                           in mTeacherPackage.TeacherBusys 
+                                           orderby vTeacherBusy.WeekDay, vTeacherBusy.BeginTime 
+                                           select vTeacherBusy;
 
-                    //mTeacherPackage.TeacherBusys = SortClassroomBusys.ToList();
+                    mTeacherPackage.TeacherBusys = SortTeacherBusys.ToList();
 
-                    //if (mTeacherPackage.Teacher != null)
-                    //{
-                    //    mEditorName = mTeacherPackage.Teacher.FullTeacherName;
-                    //}
+                    if (mTeacherPackage.Teacher != null)
+                        mEditorName = mTeacherPackage.Teacher.Name;
 
-                    //mPeriods = new List<Period>();
+                    mPeriods = new List<SchPeriod>();
 
-                    //if (!K12.Data.Utility.Utility.IsNullOrEmpty(mTeacherPackage.TeacherBusys))
-                    //{
-                    //    foreach (TeacherExBusy vTeacherBusy in mTeacherPackage.TeacherBusys)
-                    //    {
-                    //        Period Period = vTeacherBusy.ToPeriod();
-                    //        mPeriods.Add(Period);
+                    if (!Utility.IsNullOrEmpty(mTeacherPackage.TeacherBusys))
+                    {
+                        foreach (Appointment vTeacherBusy in mTeacherPackage.TeacherBusys)
+                        {
+                            SchPeriod Period = vTeacherBusy.ToPeriod();
+                            mPeriods.Add(Period);
 
-                    //        int AddRowIndex = grdTeacherBusys.Rows.Add();
-                    //        DataGridViewRow Row = grdTeacherBusys.Rows[AddRowIndex];
-                    //        Row.Tag = vTeacherBusy;
+                            int AddRowIndex = grdTeacherBusys.Rows.Add();
+                            DataGridViewRow Row = grdTeacherBusys.Rows[AddRowIndex];
+                            Row.Tag = vTeacherBusy;
 
-                    //        Tuple<string, string> DisplayTime = Utility.GetDisplayTime(vTeacherBusy.BeginTime,vTeacherBusy.Duration);
+                            Tuple<string, string> DisplayTime = Utility.GetDisplayTime(vTeacherBusy.BeginTime, vTeacherBusy.Duration);
 
-                    //        grdTeacherBusys.Rows[AddRowIndex].SetValues(
-                    //            vTeacherBusy.WeekDay,
-                    //            DisplayTime.Item1,
-                    //            DisplayTime.Item2,
-                    //            vTeacherBusy.BusyDesc);
-                    //    }
-                    //}
+                            grdTeacherBusys.Rows[AddRowIndex].SetValues(
+                                vTeacherBusy.WeekDay,
+                                DisplayTime.Item1,
+                                DisplayTime.Item2,
+                                vTeacherBusy.Description);
+                        }
+                    }
 
                     mTimeTableBusyEditor.SetPeriods(mPeriods);
                 }

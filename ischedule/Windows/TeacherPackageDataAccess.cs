@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Text;
+using Sunset.Data;
+using System.Linq;
 
 namespace ischedule
 {
@@ -10,6 +10,8 @@ namespace ischedule
     /// </summary>
     public class TeacherPackageDataAccess : IConfigurationDataAccess<TeacherPackage>
     {
+        private Scheduler schLocal = Scheduler.Instance;
+
         /// <summary>
         /// 無參數建構式
         /// </summary>
@@ -20,96 +22,7 @@ namespace ischedule
 
         #region IConfigurationDataAccess<TeacherPackage> 成員
 
-        /// <summary>
-        /// 顯示名稱
-        /// </summary>
-        public string DisplayName
-        {
-            get { return "教師管理"; }
-        } 
-
-        /// <summary>
-        /// 取得所有教師名稱
-        /// </summary>
-        /// <returns></returns>
-        public List<string> SelectKeys()
-        {
-            //DataTable table = mQueryHelper.Select("select teacher_name,nickname from $scheduler.teacher_ex");
-
-            //List<string> Result = new List<string>();
-
-            //foreach (DataRow row in table.Rows)
-            //{
-            //    string Name = row.Field<string>("teacher_name");
-            //    string NickName = row.Field<string>("nickname");
-
-            //    if (string.IsNullOrEmpty(NickName))
-            //        Result.Add(Name);
-            //    else
-            //        Result.Add(Name + "(" + NickName + ")");
-            //}
-
-            //return Result;
-
-            return new List<string>();
-        }
-
-        /// <summary>
-        /// 搜尋
-        /// </summary>
-        /// <param name="SearchText">搜尋文字</param>
-        /// <returns></returns>
-        public List<string> Search(string SearchText)
-        {
-            //DataTable table = mQueryHelper.Select("select teacher_name,nickname from $scheduler.teacher_ex where teacher_name like '%" + SearchText + "%'");
-
-            //List<string> Result = new List<string>();
-
-            //foreach (DataRow row in table.Rows)
-            //{
-            //    string Name = row.Field<string>("teacher_name");
-            //    string NickName = row.Field<string>("nickname");
-
-            //    if (string.IsNullOrEmpty(NickName))
-            //        Result.Add(Name);
-            //    else
-            //        Result.Add(Name + "(" + NickName + ")");
-            //}
-
-            //return Result;
-
-            return new List<string>();
-        }
-
-        private Tuple<string, string> GetTeacherDetailName(string Name)
-        {
-            if (Name.Contains("(") && Name.EndsWith(")"))
-            {
-                int LeftIndex = Name.IndexOf("(");
-                int RightIndex = Name.IndexOf(")");
-
-                if (RightIndex > LeftIndex)
-                {
-                    string TeacherName = Name.Substring(0, LeftIndex );
-                    string NickName = Name.Substring(LeftIndex + 1, RightIndex - LeftIndex - 1);
-
-                    return new Tuple<string, string>(TeacherName, NickName);
-                }
-                else
-                    return new Tuple<string, string>(Name, string.Empty);
-            }
-            else
-                return new Tuple<string, string>(Name, string.Empty);
-        }
-
-        private string GetNicknameCondition(string Nickname)
-        {
-            if (string.IsNullOrEmpty(Nickname))
-                return "nickname is null";
-            else
-                return "nickname='" + Nickname + "'";
-        }
-
+        #region 未使用到的方法
         public string Update(string Key, string NewKey)
         {
             //#region 根據鍵值取得班級
@@ -250,6 +163,78 @@ namespace ischedule
 
             return string.Empty;
         }
+        #endregion
+
+        #region private function
+        private Tuple<string, string> GetTeacherDetailName(string Name)
+        {
+            if (Name.Contains("(") && Name.EndsWith(")"))
+            {
+                int LeftIndex = Name.IndexOf("(");
+                int RightIndex = Name.IndexOf(")");
+
+                if (RightIndex > LeftIndex)
+                {
+                    string TeacherName = Name.Substring(0, LeftIndex);
+                    string NickName = Name.Substring(LeftIndex + 1, RightIndex - LeftIndex - 1);
+
+                    return new Tuple<string, string>(TeacherName, NickName);
+                }
+                else
+                    return new Tuple<string, string>(Name, string.Empty);
+            }
+            else
+                return new Tuple<string, string>(Name, string.Empty);
+        }
+
+        private string GetNicknameCondition(string Nickname)
+        {
+            if (string.IsNullOrEmpty(Nickname))
+                return "nickname is null";
+            else
+                return "nickname='" + Nickname + "'";
+        }
+        #endregion
+
+        /// <summary>
+        /// 顯示名稱
+        /// </summary>
+        public string DisplayName
+        {
+            get { return "教師管理"; }
+        } 
+
+        /// <summary>
+        /// 取得所有教師名稱
+        /// </summary>
+        /// <returns></returns>
+        public List<string> SelectKeys()
+        {
+            List<string> Result = new List<string>();
+
+            foreach (Teacher vTeacher in schLocal.Teachers)
+                Result.Add(vTeacher.Name);
+
+            return Result;
+        }
+
+        /// <summary>
+        /// 搜尋
+        /// </summary>
+        /// <param name="SearchText">搜尋文字</param>
+        /// <returns></returns>
+        public List<string> Search(string SearchText)
+        {
+            List<string> Result = new List<string>();
+
+            foreach (Teacher vTeacher in schLocal.Teachers)
+            {
+                if (vTeacher.Name.Contains(SearchText))
+                    Result.Add(vTeacher.Name);
+            }
+
+            return Result;
+        }
 
         /// <summary>
         /// 根據教師名稱取得教師及教師不排課時段
@@ -258,12 +243,12 @@ namespace ischedule
         /// <returns>成功或失敗的訊息</returns>
         public TeacherPackage Select(string Key)
         {
-            Tuple<string, string> KeyDetail = GetTeacherDetailName(Key);
+            Tuple<string, string> KeyDetail = GetTeacherDetailName(Key);            
 
             #region 產生預設的TeacherPackage，將Teacher為null，並將TeacherBusys產生為空集合
             TeacherPackage vTeacherPackage = new TeacherPackage();
-            vTeacherPackage.Teacher = null;
-            vTeacherPackage.TeacherBusys = new List<Sunset.Data.Appointment>();
+            vTeacherPackage.Teacher = schLocal.Teachers[KeyDetail.Item1];
+            vTeacherPackage.TeacherBusys = vTeacherPackage.Teacher.GetBusyAppointments();
             #endregion
 
             //#region 根據鍵值取得時間表
@@ -291,6 +276,8 @@ namespace ischedule
         /// <returns>成功或失敗的訊息</returns>
         public string Save(TeacherPackage Value)
         {
+            string a = string.Empty;
+
             //StringBuilder strBuilder = new StringBuilder();
 
             ////若Teacher不為null，且TeacherBusys不為空集合

@@ -391,6 +391,10 @@ namespace ischedule
             usrClassroomList WhereList = new usrClassroomList();
             WhereList.Dock = DockStyle.Fill;
             pnlClassroom.Controls.Add(WhereList);
+
+            btnTeacherBusy.Enabled = true;
+            btnClassBusy.Enabled = true;
+            btnClassroomBusy.Enabled = true;
         }
 
         /// <summary>
@@ -405,6 +409,9 @@ namespace ischedule
             btnUpload.Enabled = false;
             btnClose.Enabled = false;
             btnExit.Enabled = true;
+            btnTeacherBusy.Enabled = false;
+            btnClassBusy.Enabled = false;
+            btnClassroomBusy.Enabled = false;
         }
 
         /// <summary>

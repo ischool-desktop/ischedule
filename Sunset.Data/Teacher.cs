@@ -135,7 +135,7 @@ namespace Sunset.Data
         /// 取得不排課時段
         /// idea : 當 Appointment.EventID 為空值時，就表示是不排課時段。
         /// </summary>
-        public Dictionary<int, List<Appointment>> GetBusyAppointments()
+        public Dictionary<int, List<Appointment>> GetBusyAppointmentsGroupByWeekday()
         {  
             this.dicBusyAppointments = new Dictionary<int, List<Appointment>>();
             foreach (Appointment app in this.mAppointmentsList[0])
@@ -151,6 +151,24 @@ namespace Sunset.Data
             }
             
             return this.dicBusyAppointments;
+        }
+
+        /// <summary>
+        /// 取得不忙碌時段
+        /// </summary>
+        /// <returns></returns>
+        public List<Appointment> GetBusyAppointments()
+        {
+            List<Appointment> Apps = new List<Appointment>();
+
+            foreach (Appointment App in this.mAppointmentsList[0])
+            {
+                //如果 eventid 是空值，代表不排課時段所造成的appointment
+                if (string.IsNullOrEmpty(App.EventID))
+                    Apps.Add(App);
+            }
+
+            return Apps;
         }
 
         /// <summary>
@@ -185,7 +203,7 @@ namespace Sunset.Data
                 TimeTable tbl = Scheduler.Instance.TimeTables[TimeTableID];
                 if (tbl != null)
                 {
-                    Dictionary<int, List<Appointment>> busyAppointments = this.GetBusyAppointments();
+                    Dictionary<int, List<Appointment>> busyAppointments = this.GetBusyAppointmentsGroupByWeekday();
                     foreach (Period prd in tbl.Periods)
                     {
                         if (busyAppointments.ContainsKey(prd.WeekDay))

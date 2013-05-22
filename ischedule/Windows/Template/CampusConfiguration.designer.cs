@@ -36,11 +36,11 @@ namespace ischedule
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
             this.pnlEditor = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
             this.pnlContent.SuspendLayout();
             this.panelEx1.SuspendLayout();
             this.pnlExpandable.SuspendLayout();
@@ -185,6 +185,18 @@ namespace ischedule
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnUpdate.Location = new System.Drawing.Point(0, 593);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(156, 23);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Àx¦s";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // expandableSplitter1
             // 
             this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(157)))), ((int)(((byte)(189)))));
@@ -240,18 +252,6 @@ namespace ischedule
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             this.dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 593);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(156, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Àx¦s";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // CampusConfiguration
             // 

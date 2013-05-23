@@ -13,19 +13,6 @@ namespace ischedule
     /// </summary>
     public partial class TeacherEditor : UserControl, IContentEditor<TeacherPackage>
     {
-        private const int iWeekDay = 0;
-        private const int iStartTime = 1;
-        private const int iEndTime = 2;
-        private const int iWeekflag = 3;
-        private const int iBusyDesc = 4;
-        private const string sWeekdayError = "星期必須介於1到7之間";
-        private const string sPeriodError = "節次必須介於0到20之間，午休時段請輸入0。";
-        private const string sDisplayPeriodError = "顯示節次必須為數字";
-        private const string sBeginHourError = "開始小時必須介於0到23之間";
-        private const string sBeginMinuteError = "開始小時必須介於0到59之間";
-        private const string sDuration = "持續分鐘必須介於1到1140之間";
-        private const string sPeriodConflict = "場地不排課時段不允許時間（星期、開始小時、開始分鐘、持續分鐘）有重疊";
-        private const string sWeekdayPeriodDuplication = "星期節次不允許重覆";
         private TeacherPackage mTeacherPackage;
         private TimeTableBusyEditor mTimeTableBusyEditor = null;
         private List<SchPeriod> mPeriods = new List<SchPeriod>();
@@ -44,119 +31,7 @@ namespace ischedule
             ReiEver();
         }
 
-        #region private functions
-        private int ParsePeriod(string strPeriod)
-        {
-            if (strPeriod.Equals("午休"))
-                return 0;
-            else
-                return int.Parse(strPeriod);
-        }
-
-        private int GetWeekFlagInt(string Weekflag)
-        {
-            switch (Weekflag)
-            {
-                case "單": return 1;
-                case "雙": return 2;
-                case "單雙": return 3;
-                default: return 3;
-            }
-        }
-
-        private string GetWeekFlagStr(int WeekFlag)
-        {
-            switch (WeekFlag)
-            {
-                case 1: return "單";
-                case 2: return "雙";
-                case 3: return "單雙";
-                default: return "單雙";
-            }
-        }
-
-        /// <summary>
-        /// 檢查時間表所有時段是否有衝突
-        /// </summary>
-        /// <returns></returns>
-        private bool IsPeriodConflict()
-        {
-            List<SchPeriod> Periods = new List<SchPeriod>();
-
-            foreach (DataGridViewRow row in grdTeacherBusys.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                SchPeriod NewPeriod = new SchPeriod();
-                NewPeriod.Weekday = int.Parse("" + row.Cells[iWeekDay].Value);
-
-                Tuple<DateTime, int> StorageTime = Utility.GetStorageTime("" + row.Cells[iStartTime].Value, "" + row.Cells[iEndTime].Value);
-
-                NewPeriod.Hour = StorageTime.Item1.Hour;
-                NewPeriod.Minute = StorageTime.Item1.Minute;
-                NewPeriod.Duration = StorageTime.Item2;
-
-                if (Periods.Count > 0)
-                    foreach (SchPeriod Period in Periods)
-                        if (IsTimeIntersectsWith(NewPeriod, Period))
-                            return true;
-
-                Periods.Add(NewPeriod);
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// 檢查兩個時間表時段是否有衝突
-        /// </summary>
-        /// <param name="BeginPeriod"></param>
-        /// <param name="TestPeriod"></param>
-        /// <returns></returns>
-        private bool IsTimeIntersectsWith(SchPeriod BeginPeriod, SchPeriod TestPeriod)
-        {
-            //若星期不相同則不會相衝
-            if (BeginPeriod.Weekday != TestPeriod.Weekday)
-                return false;
-
-            //將TestTime的年、月、日及秒設為與Appointment一致，以確保只是單純針對小時及分來做時間差的運算
-            DateTime BeginTime = new DateTime(1900, 1, 1, BeginPeriod.Hour, BeginPeriod.Minute, 0);
-
-            DateTime TestTime = new DateTime(1900, 1, 1, TestPeriod.Hour, TestPeriod.Minute, 0);
-
-            //將Appointment的NewBeginTime減去NewTestTime
-            int nTimeDif = (int)BeginTime.Subtract(TestTime).TotalMinutes;
-
-            //狀況一：假設nTimeDif為正，並且大於NewTestTime，代表兩者沒有交集，傳回false。
-            //舉例：
-            //Appointment.BeginTime為10：00，其Duration為40。
-            //TestTime為9：00，其Duration為50。
-            if (nTimeDif >= TestPeriod.Duration)
-                return false;
-
-            //狀況二：假設nTimeDiff為正，並且小於TestDuration，代表兩者有交集，傳回true。
-            //舉例：
-            //Appointment.BeginTime為10：00，其Duration為40。
-            //TestTime為9：00，其Duration為80。
-            if (nTimeDif >= 0)
-                return true;
-            //狀況三：假設nTimeDiff為負值，將nTimeDiff成為正值，若是-nTimeDiff小於Appointment.Duration；
-            //代表NewBeginTime在NewTestTime之前，並且NewBegin與NewTestTime的絕對差值小於Appointment.Duration的時間
-            //舉例：
-            //Appointment.BeginTime為10：00，其Duration為40。
-            //TestTime為10：30，其Duration為20。
-            else if (-nTimeDif < BeginPeriod.Duration)
-                return true;
-
-            //其他狀況傳回沒有交集
-            //舉例：
-            //Appointment.BeginTime為10：00，其Duration為40。
-            //TestTime為10：50，其Duration為20。
-            return false;
-        }
-        #endregion
-
         #region IContentEditor<List<TimeTableSec>> 成員
-
         private void ReiEver()
         {
             menuBusy.Click += (sender, e) =>
@@ -307,108 +182,11 @@ namespace ischedule
         /// <returns></returns>
         public new bool Validate()
         {
-            bool pass = true;
-            foreach (DataGridViewRow row in grdTeacherBusys.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                if (!string.IsNullOrEmpty(row.Cells[iWeekDay].ErrorText))
-                    pass &= false;
-
-                if (!string.IsNullOrEmpty(row.Cells[iStartTime].ErrorText))
-                    pass &= false;
-
-                if (!string.IsNullOrEmpty(row.Cells[iEndTime].ErrorText))
-                    pass &= false;
-            }
-
-            return pass;
+            return true;
         }
         #endregion
 
         #region DataGrid事件
-        /// <summary>
-        ///  當進入到某個Cell引發的事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grdTimeTableSecs_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            //若選取的Cell數量等於1則開始編輯
-            if (grdTeacherBusys.SelectedCells.Count == 1)
-                grdTeacherBusys.BeginEdit(true);
-        }
-
-        /// <summary>
-        /// 開始欄位編輯事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grdTimeTableSecs_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// 結束欄位編輯事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grdTimeTableSecs_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// 當欄位狀態改變時
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grdTimeTableSecs_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            DataGridViewCell cell = grdTeacherBusys.CurrentCell;
-
-            if (cell.ColumnIndex == iWeekDay)
-            {
-                int CheckWeekDay = int.Parse(""+cell.Value);
-
-                if (CheckWeekDay <= 0 || CheckWeekDay > 7)
-                    cell.ErrorText = sWeekdayError;
-                else if (IsPeriodConflict())
-                    cell.ErrorText = sPeriodConflict;
-                else
-                    cell.ErrorText = string.Empty;
-            }
-
-            if ((cell.ColumnIndex == iStartTime) || (cell.ColumnIndex == iEndTime))
-            {
-                Tuple<bool, string> Result = Utility.IsValidateTime("" + cell.Value);
-
-                string strStartTime = "" + grdTeacherBusys[iStartTime, cell.RowIndex].Value;
-                string strEndTime = "" + grdTeacherBusys[iEndTime, cell.RowIndex].Value;
-
-                if (!Result.Item1)
-                    cell.ErrorText = Result.Item2;
-                else if (IsPeriodConflict())
-                    cell.ErrorText = sPeriodConflict;
-                else if (!string.IsNullOrWhiteSpace(strStartTime) && !string.IsNullOrWhiteSpace(strEndTime)) //判斷兩者都不為空白才做檢查
-                {
-                    Tuple<DateTime, int> StorageTime = Utility.GetStorageTime("" + grdTeacherBusys[iStartTime, cell.RowIndex].Value, "" + grdTeacherBusys[iEndTime, cell.RowIndex].Value);
-
-                    if (StorageTime.Item2 <= 0)
-                        cell.ErrorText = "結束時間要大於開始時間！";
-                    else
-                        cell.ErrorText = string.Empty;
-                }
-                else
-                    cell.ErrorText = string.Empty;
-            }
-
-            cell.Value = cell.EditedFormattedValue;
-            grdTeacherBusys.EndEdit();
-            grdTeacherBusys.BeginEdit(false);
-        }
-
         /// <summary>
         /// 滑鼠右鍵用來刪除現有記錄
         /// </summary>

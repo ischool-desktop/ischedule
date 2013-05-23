@@ -61,18 +61,18 @@ namespace ischedule
         /// </summary>
         public void SetBusyDes()
         {
-            //frmInputBox InputBox = new frmInputBox("請輸入不排課訊息");
+            frmInputBox InputBox = new frmInputBox("請輸入不排課訊息");
 
-            //if (InputBox.ShowDialog() == DialogResult.OK)
-            //{
-            //    string Message = InputBox.Message;
+            if (InputBox.ShowDialog() == DialogResult.OK)
+            {
+                string Message = InputBox.Message;
 
-            //    foreach (DataGridViewCell Cell in grdEditor.SelectedCells)
-            //    {
-            //        if (Cell.ColumnIndex != 0 && Cell.Style.BackColor != Color.LightGray)
-            //            Cell.Value = InputBox.Message;
-            //    }
-            //}
+                foreach (DataGridViewCell Cell in grdEditor.SelectedCells)
+                {
+                    if (Cell.ColumnIndex != 0 && Cell.Style.BackColor != Color.LightGray)
+                        Cell.Value = InputBox.Message;
+                }
+            }
         }
 
         /// <summary>

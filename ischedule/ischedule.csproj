@@ -116,6 +116,12 @@
     <Compile Include="test\TeacherWrapper.cs" />
     <Compile Include="UserControls\DecPeriod.cs" />
     <Compile Include="UserControls\DecScheduler.cs" />
+    <Compile Include="Windows\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\frmInputBox.designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Period.cs" />
     <Compile Include="Windows\TeacherEditor.cs">
       <SubType>UserControl</SubType>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="test\frmTestScheduler.resx">
       <DependentUpon>frmTestScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\TeacherEditor.resx">
       <DependentUpon>TeacherEditor.cs</DependentUpon>

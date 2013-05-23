@@ -426,10 +426,6 @@ namespace ischedule
             usrClassroomList WhereList = new usrClassroomList();
             WhereList.Dock = DockStyle.Fill;
             pnlClassroom.Controls.Add(WhereList);
-
-            btnTeacherBusy.Enabled = true;
-            btnClassBusy.Enabled = true;
-            btnClassroomBusy.Enabled = true;
         }
 
         /// <summary>
@@ -445,8 +441,29 @@ namespace ischedule
             btnUpload.Enabled = false;
             btnClose.Enabled = false;
             btnExit.Enabled = true;
+
+            btnTeacherAutoSchedule.Enabled = false;
+            btnTeacherLock.Enabled = false;
+            btnTeacherUnlock.Enabled = false;
+            btnTeacherFree.Enabled = false;
+            btnTeacherProperty.Enabled = false;
+            btnTeacherPrint.Enabled = false;
             btnTeacherBusy.Enabled = false;
+
+            btnClassAutoSchedule.Enabled = false;
+            btnClassLock.Enabled = false;
+            btnClassUnLock.Enabled = false;
+            btnClassFree.Enabled = false;
+            btnClassProperty.Enabled = false;
+            btnClassPrint.Enabled = false;
             btnClassBusy.Enabled = false;
+
+            btnClassroomAutoSchedule.Enabled = false;
+            btnClassroomLock.Enabled = false;
+            btnClassroomUnLock.Enabled = false;
+            btnClassroomFree.Enabled = false;
+            btnClassroomProperty.Enabled = false;
+            btnClassroomPrint.Enabled = false;
             btnClassroomBusy.Enabled = false;
         }
 
@@ -462,7 +479,11 @@ namespace ischedule
             btnDownload.Enabled = false;
             btnUpload.Enabled = true;
             btnClose.Enabled = true;
-            btnExit.Enabled = true; 
+            btnExit.Enabled = true;
+
+            btnTeacherBusy.Enabled = true;
+            btnClassBusy.Enabled = true;
+            btnClassroomBusy.Enabled = true;
         }
         #endregion
 

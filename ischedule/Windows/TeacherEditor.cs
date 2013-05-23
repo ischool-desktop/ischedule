@@ -436,49 +436,7 @@ namespace ischedule
                 contextMenuStripDelete.Show(grdTeacherBusys, grdTeacherBusys.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location);
             }
         }
-
-        /// <summary>
-        /// 使用者刪除資料時
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grdTimeTableSecs_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            //ClassroomBusy ClassroomBusy = e.Row.Tag as ClassroomBusy;
-
-            //if (ClassroomBusy != null)
-            //    ClassroomBusy.Deleted = true;
-        }
         #endregion
-
-        /// <summary>
-        /// 當按下刪除選單時
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
-        {
-            //實際進行刪除列的動作
-            //if (mSelectedRowIndex >= 0 && grdTeacherBusys.Rows.Count - 1 > mSelectedRowIndex)
-            //{
-            //    TeacherExBusy TeacherBusy = grdTeacherBusys.Rows[mSelectedRowIndex].Tag as TeacherExBusy;
-
-            //    if (TeacherBusy != null)
-            //        TeacherBusy.Deleted = true;
-
-            //    grdTeacherBusys.Rows.RemoveAt(mSelectedRowIndex);
-            //}
-        }
-
-        /// <summary>
-        /// 當容納數內容改變時
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtCapacity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbTimeTables_SelectedIndexChanged(object sender, EventArgs e)
         {

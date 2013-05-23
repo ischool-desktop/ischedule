@@ -444,13 +444,6 @@
             this.contextMenuStripDelete.ShowImageMargin = false;
             this.contextMenuStripDelete.Size = new System.Drawing.Size(70, 26);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(69, 22);
-            this.toolStripMenuItem2.Text = "刪除";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;

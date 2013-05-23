@@ -25,10 +25,10 @@ namespace Sunset.Data
         /// <returns>新增的場地物件，若是沒有新增成功則回傳null。</returns>
         public Classroom Add(Classroom NewWhere)
         {
-            if (mWheres.ContainsKey(NewWhere.WhereID))
+            if (mWheres.ContainsKey(NewWhere.ClassroomID))
                 return null;
 
-            mWheres.Add(NewWhere.WhereID,NewWhere);
+            mWheres.Add(NewWhere.ClassroomID,NewWhere);
 
             return NewWhere;
         }

@@ -135,8 +135,8 @@ namespace ischedule
                     CapacityWheres.Add(vWhere.Capacity, new List<string>());
 
                 if (IsAddWhere(vWhere.Name))
-                    if (!CapacityWheres[vWhere.Capacity].Contains(vWhere.WhereID))
-                        CapacityWheres[vWhere.Capacity].Add(vWhere.WhereID);
+                    if (!CapacityWheres[vWhere.Capacity].Contains(vWhere.ClassroomID))
+                        CapacityWheres[vWhere.Capacity].Add(vWhere.ClassroomID);
             }
 
             nodeTree.Nodes.Clear();
@@ -203,9 +203,9 @@ namespace ischedule
                 if (!UnAllocWheres.ContainsKey(UnAlloc))
                     UnAllocWheres.Add(UnAlloc, new List<string>());
 
-                if (IsAddWhere(Where.WhereID))
-                    if (!UnAllocWheres[UnAlloc].Contains(Where.WhereID))
-                        UnAllocWheres[UnAlloc].Add(Where.WhereID);
+                if (IsAddWhere(Where.ClassroomID))
+                    if (!UnAllocWheres[UnAlloc].Contains(Where.ClassroomID))
+                        UnAllocWheres[UnAlloc].Add(Where.ClassroomID);
             }
 
             nodeTree.Nodes.Clear();
@@ -274,8 +274,8 @@ namespace ischedule
                     TotalWheres.Add(TotalHour, new List<string>());
 
                 if (IsAddWhere(Where.Name))
-                    if (!TotalWheres[TotalHour].Contains(Where.WhereID))
-                        TotalWheres[TotalHour].Add(Where.WhereID);
+                    if (!TotalWheres[TotalHour].Contains(Where.ClassroomID))
+                        TotalWheres[TotalHour].Add(Where.ClassroomID);
             }
 
             nodeTree.Nodes.Clear();
@@ -337,7 +337,7 @@ namespace ischedule
                 int TotalHour = Where.TotalHour;
 
                 if (!ClassroomNames.ContainsKey(Where.Name))
-                    ClassroomNames.Add(Where.Name, Where.WhereID);
+                    ClassroomNames.Add(Where.Name, Where.ClassroomID);
             }
 
             nodeTree.Nodes.Clear();

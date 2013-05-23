@@ -116,6 +116,22 @@
     <Compile Include="test\TeacherWrapper.cs" />
     <Compile Include="UserControls\DecPeriod.cs" />
     <Compile Include="UserControls\DecScheduler.cs" />
+    <Compile Include="Windows\ClassBusy\ClassPackage.cs" />
+    <Compile Include="Windows\ClassBusy\ClassPackageDataAccess.cs" />
+    <Compile Include="Windows\ClassBusy\ClassEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\ClassBusy\ClassEditor.designer.cs">
+      <DependentUpon>ClassEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClassroomBusy\ClassroomPackage.cs" />
+    <Compile Include="Windows\ClassroomBusy\ClassroomPackageDataAccess.cs" />
+    <Compile Include="Windows\ClassroomBusy\ClassroomEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\ClassroomBusy\ClassroomEditor.designer.cs">
+      <DependentUpon>ClassroomEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\frmInputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,14 +139,14 @@
       <DependentUpon>frmInputBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Period.cs" />
-    <Compile Include="Windows\TeacherEditor.cs">
+    <Compile Include="Windows\TeacherBusy\TeacherEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Windows\TeacherEditor.designer.cs">
+    <Compile Include="Windows\TeacherBusy\TeacherEditor.designer.cs">
       <DependentUpon>TeacherEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\TeacherPackage.cs" />
-    <Compile Include="Windows\TeacherPackageDataAccess.cs" />
+    <Compile Include="Windows\TeacherBusy\TeacherPackage.cs" />
+    <Compile Include="Windows\TeacherBusy\TeacherPackageDataAccess.cs" />
     <Compile Include="Windows\Template\CampusConfiguration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -339,10 +355,16 @@
     <EmbeddedResource Include="test\frmTestScheduler.resx">
       <DependentUpon>frmTestScheduler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ClassBusy\ClassEditor.resx">
+      <DependentUpon>ClassEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ClassroomBusy\ClassroomEditor.resx">
+      <DependentUpon>ClassroomEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\frmInputBox.resx">
       <DependentUpon>frmInputBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\TeacherEditor.resx">
+    <EmbeddedResource Include="Windows\TeacherBusy\TeacherEditor.resx">
       <DependentUpon>TeacherEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Template\CampusConfiguration.resx">

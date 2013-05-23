@@ -83,7 +83,7 @@ namespace ischedule
             foreach (Class whomMember in schLocal.Classes)
             {
                 cboWhom.Items.Add(whomMember.Name);
-                if (whomMember.WhomID == evtChange.ClassID)
+                if (whomMember.ClassID == evtChange.ClassID)
                     nIndex1 = cboWhom.Items.Count - 1;
             }
 
@@ -95,8 +95,8 @@ namespace ischedule
 
             foreach (Classroom whereMember in schLocal.Classrooms)
             {
-                cboWhere.Items.Add(whereMember.WhereID);
-                if (whereMember.WhereID == evtChange.ClassroomID)
+                cboWhere.Items.Add(whereMember.ClassroomID);
+                if (whereMember.ClassroomID == evtChange.ClassroomID)
                     nIndex1 = cboWhere.Items.Count - 1;
             }
 

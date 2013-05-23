@@ -769,31 +769,19 @@ namespace ischedule
                             break;
                         case RCActions.rcRefresh:
                             #region 先移除後再新增
-                            evtNewTransfer = evtRefresh;
                             evtExistTransfer = evtsTransfers
                                 .Single(x => x.EventID.Equals(evtRefresh.EventID));
-
-
+                            evtExistTransfer = evtRefresh;
                             UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
-                            evtsTransfers.RemoveAt(UpdateIndex);
-
-                            mStopwatch.Stop();
-                            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
-
-
-                            evtsTransfers.Insert(UpdateIndex, evtNewTransfer);
+                            evtsTransfers.ResetItem(UpdateIndex);
                             #endregion
                             break;
                         case RCActions.rcSolutionCount: //已測試，OK
-                            evtNewTransfer = evtRefresh;
                             evtExistTransfer = evtsTransfers
                                 .Single(x => x.EventID.Equals(evtRefresh.EventID));
-
+                            evtExistTransfer = evtRefresh;
                             UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
-
-                            evtsTransfers.RemoveAt(UpdateIndex);
-
-                            evtsTransfers.Insert(UpdateIndex, evtNewTransfer);
+                            evtsTransfers.ResetItem(UpdateIndex);
                             break;
                         default:
                             break;

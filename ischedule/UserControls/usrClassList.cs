@@ -124,9 +124,9 @@ namespace ischedule
                 if (!GradeYearWhoms.ContainsKey(GradeYear))
                     GradeYearWhoms.Add(GradeYear, new List<string>());
 
-                if (IsAddWhom(vWhom.WhomID))
-                    if (!GradeYearWhoms[GradeYear].Contains(vWhom.WhomID))
-                        GradeYearWhoms[GradeYear].Add(vWhom.WhomID);
+                if (IsAddWhom(vWhom.ClassID))
+                    if (!GradeYearWhoms[GradeYear].Contains(vWhom.ClassID))
+                        GradeYearWhoms[GradeYear].Add(vWhom.ClassID);
             }
 
             nodeTree.Nodes.Clear();
@@ -153,9 +153,9 @@ namespace ischedule
                         int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
                         Node nodeWho = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWho.TagString = whomPaint.WhomID;
+                        nodeWho.TagString = whomPaint.ClassID;
                         nodeGradeYear.Nodes.Add(nodeWho);
-                        Names.Add(whomPaint.WhomID);
+                        Names.Add(whomPaint.ClassID);
                         Total++;
                     }
                 }
@@ -194,9 +194,9 @@ namespace ischedule
                 if (!UnAllocWhos.ContainsKey(UnAlloc))
                     UnAllocWhos.Add(UnAlloc, new List<string>());
 
-                if (IsAddWhom(Whom.WhomID))
-                    if (!UnAllocWhos[UnAlloc].Contains(Whom.WhomID))
-                        UnAllocWhos[UnAlloc].Add(Whom.WhomID);
+                if (IsAddWhom(Whom.ClassID))
+                    if (!UnAllocWhos[UnAlloc].Contains(Whom.ClassID))
+                        UnAllocWhos[UnAlloc].Add(Whom.ClassID);
             }
 
             nodeTree.Nodes.Clear();
@@ -224,8 +224,8 @@ namespace ischedule
                         int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
                         Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWhom.TagString = whomPaint.WhomID;
-                        Names.Add(whomPaint.WhomID);
+                        nodeWhom.TagString = whomPaint.ClassID;
+                        Names.Add(whomPaint.ClassID);
                         UnAlloc.Nodes.Add(nodeWhom);
                         Total++;
                     }
@@ -265,8 +265,8 @@ namespace ischedule
                     TotalWhoms.Add(TotalHour, new List<string>());
 
                 if (IsAddWhom(Whom.Name))
-                    if (!TotalWhoms[TotalHour].Contains(Whom.WhomID))
-                        TotalWhoms[TotalHour].Add(Whom.WhomID);
+                    if (!TotalWhoms[TotalHour].Contains(Whom.ClassID))
+                        TotalWhoms[TotalHour].Add(Whom.ClassID);
             }
 
             nodeTree.Nodes.Clear();
@@ -294,8 +294,8 @@ namespace ischedule
                         int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
                         Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWhom.TagString = whomPaint.WhomID;
-                        Names.Add(whomPaint.WhomID);
+                        nodeWhom.TagString = whomPaint.ClassID;
+                        Names.Add(whomPaint.ClassID);
                         nodeTotalHour.Nodes.Add(nodeWhom);
                         Total++;
                     }
@@ -328,7 +328,7 @@ namespace ischedule
 
                 //若班級名稱不在字典中則新增
                 if (!Names.ContainsKey(Whom.Name))
-                    Names.Add(Whom.Name,Whom.WhomID);
+                    Names.Add(Whom.Name,Whom.ClassID);
             }
 
             nodeTree.Nodes.Clear();
@@ -354,7 +354,7 @@ namespace ischedule
                     int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
                     Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                    nodeWhom.TagString = whomPaint.WhomID;
+                    nodeWhom.TagString = whomPaint.ClassID;
                     nodeAll.Nodes.Add(nodeWhom);
                 }
             }

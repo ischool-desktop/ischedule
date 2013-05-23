@@ -1052,5 +1052,35 @@ namespace ischedule
             vTeacherEditor.Prepare();
             configTeacher.ShowDialog();
         }
+
+        /// <summary>
+        /// 班級不排課時段
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClassBusy_Click(object sender, EventArgs e)
+        {
+            ClassEditor vClassEditor = new ClassEditor();
+            ClassPackageDataAccess vTeacherDataAccess = new ClassPackageDataAccess();
+            winConfiguration<ClassPackage> configTeacher = new winConfiguration<ClassPackage>(vTeacherDataAccess, vClassEditor);
+
+            vClassEditor.Prepare();
+            configTeacher.ShowDialog();
+        }
+
+        /// <summary>
+        /// 場地不排課時段
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClassroomBusy_Click(object sender, EventArgs e)
+        {
+            ClassroomEditor vClassroomEditor = new ClassroomEditor();
+            ClassroomPackageDataAccess vClassroomDataAccess = new ClassroomPackageDataAccess();
+            winConfiguration<ClassroomPackage> configClassroom = new winConfiguration<ClassroomPackage>(vClassroomDataAccess, vClassroomEditor);
+
+            vClassroomEditor.Prepare();
+            configClassroom.ShowDialog();
+        }
     }
 }

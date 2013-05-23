@@ -1,4 +1,5 @@
 ﻿using Sunset.Data.Integration;
+using System.Collections.Generic;
 
 namespace Sunset.Data
 {
@@ -11,7 +12,7 @@ namespace Sunset.Data
     /// </summary>
     public class Class
     {
-        private string mWhomID;
+        private string mClassID;
         private string mName;
         private string mTeacherName;
         private string mTimeTableID;
@@ -22,13 +23,13 @@ namespace Sunset.Data
         /// <summary>
         /// 建構式
         /// </summary>
-        /// <param name="WhomID">班級編號</param>
+        /// <param name="ClassID">班級編號</param>
         /// <param name="Name">班級姓名</param>
         /// <param name="TimeTableID">時間表編號</param>
-        public Class(string WhomID,string Name,string TimeTableID,string TeacherName,string GradeYear,string NamingRule)
+        public Class(string ClassID,string Name,string TimeTableID,string TeacherName,string GradeYear,string NamingRule)
         {
             //指定班級編號、姓名及時間表編號
-            this.mWhomID = WhomID;
+            this.mClassID = ClassID;
             this.mName = Name;
             this.mTimeTableID = TimeTableID;
             this.mTeacherName = TeacherName;
@@ -42,7 +43,7 @@ namespace Sunset.Data
         /// <summary>
         /// 班級編號
         /// </summary>
-        public string WhomID { get { return this.mWhomID; } }
+        public string ClassID { get { return this.mClassID; } }
 
         /// <summary>
         /// 班級名稱
@@ -75,6 +76,44 @@ namespace Sunset.Data
         public Appointments Appointments { get { return this.mAppointments; } }
 
         /// <summary>
+        /// 取得行事曆列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Appointment> GetAppointments()
+        {
+            List<Appointment> Apps = new List<Appointment>();
+
+            foreach (Appointment App in Appointments)
+                Apps.Add(App);
+
+            return Apps;
+        }
+
+        /// <summary>
+        /// 更新不排課時段
+        /// </summary>
+        public void UpdateBusyAppointments(List<Appointment> Apps)
+        {
+            List<Appointment> RemoveApps = new List<Appointment>();
+
+            if (this.Appointments != null)
+            {
+                //Step1：將不排課時段移除
+                for (int i = 0; i < this.Appointments.Count; i++)
+                {
+                    if (string.IsNullOrEmpty(this.Appointments[i].EventID))
+                        RemoveApps.Add(this.Appointments[i]);
+                }
+
+                RemoveApps.ForEach(x => this.Appointments.Remove(x));
+
+                //Step2：新增不排課時段
+                foreach (Appointment App in Apps)
+                    this.Appointments.Add(App);
+            }
+        }
+
+        /// <summary>
         /// 場地總時數
         /// </summary>
         public int TotalHour { get; set; }
@@ -85,7 +124,7 @@ namespace Sunset.Data
         public int AllocHour { get; set; }
     }
 
-    public static class Whom_Extension
+    public static class Class_Extension
     {
         /// <summary>
         /// 取得升級後班級名稱

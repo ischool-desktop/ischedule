@@ -1205,7 +1205,7 @@ namespace Sunset.Data
                         {
                             //場地無行事曆限制，發出WhereBusyInvalid事件
                             if (WhereBusyInvalid != null)
-                                WhereBusyInvalid(this, new WhereBusyInvalidEventArgs(whrBusy.WhereID));
+                                WhereBusyInvalid(this, new WhereBusyInvalidEventArgs(whrBusy.ClassroomID));
                         }
                         else
                         {
@@ -1229,7 +1229,7 @@ namespace Sunset.Data
                             //檢查各個行事曆，若是都沒有空閒時間則發出事件
                             if (nIndex >= whrBusy.Capacity)
                                 if (WhereBusyConflict != null)
-                                    WhereBusyConflict(this, new WhereBusyConflictEventArgs(whrBusy.WhereID));
+                                    WhereBusyConflict(this, new WhereBusyConflictEventArgs(whrBusy.ClassroomID));
                         }
                         #endregion
                     }
@@ -1270,7 +1270,7 @@ namespace Sunset.Data
                     else
                     {
                         if (WhomBusyConflict != null)
-                            WhomBusyConflict(this, new WhomBusyConflictEventArgs(whmBusy.WhomID));
+                            WhomBusyConflict(this, new WhomBusyConflictEventArgs(whmBusy.ClassID));
                     }
                 }
             }

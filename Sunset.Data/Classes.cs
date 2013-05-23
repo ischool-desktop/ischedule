@@ -8,7 +8,7 @@ namespace Sunset.Data
     /// </summary>
     public class Classes : IEnumerable<Class>
     {
-        private Dictionary<string, Class> mWhoms;
+        private Dictionary<string, Class> mClasses;
 
         /// <summary>
         /// 建構式
@@ -16,25 +16,25 @@ namespace Sunset.Data
         public Classes()
         {
             //初始化班級集合
-            mWhoms = new Dictionary<string, Class>();
+            mClasses = new Dictionary<string, Class>();
         }
 
         /// <summary>
         /// 新增班級
         /// </summary>
-        /// <param name="NewWhom">班級物件</param>
+        /// <param name="NewClass">班級物件</param>
         /// <returns>新增的班級物件，若是沒有新增成功則回傳null。</returns>
-        public Class Add(Class NewWhom)
+        public Class Add(Class NewClass)
         {
             //假設已有包含鍵值就傳回null
-            if (mWhoms.ContainsKey("" + NewWhom.WhomID))
+            if (mClasses.ContainsKey("" + NewClass.ClassID))
                 return null;
 
             //將班級加入到集合中
-            mWhoms.Add("" + NewWhom.WhomID, NewWhom);
+            mClasses.Add("" + NewClass.ClassID, NewClass);
 
             //回傳新增的班級
-            return NewWhom;
+            return NewClass;
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace Sunset.Data
         public void Remove(string Key)
         {
             //假設班級集合包含鍵值，就移除該班級
-            if (mWhoms.ContainsKey(Key))
-                mWhoms.Remove(Key);
+            if (mClasses.ContainsKey(Key))
+                mClasses.Remove(Key);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Sunset.Data
         /// <returns>是否包含</returns>
         public bool Exists(string WhomID)
         {
-            return mWhoms.ContainsKey(WhomID);
+            return mClasses.ContainsKey(WhomID);
         }
 
         /// <summary>
@@ -68,8 +68,24 @@ namespace Sunset.Data
             get 
             {
                 //假設在班級集合中有包含該鍵值，就傳回該班級，否則傳回null
-                return mWhoms.ContainsKey(Key) ? mWhoms[Key] : null; 
+                return mClasses.ContainsKey(Key) ? mClasses[Key] : null; 
             }
+        }
+
+        /// <summary>
+        /// 根據名稱取得班級
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public Class GetByName(string Name)
+        {
+            foreach (string Key in mClasses.Keys)
+            {
+                if (Key.EndsWith(Name))
+                    return mClasses[Key];
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -77,19 +93,19 @@ namespace Sunset.Data
         /// </summary>
         public void Clear()
         {
-            mWhoms.Clear();
+            mClasses.Clear();
         }
 
         /// <summary>
         /// 班級集合數量
         /// </summary>
-        public int Count { get { return mWhoms.Count; } }
+        public int Count { get { return mClasses.Count; } }
 
         #region IEnumerable<Whom> Members
 
         public IEnumerator<Class> GetEnumerator()
         {
-            return mWhoms.Values.GetEnumerator();
+            return mClasses.Values.GetEnumerator();
         }
 
         #endregion
@@ -98,7 +114,7 @@ namespace Sunset.Data
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return mWhoms.Values.GetEnumerator();
+            return mClasses.Values.GetEnumerator();
         }
 
         #endregion

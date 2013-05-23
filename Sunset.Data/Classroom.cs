@@ -7,7 +7,7 @@ namespace Sunset.Data
     /// </summary>
     public class Classroom
     {
-        private string mWhereID;
+        private string mClassroomID;
         private string mName;
         private int mCapacity;
         private string mLocID;
@@ -26,7 +26,7 @@ namespace Sunset.Data
         public Classroom(string WhereID,string Name,int Capacity,string LocID,bool LocOnly)
         {
             //指定場地編號、場地名稱、地點編號以及場地無行事曆
-            this.mWhereID = WhereID;
+            this.mClassroomID = WhereID;
             this.mName = Name;
             this.mLocID = LocID;
             this.mLocOnly = LocOnly;
@@ -98,7 +98,7 @@ namespace Sunset.Data
         /// <summary>
         /// 場地編號
         /// </summary>
-        public string WhereID { get { return mWhereID; } }
+        public string ClassroomID { get { return mClassroomID; } }
 
         /// <summary>
         /// 場地名稱
@@ -134,5 +134,43 @@ namespace Sunset.Data
         /// 約會集合
         /// </summary>
         public Appointments Appointments { get { return mAppointments; } }
+
+        /// <summary>
+        /// 取得約會列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Appointment> GetAppointments()
+        {
+            List<Appointment> Apps = new List<Appointment>();
+
+            foreach (Appointment App in Appointments)
+                Apps.Add(App);
+
+            return Apps;
+        }
+
+        /// <summary>
+        /// 更新不排課時段
+        /// </summary>
+        public void UpdateBusyAppointments(List<Appointment> Apps)
+        {
+            List<Appointment> RemoveApps = new List<Appointment>();
+
+            if (this.Appointments != null)
+            {
+                //Step1：將不排課時段移除
+                for (int i = 0; i < this.Appointments.Count; i++)
+                {
+                    if (string.IsNullOrEmpty(this.Appointments[i].EventID))
+                        RemoveApps.Add(this.Appointments[i]);
+                }
+
+                RemoveApps.ForEach(x => this.Appointments.Remove(x));
+
+                //Step2：新增不排課時段
+                foreach (Appointment App in Apps)
+                    this.Appointments.Add(App);
+            }
+        }
     }
 }

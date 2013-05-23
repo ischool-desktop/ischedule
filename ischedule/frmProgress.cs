@@ -21,8 +21,7 @@ namespace ischedule
         /// <param name="Value"></param>
         public void ChangeProgress(int Value)
         {
-            pbProgress.Value = Value;
-
+            pbProgress.Value = Value>100?100:Value;
             pbProgress.Refresh();
 
             if ((double)Value == pbProgress.Maximum)

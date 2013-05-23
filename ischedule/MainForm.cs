@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using FISCA.DSAClient;
 using Sunset.Data;
 using Sunset.Data.Integration;
-using System.IO;
 
 namespace ischedule
 {
@@ -213,6 +213,48 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 開啟舊的排課檔案
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOpenOld_Click(object sender, EventArgs e)
+        {
+            string vFilepath = string.Empty;
+
+            #region 開啟檔案
+            OpenFileDialog dlgCommonDialog = new OpenFileDialog();
+
+            dlgCommonDialog.InitialDirectory = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            dlgCommonDialog.Filter = "(*.xml)|*.xml";
+
+            DialogResult userClickedOK = dlgCommonDialog.ShowDialog();
+            #endregion
+
+            #region 判斷使用者是否按取消，或檔案長度為0則離開
+            if (userClickedOK == System.Windows.Forms.DialogResult.Cancel)
+                return;
+
+            if (dlgCommonDialog.FileName.Length == 0)
+                return;
+            #endregion
+
+            #region 實際開啟排課資料
+            vFilepath = dlgCommonDialog.FileName;
+
+            try
+            {
+                schLocal.Open(vFilepath);
+
+                LoadResourceList();
+            }
+            catch (Exception ve)
+            {
+                MessageBox.Show(ve.Message);
+            }
+            #endregion
+        }
+
+        /// <summary>
         /// 開啟舊檔
         /// </summary>
         /// <param name="sender"></param>
@@ -259,13 +301,6 @@ namespace ischedule
             catch (Exception ve)
             {
                 MessageBox.Show(ve.Message);
-            }
-            #endregion
-
-            #region Add Who List
-            if (schLocal.IsOpen)
-            {
-
             }
             #endregion
         }
@@ -403,6 +438,7 @@ namespace ischedule
         private void SetScheduleSourceCloseMenu()
         {
             btnOpen.Enabled = true;
+            btnOpenOld.Enabled = true;
             btnSave.Enabled = false;
             btnSaveAs.Enabled = false;
             btnDownload.Enabled = true;
@@ -420,6 +456,7 @@ namespace ischedule
         private void SetScheduleSourceOpenMenu()
         {
             btnOpen.Enabled = false;
+            btnOpenOld.Enabled = false;
             btnSave.Enabled = true;
             btnSaveAs.Enabled = true;
             btnDownload.Enabled = false;

@@ -157,7 +157,7 @@ namespace Sunset.Data
         /// 取得不忙碌時段
         /// </summary>
         /// <returns></returns>
-        public List<Appointment> GetBusyAppointments()
+        public List<Appointment> GetAppointments()
         {
             List<Appointment> Apps = new List<Appointment>();
 

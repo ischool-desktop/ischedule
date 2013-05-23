@@ -42,6 +42,11 @@ namespace ischedule
         /// 時段描述
         /// </summary>
         public string Desc { get; set; }
+
+        /// <summary>
+        /// 事件編號
+        /// </summary>
+        public string EventID { get; set; }
     }
 
     public static class PeriodConverter
@@ -82,6 +87,7 @@ namespace ischedule
             Period.Position = 0;
             Period.WeekFlag = 3;
             Period.Desc = vApp.Description;
+            Period.EventID = vApp.EventID;
 
             return Period;
         }

@@ -194,12 +194,21 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 設定已排課節次
+        /// </summary>
+        public void SetScheduledPeriod(List<SchPeriod> vPeriods)
+        {
+ 
+        }
+
+        /// <summary>
         /// 設定不排課節次
         /// </summary>
-        /// <param name="vPeriods"></param>
+        /// <param name="vBusyPeriods"></param>
         public void SetPeriods(List<SchPeriod> vPeriods)
         {
             List<TimeTableSec> BusyTimeTableSecs = new List<TimeTableSec>();
+            List<TimeTableSec> ScheduledTimeTableSecs = new List<TimeTableSec>();
 
             foreach (DataGridViewRow Row in grdEditor.Rows)
             {
@@ -226,8 +235,15 @@ namespace ischedule
 
                     if (vPeriod.IsTimeIntersectsWith(secPeriod))
                     {
-                        Sec.DisableMessage = vPeriod.Desc;
-                        BusyTimeTableSecs.Add(Sec);
+                        if (string.IsNullOrEmpty(vPeriod.EventID))
+                        {
+                            Sec.DisableMessage = vPeriod.Desc;
+                            BusyTimeTableSecs.Add(Sec);
+                        }
+                        else
+                        {
+                            ScheduledTimeTableSecs.Add(Sec);
+                        }
                     }
                 }
             }
@@ -238,6 +254,16 @@ namespace ischedule
             {
                 int RowIndex = mWeekdayRowIndex[BusyTimeTableSec.Period];
                 grdEditor.Rows[RowIndex].Cells[BusyTimeTableSec.WeekDay].Value = string.IsNullOrEmpty(BusyTimeTableSec.DisableMessage) ? "X" : BusyTimeTableSec.DisableMessage;
+            }
+
+            foreach (TimeTableSec ScheduledTimeTableSec in ScheduledTimeTableSecs)
+            {
+                int RowIndex = mWeekdayRowIndex[ScheduledTimeTableSec.Period];
+
+                DataGridViewCellStyle Style = new DataGridViewCellStyle();
+                Style.BackColor = Color.LightGray;
+
+                grdEditor.Rows[RowIndex].Cells[ScheduledTimeTableSec.WeekDay].Style = Style; 
             }
 
             grdEditor.ResumeLayout();

@@ -246,7 +246,7 @@ namespace ischedule
             #region 產生預設的TeacherPackage，將Teacher為null，並將TeacherBusys產生為空集合
             TeacherPackage vTeacherPackage = new TeacherPackage();
             vTeacherPackage.Teacher = schLocal.Teachers[Key];
-            vTeacherPackage.TeacherBusys = vTeacherPackage.Teacher.GetBusyAppointments();
+            vTeacherPackage.TeacherBusys = vTeacherPackage.Teacher.GetAppointments();
             #endregion
 
             return vTeacherPackage;

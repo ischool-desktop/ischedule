@@ -822,7 +822,7 @@ namespace Sunset.Data.Integration
         {
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
-            SendRequest(Conn,"_.DeleteTeacherBusy", Request);
+            //SendRequest(Conn,"_.DeleteTeacherBusy", Request);
         }
         
         /// <summary>
@@ -848,7 +848,7 @@ namespace Sunset.Data.Integration
                 Request.Add(Element);
             }
 
-            SendRequest(Conn, "_.InsertTeacherBusy", Request);
+            //SendRequest(Conn, "_.InsertTeacherBusy", Request);
         }
 
         /// <summary>
@@ -859,7 +859,7 @@ namespace Sunset.Data.Integration
         {
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
-            SendRequest(Conn,"_.DeleteClassBusy", Request); 
+            //SendRequest(Conn,"_.DeleteClassBusy", Request); 
         }
 
         /// <summary>
@@ -884,7 +884,7 @@ namespace Sunset.Data.Integration
                 Request.Add(Element);
             }
 
-            SendRequest(Conn, "_.InsertClassBusy", Request);
+            //SendRequest(Conn, "_.InsertClassBusy", Request);
         }
 
         /// <summary>
@@ -895,7 +895,7 @@ namespace Sunset.Data.Integration
         {
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
-            SendRequest(Conn, "_.DeleteClassroomBusy", Request);
+            //SendRequest(Conn, "_.DeleteClassroomBusy", Request);
         }
 
         /// <summary>
@@ -921,7 +921,7 @@ namespace Sunset.Data.Integration
                 Request.Add(Element);
             }
 
-            SendRequest(Conn, "_.InsertClassroomBusy", Request);
+            //SendRequest(Conn, "_.InsertClassroomBusy", Request);
         }
 
         /// <summary>

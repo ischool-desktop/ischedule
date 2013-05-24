@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using FISCA;
 using FISCA.Deployment;
 
 namespace ischedule
@@ -14,8 +15,8 @@ namespace ischedule
         [STAThread]
         static void Main()
         {
-            //if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
-            //{
+            if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
+            {
                 string updatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "update_padding.xml");
 
                 if (System.IO.File.Exists(updatePath))
@@ -23,7 +24,7 @@ namespace ischedule
                     FISCA.Deployment.UpdateHelper.ExecuteScript(updatePath, true);
                     return;
                 }
-            //}
+            }
 
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

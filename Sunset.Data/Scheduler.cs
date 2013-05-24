@@ -2793,32 +2793,10 @@ namespace Sunset.Data
             if (AutoScheduleStart != null)
                 AutoScheduleStart(this, new AutoScheduleStartEventArgs(nTotItem));
 
-            #region VB
-            //Dim nCurIndex As Integer
-            //Dim nTotItem As Integer
-            //Dim nMostNear As Integer
-            //Dim prdsTest As Periods
-            //Dim prdTest As Period
-            //Dim evtTest As CEvent
-            //Dim bMoveForward As Boolean
-            //Dim bUserAbort As Boolean
-            //Dim nThreshold As Integer
-
-            //nTotItem = EventList.Count
-            //RaiseEvent AutoScheduleStart(nTotItem)
-            #endregion 
-
             #region Decrease the alloc hour for relating resource
             //減去相關資源的已安排時數
             foreach (CEvent evtEach in EventList)
                 if (evtEach.WeekDay != 0) DecAllocHour(evtEach);
-            #endregion
-
-            #region VB
-            //'Decrease the alloc hour for relating resource
-            //For Each evtTest In EventList
-            //    If evtTest.WeekDay <> 0 Then DecAllocHour evtTest
-            //Next evtTest
             #endregion
 
             #region Find first unscheduled event
@@ -2829,15 +2807,6 @@ namespace Sunset.Data
                     break;
                 nCurIndex++;
             }
-            #endregion
-
-            #region VB
-            //'Find first unscheduled event
-            //nCurIndex = 1
-            //Do While nCurIndex < nTotItem
-            //    If EventList(nCurIndex).WeekDay = 0 Then Exit Do
-            //    nCurIndex = nCurIndex + 1
-            //Loop
             #endregion
 
             #region Solution finding loop
@@ -2885,13 +2854,13 @@ namespace Sunset.Data
 
                     //若事件未安排，則prdTest為第一節
                     if (evtTest.WeekDay == 0)
-                        prdTest = prdsTest.GetNextRandomPeriod();
-                    //prdTest = prdsTest.FirstPeriod(0);
+                        //prdTest = prdsTest.GetNextRandomPeriod();
+                        prdTest = prdsTest.FirstPeriod(0);
                     else
                     {
                         //若事件有安排，則prdTest為目前節數的下一節
-                        prdTest = prdsTest.GetNextRandomPeriod();
-                        //prdTest = prdsTest.NextPeriod(evtTest.WeekDay, evtTest.PeriodNo);
+                        //prdTest = prdsTest.GetNextRandomPeriod();
+                        prdTest = prdsTest.NextPeriod(evtTest.WeekDay, evtTest.PeriodNo);
                         ReleaseEvent(evtTest, true);
                     }
 
@@ -2903,8 +2872,8 @@ namespace Sunset.Data
                             AllocEvent(true);
                             break;
                         }
-                        prdTest = prdsTest.GetNextRandomPeriod();
-                        //prdTest = prdsTest.NextPeriod(prdTest.WeekDay, prdTest.PeriodNo);
+                        //prdTest = prdsTest.GetNextRandomPeriod();
+                        prdTest = prdsTest.NextPeriod(prdTest.WeekDay, prdTest.PeriodNo);
                     }
 
                     //Determine to move forward or backward
@@ -2925,59 +2894,6 @@ namespace Sunset.Data
             }while(nCurIndex>=0 && nCurIndex<nTotItem);
             #endregion
 
-            #region VB
-            //'Solution finding loop
-            //nMostNear = nCurIndex
-            //bMoveForward = True
-            //Do
-            //    'Notify
-            //    nThreshold = nThreshold + 1
-            //    If nThreshold > AutoScheduleNotifyThreshold Then
-            //        bUserAbort = False
-            //        RaiseEvent AutoScheduleProgress(nCurIndex, bUserAbort)
-            //        If bUserAbort Then Exit Do
-            //        nThreshold = 0
-            //    End If        
-            //    Set evtTest = EventList(nCurIndex)
-            //    If evtTest.ManualLock Then
-            //        If bMoveForward Then
-            //            nCurIndex = nCurIndex + 1
-            //        Else
-            //            nCurIndex = nCurIndex - 1
-            //        End If
-            //    Else
-            //        With evtTest
-            //        Set prdsTest = mTimeTables(CStr(.TimeTableID)).Periods
-            //        If .WeekDay = 0 Then
-            //            Set prdTest = prdsTest.FirstPeriod(0)
-            //        Else
-            //            Set prdTest = prdsTest.NextPeriod(.WeekDay, .PeriodNo)
-            //            ReleaseEvent evtTest
-            //        End If
-            //        End With
-            //        'Get next possibility
-            //        Do While Not (prdTest Is Nothing)
-            //            With prdTest
-            //            If TestSchedule(evtTest, .WeekDay, .PeriodNo) = 0 Then
-            //                AllocEvent
-            //                Exit Do
-            //            End If
-            //            Set prdTest = prdsTest.NextPeriod(.WeekDay, .PeriodNo)
-            //            End With
-            //        Loop
-            //        'Determine to move forward or backward
-            //        If prdTest Is Nothing Then
-            //            bMoveForward = False
-            //            nCurIndex = nCurIndex - 1
-            //        Else
-            //            bMoveForward = True
-            //            If nMostNear < nCurIndex Then nMostNear = nCurIndex
-            //            nCurIndex = nCurIndex + 1
-            //        End If
-            //    End If
-            //Loop Until (nCurIndex < 1) Or (nCurIndex > nTotItem)
-            #endregion
-
             //若傳回空白代表排課成功，若傳回事件編號代表該事件無解
             Result = nCurIndex>=nTotItem ? string.Empty : EventList[nMostNear].EventID;
 
@@ -2992,24 +2908,6 @@ namespace Sunset.Data
             UpdateEventsSolutionCount(EventList);
 
             return Result;
-
-            #region VB
-            //If nCurIndex > nTotItem Then
-            //    AutoSchedule = 0
-            //Else
-            //    AutoSchedule = EventList(nMostNear).EventID
-            //End If
-
-            //'Increase the alloc hour for relating resource
-            //For Each evtTest In EventList
-            //    If evtTest.WeekDay <> 0 Then IncAllocHour evtTest
-            //Next evtTest
-
-            //RaiseEvent AutoScheduleComplete(EventList, nMostNear)
-
-            //'Update solution counts
-            //UpdateEventsSolutionCount EventList
-            #endregion
         }
 
         /// <summary>

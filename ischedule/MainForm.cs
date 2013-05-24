@@ -8,6 +8,7 @@ using DevComponents.DotNetBar;
 using FISCA.DSAClient;
 using Sunset.Data;
 using Sunset.Data.Integration;
+using FISCA;
 
 namespace ischedule
 {
@@ -194,6 +195,8 @@ namespace ischedule
             this.pnlWhoLPView.Width = 600;
             this.pnlWhomLPView.Width = 600;
             this.pnlWhereLPView.Width = 600;
+
+            ServerModule.AutoManaged("http://module.ischool.com.tw/module/89/ischedule/udm.xml");
 
             #region 測試用程式碼
             //schLocal.Open("C:\\101學年度第2學期0210.xml");

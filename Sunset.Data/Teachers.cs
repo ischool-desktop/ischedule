@@ -26,11 +26,11 @@ namespace Sunset.Data
         public Teacher Add(Teacher NewWho)
         {
             //假設已有包含鍵值就傳回null
-            if (mWhos.ContainsKey(NewWho.WhoID))
+            if (mWhos.ContainsKey(NewWho.TeacherID))
                 return null;
 
             //將教師加入到集合中
-            mWhos.Add(NewWho.WhoID,NewWho);
+            mWhos.Add(NewWho.TeacherID,NewWho);
 
             //回傳新增的教師
             return NewWho;

@@ -6,25 +6,25 @@ namespace Sunset.Data
     /// </summary>
     public class Subject
     {
-        private string mWhatID;
+        private string mSubjectID;
         private string mName;
 
         /// <summary>
         /// 建構式
         /// </summary>
-        /// <param name="WhatID">科目編號</param>
+        /// <param name="SubjectID">科目編號</param>
         /// <param name="Name">科目名稱</param>
-        public Subject(string WhatID, string Name)
+        public Subject(string SubjectID, string Name)
         {
             //指定科目編號及名稱
-            this.mWhatID = WhatID;
+            this.mSubjectID = SubjectID;
             this.mName = Name;
         }
 
         /// <summary>
         /// 科目編號
         /// </summary>
-        public string WhatID { get { return this.mWhatID; } }
+        public string WhatID { get { return this.mSubjectID; } }
 
         /// <summary>
         /// 科目名稱

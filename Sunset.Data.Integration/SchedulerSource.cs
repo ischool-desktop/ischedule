@@ -6,7 +6,6 @@ using System.Text;
 using System.Xml.Linq;
 using FISCA.DSAClient;
 using Sunset.NewCourse;
-using System.Xml;
 
 namespace Sunset.Data.Integration
 {
@@ -227,6 +226,9 @@ namespace Sunset.Data.Integration
         /// <returns></returns>
         public Tuple<bool,string> Upload(List<Connection> Connections,
             List<SCourseSection> CourseSections,
+            List<STeacherBusy> TeacherBusys,
+            List<SClassBusy> ClassBusys,
+            List<SClassroomBusy> ClassroomBusys,
             Action<int,string> Progress)
         {
             Progress.Invoke(0,"建立上傳資料結構中");
@@ -268,6 +270,20 @@ namespace Sunset.Data.Integration
             Progress.Invoke(0,"將分課依學校放到上傳資料結構中");
 
             int ProgressValue = 0;
+
+            #region 針對不排課時段進行轉換
+            foreach (STeacherBusy TeacherBusy in TeacherBusys)
+                if (UploadData.ContainsKey(TeacherBusy.DSNS))
+                    UploadData[TeacherBusy.DSNS].TeacherBusys.Add(TeacherBusy);
+
+            foreach (SClassBusy ClassBusy in ClassBusys)
+                if (UploadData.ContainsKey(ClassBusy.DSNS))
+                    UploadData[ClassBusy.DSNS].ClassBusys.Add(ClassBusy);
+
+            foreach (SClassroomBusy ClassroomBusy in ClassroomBusys)
+                if (UploadData.ContainsKey(ClassroomBusy.DSNS))
+                    UploadData[ClassroomBusy.DSNS].ClassroomBusys.Add(ClassroomBusy);
+            #endregion
 
             #region 針對每筆課程分段，轉換成實際的上傳物件
             CourseSections.ForEach(x =>
@@ -674,6 +690,108 @@ namespace Sunset.Data.Integration
 
                     //    Progress.Invoke(100, "上傳『" + DSNS + "』資料中（已更新課程屬性）");
                     //}
+                    #endregion
+
+                    #region 刪除不排課時段
+                    //刪除及新增教師不排課時段
+                    if (UploadData[DSNS].TeacherBusys.Count >0)
+                    {
+                        try
+                        {
+                            ContractService.DeleteTeacherBusy(
+                                UploadData[DSNS].Connection);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("刪除學校『" + DSNS + "』的教師不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion
+                        }
+
+                        try
+                        {
+                            ContractService.InsertTeacherBusy(
+                                UploadData[DSNS].Connection, 
+                                UploadData[DSNS].TeacherBusys);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("新增學校『" + DSNS + "』的教師不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion 
+                        }                       
+                    }
+
+                    //刪除班級不排課時段
+                    if (UploadData[DSNS].ClassBusys.Count > 0)
+                    {
+                        try
+                        {
+                            ContractService.DeleteClassBusy(
+                                UploadData[DSNS].Connection);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("刪除學校『" + DSNS + "』的班級不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion
+                        }
+
+                        try
+                        {
+                            ContractService.InsertClassBusy(
+                                UploadData[DSNS].Connection, 
+                                UploadData[DSNS].ClassBusys);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("新增學校『" + DSNS + "』的教師不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion
+                        }
+                    }
+
+                    //刪除場地不排課時段
+                    if (UploadData[DSNS].ClassroomBusys.Count > 0)
+                    {
+                        try
+                        {
+                            ContractService.DeleteClassroomBusy(UploadData[DSNS].Connection);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("刪除學校『" + DSNS + "』的場地不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion
+                        }
+
+                        try
+                        {
+                            ContractService.InsertClassroomBusy(
+                                UploadData[DSNS].Connection,
+                                UploadData[DSNS].ClassroomBusys);
+                        }
+                        catch (Exception e)
+                        {
+                            #region 若刪除失敗則不繼續進行，直接回傳結果
+                            strBuilder.AppendLine("新增學校『" + DSNS + "』的場地不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            IsUploadable = false;
+                            return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
+                            #endregion
+                        }
+                    }
+
+                    Progress.Invoke(100, "上傳『" + DSNS + "』不排課資料中（已刪除上傳學校不排課時段）");
                     #endregion
 
                     Progress.Invoke(100, "已上傳完『" + DSNS + "』所有排課資料");
@@ -1237,6 +1355,9 @@ namespace Sunset.Data.Integration
         public UploadData()
         {
             CourseSections = new List<SchedulerCourseSection>();
+            TeacherBusys = new List<STeacherBusy>();
+            ClassBusys = new List<SClassBusy>();
+            ClassroomBusys = new List<SClassroomBusy>();
             Courses = new Dictionary<string, UploadCourse>();
         }
 
@@ -1249,6 +1370,21 @@ namespace Sunset.Data.Integration
         /// 課程分段
         /// </summary>
         public List<SchedulerCourseSection> CourseSections { get; private set; }
+
+        /// <summary>
+        /// 教師不排課時段
+        /// </summary>
+        public List<STeacherBusy> TeacherBusys { get; private set; }
+
+        /// <summary>
+        /// 班級不排課時段
+        /// </summary>
+        public List<SClassBusy> ClassBusys { get; private set; }
+
+        /// <summary>
+        /// 場地不排課時段
+        /// </summary>
+        public List<SClassroomBusy> ClassroomBusys { get; private set; }
 
         /// <summary>
         /// 課程資料

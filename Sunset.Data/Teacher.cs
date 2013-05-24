@@ -11,7 +11,7 @@ namespace Sunset.Data
     /// </summary>
     public class Teacher
     {
-        private string mWhoID;
+        private string mTeacherID;
         private string mName;
         private int mCapacity;
         private int? mBasicLength;
@@ -27,13 +27,13 @@ namespace Sunset.Data
         /// <summary>
         /// 建構式
         /// </summary>
-        /// <param name="WhoID">教師編號</param>
+        /// <param name="TeacherID">教師編號</param>
         /// <param name="Name">教師名稱</param>
         /// <param name="Capacity">行事曆數量</param>
-        public Teacher(string WhoID, string Name, int Capacity, int? BasicLength, int? ExtraLength, int? CounselingLength,string Comment)
+        public Teacher(string TeacherID, string Name, int Capacity, int? BasicLength, int? ExtraLength, int? CounselingLength,string Comment)
         {
             //指定教師編號及姓名
-            this.mWhoID = WhoID;
+            this.mTeacherID = TeacherID;
             this.mName = Name;
             this.mBasicLength = BasicLength;
             this.mExtraLength = ExtraLength;
@@ -78,7 +78,7 @@ namespace Sunset.Data
         /// <summary>
         /// 教師編號
         /// </summary>
-        public string WhoID { get { return mWhoID; } }
+        public string TeacherID { get { return mTeacherID; } }
 
         /// <summary>
         /// 教師姓名
@@ -154,7 +154,7 @@ namespace Sunset.Data
         }
 
         /// <summary>
-        /// 取得不忙碌時段
+        /// 取得約會列表
         /// </summary>
         /// <returns></returns>
         public List<Appointment> GetAppointments()

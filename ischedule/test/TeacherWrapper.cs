@@ -17,7 +17,7 @@ namespace ischedule.test
         public override string ToString()
         {
             string result = "";
-            List<CEvent> events = Scheduler.Instance.CEvents.GetEventsByTeacherID(t.WhoID);
+            List<CEvent> events = Scheduler.Instance.CEvents.GetEventsByTeacherID(t.TeacherID);
             if (events.Count > 0)
                 result = string.Format("{0} ({1})", t.Name, events.Count.ToString());
             

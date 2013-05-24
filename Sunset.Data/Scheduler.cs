@@ -1105,6 +1105,7 @@ namespace Sunset.Data
                         x.LocationID,
                         x.LocationOnly
                         );
+                    x.SourceIDs.ForEach(y => whrNew.SourceIDs.Add(y));
                     Classrooms.Add(whrNew);
                 }
             );
@@ -1155,7 +1156,7 @@ namespace Sunset.Data
                         //檢查各個行事曆，若是都沒有空閒時間則發出事件
                         if (nIndex >= whoBusy.Capacity)
                             if (WhoBusyConflict != null)
-                                WhoBusyConflict(this, new WhoBusyConflictEventArgs(whoBusy.WhoID));
+                                WhoBusyConflict(this, new WhoBusyConflictEventArgs(whoBusy.TeacherID));
                         #endregion
                     }
                 }
@@ -1583,7 +1584,8 @@ namespace Sunset.Data
 
             List<SCourseSection> CourseSections = new List<SCourseSection>();
 
-            foreach(CEvent CEvent in CEvents)
+            #region 轉換課程分段
+            foreach (CEvent CEvent in CEvents)
             {
                 SCourseSection CourseSection = new SCourseSection();
 
@@ -1617,9 +1619,107 @@ namespace Sunset.Data
 
                 CourseSections.Add(CourseSection);
             }
+            #endregion
+
+            #region 轉換教師不排課時段
+            List<STeacherBusy> TeacherBusys = new List<STeacherBusy>();
+
+            foreach (Teacher vTeacher in Teachers)
+            {
+                foreach (Appointment vApp in vTeacher.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {
+                        foreach (SourceID vSourceID in vTeacher.SourceIDs)
+                        {
+                            string TeacherID = vSourceID.ID;
+                            string DSNS = vSourceID.DSNS;
+
+                            STeacherBusy TeacherBusy = new STeacherBusy();
+
+                            TeacherBusy.DSNS = DSNS;
+                            TeacherBusy.TeacherID = vSourceID.ID;
+
+                            TeacherBusy.WeekDay = vApp.WeekDay;
+                            TeacherBusy.BeginTime = vApp.BeginTime;
+                            TeacherBusy.Duration = vApp.Duration;
+                            TeacherBusy.Description = vApp.Description;
+                            TeacherBusy.LocationID = vApp.LocID;
+
+                            TeacherBusys.Add(TeacherBusy);
+                        }
+                     }
+                }
+            }
+            #endregion
+
+            #region 轉換班級不排課時段
+            List<SClassBusy> ClassBusys = new List<SClassBusy>();
+
+            foreach (Class vClass in Classes)
+            {
+                string[] ClassIDs = vClass.ClassID.Split(new char[]{','});
+                string DSNS = ClassIDs[0];
+                string ClassID = ClassIDs[1];
+
+                foreach (Appointment vApp in vClass.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {
+                        SClassBusy ClassBusy = new SClassBusy();
+
+                        ClassBusy.DSNS = DSNS;
+                        ClassBusy.ClassID = ClassID;
+
+                        ClassBusy.WeekDay = vApp.WeekDay;
+                        ClassBusy.BeginTime = vApp.BeginTime;
+                        ClassBusy.Duration = vApp.Duration;
+                        ClassBusy.Description = vApp.Description;
+
+                        ClassBusys.Add(ClassBusy);
+                    }
+                }
+            }
+            #endregion
+
+            #region 轉換場地不排課時段
+            List<SClassroomBusy> ClassroomBusys = new List<SClassroomBusy>();
+
+            foreach (Classroom vClassroom in Classrooms)
+            {
+                foreach (Appointment vApp in vClassroom.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {
+                        foreach (SourceID vSourceID in vClassroom.SourceIDs)
+                        {
+                            string ClassroomID = vSourceID.ID;
+                            string DSNS = vSourceID.DSNS;
+
+                            SClassroomBusy ClassroomBusy = new SClassroomBusy();
+
+                            ClassroomBusy.DSNS = DSNS;
+                            ClassroomBusy.ClassroomID = ClassroomID;
+
+                            ClassroomBusy.WeekDay = vApp.WeekDay;
+                            ClassroomBusy.BeginTime = vApp.BeginTime;
+                            ClassroomBusy.Duration = vApp.Duration;
+                            ClassroomBusy.Description = vApp.Description;
+                            ClassroomBusy.WeekFlag = vApp.WeekFlag;
+
+                            ClassroomBusys.Add(ClassroomBusy);
+                        }
+                    }
+                }
+            }
+            #endregion
+
 
             Tuple<bool, string> UploadResult = SchedulerSource.Source.Upload(Connections,
                 CourseSections,
+                TeacherBusys,
+                ClassBusys,
+                ClassroomBusys,
                 (x,y) =>
                 {
                     if (UploadSourceProgress != null)
@@ -3503,7 +3603,7 @@ namespace Sunset.Data
             foreach (Teacher whoCand in Teachers)
             {
                 //若教師編號不為NullValue
-                if (!whoCand.WhoID.IsNullValue())
+                if (!whoCand.TeacherID.IsNullValue())
                 {
                     //針對教師每個行事曆
                     for (int i = 0; i < whoCand.Capacity; i++)
@@ -3599,7 +3699,7 @@ namespace Sunset.Data
                 #region 測試代課教師可否安排到此事件
                 foreach (Teacher whoCand in whosCand)
                 {
-                    evtTest.TeacherID1 = whoCand.WhoID;
+                    evtTest.TeacherID1 = whoCand.TeacherID;
                     if (TestSchedule(evtTest, nSaveWeekDay, nSavePeriod,true) != 0)
                         RemoveIDs.Add(evtTest.TeacherID1);
                 }

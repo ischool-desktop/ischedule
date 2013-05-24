@@ -52,22 +52,22 @@ namespace ischedule
                 //假設教師有在該分課的學校授教才加入該教師
                 if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
                 {
-                    cboWho1.Items.Add(whoMember.WhoID);
-                    if (whoMember.WhoID == evtChange.TeacherID1)
+                    cboWho1.Items.Add(whoMember.TeacherID);
+                    if (whoMember.TeacherID == evtChange.TeacherID1)
                         nIndex1 = cboWho1.Items.Count - 1;
                 }
 
                 if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
                 {
-                    cboWho2.Items.Add(whoMember.WhoID);
-                    if (whoMember.WhoID == evtChange.TeacherID2)
+                    cboWho2.Items.Add(whoMember.TeacherID);
+                    if (whoMember.TeacherID == evtChange.TeacherID2)
                         nIndex2 = cboWho2.Items.Count - 1;
                 }
 
                 if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
                 {
-                    cboWho3.Items.Add(whoMember.WhoID);
-                    if (whoMember.WhoID == evtChange.TeacherID3)
+                    cboWho3.Items.Add(whoMember.TeacherID);
+                    if (whoMember.TeacherID == evtChange.TeacherID3)
                         nIndex3 = cboWho3.Items.Count - 1;
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sunset.Data.Integration;
 
 namespace Sunset.Data
 {
@@ -18,15 +19,15 @@ namespace Sunset.Data
         /// <summary>
         /// 建構式
         /// </summary>
-        /// <param name="WhereID">場地編號</param>
+        /// <param name="ClassroomID">場地編號</param>
         /// <param name="Name">場地名稱</param>
         /// <param name="Capacity">行事曆數量</param>
         /// <param name="LocID">地點編號</param>
         /// <param name="LocOnly">場地無行事曆</param>
-        public Classroom(string WhereID,string Name,int Capacity,string LocID,bool LocOnly)
+        public Classroom(string ClassroomID,string Name,int Capacity,string LocID,bool LocOnly)
         {
             //指定場地編號、場地名稱、地點編號以及場地無行事曆
-            this.mClassroomID = WhereID;
+            this.mClassroomID = ClassroomID;
             this.mName = Name;
             this.mLocID = LocID;
             this.mLocOnly = LocOnly;
@@ -53,24 +54,7 @@ namespace Sunset.Data
                 mAppointments = mAppointmentsList[0];
             }
 
-            #region VB
-            //Dim nIndex As Integer    
-            //mWhereID = WhereID
-            //mName = Name
-            //mLocID = LocID
-            //mLocOnly = LocOnly
-            //If LocOnly Then
-            //    Capacity = 0
-            //Else
-            //    If Capacity < 1 Then Capacity = 1
-            //    mCapacity = Capacity
-            //    ReDim mApps(1 To Capacity) As Appointments
-            //    For nIndex = 1 To Capacity
-            //        Set mApps(nIndex) = New Appointments
-            //    Next nIndex
-            //    Set mApp = mApps(1)
-            //End If
-            #endregion
+            this.SourceIDs = new List<SourceID>();
         }
 
         /// <summary>
@@ -87,12 +71,6 @@ namespace Sunset.Data
 
             //切換使用中的行事歷（根據nWhich變數）
             mAppointments = mAppointmentsList[nWhich];
-
-            #region VB
-            //If nWhich < 1 Then nWhich = 1
-            //If nWhich > mCapacity Then nWhich = mCapacity
-            //Set mApp = mApps(nWhich)
-            #endregion
         }
 
         /// <summary>
@@ -134,6 +112,11 @@ namespace Sunset.Data
         /// 約會集合
         /// </summary>
         public Appointments Appointments { get { return mAppointments; } }
+
+        /// <summary>
+        /// 場地來源DSNS及系統編號
+        /// </summary>
+        public List<SourceID> SourceIDs { get; set; }
 
         /// <summary>
         /// 取得約會列表

@@ -815,6 +815,116 @@ namespace Sunset.Data.Integration
         }
 
         /// <summary>
+        /// 刪除所有教師不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        public static void DeleteTeacherBusy(Connection Conn)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            SendRequest(Conn,"_.DeleteTeacherBusy", Request);
+        }
+        
+        /// <summary>
+        /// 新增教師不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        /// <param name="TeacherBusys"></param>
+        public static void InsertTeacherBusy(Connection Conn,List<STeacherBusy> TeacherBusys)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            foreach(STeacherBusy vTeacherBusy in TeacherBusys)
+            {
+                XElement Element = new XElement("TeacherBusy");
+
+                Element.Add(new XElement("BeginTime",vTeacherBusy.BeginTime.ToShortTimeString()));
+                Element.Add(new XElement("BusyDescription",vTeacherBusy.Description));
+                Element.Add(new XElement("Duration",vTeacherBusy.Duration));
+                Element.Add(new XElement("TeacherID",vTeacherBusy.TeacherID));
+                Element.Add(new XElement("LocationID", vTeacherBusy.LocationID));
+                Element.Add(new XElement("Weekday",vTeacherBusy.WeekDay));
+
+                Request.Add(Element);
+            }
+
+            SendRequest(Conn, "_.InsertTeacherBusy", Request);
+        }
+
+        /// <summary>
+        /// 刪除所有班級不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        public static void DeleteClassBusy(Connection Conn)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            SendRequest(Conn,"_.DeleteClassBusy", Request); 
+        }
+
+        /// <summary>
+        /// 新增班級不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        /// <param name="ClassBusys"></param>
+        public static void InsertClassBusy(Connection Conn, List<SClassBusy> ClassBusys)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            foreach (SClassBusy vClassBusy in ClassBusys)
+            {
+                XElement Element = new XElement("TeacherBusy");
+
+                Element.Add(new XElement("BeginTime", vClassBusy.BeginTime.ToShortTimeString()));
+                Element.Add(new XElement("BusyDescription", vClassBusy.Description));
+                Element.Add(new XElement("Duration", vClassBusy.Duration));
+                Element.Add(new XElement("ClassID", vClassBusy.ClassID));
+                Element.Add(new XElement("Weekday", vClassBusy.WeekDay));
+
+                Request.Add(Element);
+            }
+
+            SendRequest(Conn, "_.InsertClassBusy", Request);
+        }
+
+        /// <summary>
+        /// 刪除所有場地不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        public static void DeleteClassroomBusy(Connection Conn)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            SendRequest(Conn, "_.DeleteClassroomBusy", Request);
+        }
+
+        /// <summary>
+        /// 新增場地不排課時段
+        /// </summary>
+        /// <param name="Conn"></param>
+        /// <param name="ClassroomBusys"></param>
+        public static void InsertClassroomBusy(Connection Conn, List<SClassroomBusy> ClassroomBusys)
+        {
+            XElement Request = XElement.Load(new StringReader("<Request/>"));
+
+            foreach (SClassroomBusy vClassroomBusy in ClassroomBusys)
+            {
+                XElement Element = new XElement("ClassroomBusy");
+
+                Element.Add(new XElement("BeginTime", vClassroomBusy.BeginTime.ToShortTimeString()));
+                Element.Add(new XElement("BusyDescription", vClassroomBusy.Description));
+                Element.Add(new XElement("Duration", vClassroomBusy.Duration));
+                Element.Add(new XElement("ClassroomID", vClassroomBusy.ClassroomID));
+                Element.Add(new XElement("Weekday", vClassroomBusy.WeekDay));
+                Element.Add(new XElement("WeekFlag",vClassroomBusy.WeekFlag));
+
+                Request.Add(Element);
+            }
+
+            SendRequest(Conn, "_.InsertClassroomBusy", Request);
+        }
+
+        /// <summary>
         /// 更新課程排課資料
         /// </summary>
         /// <param name="Conn"></param>

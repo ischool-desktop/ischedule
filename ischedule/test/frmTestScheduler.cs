@@ -53,7 +53,7 @@ namespace ischedule.test
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Teacher t = ((TeacherWrapper)this.listBox1.SelectedItem).Teacher;
-            List<CEvent> events = Scheduler.Instance.CEvents.GetEventsByTeacherID(t.WhoID);
+            List<CEvent> events = Scheduler.Instance.CEvents.GetEventsByTeacherID(t.TeacherID);
             this.dataGridViewX1.DataSource = events;
         }
 

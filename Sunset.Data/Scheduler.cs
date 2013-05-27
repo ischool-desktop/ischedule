@@ -1658,6 +1658,9 @@ namespace Sunset.Data
 
             foreach (Class vClass in Classes)
             {
+                if (string.IsNullOrEmpty(vClass.ClassID))
+                    continue;
+
                 string[] ClassIDs = vClass.ClassID.Split(new char[]{','});
                 string DSNS = ClassIDs[0];
                 string ClassID = ClassIDs[1];

@@ -126,8 +126,11 @@ namespace Sunset.Data
         {
             List<Appointment> Apps = new List<Appointment>();
 
-            foreach (Appointment App in Appointments)
-                Apps.Add(App);
+            if (Appointments != null)
+            {
+                foreach (Appointment App in Appointments)
+                    Apps.Add(App);
+            }
 
             return Apps;
         }

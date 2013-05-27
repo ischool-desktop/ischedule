@@ -698,8 +698,7 @@ namespace Sunset.Data.Integration
                     {
                         try
                         {
-                            ContractService.DeleteTeacherBusy(
-                                UploadData[DSNS].Connection);
+                            //ContractService.DeleteTeacherBusy(UploadData[DSNS].Connection);
                         }
                         catch (Exception e)
                         {
@@ -712,9 +711,7 @@ namespace Sunset.Data.Integration
 
                         try
                         {
-                            ContractService.InsertTeacherBusy(
-                                UploadData[DSNS].Connection, 
-                                UploadData[DSNS].TeacherBusys);
+                            //ContractService.InsertTeacherBusy(UploadData[DSNS].Connection,UploadData[DSNS].TeacherBusys);
                         }
                         catch (Exception e)
                         {
@@ -731,8 +728,7 @@ namespace Sunset.Data.Integration
                     {
                         try
                         {
-                            ContractService.DeleteClassBusy(
-                                UploadData[DSNS].Connection);
+                            //ContractService.DeleteClassBusy(UploadData[DSNS].Connection);
                         }
                         catch (Exception e)
                         {
@@ -745,9 +741,7 @@ namespace Sunset.Data.Integration
 
                         try
                         {
-                            ContractService.InsertClassBusy(
-                                UploadData[DSNS].Connection, 
-                                UploadData[DSNS].ClassBusys);
+                            //ContractService.InsertClassBusy(UploadData[DSNS].Connection,UploadData[DSNS].ClassBusys);
                         }
                         catch (Exception e)
                         {
@@ -764,7 +758,7 @@ namespace Sunset.Data.Integration
                     {
                         try
                         {
-                            ContractService.DeleteClassroomBusy(UploadData[DSNS].Connection);
+                            //ContractService.DeleteClassroomBusy(UploadData[DSNS].Connection);
                         }
                         catch (Exception e)
                         {
@@ -777,9 +771,7 @@ namespace Sunset.Data.Integration
 
                         try
                         {
-                            ContractService.InsertClassroomBusy(
-                                UploadData[DSNS].Connection,
-                                UploadData[DSNS].ClassroomBusys);
+                            //ContractService.InsertClassroomBusy(UploadData[DSNS].Connection,UploadData[DSNS].ClassroomBusys);
                         }
                         catch (Exception e)
                         {

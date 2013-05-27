@@ -196,7 +196,7 @@ namespace ischedule
             this.pnlWhomLPView.Width = 600;
             this.pnlWhereLPView.Width = 600;
 
-            ServerModule.AutoManaged("http://module.ischool.com.tw/module/89/ischedule/udm.xml");
+            //ServerModule.AutoManaged("http://module.ischool.com.tw/module/89/ischedule/udm.xml");
 
             #region 測試用程式碼
             //schLocal.Open("C:\\101學年度第2學期0210.xml");

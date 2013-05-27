@@ -29,43 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle150 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle156 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle162 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle175 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle176 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle177 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle145 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle146 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle147 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle148 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle149 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle151 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle152 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle153 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle154 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle155 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle157 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle158 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle159 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle160 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle161 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
@@ -145,6 +145,39 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.panel8 = new System.Windows.Forms.Panel();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnTeacherAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherLock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherUnlock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherFree = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherProperty = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherPrint = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTeacherBusy = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassLock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassUnLock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassFree = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassProperty = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassPrint = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassBusy = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomLock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomUnLock = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomFree = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomProperty = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomPrint = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClassroomBusy = new DevComponents.DotNetBar.ButtonItem();
+            this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
+            this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
+            this.itemContainer2 = new DevComponents.DotNetBar.ItemContainer();
+            this.itemContainer3 = new DevComponents.DotNetBar.ItemContainer();
+            this.btnOpen = new DevComponents.DotNetBar.ButtonItem();
+            this.btnOpenOld = new DevComponents.DotNetBar.ButtonItem();
+            this.btnSave = new DevComponents.DotNetBar.ButtonItem();
+            this.btnSaveAs = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDownload = new DevComponents.DotNetBar.ButtonItem();
+            this.btnUpload = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
+            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -279,39 +312,6 @@
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTeacherAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherLock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherUnlock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherFree = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherProperty = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherPrint = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTeacherBusy = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassLock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassUnLock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassFree = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassProperty = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassPrint = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassBusy = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomAutoSchedule = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomLock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomUnLock = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomFree = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomProperty = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomPrint = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClassroomBusy = new DevComponents.DotNetBar.ButtonItem();
-            this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
-            this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
-            this.itemContainer2 = new DevComponents.DotNetBar.ItemContainer();
-            this.itemContainer3 = new DevComponents.DotNetBar.ItemContainer();
-            this.btnOpen = new DevComponents.DotNetBar.ButtonItem();
-            this.btnOpenOld = new DevComponents.DotNetBar.ButtonItem();
-            this.btnSave = new DevComponents.DotNetBar.ButtonItem();
-            this.btnSaveAs = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDownload = new DevComponents.DotNetBar.ButtonItem();
-            this.btnUpload = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
-            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
@@ -808,14 +808,14 @@
             this.colTimeTable,
             this.colColorIndex,
             this.colEventID});
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle150.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle150.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle150.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle150.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle150.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle150.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle150.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle150;
             this.grdTeacherEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTeacherEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdTeacherEvent.Location = new System.Drawing.Point(0, 35);
@@ -1124,14 +1124,14 @@
             this.dataGridViewTextBoxColumn88,
             this.dataGridViewTextBoxColumn89,
             this.dataGridViewTextBoxColumn90});
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle156.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle156.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle156.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle156.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle156.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle156.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle156.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle156;
             this.grdClassEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdClassEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdClassEvent.Location = new System.Drawing.Point(0, 0);
@@ -1300,14 +1300,14 @@
             this.dataGridViewTextBoxColumn110,
             this.dataGridViewTextBoxColumn111,
             this.dataGridViewTextBoxColumn112});
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle162.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle162.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle162.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle162.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle162.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle162.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle162.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle162;
             this.grdClassroomEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdClassroomEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdClassroomEvent.Location = new System.Drawing.Point(0, 0);
@@ -1698,12 +1698,366 @@
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnTeacherAutoSchedule
+            // 
+            this.btnTeacherAutoSchedule.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherAutoSchedule.Enabled = false;
+            this.btnTeacherAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
+            this.btnTeacherAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherAutoSchedule.ImageSmall = global::ischedule.Properties.Resources.自動排課;
+            this.btnTeacherAutoSchedule.Name = "btnTeacherAutoSchedule";
+            this.btnTeacherAutoSchedule.SubItemsExpandWidth = 14;
+            this.btnTeacherAutoSchedule.Text = "自動排課";
+            // 
+            // btnTeacherLock
+            // 
+            this.btnTeacherLock.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherLock.Enabled = false;
+            this.btnTeacherLock.Image = global::ischedule.Properties.Resources.鎖定;
+            this.btnTeacherLock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherLock.Name = "btnTeacherLock";
+            this.btnTeacherLock.SubItemsExpandWidth = 14;
+            this.btnTeacherLock.Text = "鎖定";
+            // 
+            // btnTeacherUnlock
+            // 
+            this.btnTeacherUnlock.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherUnlock.Enabled = false;
+            this.btnTeacherUnlock.Image = global::ischedule.Properties.Resources.解除鎖定;
+            this.btnTeacherUnlock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherUnlock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherUnlock.Name = "btnTeacherUnlock";
+            this.btnTeacherUnlock.SubItemsExpandWidth = 14;
+            this.btnTeacherUnlock.Text = "解除鎖定";
+            // 
+            // btnTeacherFree
+            // 
+            this.btnTeacherFree.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherFree.Enabled = false;
+            this.btnTeacherFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
+            this.btnTeacherFree.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherFree.Name = "btnTeacherFree";
+            this.btnTeacherFree.SubItemsExpandWidth = 14;
+            this.btnTeacherFree.Text = "回復至未排課";
+            // 
+            // btnTeacherProperty
+            // 
+            this.btnTeacherProperty.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherProperty.Enabled = false;
+            this.btnTeacherProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
+            this.btnTeacherProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherProperty.Name = "btnTeacherProperty";
+            this.btnTeacherProperty.SubItemsExpandWidth = 14;
+            this.btnTeacherProperty.Text = "修改屬性";
+            // 
+            // btnTeacherPrint
+            // 
+            this.btnTeacherPrint.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTeacherPrint.Enabled = false;
+            this.btnTeacherPrint.Image = global::ischedule.Properties.Resources.列印;
+            this.btnTeacherPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherPrint.Name = "btnTeacherPrint";
+            this.btnTeacherPrint.SubItemsExpandWidth = 14;
+            this.btnTeacherPrint.Text = "列印";
+            this.btnTeacherPrint.Visible = false;
+            // 
+            // btnTeacherBusy
+            // 
+            this.btnTeacherBusy.Enabled = false;
+            this.btnTeacherBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
+            this.btnTeacherBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTeacherBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTeacherBusy.Name = "btnTeacherBusy";
+            this.btnTeacherBusy.SubItemsExpandWidth = 14;
+            this.btnTeacherBusy.Text = "不排課時段";
+            this.btnTeacherBusy.Visible = false;
+            this.btnTeacherBusy.Click += new System.EventHandler(this.btnTeacherBusy_Click);
+            // 
+            // btnClassAutoSchedule
+            // 
+            this.btnClassAutoSchedule.Enabled = false;
+            this.btnClassAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
+            this.btnClassAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassAutoSchedule.Name = "btnClassAutoSchedule";
+            this.btnClassAutoSchedule.SubItemsExpandWidth = 14;
+            this.btnClassAutoSchedule.Text = "自動排課";
+            // 
+            // btnClassLock
+            // 
+            this.btnClassLock.Enabled = false;
+            this.btnClassLock.Image = global::ischedule.Properties.Resources.鎖定;
+            this.btnClassLock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassLock.Name = "btnClassLock";
+            this.btnClassLock.SubItemsExpandWidth = 14;
+            this.btnClassLock.Text = "鎖定";
+            // 
+            // btnClassUnLock
+            // 
+            this.btnClassUnLock.Enabled = false;
+            this.btnClassUnLock.Image = global::ischedule.Properties.Resources.解除鎖定;
+            this.btnClassUnLock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassUnLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassUnLock.Name = "btnClassUnLock";
+            this.btnClassUnLock.SubItemsExpandWidth = 14;
+            this.btnClassUnLock.Text = "解除鎖定";
+            // 
+            // btnClassFree
+            // 
+            this.btnClassFree.Enabled = false;
+            this.btnClassFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
+            this.btnClassFree.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassFree.Name = "btnClassFree";
+            this.btnClassFree.SubItemsExpandWidth = 14;
+            this.btnClassFree.Text = "回復至未排課";
+            // 
+            // btnClassProperty
+            // 
+            this.btnClassProperty.Enabled = false;
+            this.btnClassProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
+            this.btnClassProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassProperty.Name = "btnClassProperty";
+            this.btnClassProperty.SubItemsExpandWidth = 14;
+            this.btnClassProperty.Text = "修改屬性";
+            // 
+            // btnClassPrint
+            // 
+            this.btnClassPrint.Enabled = false;
+            this.btnClassPrint.Image = global::ischedule.Properties.Resources.列印;
+            this.btnClassPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassPrint.Name = "btnClassPrint";
+            this.btnClassPrint.SubItemsExpandWidth = 14;
+            this.btnClassPrint.Text = "列印";
+            this.btnClassPrint.Visible = false;
+            // 
+            // btnClassBusy
+            // 
+            this.btnClassBusy.Enabled = false;
+            this.btnClassBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
+            this.btnClassBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassBusy.Name = "btnClassBusy";
+            this.btnClassBusy.SubItemsExpandWidth = 14;
+            this.btnClassBusy.Text = "不排課時段";
+            this.btnClassBusy.Visible = false;
+            this.btnClassBusy.Click += new System.EventHandler(this.btnClassBusy_Click);
+            // 
+            // btnClassroomAutoSchedule
+            // 
+            this.btnClassroomAutoSchedule.Enabled = false;
+            this.btnClassroomAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
+            this.btnClassroomAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomAutoSchedule.Name = "btnClassroomAutoSchedule";
+            this.btnClassroomAutoSchedule.SubItemsExpandWidth = 14;
+            this.btnClassroomAutoSchedule.Text = "自動排課";
+            // 
+            // btnClassroomLock
+            // 
+            this.btnClassroomLock.Enabled = false;
+            this.btnClassroomLock.Image = global::ischedule.Properties.Resources.鎖定;
+            this.btnClassroomLock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomLock.Name = "btnClassroomLock";
+            this.btnClassroomLock.SubItemsExpandWidth = 14;
+            this.btnClassroomLock.Text = "鎖定";
+            // 
+            // btnClassroomUnLock
+            // 
+            this.btnClassroomUnLock.Enabled = false;
+            this.btnClassroomUnLock.Image = global::ischedule.Properties.Resources.解除鎖定;
+            this.btnClassroomUnLock.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomUnLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomUnLock.Name = "btnClassroomUnLock";
+            this.btnClassroomUnLock.SubItemsExpandWidth = 14;
+            this.btnClassroomUnLock.Text = "解除鎖定";
+            // 
+            // btnClassroomFree
+            // 
+            this.btnClassroomFree.Enabled = false;
+            this.btnClassroomFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
+            this.btnClassroomFree.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomFree.Name = "btnClassroomFree";
+            this.btnClassroomFree.SubItemsExpandWidth = 14;
+            this.btnClassroomFree.Text = "回復至未排課";
+            // 
+            // btnClassroomProperty
+            // 
+            this.btnClassroomProperty.Enabled = false;
+            this.btnClassroomProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
+            this.btnClassroomProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomProperty.Name = "btnClassroomProperty";
+            this.btnClassroomProperty.SubItemsExpandWidth = 14;
+            this.btnClassroomProperty.Text = "修改屬性";
+            // 
+            // btnClassroomPrint
+            // 
+            this.btnClassroomPrint.Enabled = false;
+            this.btnClassroomPrint.Image = global::ischedule.Properties.Resources.列印;
+            this.btnClassroomPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomPrint.Name = "btnClassroomPrint";
+            this.btnClassroomPrint.SubItemsExpandWidth = 14;
+            this.btnClassroomPrint.Text = "列印";
+            this.btnClassroomPrint.Visible = false;
+            // 
+            // btnClassroomBusy
+            // 
+            this.btnClassroomBusy.Enabled = false;
+            this.btnClassroomBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
+            this.btnClassroomBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnClassroomBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnClassroomBusy.Name = "btnClassroomBusy";
+            this.btnClassroomBusy.SubItemsExpandWidth = 14;
+            this.btnClassroomBusy.Text = "不排課時段";
+            this.btnClassroomBusy.Visible = false;
+            this.btnClassroomBusy.Click += new System.EventHandler(this.btnClassroomBusy_Click);
+            // 
+            // office2007StartButton1
+            // 
+            this.office2007StartButton1.AutoExpandOnClick = true;
+            this.office2007StartButton1.CanCustomize = false;
+            this.office2007StartButton1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
+            this.office2007StartButton1.Image = ((System.Drawing.Image)(resources.GetObject("office2007StartButton1.Image")));
+            this.office2007StartButton1.ImageFixedSize = new System.Drawing.Size(16, 16);
+            this.office2007StartButton1.ImagePaddingHorizontal = 0;
+            this.office2007StartButton1.ImagePaddingVertical = 0;
+            this.office2007StartButton1.Name = "office2007StartButton1";
+            this.office2007StartButton1.ShowSubItems = false;
+            this.office2007StartButton1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.itemContainer1});
+            this.office2007StartButton1.Text = "開始";
+            // 
+            // itemContainer1
+            // 
+            // 
+            // 
+            // 
+            this.itemContainer1.BackgroundStyle.Class = "RibbonFileMenuContainer";
+            this.itemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemContainer1.Name = "itemContainer1";
+            this.itemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.itemContainer2});
+            // 
+            // itemContainer2
+            // 
+            // 
+            // 
+            // 
+            this.itemContainer2.BackgroundStyle.Class = "RibbonFileMenuTwoColumnContainer";
+            this.itemContainer2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemContainer2.ItemSpacing = 0;
+            this.itemContainer2.Name = "itemContainer2";
+            this.itemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.itemContainer3});
+            // 
+            // itemContainer3
+            // 
+            // 
+            // 
+            // 
+            this.itemContainer3.BackgroundStyle.Class = "RibbonFileMenuColumnOneContainer";
+            this.itemContainer3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemContainer3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemContainer3.MinimumSize = new System.Drawing.Size(120, 0);
+            this.itemContainer3.Name = "itemContainer3";
+            this.itemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnOpen,
+            this.btnOpenOld,
+            this.btnSave,
+            this.btnSaveAs,
+            this.btnDownload,
+            this.btnUpload,
+            this.btnClose,
+            this.btnExit});
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnOpen.Image = global::ischedule.Properties.Resources.開啟檔案;
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.SubItemsExpandWidth = 24;
+            this.btnOpen.Text = "開啟資料";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnOpenOld
+            // 
+            this.btnOpenOld.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnOpenOld.Image = global::ischedule.Properties.Resources.開啟檔案;
+            this.btnOpenOld.Name = "btnOpenOld";
+            this.btnOpenOld.Text = "開啟資料（舊檔）";
+            this.btnOpenOld.Click += new System.EventHandler(this.btnOpenOld_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnSave.Image = global::ischedule.Properties.Resources.儲存;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.SubItemsExpandWidth = 24;
+            this.btnSave.Text = "儲存資料";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnSaveAs
+            // 
+            this.btnSaveAs.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnSaveAs.Image = global::ischedule.Properties.Resources.另存新檔;
+            this.btnSaveAs.Name = "btnSaveAs";
+            this.btnSaveAs.Text = "另存資料";
+            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.BeginGroup = true;
+            this.btnDownload.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnDownload.Image = global::ischedule.Properties.Resources.下載;
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.SubItemsExpandWidth = 24;
+            this.btnDownload.Text = "下載資料";
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnUpload.Image = global::ischedule.Properties.Resources.上載;
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.SubItemsExpandWidth = 24;
+            this.btnUpload.Text = "上傳資料";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BeginGroup = true;
+            this.btnClose.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnClose.Image = global::ischedule.Properties.Resources.關閉檔案;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.SubItemsExpandWidth = 24;
+            this.btnClose.Text = "關閉資料";
+            // 
+            // btnExit
+            // 
+            this.btnExit.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnExit.Image = global::ischedule.Properties.Resources.關閉;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Text = "關閉系統";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Lock";
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle163.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle163;
             this.dataGridViewTextBoxColumn1.HeaderText = "*";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 30;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1714,8 +2068,8 @@
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle164.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle164;
             this.dataGridViewTextBoxColumn2.HeaderText = "教師";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 30;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1727,8 +2081,8 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "WhoName";
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle165.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle165;
             this.dataGridViewTextBoxColumn3.HeaderText = "課程";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -1739,8 +2093,8 @@
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "WhomName";
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle166.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle166;
             this.dataGridViewTextBoxColumn4.HeaderText = "星期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -1750,8 +2104,8 @@
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "WhereName";
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle167.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle167;
             this.dataGridViewTextBoxColumn5.HeaderText = "場地";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -1761,8 +2115,8 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "WhatName";
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle168.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle168;
             this.dataGridViewTextBoxColumn6.HeaderText = "科目";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -1918,8 +2272,8 @@
             // 
             this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn23.DataPropertyName = "Lock";
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle169.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle169;
             this.dataGridViewTextBoxColumn23.HeaderText = "總時數";
             this.dataGridViewTextBoxColumn23.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -1930,8 +2284,8 @@
             // 
             this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn24.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle170.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle170;
             this.dataGridViewTextBoxColumn24.HeaderText = "未排時數";
             this.dataGridViewTextBoxColumn24.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
@@ -1941,8 +2295,8 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "Lock";
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle171.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle171;
             this.dataGridViewTextBoxColumn25.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn25.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
@@ -1952,8 +2306,8 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle172.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle172;
             this.dataGridViewTextBoxColumn26.HeaderText = "方案";
             this.dataGridViewTextBoxColumn26.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
@@ -1964,8 +2318,8 @@
             // 
             this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn27.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle173.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle173;
             this.dataGridViewTextBoxColumn27.HeaderText = "星期";
             this.dataGridViewTextBoxColumn27.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
@@ -1976,8 +2330,8 @@
             // 
             this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn28.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle174.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle174;
             this.dataGridViewTextBoxColumn28.HeaderText = "節次";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -2131,8 +2485,8 @@
             // dataGridViewTextBoxColumn45
             // 
             this.dataGridViewTextBoxColumn45.DataPropertyName = "ColorIndex";
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle175.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle175;
             this.dataGridViewTextBoxColumn45.HeaderText = "顏色";
             this.dataGridViewTextBoxColumn45.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
@@ -2143,8 +2497,8 @@
             // dataGridViewTextBoxColumn46
             // 
             this.dataGridViewTextBoxColumn46.DataPropertyName = "EventID";
-            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle176.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle176;
             this.dataGridViewTextBoxColumn46.HeaderText = "分課編號";
             this.dataGridViewTextBoxColumn46.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
@@ -2154,8 +2508,8 @@
             // dataGridViewTextBoxColumn47
             // 
             this.dataGridViewTextBoxColumn47.DataPropertyName = "Lock";
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle177.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle177;
             this.dataGridViewTextBoxColumn47.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn47.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
@@ -2165,8 +2519,8 @@
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle178.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle178;
             this.dataGridViewTextBoxColumn48.HeaderText = "方案";
             this.dataGridViewTextBoxColumn48.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
@@ -2177,8 +2531,8 @@
             // 
             this.dataGridViewTextBoxColumn49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn49.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle179.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle179;
             this.dataGridViewTextBoxColumn49.HeaderText = "星期";
             this.dataGridViewTextBoxColumn49.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
@@ -2189,8 +2543,8 @@
             // 
             this.dataGridViewTextBoxColumn50.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn50.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle180.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle180;
             this.dataGridViewTextBoxColumn50.HeaderText = "節次";
             this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
             this.dataGridViewTextBoxColumn50.ReadOnly = true;
@@ -2344,8 +2698,8 @@
             // colLock
             // 
             this.colLock.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colLock.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle145.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colLock.DefaultCellStyle = dataGridViewCellStyle145;
             this.colLock.HeaderText = "鎖定";
             this.colLock.MinimumWidth = 40;
             this.colLock.Name = "colLock";
@@ -2355,8 +2709,8 @@
             // colSolutionCount
             // 
             this.colSolutionCount.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colSolutionCount.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle146.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colSolutionCount.DefaultCellStyle = dataGridViewCellStyle146;
             this.colSolutionCount.HeaderText = "方案";
             this.colSolutionCount.MinimumWidth = 40;
             this.colSolutionCount.Name = "colSolutionCount";
@@ -2366,8 +2720,8 @@
             // colWeekDay
             // 
             this.colWeekDay.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colWeekDay.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle147.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colWeekDay.DefaultCellStyle = dataGridViewCellStyle147;
             this.colWeekDay.HeaderText = "星期";
             this.colWeekDay.MinimumWidth = 40;
             this.colWeekDay.Name = "colWeekDay";
@@ -2377,8 +2731,8 @@
             // colPeriodNo
             // 
             this.colPeriodNo.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPeriodNo.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle148.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPeriodNo.DefaultCellStyle = dataGridViewCellStyle148;
             this.colPeriodNo.HeaderText = "節次";
             this.colPeriodNo.Name = "colPeriodNo";
             this.colPeriodNo.ReadOnly = true;
@@ -2397,8 +2751,8 @@
             // 
             this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colLength.DataPropertyName = "Length";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colLength.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle149.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colLength.DefaultCellStyle = dataGridViewCellStyle149;
             this.colLength.HeaderText = "節數";
             this.colLength.Name = "colLength";
             this.colLength.ReadOnly = true;
@@ -2549,8 +2903,8 @@
             // dataGridViewTextBoxColumn69
             // 
             this.dataGridViewTextBoxColumn69.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle151.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle151;
             this.dataGridViewTextBoxColumn69.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn69.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn69.Name = "dataGridViewTextBoxColumn69";
@@ -2560,8 +2914,8 @@
             // dataGridViewTextBoxColumn70
             // 
             this.dataGridViewTextBoxColumn70.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle152.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle152;
             this.dataGridViewTextBoxColumn70.HeaderText = "方案";
             this.dataGridViewTextBoxColumn70.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
@@ -2571,8 +2925,8 @@
             // dataGridViewTextBoxColumn71
             // 
             this.dataGridViewTextBoxColumn71.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle153.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle153;
             this.dataGridViewTextBoxColumn71.HeaderText = "星期";
             this.dataGridViewTextBoxColumn71.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
@@ -2582,8 +2936,8 @@
             // dataGridViewTextBoxColumn72
             // 
             this.dataGridViewTextBoxColumn72.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle154.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle154;
             this.dataGridViewTextBoxColumn72.HeaderText = "節次";
             this.dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
             this.dataGridViewTextBoxColumn72.ReadOnly = true;
@@ -2602,8 +2956,8 @@
             // 
             this.dataGridViewTextBoxColumn80.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn80.DataPropertyName = "Length";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle155.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle155;
             this.dataGridViewTextBoxColumn80.HeaderText = "節數";
             this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
             this.dataGridViewTextBoxColumn80.ReadOnly = true;
@@ -2754,8 +3108,8 @@
             // dataGridViewTextBoxColumn91
             // 
             this.dataGridViewTextBoxColumn91.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle157.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle157;
             this.dataGridViewTextBoxColumn91.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn91.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
@@ -2765,8 +3119,8 @@
             // dataGridViewTextBoxColumn92
             // 
             this.dataGridViewTextBoxColumn92.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle158.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle158;
             this.dataGridViewTextBoxColumn92.HeaderText = "方案";
             this.dataGridViewTextBoxColumn92.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
@@ -2776,8 +3130,8 @@
             // dataGridViewTextBoxColumn93
             // 
             this.dataGridViewTextBoxColumn93.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle159.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle159;
             this.dataGridViewTextBoxColumn93.HeaderText = "星期";
             this.dataGridViewTextBoxColumn93.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
@@ -2787,8 +3141,8 @@
             // dataGridViewTextBoxColumn94
             // 
             this.dataGridViewTextBoxColumn94.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle160.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle160;
             this.dataGridViewTextBoxColumn94.HeaderText = "節次";
             this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
             this.dataGridViewTextBoxColumn94.ReadOnly = true;
@@ -2807,8 +3161,8 @@
             // 
             this.dataGridViewTextBoxColumn102.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn102.DataPropertyName = "Length";
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle161.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle161;
             this.dataGridViewTextBoxColumn102.HeaderText = "節數";
             this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
             this.dataGridViewTextBoxColumn102.ReadOnly = true;
@@ -2972,357 +3326,6 @@
             this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
             this.dataGridViewTextBoxColumn68.ReadOnly = true;
             this.dataGridViewTextBoxColumn68.Width = 81;
-            // 
-            // btnTeacherAutoSchedule
-            // 
-            this.btnTeacherAutoSchedule.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherAutoSchedule.Enabled = false;
-            this.btnTeacherAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
-            this.btnTeacherAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherAutoSchedule.ImageSmall = global::ischedule.Properties.Resources.自動排課;
-            this.btnTeacherAutoSchedule.Name = "btnTeacherAutoSchedule";
-            this.btnTeacherAutoSchedule.SubItemsExpandWidth = 14;
-            this.btnTeacherAutoSchedule.Text = "自動排課";
-            // 
-            // btnTeacherLock
-            // 
-            this.btnTeacherLock.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherLock.Enabled = false;
-            this.btnTeacherLock.Image = global::ischedule.Properties.Resources.鎖定;
-            this.btnTeacherLock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherLock.Name = "btnTeacherLock";
-            this.btnTeacherLock.SubItemsExpandWidth = 14;
-            this.btnTeacherLock.Text = "鎖定";
-            // 
-            // btnTeacherUnlock
-            // 
-            this.btnTeacherUnlock.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherUnlock.Enabled = false;
-            this.btnTeacherUnlock.Image = global::ischedule.Properties.Resources.解除鎖定;
-            this.btnTeacherUnlock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherUnlock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherUnlock.Name = "btnTeacherUnlock";
-            this.btnTeacherUnlock.SubItemsExpandWidth = 14;
-            this.btnTeacherUnlock.Text = "解除鎖定";
-            // 
-            // btnTeacherFree
-            // 
-            this.btnTeacherFree.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherFree.Enabled = false;
-            this.btnTeacherFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
-            this.btnTeacherFree.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherFree.Name = "btnTeacherFree";
-            this.btnTeacherFree.SubItemsExpandWidth = 14;
-            this.btnTeacherFree.Text = "回復至未排課";
-            // 
-            // btnTeacherProperty
-            // 
-            this.btnTeacherProperty.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherProperty.Enabled = false;
-            this.btnTeacherProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
-            this.btnTeacherProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherProperty.Name = "btnTeacherProperty";
-            this.btnTeacherProperty.SubItemsExpandWidth = 14;
-            this.btnTeacherProperty.Text = "修改屬性";
-            // 
-            // btnTeacherPrint
-            // 
-            this.btnTeacherPrint.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTeacherPrint.Enabled = false;
-            this.btnTeacherPrint.Image = global::ischedule.Properties.Resources.列印;
-            this.btnTeacherPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherPrint.Name = "btnTeacherPrint";
-            this.btnTeacherPrint.SubItemsExpandWidth = 14;
-            this.btnTeacherPrint.Text = "列印";
-            this.btnTeacherPrint.Visible = false;
-            // 
-            // btnTeacherBusy
-            // 
-            this.btnTeacherBusy.Enabled = false;
-            this.btnTeacherBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
-            this.btnTeacherBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTeacherBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTeacherBusy.Name = "btnTeacherBusy";
-            this.btnTeacherBusy.SubItemsExpandWidth = 14;
-            this.btnTeacherBusy.Text = "不排課時段";
-            this.btnTeacherBusy.Click += new System.EventHandler(this.btnTeacherBusy_Click);
-            // 
-            // btnClassAutoSchedule
-            // 
-            this.btnClassAutoSchedule.Enabled = false;
-            this.btnClassAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
-            this.btnClassAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassAutoSchedule.Name = "btnClassAutoSchedule";
-            this.btnClassAutoSchedule.SubItemsExpandWidth = 14;
-            this.btnClassAutoSchedule.Text = "自動排課";
-            // 
-            // btnClassLock
-            // 
-            this.btnClassLock.Enabled = false;
-            this.btnClassLock.Image = global::ischedule.Properties.Resources.鎖定;
-            this.btnClassLock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassLock.Name = "btnClassLock";
-            this.btnClassLock.SubItemsExpandWidth = 14;
-            this.btnClassLock.Text = "鎖定";
-            // 
-            // btnClassUnLock
-            // 
-            this.btnClassUnLock.Enabled = false;
-            this.btnClassUnLock.Image = global::ischedule.Properties.Resources.解除鎖定;
-            this.btnClassUnLock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassUnLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassUnLock.Name = "btnClassUnLock";
-            this.btnClassUnLock.SubItemsExpandWidth = 14;
-            this.btnClassUnLock.Text = "解除鎖定";
-            // 
-            // btnClassFree
-            // 
-            this.btnClassFree.Enabled = false;
-            this.btnClassFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
-            this.btnClassFree.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassFree.Name = "btnClassFree";
-            this.btnClassFree.SubItemsExpandWidth = 14;
-            this.btnClassFree.Text = "回復至未排課";
-            // 
-            // btnClassProperty
-            // 
-            this.btnClassProperty.Enabled = false;
-            this.btnClassProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
-            this.btnClassProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassProperty.Name = "btnClassProperty";
-            this.btnClassProperty.SubItemsExpandWidth = 14;
-            this.btnClassProperty.Text = "修改屬性";
-            // 
-            // btnClassPrint
-            // 
-            this.btnClassPrint.Enabled = false;
-            this.btnClassPrint.Image = global::ischedule.Properties.Resources.列印;
-            this.btnClassPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassPrint.Name = "btnClassPrint";
-            this.btnClassPrint.SubItemsExpandWidth = 14;
-            this.btnClassPrint.Text = "列印";
-            this.btnClassPrint.Visible = false;
-            // 
-            // btnClassBusy
-            // 
-            this.btnClassBusy.Enabled = false;
-            this.btnClassBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
-            this.btnClassBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassBusy.Name = "btnClassBusy";
-            this.btnClassBusy.SubItemsExpandWidth = 14;
-            this.btnClassBusy.Text = "不排課時段";
-            this.btnClassBusy.Click += new System.EventHandler(this.btnClassBusy_Click);
-            // 
-            // btnClassroomAutoSchedule
-            // 
-            this.btnClassroomAutoSchedule.Enabled = false;
-            this.btnClassroomAutoSchedule.Image = global::ischedule.Properties.Resources.自動排課;
-            this.btnClassroomAutoSchedule.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomAutoSchedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomAutoSchedule.Name = "btnClassroomAutoSchedule";
-            this.btnClassroomAutoSchedule.SubItemsExpandWidth = 14;
-            this.btnClassroomAutoSchedule.Text = "自動排課";
-            // 
-            // btnClassroomLock
-            // 
-            this.btnClassroomLock.Enabled = false;
-            this.btnClassroomLock.Image = global::ischedule.Properties.Resources.鎖定;
-            this.btnClassroomLock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomLock.Name = "btnClassroomLock";
-            this.btnClassroomLock.SubItemsExpandWidth = 14;
-            this.btnClassroomLock.Text = "鎖定";
-            // 
-            // btnClassroomUnLock
-            // 
-            this.btnClassroomUnLock.Enabled = false;
-            this.btnClassroomUnLock.Image = global::ischedule.Properties.Resources.解除鎖定;
-            this.btnClassroomUnLock.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomUnLock.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomUnLock.Name = "btnClassroomUnLock";
-            this.btnClassroomUnLock.SubItemsExpandWidth = 14;
-            this.btnClassroomUnLock.Text = "解除鎖定";
-            // 
-            // btnClassroomFree
-            // 
-            this.btnClassroomFree.Enabled = false;
-            this.btnClassroomFree.Image = global::ischedule.Properties.Resources.回復至未排課72;
-            this.btnClassroomFree.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomFree.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomFree.Name = "btnClassroomFree";
-            this.btnClassroomFree.SubItemsExpandWidth = 14;
-            this.btnClassroomFree.Text = "回復至未排課";
-            // 
-            // btnClassroomProperty
-            // 
-            this.btnClassroomProperty.Enabled = false;
-            this.btnClassroomProperty.Image = global::ischedule.Properties.Resources.查詢分課屬性72;
-            this.btnClassroomProperty.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomProperty.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomProperty.Name = "btnClassroomProperty";
-            this.btnClassroomProperty.SubItemsExpandWidth = 14;
-            this.btnClassroomProperty.Text = "修改屬性";
-            // 
-            // btnClassroomPrint
-            // 
-            this.btnClassroomPrint.Enabled = false;
-            this.btnClassroomPrint.Image = global::ischedule.Properties.Resources.列印;
-            this.btnClassroomPrint.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomPrint.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomPrint.Name = "btnClassroomPrint";
-            this.btnClassroomPrint.SubItemsExpandWidth = 14;
-            this.btnClassroomPrint.Text = "列印";
-            this.btnClassroomPrint.Visible = false;
-            // 
-            // btnClassroomBusy
-            // 
-            this.btnClassroomBusy.Enabled = false;
-            this.btnClassroomBusy.Image = global::ischedule.Properties.Resources.biology_remove_128;
-            this.btnClassroomBusy.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnClassroomBusy.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnClassroomBusy.Name = "btnClassroomBusy";
-            this.btnClassroomBusy.SubItemsExpandWidth = 14;
-            this.btnClassroomBusy.Text = "不排課時段";
-            this.btnClassroomBusy.Click += new System.EventHandler(this.btnClassroomBusy_Click);
-            // 
-            // office2007StartButton1
-            // 
-            this.office2007StartButton1.AutoExpandOnClick = true;
-            this.office2007StartButton1.CanCustomize = false;
-            this.office2007StartButton1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-            this.office2007StartButton1.Image = ((System.Drawing.Image)(resources.GetObject("office2007StartButton1.Image")));
-            this.office2007StartButton1.ImageFixedSize = new System.Drawing.Size(16, 16);
-            this.office2007StartButton1.ImagePaddingHorizontal = 0;
-            this.office2007StartButton1.ImagePaddingVertical = 0;
-            this.office2007StartButton1.Name = "office2007StartButton1";
-            this.office2007StartButton1.ShowSubItems = false;
-            this.office2007StartButton1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer1});
-            this.office2007StartButton1.Text = "開始";
-            // 
-            // itemContainer1
-            // 
-            // 
-            // 
-            // 
-            this.itemContainer1.BackgroundStyle.Class = "RibbonFileMenuContainer";
-            this.itemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.itemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.itemContainer1.Name = "itemContainer1";
-            this.itemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer2});
-            // 
-            // itemContainer2
-            // 
-            // 
-            // 
-            // 
-            this.itemContainer2.BackgroundStyle.Class = "RibbonFileMenuTwoColumnContainer";
-            this.itemContainer2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.itemContainer2.ItemSpacing = 0;
-            this.itemContainer2.Name = "itemContainer2";
-            this.itemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer3});
-            // 
-            // itemContainer3
-            // 
-            // 
-            // 
-            // 
-            this.itemContainer3.BackgroundStyle.Class = "RibbonFileMenuColumnOneContainer";
-            this.itemContainer3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.itemContainer3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.itemContainer3.MinimumSize = new System.Drawing.Size(120, 0);
-            this.itemContainer3.Name = "itemContainer3";
-            this.itemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnOpen,
-            this.btnOpenOld,
-            this.btnSave,
-            this.btnSaveAs,
-            this.btnDownload,
-            this.btnUpload,
-            this.btnClose,
-            this.btnExit});
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnOpen.Image = global::ischedule.Properties.Resources.開啟檔案;
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.SubItemsExpandWidth = 24;
-            this.btnOpen.Text = "開啟資料";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // btnOpenOld
-            // 
-            this.btnOpenOld.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnOpenOld.Image = global::ischedule.Properties.Resources.開啟檔案;
-            this.btnOpenOld.Name = "btnOpenOld";
-            this.btnOpenOld.Text = "開啟資料（舊檔）";
-            this.btnOpenOld.Click += new System.EventHandler(this.btnOpenOld_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnSave.Image = global::ischedule.Properties.Resources.儲存;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.SubItemsExpandWidth = 24;
-            this.btnSave.Text = "儲存資料";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnSaveAs
-            // 
-            this.btnSaveAs.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnSaveAs.Image = global::ischedule.Properties.Resources.另存新檔;
-            this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Text = "另存資料";
-            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.BeginGroup = true;
-            this.btnDownload.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnDownload.Image = global::ischedule.Properties.Resources.下載;
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.SubItemsExpandWidth = 24;
-            this.btnDownload.Text = "下載資料";
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnUpload.Image = global::ischedule.Properties.Resources.上載;
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.SubItemsExpandWidth = 24;
-            this.btnUpload.Text = "上傳資料";
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BeginGroup = true;
-            this.btnClose.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnClose.Image = global::ischedule.Properties.Resources.關閉檔案;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.SubItemsExpandWidth = 24;
-            this.btnClose.Text = "關閉資料";
-            // 
-            // btnExit
-            // 
-            this.btnExit.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnExit.Image = global::ischedule.Properties.Resources.關閉;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Text = "關閉系統";
             // 
             // MainForm
             // 

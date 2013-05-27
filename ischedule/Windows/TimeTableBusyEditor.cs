@@ -129,11 +129,15 @@ namespace ischedule
         /// <param name="TimeTableSecs"></param>
         public void SetTimeTableSecs(List<TimeTableSec> TimeTableSecs)
         {
-            grdEditor.SuspendLayout();
-
             this.mTimeTableSecs = TimeTableSecs;
 
-            foreach (TimeTableSec TimeTableSec in TimeTableSecs)
+        }
+
+        private void ReDrawTimeTable()
+        {
+            this.grdEditor.SuspendLayout();
+
+            foreach (TimeTableSec TimeTableSec in this.mTimeTableSecs)
             {
                 if (!Weekdays.Contains(TimeTableSec.WeekDay))
                     Weekdays.Add(TimeTableSec.WeekDay);
@@ -177,28 +181,19 @@ namespace ischedule
                 {
                     if (Cell.ColumnIndex != 0)
                     {
+                        Cell.Style.BackColor = Color.White;
+                        Cell.Value = string.Empty;
+
                         int Weekday = Cell.ColumnIndex;
 
                         if (mTimeTableSecs
                             .Find(x => x.WeekDay.Equals(Weekday) && x.Period.Equals(Period)) == null)
-                        {
-                            DataGridViewCellStyle Style = new DataGridViewCellStyle();
-                            Style.BackColor = Color.LightGray;
-                            Cell.Style = Style;
-                        }
+                            Cell.Style.BackColor = Color.LightGray;
                     }
                 }
             }
 
             grdEditor.ResumeLayout();
-        }
-
-        /// <summary>
-        /// 設定已排課節次
-        /// </summary>
-        public void SetScheduledPeriod(List<SchPeriod> vPeriods)
-        {
- 
         }
 
         /// <summary>
@@ -210,14 +205,7 @@ namespace ischedule
             List<TimeTableSec> BusyTimeTableSecs = new List<TimeTableSec>();
             List<TimeTableSec> ScheduledTimeTableSecs = new List<TimeTableSec>();
 
-            foreach (DataGridViewRow Row in grdEditor.Rows)
-            {
-                foreach (DataGridViewCell Cell in Row.Cells)
-                {
-                    if (Cell.ColumnIndex!=0)
-                        Cell.Value = "";
-                }
-            }
+            ReDrawTimeTable();
 
             if (this.mTimeTableSecs == null || this.mTimeTableSecs.Count == 0)
                 return;

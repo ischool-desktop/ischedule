@@ -1582,44 +1582,7 @@ namespace Sunset.Data
             if (UploadSourceStart != null)
                 UploadSourceStart(this, new UploadSourceStartEventArgs(CEvents.Count));
 
-            List<SCourseSection> CourseSections = new List<SCourseSection>();
-
-            #region 轉換課程分段
-            foreach (CEvent CEvent in CEvents)
-            {
-                SCourseSection CourseSection = new SCourseSection();
-
-                #region ID
-                CourseSection.CourseID = CEvent.CourseID;
-                CourseSection.ClassroomID = CEvent.ClassroomID;
-                CourseSection.TeacherName1 = CEvent.TeacherID1;
-                CourseSection.TeacherName2 = CEvent.TeacherID2;
-                CourseSection.TeacherName3 = CEvent.TeacherID3;
-                CourseSection.ID = CEvent.EventID;
-                CourseSection.ClassID = CEvent.ClassID;
-                CourseSection.TimeTableID = CEvent.TimeTableID;
-                #endregion
-
-                #region Property
-                CourseSection.WeekDay = CEvent.WeekDay;
-                CourseSection.PeriodNo = CEvent.PeriodNo;
-                CourseSection.Length = CEvent.Length;
-
-                CourseSection.WeekdayCond = CEvent.WeekDayCondition;
-                CourseSection.PeriodCond = CEvent.PeriodCondition;
-
-                CourseSection.Subject = CEvent.SubjectID;
-
-                CourseSection.AllowDup = CEvent.AllowDuplicate;
-                CourseSection.Longbreak = CEvent.AllowLongBreak;
-                CourseSection.Lock = CEvent.ManualLock;
-                CourseSection.WeekFlag = CEvent.WeekFlag;
-                CourseSection.Comment = CEvent.Comment;
-                #endregion
-
-                CourseSections.Add(CourseSection);
-            }
-            #endregion
+            List<SCourseSection> CourseSections = GetSCourseSection();
 
             #region 轉換教師不排課時段
             List<STeacherBusy> TeacherBusys = new List<STeacherBusy>();
@@ -1648,10 +1611,11 @@ namespace Sunset.Data
 
                             TeacherBusys.Add(TeacherBusy);
                         }
-                     }
+                    }
                 }
             }
             #endregion
+
 
             #region 轉換班級不排課時段
             List<SClassBusy> ClassBusys = new List<SClassBusy>();
@@ -1661,7 +1625,7 @@ namespace Sunset.Data
                 if (string.IsNullOrEmpty(vClass.ClassID))
                     continue;
 
-                string[] ClassIDs = vClass.ClassID.Split(new char[]{','});
+                string[] ClassIDs = vClass.ClassID.Split(new char[] { ',' });
                 string DSNS = ClassIDs[0];
                 string ClassID = ClassIDs[1];
 
@@ -1716,7 +1680,6 @@ namespace Sunset.Data
                 }
             }
             #endregion
-
 
             Tuple<bool, string> UploadResult = SchedulerSource.Source.Upload(Connections,
                 CourseSections,
@@ -2569,6 +2532,120 @@ namespace Sunset.Data
             #endregion
         }
 
+        /// <summary>
+        /// 取得教師不排課時段
+        /// </summary>
+        /// <returns></returns>
+        private List<STeacherBusy> GetOfflineTeacherBusy()
+        {
+            #region 轉換教師不排課時段
+            List<STeacherBusy> TeacherBusys = new List<STeacherBusy>();
+
+            foreach (Teacher vTeacher in Teachers)
+            {
+                foreach (Appointment vApp in vTeacher.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {                       
+                        STeacherBusy TeacherBusy = new STeacherBusy();
+
+                        TeacherBusy.DSNS = string.Empty;
+                        TeacherBusy.TeacherID = vTeacher.TeacherID;
+
+                        TeacherBusy.WeekDay = vApp.WeekDay;
+                        TeacherBusy.BeginTime = vApp.BeginTime;
+                        TeacherBusy.Duration = vApp.Duration;
+                        TeacherBusy.Description = vApp.Description;
+                        TeacherBusy.LocationID = vApp.LocID;
+
+                        TeacherBusys.Add(TeacherBusy);
+                    }
+                }
+            }
+            #endregion
+
+            return TeacherBusys;
+        }
+
+        /// <summary>
+        /// 取得班級不排課時段
+        /// </summary>
+        /// <returns></returns>
+        private List<SClassBusy> GetSClassBusy()
+        {
+            #region 轉換班級不排課時段
+            List<SClassBusy> ClassBusys = new List<SClassBusy>();
+
+            foreach (Class vClass in Classes)
+            {
+                if (string.IsNullOrEmpty(vClass.ClassID))
+                    continue;
+
+                string[] ClassIDs = vClass.ClassID.Split(new char[]{','});
+                string DSNS = ClassIDs[0];
+                string ClassID = ClassIDs[1];
+
+                foreach (Appointment vApp in vClass.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {
+                        SClassBusy ClassBusy = new SClassBusy();
+
+                        ClassBusy.DSNS = DSNS;
+                        ClassBusy.ClassID = ClassID;
+                        ClassBusy.WeekDay = vApp.WeekDay;
+                        ClassBusy.BeginTime = vApp.BeginTime;
+                        ClassBusy.Duration = vApp.Duration;
+                        ClassBusy.Description = vApp.Description;
+
+                        ClassBusys.Add(ClassBusy);
+                    }
+                }
+            }
+            #endregion
+
+            return ClassBusys;
+        }
+
+        /// <summary>
+        /// 取得場地不排課時段
+        /// </summary>
+        /// <returns></returns>
+        private List<SClassroomBusy> GetSClassroomBusy()
+        {
+            #region 轉換場地不排課時段
+            List<SClassroomBusy> ClassroomBusys = new List<SClassroomBusy>();
+
+            foreach (Classroom vClassroom in Classrooms)
+            {
+                foreach (Appointment vApp in vClassroom.GetAppointments())
+                {
+                    if (string.IsNullOrEmpty(vApp.EventID))
+                    {
+                        SClassroomBusy ClassroomBusy = new SClassroomBusy();
+
+                        ClassroomBusy.DSNS = string.Empty;
+                        ClassroomBusy.ClassroomID = vClassroom.ClassroomID;
+
+                        ClassroomBusy.WeekDay = vApp.WeekDay;
+                        ClassroomBusy.BeginTime = vApp.BeginTime;
+                        ClassroomBusy.Duration = vApp.Duration;
+                        ClassroomBusy.Description = vApp.Description;
+                        ClassroomBusy.WeekFlag = vApp.WeekFlag;
+
+                        ClassroomBusys.Add(ClassroomBusy);
+                    }
+                }
+            }
+            #endregion
+
+            return ClassroomBusys;
+        }
+
+        /// <summary>
+        /// 取得課程分段
+        /// </summary>
+        /// <returns></returns>
         private List<SCourseSection> GetSCourseSection()
         {
             List<SCourseSection> CourseSections = new List<SCourseSection>();
@@ -2607,6 +2684,7 @@ namespace Sunset.Data
 
                 CourseSection.CourseGroup = CEvent.CourseGroup;
                 CourseSection.LimitNextDay = CEvent.LimitNextDay;
+                CourseSection.Comment = CEvent.Comment;
                 #endregion
 
                 CourseSections.Add(CourseSection);
@@ -2635,7 +2713,17 @@ namespace Sunset.Data
 
             List<SCourseSection> CourseSections = GetSCourseSection();
 
-            SchedulerSource.Source.SaveByBase64(CourseSections, 
+            List<STeacherBusy> TeacherBusys = GetOfflineTeacherBusy();
+
+            List<SClassBusy> ClassBusys = GetSClassBusy();
+
+            List<SClassroomBusy> ClassroomBusys = GetSClassroomBusy();
+
+            SchedulerSource.Source.SaveByBase64(
+                CourseSections,
+                TeacherBusys,
+                ClassBusys,
+                ClassroomBusys,
                 mSaveFilePath,
                 mSavePassword,
                 x =>
@@ -2665,7 +2753,18 @@ namespace Sunset.Data
 
             List<SCourseSection> CourseSections = GetSCourseSection();
 
-            SchedulerSource.Source.Save(CourseSections,mSaveFilePath,
+            List<STeacherBusy> TeacherBusys = GetOfflineTeacherBusy();
+
+            List<SClassBusy> ClassBusys = GetSClassBusy();
+
+            List<SClassroomBusy> ClassroomBusys = GetSClassroomBusy();
+
+            SchedulerSource.Source.Save(
+                CourseSections,
+                TeacherBusys,
+                ClassBusys,
+                ClassroomBusys,
+                mSaveFilePath,
                 x =>
                 {
                     if (SaveSourceProgress != null)
@@ -2674,92 +2773,6 @@ namespace Sunset.Data
 
             if (SaveSourceComplete != null)
                 SaveSourceComplete(this, new EventArgs());
-
-            #region VB
-            //Dim rstSave As Recordset
-            //Dim evtMember As CEvent
-            //Dim nProgress As Integer
-            //Dim cnSQL As Connection
-            //Dim colCourses As Collection
-            #endregion
-
-            #region VB
-            //If cnMain Is Nothing Then
-            //    Err.Raise errDbNotOpenYet, , "Database not open yet"
-            //End If
-
-            //RaiseEvent SaveDBStart(mCEvents.Count)
-    
-            //Set cnSQL = IIf(SQLConnection Is Nothing, cnMain, SQLConnection)
-            //Set colCourses = New Collection
-            #endregion
-
-            #region VB
-            //'Delete table if already exists
-            //If SQLConnection Is Nothing Then
-            //    cnSQL.Execute "DELETE FROM CourseSection"
-            //Else
-            //    cnSQL.Execute "DELETE CourseSection WHERE CourseSectionID IN (SELECT CourseSectionID FROM CourseSection INNER JOIN Course ON CourseSection.CourseID=Course.CourseID WHERE Course.SchoolYear=" & mSchoolYear & " AND Course.Semester=" & mSemester & ")"
-            //End If
-            #endregion
-
-            #region VB
-            //'Open the new table
-            //Set rstSave = New Recordset
-            //rstSave.CursorType = adOpenKeyset
-            //rstSave.LockType = adLockOptimistic
-            //Set rstSave.ActiveConnection = cnSQL
-            //rstSave.Open "SELECT * FROM CourseSection"
-            #endregion
-
-            #region VB
-            //'Append records to CourseSection from mCEvents
-            //nProgress = 0
-            //'cnSQL.BeginTrans
-            //For Each evtMember In mCEvents
-            //    rstSave.AddNew
-            //    With evtMember
-            //        If SQLConnection Is Nothing Then
-            //            rstSave!CourseSectionID = .EventID
-            //        End If
-            //        rstSave!ClassroomID = ValueToNull(.WhereID)
-            //        rstSave!Length = .Length
-            //        rstSave!WeekFlag = .WeekFlag
-            //        rstSave!WeekDayCond = StringToNull(.WeekDayCondition)
-            //        rstSave!PeriodCond = StringToNull(.PeriodCondition)
-            //        rstSave!Lock = .ManualLock
-            //        rstSave!LongBreak = .AllowLongBreak
-            //        rstSave!WeekDay = .WeekDay
-            //        rstSave!Period = .PeriodNo
-            //        rstSave!CourseID = .CourseID
-            //    End With
-            //    rstSave.Update
-            //    nProgress = nProgress + 1
-            //    RaiseEvent SaveDBProgress(nProgress)        
-            //    On Error Resume Next
-            //    colCourses.Add evtMember, CStr(evtMember.CourseID)
-            //    On Error GoTo 0
-            //Next evtMember
-
-            //'cnSQL.CommitTrans
-            //rstSave.Close
-            //RaiseEvent SaveDBComplete
-            #endregion
-
-            #region VB
-            //RaiseEvent SaveDBStart(colCourses.Count)
-            //nProgress = 0
-            //For Each evtMember In colCourses
-            //    With evtMember
-            //    cnSQL.Execute "UPDATE Course SET TeacherID=" & IIf(IsNullValue(.WhoID), "NULL", .WhoID) & _
-            //                  ",AllowDup=" & IIf(.AllowDuplicate, "1", "0") & _
-            //                  " WHERE CourseID=" & .CourseID
-            //    End With
-            //    nProgress = nProgress + 1
-            //    RaiseEvent SaveDBProgress(nProgress)
-            //Next evtMember
-            //RaiseEvent SaveDBComplete 
-            #endregion 
         }
 
         /// <summary>

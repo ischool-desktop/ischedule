@@ -76,8 +76,13 @@ namespace ischedule
             TimeTables TimeTables = schLocal.TimeTables;
             cmbTimeTables.Items.Clear();
 
+            List<TimeTable> vTimeTables = new List<TimeTable>();
+
             foreach (TimeTable vTimeTable in TimeTables)
-                cmbTimeTables.Items.Add(vTimeTable);
+                if (!vTimeTable.Name.Equals("未指定"))
+                    vTimeTables.Add(vTimeTable);
+
+            cmbTimeTables.Items.AddRange(vTimeTables.OrderBy(x => x.Name).ToArray());
 
             if (cmbTimeTables.Items.Count > 0)
                 cmbTimeTables.SelectedIndex = 0;

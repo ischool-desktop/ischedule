@@ -698,7 +698,7 @@ namespace Sunset.Data.Integration
                     {
                         try
                         {
-                            //ContractService.DeleteTeacherBusy(UploadData[DSNS].Connection);
+                            ContractService.DeleteTeacherBusy(UploadData[DSNS].Connection);
                         }
                         catch (Exception e)
                         {
@@ -711,7 +711,7 @@ namespace Sunset.Data.Integration
 
                         try
                         {
-                            //ContractService.InsertTeacherBusy(UploadData[DSNS].Connection,UploadData[DSNS].TeacherBusys);
+                            ContractService.InsertTeacherBusy(UploadData[DSNS].Connection,UploadData[DSNS].TeacherBusys);
                         }
                         catch (Exception e)
                         {
@@ -821,7 +821,8 @@ namespace Sunset.Data.Integration
                 if (Progress != null)
                     Progress(10);
 
-                TeacherResult = STeacher.SelectByCourseSection(Connections,SchoolYear,Semester);
+                //TeacherResult = STeacher.SelectByCourseSection(Connections,SchoolYear,Semester);
+                TeacherResult = STeacher.Select(Connections);
                 IsSuccess &= TeacherResult.IsSuccess;
 
                 FullTeacherResult = STeacher.Select(Connections);
@@ -1157,7 +1158,13 @@ namespace Sunset.Data.Integration
         /// <param name="Filepath"></param>
         /// <param name="Progress"></param>
         /// <returns></returns>
-        private XElement GetElement(List<SCourseSection> CourseSections, string Filepath, Action<int> Progress)
+        private XElement GetElement(
+            List<SCourseSection> CourseSections,
+            List<STeacherBusy> TeacherBusys,
+            List<SClassBusy> ClassBusys,
+             List<SClassroomBusy> ClassroomBusys,
+            string Filepath, 
+            Action<int> Progress)
         {
             Progress.Invoke(0);
 
@@ -1176,7 +1183,7 @@ namespace Sunset.Data.Integration
             #region ClassBusy Related Resource
             XElement ClassBusyElement = new XElement("ClassBusys");
 
-            ClassBusysResult.Data.ForEach(x => ClassBusyElement.Add(x.ToXML()));
+            ClassBusys.ForEach(x => ClassBusyElement.Add(x.ToXML()));
 
             Element.Add(ClassBusyElement);
 
@@ -1201,7 +1208,7 @@ namespace Sunset.Data.Integration
 
             XElement TeacherBusyElement = new XElement("TeacherBusys");
 
-            TeacherBusysResult.Data.ForEach(x => TeacherBusyElement.Add(x.ToXML()));
+            TeacherBusys.ForEach(x => TeacherBusyElement.Add(x.ToXML()));
 
             Element.Add(TeacherBusyElement);
 
@@ -1231,7 +1238,7 @@ namespace Sunset.Data.Integration
 
             XElement ClassroomBusyElement = new XElement("ClassroomBusys");
 
-            ClassroomBusysResult.Data.ForEach(x => ClassroomBusyElement.Add(x.ToXML()));
+            ClassroomBusys.ForEach(x => ClassroomBusyElement.Add(x.ToXML()));
 
             Element.Add(ClassroomBusyElement);
 
@@ -1273,12 +1280,22 @@ namespace Sunset.Data.Integration
         /// <param name="CourseSections"></param>
         /// <param name="Filepath"></param>
         /// <param name="Progress"></param>
-        public void SaveByBase64(List<SCourseSection> CourseSections, 
+        public void SaveByBase64(
+            List<SCourseSection> CourseSections, 
+            List<STeacherBusy> TeacherBusys,
+            List<SClassBusy> ClassBusys,
+            List<SClassroomBusy> ClassroomBusys,
             string Filepath, 
             string Password,
             Action<int> Progress)
         {
-            XElement Element = GetElement(CourseSections, Filepath, Progress);
+            XElement Element = GetElement(
+                CourseSections,
+                TeacherBusys,
+                ClassBusys,
+                ClassroomBusys,
+                Filepath,
+                Progress);
 
             string HashPassword = PasswordHash.Compute(Password);
 
@@ -1296,9 +1313,20 @@ namespace Sunset.Data.Integration
         /// <summary>
         /// 儲存排課資料檔
         /// </summary>
-        public void Save(List<SCourseSection> CourseSections, string Filepath, Action<int> Progress)
+        public void Save(
+            List<SCourseSection> CourseSections,
+            List<STeacherBusy> TeacherBusys,
+            List<SClassBusy> ClassBusys,
+            List<SClassroomBusy> ClassroomBusys,
+            string Filepath, Action<int> Progress)
         {
-            XElement Element = GetElement(CourseSections, Filepath, Progress);
+            XElement Element = GetElement(
+                CourseSections,
+                TeacherBusys,
+                ClassBusys,
+                ClassroomBusys,
+                Filepath,
+                Progress);
 
             Element.Save(Filepath);
 

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-//using FISCA.Data;
 using FISCA.DSAClient;
 
 namespace Sunset.Data.Integration
@@ -197,7 +195,7 @@ namespace Sunset.Data.Integration
         /// <returns></returns>
         public static SIntegrationResult<STeacher> SelectByCourseSection(List<Connection> Connections, string SchoolYear, string Semester)
         {
-            #region 取得不同資料來源的班級，使用非同步執行
+            #region 取得不同資料來源的教師，使用非同步執行
             SIntegrationResult<STeacher> Result = new SIntegrationResult<STeacher>();
 
             //Parallel.ForEach(Connections.ToConcurrentQueue(), x =>

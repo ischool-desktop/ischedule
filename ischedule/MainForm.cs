@@ -825,7 +825,7 @@ namespace ischedule
             {
                 SelectedTab = tabClassLPView.Tabs[0];
                 SelectedPanel = SelectedTab.AttachedControl as TabControlPanel;
-                tabTeacherLPView.SelectedTab = SelectedTab;
+                tabClassLPView.SelectedTab = SelectedTab;
             }
             else
             {

@@ -81,7 +81,7 @@ namespace Sunset.Data
         {
             foreach (string Key in mClasses.Keys)
             {
-                if (Key.EndsWith(Name))
+                if (mClasses[Key].Name.Equals(Name))
                     return mClasses[Key];
             }
 

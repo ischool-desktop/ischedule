@@ -566,7 +566,7 @@ namespace Sunset.Data.Integration
             XElement RequestElement = XElement
                 .Load(new StringReader("<Request><Condition><SchoolYear>" + SchoolYear + "</SchoolYear><Semester>" + Semester + "</Semester></Condition></Request>"));
 
-            XElement Element = SendRequest(Connection,"_.GetClassNew",RequestElement);
+            XElement Element = SendRequest(Connection,"_.GetClassEx",RequestElement);
 
             return Element;
         }
@@ -905,7 +905,7 @@ namespace Sunset.Data.Integration
 
             foreach (SClassBusy vClassBusy in ClassBusys)
             {
-                XElement Element = new XElement("TeacherBusy");
+                XElement Element = new XElement("ClassBusy");
 
                 XElement elmField = new XElement("Field");
 

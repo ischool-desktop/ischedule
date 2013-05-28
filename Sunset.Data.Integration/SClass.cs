@@ -87,7 +87,7 @@ namespace Sunset.Data.Integration
             string GradeYear = Element.ElementText("GradeYear");
             string NamingRule = Element.ElementText("NamingRule");
 
-            this.ID = DSNS + "," + ClassName;
+            this.ID = DSNS + "," + ClassID;
             this.TimeTableID = string.IsNullOrEmpty(TimeTableID) ? string.Empty : DSNS + "," + TimeTableID; //若TimeTableIDe為空白就為空白
             this.ClassName = ClassName;
             this.TeacherName = TeacherName;

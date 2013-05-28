@@ -264,7 +264,6 @@ namespace ischedule
             ((System.ComponentModel.ISupportInitialize)(this.grdNameList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

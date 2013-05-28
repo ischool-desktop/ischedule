@@ -76,14 +76,16 @@ namespace ischedule
             {
                 DataGridViewRow Row = grdNameList.SelectedRows[0];
 
-                if (Row!=null)
+                if (Row != null)
                 {
                     DataGridViewCell Cell = Row.Cells[0];
 
-                    if (Cell!=null)
-                        SelectedName = ""+Cell.Value;                        
+                    if (Cell != null)
+                        SelectedName = "" + Cell.Value;
                 }
             }
+            else if (grdNameList.Rows.Count > 0)
+                SelectedName = "" + grdNameList.Rows[0].Cells[0].Value;
 
             return SelectedName;
         }
@@ -124,12 +126,19 @@ namespace ischedule
 
                 if (strName.Equals(SelectedName))
                     grdNameList.Rows[RowIndex].Selected = true;
-
-                //if (strName.Equals(SelectedName))
-                //    grdNameList.Rows[grdNameList.Rows.Add(strName)].Selected = true;
-                //else
-                //    grdNameList.Rows.Add(strName);
             }
+
+            #region 針對一開始開啟畫面做特殊處理，不然儲存時會發生錯誤
+            if (string.IsNullOrEmpty(SelectedName))
+                if (grdNameList.Rows.Count > 0)
+                {
+                    SelectedName = "" + grdNameList.Rows[0].Cells[0].Value;
+
+                    T SelectRecord = mDataAccess.Select(SelectedName);
+
+                    mEditor.Content = SelectRecord;
+                }
+            #endregion
         }
 
         /// <summary>
@@ -335,7 +344,9 @@ namespace ischedule
                 mEditor.Content = SelectRecord;
 
                 mCurrentSelectedName = SelectedName;
-                mCurrentSelectedRow = grdNameList.SelectedRows[0].Index;
+
+                if (grdNameList.SelectedRows.Count >0)
+                    mCurrentSelectedRow = grdNameList.SelectedRows[0].Index;
             }
         }
 

@@ -875,9 +875,23 @@ namespace Sunset.Data.Integration
         /// <param name="Conn"></param>
         public static void DeleteClassBusy(Connection Conn)
         {
+            //<Request>
+            //    <ClassBusy>
+            //        <Condition></Condition>
+            //    </ClassBusy>
+            //</Request>
+
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
-            //SendRequest(Conn,"_.DeleteClassBusy", Request); 
+            XElement elmClass = new XElement("ClassBusy");
+
+            XElement elmCondition = new XElement("Condition");
+
+            elmClass.Add(elmCondition);
+
+            Request.Add(elmClass);
+
+            SendRequest(Conn, "_.DeleteClassBusy", Request);
         }
 
         /// <summary>
@@ -893,16 +907,20 @@ namespace Sunset.Data.Integration
             {
                 XElement Element = new XElement("TeacherBusy");
 
-                Element.Add(new XElement("BeginTime", vClassBusy.BeginTime.ToShortTimeString()));
-                Element.Add(new XElement("BusyDescription", vClassBusy.Description));
-                Element.Add(new XElement("Duration", vClassBusy.Duration));
-                Element.Add(new XElement("ClassID", vClassBusy.ClassID));
-                Element.Add(new XElement("Weekday", vClassBusy.WeekDay));
+                XElement elmField = new XElement("Field");
+
+                elmField.Add(new XElement("BeginTime", vClassBusy.BeginTime.ToString("yyyy/MM/dd HH:mm:ss")));
+                elmField.Add(new XElement("BusyDescription", vClassBusy.Description));
+                elmField.Add(new XElement("Duration", vClassBusy.Duration));
+                elmField.Add(new XElement("ClassID", vClassBusy.ClassID));
+                elmField.Add(new XElement("Weekday", vClassBusy.WeekDay));
+
+                Element.Add(elmField);
 
                 Request.Add(Element);
             }
 
-            //SendRequest(Conn, "_.InsertClassBusy", Request);
+            SendRequest(Conn, "_.InsertClassBusy", Request);
         }
 
         /// <summary>
@@ -911,9 +929,23 @@ namespace Sunset.Data.Integration
         /// <param name="Conn"></param>
         public static void DeleteClassroomBusy(Connection Conn)
         {
+            //<Request>
+            //    <ClassroomBusyBusy>
+            //        <Condition></Condition>
+            //    </ClassroomBusyBusy>
+            //</Request>
+
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
-            //SendRequest(Conn, "_.DeleteClassroomBusy", Request);
+            XElement elmClassroom = new XElement("ClassroomBusy");
+
+            XElement elmCondition = new XElement("Condition");
+
+            elmClassroom.Add(elmCondition);
+
+            Request.Add(elmClassroom);
+
+            SendRequest(Conn, "_.DeleteClassroomBusy", Request);
         }
 
         /// <summary>
@@ -929,17 +961,21 @@ namespace Sunset.Data.Integration
             {
                 XElement Element = new XElement("ClassroomBusy");
 
-                Element.Add(new XElement("BeginTime", vClassroomBusy.BeginTime.ToShortTimeString()));
-                Element.Add(new XElement("BusyDescription", vClassroomBusy.Description));
-                Element.Add(new XElement("Duration", vClassroomBusy.Duration));
-                Element.Add(new XElement("ClassroomID", vClassroomBusy.ClassroomID));
-                Element.Add(new XElement("Weekday", vClassroomBusy.WeekDay));
-                Element.Add(new XElement("WeekFlag",vClassroomBusy.WeekFlag));
+                XElement elmField = new XElement("Field");
+
+                elmField.Add(new XElement("BeginTime", vClassroomBusy.BeginTime.ToString("yyyy/MM/dd HH:mm:ss")));
+                elmField.Add(new XElement("BusyDescription", vClassroomBusy.Description));
+                elmField.Add(new XElement("Duration", vClassroomBusy.Duration));
+                elmField.Add(new XElement("ClassroomID", vClassroomBusy.ClassroomID));
+                elmField.Add(new XElement("Weekday", vClassroomBusy.WeekDay));
+                elmField.Add(new XElement("WeekFlag", vClassroomBusy.WeekFlag));
+
+                Element.Add(elmField);
 
                 Request.Add(Element);
             }
 
-            //SendRequest(Conn, "_.InsertClassroomBusy", Request);
+            SendRequest(Conn, "_.InsertClassroomBusy", Request);
         }
 
         /// <summary>

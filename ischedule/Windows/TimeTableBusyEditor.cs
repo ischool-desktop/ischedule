@@ -133,6 +133,9 @@ namespace ischedule
 
         }
 
+        /// <summary>
+        /// 重繪時間表內容
+        /// </summary>
         private void ReDrawTimeTable()
         {
             this.grdEditor.SuspendLayout();

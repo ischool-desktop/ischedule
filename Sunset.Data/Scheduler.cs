@@ -2592,7 +2592,7 @@ namespace Sunset.Data
                         SClassBusy ClassBusy = new SClassBusy();
 
                         ClassBusy.DSNS = DSNS;
-                        ClassBusy.ClassID = ClassID;
+                        ClassBusy.ClassID = vClass.ClassID;
                         ClassBusy.WeekDay = vApp.WeekDay;
                         ClassBusy.BeginTime = vApp.BeginTime;
                         ClassBusy.Duration = vApp.Duration;

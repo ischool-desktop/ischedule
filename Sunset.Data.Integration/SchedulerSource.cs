@@ -746,7 +746,7 @@ namespace Sunset.Data.Integration
                         catch (Exception e)
                         {
                             #region 若刪除失敗則不繼續進行，直接回傳結果
-                            strBuilder.AppendLine("新增學校『" + DSNS + "』的教師不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
+                            strBuilder.AppendLine("新增學校『" + DSNS + "』的班級不排課時段時發生錯誤，詳細錯誤訊息『" + e.Message + "』");
                             IsUploadable = false;
                             return new Tuple<bool, string>(IsUploadable, strBuilder.ToString());
                             #endregion
@@ -758,7 +758,7 @@ namespace Sunset.Data.Integration
                     {
                         try
                         {
-                            //ContractService.DeleteClassroomBusy(UploadData[DSNS].Connection);
+                            ContractService.DeleteClassroomBusy(UploadData[DSNS].Connection);
                         }
                         catch (Exception e)
                         {
@@ -771,7 +771,7 @@ namespace Sunset.Data.Integration
 
                         try
                         {
-                            //ContractService.InsertClassroomBusy(UploadData[DSNS].Connection,UploadData[DSNS].ClassroomBusys);
+                            ContractService.InsertClassroomBusy(UploadData[DSNS].Connection,UploadData[DSNS].ClassroomBusys);
                         }
                         catch (Exception e)
                         {

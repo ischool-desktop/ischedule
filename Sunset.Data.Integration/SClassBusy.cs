@@ -179,15 +179,15 @@ namespace Sunset.Data.Integration
                     {
                         if (PreWeekDay.Equals(CurWeekDay) && 
                             PreDateTime.Equals(CurDateTime) && 
-                            PreDuration.Equals(CurDuration) && 
-                            PreDesc.Equals(CurDesc))
+                            PreDuration.Equals(CurDuration))
                         {
                             RemoveList.Add(SortedClassBusys[i - 1]);
                         }
                         else
                         {
-                            ClassBusyTimeConflict.Add("班級:" + PreClassName + "星期:" + PreWeekDay + ",時間:" + PreDateTime.Hour + ":" + PreDateTime.Minute + ",持續分鐘：" + PreDuration + ",來源：" + PreAccessPoint);
-                            ClassBusyTimeConflict.Add("班級:" + CurClassName + "星期:" + CurWeekDay + ",時間:" + CurDateTime.Hour + ":" + CurDateTime.Minute + ",持續分鐘：" + CurDuration + ",來源：" + CurAccessPoint);
+                            //目前當有衝突時就不予理會
+                            //ClassBusyTimeConflict.Add("班級:" + PreClassName + "星期:" + PreWeekDay + ",時間:" + PreDateTime.Hour + ":" + PreDateTime.Minute + ",持續分鐘：" + PreDuration + ",來源：" + PreAccessPoint);
+                            //ClassBusyTimeConflict.Add("班級:" + CurClassName + "星期:" + CurWeekDay + ",時間:" + CurDateTime.Hour + ":" + CurDateTime.Minute + ",持續分鐘：" + CurDuration + ",來源：" + CurAccessPoint);
                         }
                     }
                 }

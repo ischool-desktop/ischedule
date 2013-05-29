@@ -98,7 +98,8 @@ namespace ischedule
 
             foreach (Teacher vTeacher in schLocal.Teachers)
                 if (!vTeacher.Name.Equals("無"))
-                    Result.Add(vTeacher.Name);
+                    if (!vTeacher.Name.Equals(vTeacher.SourceIDs[0].ID))
+                        Result.Add(vTeacher.Name);
 
             return Result;
         }

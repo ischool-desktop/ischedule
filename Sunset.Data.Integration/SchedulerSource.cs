@@ -821,13 +821,33 @@ namespace Sunset.Data.Integration
                 if (Progress != null)
                     Progress(10);
 
-                //TeacherResult = STeacher.SelectByCourseSection(Connections,SchoolYear,Semester);
+                #region 取得教師資料，留意做特殊處理。
+                //取得課程分段的教師資料
+                SIntegrationResult<STeacher> CourseSectionTeacherResult = STeacher.SelectByCourseSection(Connections,SchoolYear,Semester);
+                
+                //取得排課專屬的教師資料
                 TeacherResult = STeacher.Select(Connections);
+
+                //取得排課專屬的教師名稱
+                List<string> Names = TeacherResult.Data
+                    .Select(x => x.Name)
+                    .ToList();
+
+                //若課程分段的教師資料，沒有在排課專屬的教師資料中，就加入
+                foreach (STeacher Teacher in CourseSectionTeacherResult.Data)
+                {
+                    if (!Names.Contains(Teacher.Name))
+                    {
+                        TeacherResult.Data.Add(Teacher);       
+                    }
+                }
+
                 IsSuccess &= TeacherResult.IsSuccess;
 
                 FullTeacherResult = STeacher.Select(Connections);
 
                 IsSuccess &= FullTeacherResult.IsSuccess;
+                #endregion
 
                 if (Progress != null)
                     Progress(20);

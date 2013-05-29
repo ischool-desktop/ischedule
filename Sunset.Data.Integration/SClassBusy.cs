@@ -81,7 +81,7 @@ namespace Sunset.Data.Integration
             int Duration = Convert.ToInt32(Element.ElementText("Duration"));
             string Description = Element.ElementText("BusyDescription");
 
-            this.ClassID = DSNS + ","+ ClassName;
+            this.ClassID = DSNS + ","+ ClassID;
             this.WeekDay = WeekDay;
             this.BeginTime = BeginTime;
             this.Duration = Duration;

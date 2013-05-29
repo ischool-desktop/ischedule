@@ -85,7 +85,15 @@ namespace ischedule
 
             foreach (Class vClass in schLocal.Classes)
                 if (!vClass.Name.Equals("無"))
-                    Result.Add(vClass.Name);
+                {
+                    string[] ClassIDs = vClass.ClassID.Split(new char[] { ',' });
+
+                    if (ClassIDs.Length == 2)
+                    {
+                        if (!ClassIDs[1].Equals(vClass.Name))
+                            Result.Add(vClass.Name);
+                    }
+                }
 
             return Result;
         }

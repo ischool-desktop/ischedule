@@ -537,6 +537,21 @@ namespace Sunset.Data.Integration
         }
 
         /// <summary>
+        /// 取得班級列表
+        /// </summary>
+        /// <param name="Connection"></param>
+        /// <param name="SchoolYear"></param>
+        /// <param name="Semester"></param>
+        public static XElement GetClassEx(Connection Connection)
+        {
+            XElement RequestElement = new XElement("Request",string.Empty);
+
+            XElement Element = SendRequest(Connection,"_.GetClassEx",RequestElement);
+
+            return Element;
+        }
+
+        /// <summary>
         /// 根據連線及學年度學期取得班級列表
         /// </summary>
         /// <param name="Connection">連線</param>
@@ -566,7 +581,7 @@ namespace Sunset.Data.Integration
             XElement RequestElement = XElement
                 .Load(new StringReader("<Request><Condition><SchoolYear>" + SchoolYear + "</SchoolYear><Semester>" + Semester + "</Semester></Condition></Request>"));
 
-            XElement Element = SendRequest(Connection,"_.GetClassEx",RequestElement);
+            XElement Element = SendRequest(Connection,"_.GetClassNew",RequestElement);
 
             return Element;
         }

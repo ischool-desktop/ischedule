@@ -812,8 +812,33 @@ namespace Sunset.Data.Integration
                 if (Progress!=null)
                     Progress(0);
 
-                ClassResult = SClass.Select(Connections, SchoolYear, Semester);
+                SIntegrationResult<SClass> CourseSectionClassResult = SClass.Select(Connections, SchoolYear, Semester);
+
+                ClassResult = SClass.Select(Connections);
+
                 IsSuccess &= ClassResult.IsSuccess;
+
+                //取得排課專屬的班級名稱
+                List<string> ClassNames = ClassResult.Data
+                    .Select(x => x.ClassName)
+                    .ToList();
+
+                //若課程分段的班級資料，沒有在排課專屬的班級資料中，就加入
+                foreach (SClass Class in CourseSectionClassResult.Data)
+                {
+                    if (!ClassNames.Contains(Class.ClassName))
+                    {
+                        SClass ExtraClass = new SClass();
+                        ExtraClass.ClassName = Class.ClassName;
+                        ExtraClass.ID = Class.ID + Class.ClassName;
+                        ExtraClass.GradeYear = string.Empty;
+                        ExtraClass.NamingRule = string.Empty;
+                        ExtraClass.TeacherName = string.Empty;
+                        ExtraClass.TimeTableID = string.Empty;
+
+                        ClassResult.Data.Add(ExtraClass);
+                    }
+                }
 
                 ClassBusysResult = SClassBusy.Select(Connections);
                 IsSuccess &= ClassBusysResult.IsSuccess;
@@ -829,20 +854,20 @@ namespace Sunset.Data.Integration
                 TeacherResult = STeacher.Select(Connections);
 
                 //取得排課專屬的教師名稱
-                List<string> Names = TeacherResult.Data
+                List<string> TeacherNames = TeacherResult.Data
                     .Select(x => x.Name)
                     .ToList();
 
                 //若課程分段的教師資料，沒有在排課專屬的教師資料中，就加入
                 foreach (STeacher Teacher in CourseSectionTeacherResult.Data)
                 {
-                    if (!Names.Contains(Teacher.Name))
+                    if (!TeacherNames.Contains(Teacher.Name))
                     {
                         TeacherResult.Data.Add(Teacher);       
                     }
                 }
 
-                IsSuccess &= TeacherResult.IsSuccess;
+                IsSuccess &= TeacherResult.IsSuccess && CourseSectionTeacherResult.IsSuccess;
 
                 FullTeacherResult = STeacher.Select(Connections);
 

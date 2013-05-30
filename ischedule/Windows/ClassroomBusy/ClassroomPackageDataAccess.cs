@@ -72,7 +72,7 @@ namespace ischedule
         /// </summary>
         public string DisplayName
         {
-            get { return "場地管理"; }
+            get { return "場地不排課時段"; }
         }
 
         /// <summary>

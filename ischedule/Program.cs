@@ -39,6 +39,10 @@ namespace ischedule
             string basePath = System.Windows.Forms.Application.StartupPath;
             //更新位置。
             string appUrl = "http://module.ischool.com.tw/module/89/MOD_ischedule/app.xml";
+
+            if (System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "測試版本")))
+                appUrl = "http://10.1.1.167/modules/FiscaAEModules/MOD_ischedule/app.xml";
+
             string script_path = Path.Combine(basePath, "update_padding.xml");
             ManifestResolver resolver = new ManifestResolver(appUrl, VersionOption.Stable);
             resolver.VerifySignature = true;

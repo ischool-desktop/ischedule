@@ -259,6 +259,7 @@
             // 
             this.cmbTimeTables.DisplayMember = "Name";
             this.cmbTimeTables.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbTimeTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTimeTables.FormattingEnabled = true;
             this.cmbTimeTables.ItemHeight = 19;
             this.cmbTimeTables.Location = new System.Drawing.Point(71, 5);
@@ -442,7 +443,12 @@
             this.toolStripMenuItem2});
             this.contextMenuStripDelete.Name = "contextMenuStrip1";
             this.contextMenuStripDelete.ShowImageMargin = false;
-            this.contextMenuStripDelete.Size = new System.Drawing.Size(70, 26);
+            this.contextMenuStripDelete.Size = new System.Drawing.Size(41, 26);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(40, 22);
             // 
             // errorProvider1
             // 

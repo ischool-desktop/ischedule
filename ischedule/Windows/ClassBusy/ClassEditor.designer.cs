@@ -51,10 +51,6 @@
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.grdClassBusys = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.colWeekDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartMinute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBusyDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new DevComponents.DotNetBar.LabelX();
@@ -66,6 +62,10 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWeekDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartMinute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBusyDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
@@ -259,6 +259,7 @@
             // 
             this.cmbTimeTables.DisplayMember = "Name";
             this.cmbTimeTables.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbTimeTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTimeTables.FormattingEnabled = true;
             this.cmbTimeTables.ItemHeight = 19;
             this.cmbTimeTables.Location = new System.Drawing.Point(71, 5);
@@ -335,7 +336,7 @@
             this.tabControlPanel2.TabIndex = 2;
             this.tabControlPanel2.TabItem = this.tabItem2;
             // 
-            // grdTeacherBusys
+            // grdClassBusys
             // 
             this.grdClassBusys.BackgroundColor = System.Drawing.Color.White;
             this.grdClassBusys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -358,51 +359,13 @@
             this.grdClassBusys.HighlightSelectedColumnHeaders = false;
             this.grdClassBusys.Location = new System.Drawing.Point(1, 1);
             this.grdClassBusys.MultiSelect = false;
-            this.grdClassBusys.Name = "grdTeacherBusys";
+            this.grdClassBusys.Name = "grdClassBusys";
             this.grdClassBusys.ReadOnly = true;
             this.grdClassBusys.RowHeadersWidth = 35;
             this.grdClassBusys.RowTemplate.Height = 24;
             this.grdClassBusys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdClassBusys.Size = new System.Drawing.Size(528, 369);
             this.grdClassBusys.TabIndex = 3;
-            // 
-            // colWeekDay
-            // 
-            this.colWeekDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colWeekDay.HeaderText = "星期";
-            this.colWeekDay.Name = "colWeekDay";
-            this.colWeekDay.ReadOnly = true;
-            this.colWeekDay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colWeekDay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colWeekDay.ToolTipText = "只能輸入1到7";
-            this.colWeekDay.Width = 40;
-            // 
-            // colStartHour
-            // 
-            this.colStartHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colStartHour.HeaderText = "開始時間";
-            this.colStartHour.Name = "colStartHour";
-            this.colStartHour.ReadOnly = true;
-            this.colStartHour.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colStartHour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colStartHour.Width = 66;
-            // 
-            // colStartMinute
-            // 
-            this.colStartMinute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colStartMinute.HeaderText = "結束時間";
-            this.colStartMinute.Name = "colStartMinute";
-            this.colStartMinute.ReadOnly = true;
-            this.colStartMinute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colStartMinute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colStartMinute.Width = 66;
-            // 
-            // colBusyDesc
-            // 
-            this.colBusyDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colBusyDesc.HeaderText = "不排課描述";
-            this.colBusyDesc.Name = "colBusyDesc";
-            this.colBusyDesc.ReadOnly = true;
             // 
             // tabItem2
             // 
@@ -466,6 +429,7 @@
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn1.ToolTipText = "只能輸入1到7";
+            this.dataGridViewTextBoxColumn1.Width = 35;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -475,6 +439,7 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn2.Width = 59;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -484,6 +449,7 @@
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.Width = 59;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -491,6 +457,44 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "不排課描述";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // colWeekDay
+            // 
+            this.colWeekDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colWeekDay.HeaderText = "星期";
+            this.colWeekDay.Name = "colWeekDay";
+            this.colWeekDay.ReadOnly = true;
+            this.colWeekDay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colWeekDay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colWeekDay.ToolTipText = "只能輸入1到7";
+            this.colWeekDay.Width = 40;
+            // 
+            // colStartHour
+            // 
+            this.colStartHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colStartHour.HeaderText = "開始時間";
+            this.colStartHour.Name = "colStartHour";
+            this.colStartHour.ReadOnly = true;
+            this.colStartHour.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colStartHour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colStartHour.Width = 66;
+            // 
+            // colStartMinute
+            // 
+            this.colStartMinute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colStartMinute.HeaderText = "結束時間";
+            this.colStartMinute.Name = "colStartMinute";
+            this.colStartMinute.ReadOnly = true;
+            this.colStartMinute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colStartMinute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colStartMinute.Width = 66;
+            // 
+            // colBusyDesc
+            // 
+            this.colBusyDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colBusyDesc.HeaderText = "不排課描述";
+            this.colBusyDesc.Name = "colBusyDesc";
+            this.colBusyDesc.ReadOnly = true;
             // 
             // colSubject
             // 
@@ -503,12 +507,12 @@
             this.colLevel.HeaderText = "級別";
             this.colLevel.Name = "colLevel";
             // 
-            // TeacherEditor
+            // ClassEditor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Name = "TeacherEditor";
+            this.Name = "ClassEditor";
             this.Size = new System.Drawing.Size(530, 434);
             this.panelEx1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

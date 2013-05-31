@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Aspose.Cells;
 using Campus.Report;
 using ReportHelper;
@@ -14,6 +15,7 @@ namespace ischedule
 {
     public partial class frmReport : BaseForm
     {
+        private string Filename = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\CustomizeTemplate";
         private List<string> AssocIDs;
         private Scheduler schLocal = Scheduler.Instance;
         private Appointments apsCur;
@@ -21,8 +23,7 @@ namespace ischedule
         private string LPViewName = string.Empty;
         private string LPViewType = string.Empty;
         private string LPViewClassTeacherName = string.Empty;
-        private List<Config> Configs;
-        //private AccessHelper Helper = new AccessHelper();
+        private string mstrCustomizeTemplate;
         private MemoryStream mDefaultTemplateStream = new MemoryStream(Properties.Resources.功課表);
         private MemoryStream mCustomizeTemplateStream;
         private byte[] mCustomizeTemplateBuffer;
@@ -90,8 +91,7 @@ namespace ischedule
 
                         UploadTemplate(ofd.FileName, ref IsUpload, ref Base64String);
 
-                        Config CustimzeTemplate = new Config();// = Configs.Find(x => x.Name.Equals("CustomizeTemplate"));
-                        CustimzeTemplate.Value = Base64String;
+                        mstrCustomizeTemplate = Base64String;
                         mCustomizeTemplateBuffer = Convert.FromBase64String(Base64String);
                         mCustomizeTemplateStream = new MemoryStream(mCustomizeTemplateBuffer);
 
@@ -111,27 +111,16 @@ namespace ischedule
         /// </summary>
         private void LoadPreference()
         {
-            #region 讀取 Preference
-            Configs = new List<Config>(); //Helper.Select<Config>();
+            if (!File.Exists(Filename))
+                File.CreateText(Filename).Close();
 
-            Config CustomizeTemplate = Configs.Find(x => x.Name.Equals("CustomizeTemplate"));
+            mstrCustomizeTemplate = File.ReadAllText(Filename);
 
-            
-
-            if (CustomizeTemplate == null)
+            if (!string.IsNullOrEmpty(mstrCustomizeTemplate))
             {
-                CustomizeTemplate = new Config();
-                CustomizeTemplate.Name = "CustomizeTemplate";
-                CustomizeTemplate.Value = string.Empty;
-                Configs.Add(CustomizeTemplate);
-            }
-
-            if (!string.IsNullOrEmpty(CustomizeTemplate.Value))
-            {
-                mCustomizeTemplateBuffer = Convert.FromBase64String(CustomizeTemplate.Value);
+                mCustomizeTemplateBuffer = Convert.FromBase64String(mstrCustomizeTemplate);
                 mCustomizeTemplateStream = new MemoryStream(mCustomizeTemplateBuffer);
             }
-            #endregion
         }
 
         /// <summary>
@@ -139,7 +128,7 @@ namespace ischedule
         /// </summary>
         private void SavePreference()
         {
-            //Helper.SaveAll(Configs);
+            File.WriteAllText(Filename, mstrCustomizeTemplate);
         }
 
         /// <summary>
@@ -431,15 +420,18 @@ namespace ischedule
                         result.Add(Key, LPViews[Key]);
                 }
 
-                MemoryStream Stream = rdoDefualt.Checked == true ? mDefaultTemplateStream : mCustomizeTemplateStream;
+                MemoryStream Stream = new MemoryStream();
+
+                if (rdoDefualt.Checked)
+                    Stream = mDefaultTemplateStream;
+                else
+                    Stream = mCustomizeTemplateStream;
 
                 Workbook wb = Report.Produce(result, Stream);
 
                 string mSaveFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Reports\\功課表.xls";
 
                 ReportSaver.SaveWorkbook(wb, mSaveFilePath);
-
-                System.Diagnostics.Process.Start(mSaveFilePath);
             }
             catch (Exception e)
             {

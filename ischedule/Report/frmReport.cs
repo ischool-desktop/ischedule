@@ -438,6 +438,8 @@ namespace ischedule
                 string mSaveFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Reports\\功課表.xls";
 
                 ReportSaver.SaveWorkbook(wb, mSaveFilePath);
+
+                System.Diagnostics.Process.Start(mSaveFilePath);
             }
             catch (Exception e)
             {

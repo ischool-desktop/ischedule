@@ -241,8 +241,7 @@ namespace ischedule
                 DecPeriod Period = (DecPeriod)sender;
                 List<string> SelectEventIDs = Period.Data.Select(x=>x.EventID).ToList();
 
-                if (SelectEventIDs.Count > 0)
-                    SchedulerEvents.RaiseChanged(e);
+                SchedulerEvents.RaiseChanged(e);
 
                 //Clear selected for all cells ;
                 foreach (string key in this.decPeriods.Keys)

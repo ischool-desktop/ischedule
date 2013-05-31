@@ -277,8 +277,6 @@ namespace ischedule
 
             List<string> EventIDs = e.Value.Select(x => x.EventID).ToList();
 
-                CEvent eventLocal = e.Value[0];
-
             foreach (DataGridViewRow Row in grdEvents.Rows)
             {
                 string EventID = "" + Row.Cells[colEventID].Value;

@@ -316,8 +316,12 @@ namespace ischedule
                 {
                     this._pnl.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
                     this._pnl.Style.BorderWidth = 1;
-                    this.picBox.Image = Resources.blank;
-                    this.picBox.Tag = string.Empty;
+
+                    if (!("" + this.picBox.Tag).Equals("busy"))
+                    {
+                        this.picBox.Image = Resources.blank;
+                        this.picBox.Tag = string.Empty;
+                    }
                 }
             }
         }

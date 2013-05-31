@@ -46,6 +46,12 @@
     <ApplicationIcon>ischedule_logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\SharedLib\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Campus.Report">
+      <HintPath>..\SharedLib\Campus.Report.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>LibraryProject\DevComponents.DotNetBar2.dll</HintPath>
@@ -67,6 +73,9 @@
     <Reference Include="FISCA.DSAClient">
       <HintPath>..\SharedLib\FISCA.DSAClient.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="ReportHelper">
+      <HintPath>..\SharedLib\ReportHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -96,6 +105,14 @@
     <Compile Include="frmUploadConfirm.Designer.cs">
       <DependentUpon>frmUploadConfirm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\Config.cs" />
+    <Compile Include="Report\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\LPViewReportItem.cs" />
     <Compile Include="test\DecPeriod.cs" />
     <Compile Include="test\DecScheduler.cs" />
     <Compile Include="test\frmTest.cs">
@@ -120,6 +137,7 @@
     <Compile Include="test\TeacherWrapper.cs" />
     <Compile Include="UserControls\DecPeriod.cs" />
     <Compile Include="UserControls\DecScheduler.cs" />
+    <Compile Include="UserControls\SchedulerEvent.cs" />
     <Compile Include="Windows\ClassBusy\ClassPackage.cs" />
     <Compile Include="Windows\ClassBusy\ClassPackageDataAccess.cs" />
     <Compile Include="Windows\ClassBusy\ClassEditor.cs">
@@ -350,6 +368,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="test\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +465,7 @@
     <None Include="Resources\下載.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\功課表.xls" />
     <None Include="Resources\另存新檔.png" />
   </ItemGroup>
   <ItemGroup>

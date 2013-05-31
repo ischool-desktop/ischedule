@@ -190,6 +190,7 @@
             this.treeWho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeWho.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             this.treeWho.Location = new System.Drawing.Point(0, 0);
+            this.treeWho.MultiSelect = true;
             this.treeWho.Name = "treeWho";
             this.treeWho.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
             this.node1});

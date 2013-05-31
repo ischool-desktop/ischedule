@@ -8,7 +8,6 @@ using DevComponents.DotNetBar;
 using FISCA.DSAClient;
 using Sunset.Data;
 using Sunset.Data.Integration;
-using FISCA;
 
 namespace ischedule
 {
@@ -23,6 +22,9 @@ namespace ischedule
         public EventsViewBL ClassroomEventsView { get; set; }
         private string Password = string.Empty;
         private string Filepath = string.Empty;
+        private usrTeacherList TeacherList = null;
+        private usrClassList ClassList = null;
+        private usrClassroomList ClassroomList = null;
 
         /// <summary>
         /// 無參數建構式
@@ -58,6 +60,14 @@ namespace ischedule
         {
             if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
                 Program.Update();
+
+            #region 設定Aspose License
+            Aspose.Cells.License License = new Aspose.Cells.License();
+
+            FileStream Stream = new FileStream(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Aspose.Total.lic", FileMode.Open);
+
+            License.SetLicense(Stream);
+            #endregion
 
             SetScheduleSourceCloseMenu();
 
@@ -418,17 +428,18 @@ namespace ischedule
         /// </summary>
         private void LoadResourceList()
         {
-            usrTeacherList WhoList = new usrTeacherList();
-            WhoList.Dock = DockStyle.Fill;
-            pnlTeacher.Controls.Add(WhoList);
+            TeacherList = new usrTeacherList();
+            TeacherList.Dock = DockStyle.Fill;
+            pnlTeacher.Controls.Add(TeacherList);
 
-            usrClassList WhomList = new usrClassList();
-            WhomList.Dock = DockStyle.Fill;
-            pnlClass.Controls.Add(WhomList);
+            ClassList = new usrClassList();
+            ClassList.Dock = DockStyle.Fill;
+            pnlClass.Controls.Add(ClassList);
 
-            usrClassroomList WhereList = new usrClassroomList();
-            WhereList.Dock = DockStyle.Fill;
-            pnlClassroom.Controls.Add(WhereList);
+
+            ClassroomList = new usrClassroomList();
+            ClassroomList.Dock = DockStyle.Fill;
+            pnlClassroom.Controls.Add(ClassroomList);
         }
 
         /// <summary>

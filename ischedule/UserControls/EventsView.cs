@@ -100,7 +100,7 @@ namespace ischedule
         #endregion
 
         /// <summary>
-        /// 
+        /// 關閉
         /// </summary>
         public void Close()
         {
@@ -261,6 +261,35 @@ namespace ischedule
                 if (IsRelatedEvent(e.EventID))
                     RefreshEvent(e.EventID);
             };
+
+            SchedulerEvents.PeriodSelected += new EventHandler<PeriodEventArgs>(SchedulerEvents_PeriodSelected);
+
+        }
+
+        /// <summary>
+        /// 功課表節次被選取
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SchedulerEvents_PeriodSelected(object sender, PeriodEventArgs e)
+        {
+            IsSelectionChanged = false;
+
+            List<string> EventIDs = e.Value.Select(x => x.EventID).ToList();
+
+                CEvent eventLocal = e.Value[0];
+
+            foreach (DataGridViewRow Row in grdEvents.Rows)
+            {
+                string EventID = "" + Row.Cells[colEventID].Value;
+
+                if (EventIDs.Contains(EventID))
+                    Row.Selected = true;
+                else
+                    Row.Selected = false;
+            }
+
+            IsSelectionChanged = true;
         }
 
         void grdEvents_SelectionChanged(object sender, EventArgs e)
@@ -1107,8 +1136,7 @@ namespace ischedule
         /// </summary>
         public void Print()
         {
-            //待補
-            //PrintHelper.NormalPrinting(this);
+            //new frmReport().ShowDialog();
         }
         #endregion
     }

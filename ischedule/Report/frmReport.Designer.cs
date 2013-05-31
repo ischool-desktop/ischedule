@@ -65,7 +65,7 @@
             // 
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 12);
+            this.labelX1.Location = new System.Drawing.Point(14, 12);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(60, 21);
             this.labelX1.TabIndex = 0;
@@ -78,7 +78,7 @@
             this.cboTimeTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTimeTable.FormattingEnabled = true;
             this.cboTimeTable.ItemHeight = 19;
-            this.cboTimeTable.Location = new System.Drawing.Point(69, 12);
+            this.cboTimeTable.Location = new System.Drawing.Point(71, 12);
             this.cboTimeTable.Name = "cboTimeTable";
             this.cboTimeTable.Size = new System.Drawing.Size(170, 25);
             this.cboTimeTable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.chkTeacherBusyDesc);
             this.groupBox1.Controls.Add(this.chkMergeTimeTable);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox1.Location = new System.Drawing.Point(12, 43);
+            this.groupBox1.Location = new System.Drawing.Point(14, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(227, 81);
             this.groupBox1.TabIndex = 2;
@@ -140,7 +140,7 @@
             this.groupBox2.Controls.Add(this.chkClass);
             this.groupBox2.Controls.Add(this.chkTeacher);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox2.Location = new System.Drawing.Point(12, 130);
+            this.groupBox2.Location = new System.Drawing.Point(14, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(227, 112);
             this.groupBox2.TabIndex = 3;
@@ -288,7 +288,7 @@
             this.groupBox3.Controls.Add(this.rdoCustomize);
             this.groupBox3.Controls.Add(this.rdoDefualt);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(12, 248);
+            this.groupBox3.Location = new System.Drawing.Point(14, 248);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(227, 81);
             this.groupBox3.TabIndex = 4;
@@ -376,7 +376,7 @@
             this.btnPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnPrint.BackColor = System.Drawing.Color.Transparent;
             this.btnPrint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint.Location = new System.Drawing.Point(106, 338);
+            this.btnPrint.Location = new System.Drawing.Point(108, 338);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(59, 23);
             this.btnPrint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -389,7 +389,7 @@
             this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(171, 338);
+            this.btnExit.Location = new System.Drawing.Point(173, 338);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(66, 23);
             this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -401,7 +401,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 372);
+            this.ClientSize = new System.Drawing.Size(252, 373);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox3);
@@ -409,6 +409,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cboTimeTable);
             this.Controls.Add(this.labelX1);
+            this.MaximumSize = new System.Drawing.Size(260, 400);
+            this.MinimumSize = new System.Drawing.Size(260, 400);
             this.Name = "frmReport";
             this.Text = "列印功課表";
             this.Load += new System.EventHandler(this.frmReport_Load);

@@ -76,7 +76,7 @@ namespace ischedule
             
             menuExpand.Click += (sender,e) =>
             {
-                Node nodeRoot = treeWho.Nodes[0];
+                Node nodeRoot = nodeTree.Nodes[0];
 
                 nodeRoot.Expand();
 
@@ -86,7 +86,7 @@ namespace ischedule
 
             menuCollapse.Click += (sender, e) =>
             {
-                treeWho.Nodes[0].Collapse();
+                nodeTree.Nodes[0].Collapse();
             };
 
             MainFormBL.Instance.TeacherEventsView.TempUpdate += (sender, e) => btnAddToTemp.Text = "待處理分課表(" + e.TotCount + ")";
@@ -151,15 +151,15 @@ namespace ischedule
                         WhatWhos[What].Add(Event.TeacherID3);
             }
 
-            treeWho.Nodes.Clear();
+            nodeTree.Nodes.Clear();
 
             Node nodeRoot = new Node("所有教師");
             nodeRoot.TagString = "所有教師";
             Node nodeNull = new Node("無授課教師分課");
             nodeNull.TagString = "無";
 
-            treeWho.Nodes.Add(nodeRoot);
-            treeWho.Nodes.Add(nodeNull);
+            nodeTree.Nodes.Add(nodeRoot);
+            nodeTree.Nodes.Add(nodeNull);
 
             foreach (string strWhat in WhatWhos.Keys)
             {
@@ -222,7 +222,7 @@ namespace ischedule
                         UnAllocWhos[UnAlloc].Add(Who.Name);
             }
 
-            treeWho.Nodes.Clear();
+            nodeTree.Nodes.Clear();
 
             Node nodeRoot = new Node("所有教師");
             nodeRoot.TagString = "所有教師";
@@ -230,8 +230,8 @@ namespace ischedule
             Node nodeNull = new Node("無授課教師分課");
             nodeNull.TagString = "無";
 
-            treeWho.Nodes.Add(nodeRoot);
-            treeWho.Nodes.Add(nodeNull);
+            nodeTree.Nodes.Add(nodeRoot);
+            nodeTree.Nodes.Add(nodeNull);
 
             foreach (int strWhat in UnAllocWhos.Keys.ToList().OrderByDescending(x=>x))
             {
@@ -294,7 +294,7 @@ namespace ischedule
                         TotalWhos[TotalHour].Add(Who.Name);
             }
 
-            treeWho.Nodes.Clear();
+            nodeTree.Nodes.Clear();
 
             Node nodeRoot = new Node("所有教師");
             nodeRoot.TagString = "所有教師";
@@ -302,8 +302,8 @@ namespace ischedule
             Node nodeNull = new Node("無授課教師分課");
             nodeNull.TagString = "無";
 
-            treeWho.Nodes.Add(nodeRoot);
-            treeWho.Nodes.Add(nodeNull);
+            nodeTree.Nodes.Add(nodeRoot);
+            nodeTree.Nodes.Add(nodeNull);
 
             foreach (int strWhat in TotalWhos.Keys.ToList().OrderByDescending(x=>x))
             {
@@ -357,7 +357,7 @@ namespace ischedule
                     TeacherNames.Add(Who.Name, Who.Name);
             }
 
-            treeWho.Nodes.Clear();
+            nodeTree.Nodes.Clear();
 
             Node nodeAll = new Node("所有教師");
             nodeAll.TagString = "所有教師";
@@ -365,8 +365,8 @@ namespace ischedule
             Node nodeNull = new Node("無授課教師");
             nodeNull.TagString = "無";
 
-            treeWho.Nodes.Add(nodeAll);
-            treeWho.Nodes.Add(nodeNull);
+            nodeTree.Nodes.Add(nodeAll);
+            nodeTree.Nodes.Add(nodeNull);
 
             foreach (string WhoName in TeacherNames.Keys)
             {
@@ -444,7 +444,7 @@ namespace ischedule
         /// <returns></returns>
         private string GetSelectedValue()
         {
-            Node SelectNode = treeWho.SelectedNode;
+            Node SelectNode = nodeTree.SelectedNode;
 
             if (SelectNode == null)
                 return string.Empty;
@@ -517,6 +517,9 @@ namespace ischedule
             if (e.Node == null)
                 return;
 
+            if (nodeTree.SelectedNodes.Count > 1)
+                return;
+
             string AssocID = e.Node.TagString;
 
             if (!string.IsNullOrEmpty(AssocID))
@@ -548,7 +551,7 @@ namespace ischedule
         {
             List<string> result = new List<string>();
 
-            foreach (Node vNode in treeWho.SelectedNodes)
+            foreach (Node vNode in nodeTree.SelectedNodes)
             {
                 string AssocID = vNode.TagString;
 

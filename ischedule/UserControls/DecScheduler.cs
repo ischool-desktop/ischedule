@@ -1546,8 +1546,7 @@ namespace ischedule
                                 CEvents.Add(eventLocal);
 
                                 #region 多門分課選取情況，在時間表不同時會有盲點...
-                                if (eventLocal.EventID.Equals(idTestEvent) &&
-                                    !eventLocal.ManualLock)
+                                if (eventLocal.EventID.Equals(idTestEvent))
                                     SelectedPeriods.Add(decPeriod);
                                 #endregion
                             }
@@ -1583,8 +1582,7 @@ namespace ischedule
                                 DataSource.Add(eventLocal);
                                 decPeriod.Data = DataSource;
 
-                                if (eventLocal.EventID.Equals(idTestEvent) &&
-                                    !eventLocal.ManualLock)
+                                if (eventLocal.EventID.Equals(idTestEvent))
                                     SelectedPeriods.Add(decPeriod);
 
                                 IsSetWeekDayText = true;

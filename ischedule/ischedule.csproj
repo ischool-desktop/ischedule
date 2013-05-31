@@ -102,7 +102,6 @@
     <Compile Include="frmUploadConfirm.Designer.cs">
       <DependentUpon>frmUploadConfirm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report\Config.cs" />
     <Compile Include="Report\frmReport.cs">
       <SubType>Form</SubType>
     </Compile>

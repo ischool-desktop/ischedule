@@ -90,6 +90,7 @@
             this.nodeTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nodeTree.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             this.nodeTree.Location = new System.Drawing.Point(0, 0);
+            this.nodeTree.MultiSelect = true;
             this.nodeTree.Name = "nodeTree";
             this.nodeTree.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
             this.node1});

@@ -539,6 +539,33 @@ namespace ischedule
                 }
             }
         }
+
+        /// <summary>
+        /// 取得選取系統編號
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetSelectedIDs()
+        {
+            List<string> result = new List<string>();
+
+            foreach (Node vNode in treeWho.SelectedNodes)
+            {
+                string AssocID = vNode.TagString;
+
+                if (!string.IsNullOrEmpty(AssocID))
+                {
+                    if (!AssocID.StartsWith("所有"))
+                    {
+                        string[] IDs = AssocID.Split(new char[] { ';' });
+
+                        if (!AssocID.Equals("無") && IDs.Length == 1)
+                            result.Add(AssocID);
+                    }
+                }
+            }
+
+            return result;
+        }
         #endregion
     }
 }

@@ -516,6 +516,17 @@ namespace ischedule
                 }
             }
         }
+
+        /// <summary>
+        /// 取得選取系統編號
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetSelectedIDs()
+        {
+            List<string> result = new List<string>();
+
+            return result;
+        }
         #endregion
     }
 }

@@ -22,9 +22,9 @@ namespace ischedule
         public EventsViewBL ClassroomEventsView { get; set; }
         private string Password = string.Empty;
         private string Filepath = string.Empty;
-        private usrTeacherList TeacherList = null;
-        private usrClassList ClassList = null;
-        private usrClassroomList ClassroomList = null;
+        public usrTeacherList TeacherList { get; set; }
+        public usrClassList ClassList { get; set; }
+        public usrClassroomList ClassroomList { get; set; }
 
         /// <summary>
         /// 無參數建構式
@@ -461,24 +461,24 @@ namespace ischedule
             btnTeacherUnlock.Enabled = false;
             btnTeacherFree.Enabled = false;
             btnTeacherProperty.Enabled = false;
-            btnTeacherPrint.Enabled = false;
             btnTeacherBusy.Enabled = false;
+            btnTeacherPrint.Enabled = false;
 
             btnClassAutoSchedule.Enabled = false;
             btnClassLock.Enabled = false;
             btnClassUnLock.Enabled = false;
             btnClassFree.Enabled = false;
             btnClassProperty.Enabled = false;
-            btnClassPrint.Enabled = false;
             btnClassBusy.Enabled = false;
+            btnClassPrint.Enabled = false;
 
             btnClassroomAutoSchedule.Enabled = false;
             btnClassroomLock.Enabled = false;
             btnClassroomUnLock.Enabled = false;
             btnClassroomFree.Enabled = false;
             btnClassroomProperty.Enabled = false;
-            btnClassroomPrint.Enabled = false;
             btnClassroomBusy.Enabled = false;
+            btnClassroomPrint.Enabled = false;
         }
 
         /// <summary>
@@ -494,6 +494,10 @@ namespace ischedule
             btnUpload.Enabled = true;
             btnClose.Enabled = true;
             btnExit.Enabled = true;
+
+            btnTeacherPrint.Enabled = true;
+            btnClassPrint.Enabled = true;
+            btnClassroomPrint.Enabled = true;
 
             btnTeacherBusy.Enabled = true;
             btnClassBusy.Enabled = true;

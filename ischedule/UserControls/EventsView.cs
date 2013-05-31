@@ -1134,7 +1134,7 @@ namespace ischedule
         /// </summary>
         public void Print()
         {
-            //new frmReport().ShowDialog();
+            new frmReport().ShowDialog();
         }
         #endregion
     }

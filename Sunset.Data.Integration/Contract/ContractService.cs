@@ -1057,7 +1057,7 @@ namespace Sunset.Data.Integration
             //    <Config>
             //        <!--以下為非必要欄位-->
             //        <LastUpdate></LastUpdate>
-            //        <Name></Name>
+            //        <Name>CustomizeTemplate</Name>
             //        <Value></Value>
             //    </Config>
             //</Request>
@@ -1101,7 +1101,7 @@ namespace Sunset.Data.Integration
             #endregion
 
             XElement RequestElement = XElement
-                .Load(new StringReader("<Request><Field><Value/></Field><Condition><Name>DSNS</Name></Condition></Request>"));
+                .Load(new StringReader("<Request><Field><Value/></Field><Condition><Name>CustomizeTemplate</Name></Condition></Request>"));
 
             Tuple<Connection,string> result = GetConnection(FISCA.Authentication.DSAServices.AccessPoint);
 

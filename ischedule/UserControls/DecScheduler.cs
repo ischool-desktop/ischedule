@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using Sunset.Data;
 
 namespace ischedule
@@ -202,6 +203,29 @@ namespace ischedule
             itemClassroom.Checked = mOption.IsClassroom;
             itemClassroom.Click += new EventHandler(ContextItem_Click);
             Menu.MenuItems.Add(itemClassroom);
+
+            Control ctl = this.pnlContainer.GetChildAtPoint(this.pnlContainer.PointToClient(Control.MousePosition));
+
+            if (ctl is PanelEx)
+            {
+               DecPeriod Period = ctl.Tag as DecPeriod;
+
+               if (Period != null && Period.Data.Count==1)
+               {
+                   MenuItem itemToogleLock = new MenuItem();
+                   itemToogleLock.Text = Period.Data[0].ManualLock ? "解除鎖定" : "鎖定";
+                   itemToogleLock.Click += (vsender, ve) => ToggleLock(Period.Weekday, Period.Period);
+                   Menu.MenuItems.Add(itemToogleLock);
+
+                   if (!Period.Data[0].ManualLock)
+                   {
+                       MenuItem itemDelete = new MenuItem();
+                       itemDelete.Text = "回復至未排課";
+                       itemDelete.Click += (vsender, ve) => Unschedule(Period.Weekday, Period.Period);
+                       Menu.MenuItems.Add(itemDelete);
+                   }
+               }
+            }      
         }
 
         private void ContextItem_Click(object sender, EventArgs e)
@@ -1328,27 +1352,6 @@ namespace ischedule
                     schLocal.LockEvent(appTest.EventID);
             }
         }
-
-        //private DevComponents.DotNetBar.PanelEx CreatePanel(string name, string txt, Point location, Size size)
-        //{
-        //    DevComponents.DotNetBar.PanelEx pnl = new DevComponents.DotNetBar.PanelEx();
-        //    pnl.CanvasColor = System.Drawing.SystemColors.Control;
-        //    pnl.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-        //    pnl.Location = location;
-        //    pnl.Name = name;
-        //    pnl.Size = size;
-        //    pnl.Style.Alignment = System.Drawing.StringAlignment.Center;
-        //    pnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-        //    pnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-        //    pnl.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-        //    pnl.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-        //    pnl.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-        //    pnl.Style.GradientAngle = 90;
-        //    pnl.TabIndex = 1;
-        //    pnl.Text = txt;
-
-        //    return pnl;
-        //}
 
         /// <summary>
         /// 根據TimeTable.Periods的MaxWeekDay來決定顯示的欄位

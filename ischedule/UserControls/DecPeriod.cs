@@ -80,6 +80,16 @@ namespace ischedule
 
         private Dictionary<string, Label> dicLables;
 
+        /// <summary>
+        /// 星期
+        /// </summary>
+        public int Weekday { get { return this._colIndex; } }
+
+        /// <summary>
+        /// 節次
+        /// </summary>
+        public int Period { get { return this._rowIndex; } }
+
         public event PeriodClickedHandler OnPeriodClicked;
 
         /*  Constructor  */
@@ -91,7 +101,8 @@ namespace ischedule
             this._pnl = pnl;
             this._schType = schType;
             this._colIndex = colIndex;
-            this._rowIndex = rowIndex;            
+            this._rowIndex = rowIndex;
+            this._pnl.Tag = this;
             
             /* 註冊事件  */
             

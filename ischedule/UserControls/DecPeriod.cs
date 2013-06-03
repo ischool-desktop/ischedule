@@ -198,12 +198,10 @@ namespace ischedule
             this.picBox.Tag = string.Empty;
             this.picBox.Click -= new EventHandler(picBox_Click);
            
-            this.BackColor = Color.White;
             this._pnl.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
             this._pnl.Style.BorderWidth = 1;
             this._pnl.Click -= new EventHandler(_pnl_Click);
             this._pnl.MouseLeave -= new EventHandler(_pnl_MouseLeave);
-
             this.BackColor = SchedulerColor.lvTimeTableBackColor;
 
             this._events.Clear();

@@ -300,7 +300,20 @@ namespace ischedule
             this.btnUnLock.Enabled = grdEvents.SelectedRows.Count > 0;
             this.btnFree.Enabled = grdEvents.SelectedRows.Count > 0;
             this.btnProperty.Enabled = grdEvents.SelectedRows.Count == 1;
-            this.btnPrint.Enabled = grdEvents.SelectedRows.Count > 0;
+
+            //判斷目前是屬於哪個資源，教師、班級或是場地
+            switch (mLPViewType)
+            {
+                case Constants.lvWho:
+                    this.btnPrint.Enabled = MainFormBL.Instance.TeacherList.GetSelectedIDs().Count>0;
+                    break;
+                case Constants.lvWhom:
+                    this.btnPrint.Enabled = MainFormBL.Instance.ClassList.GetSelectedIDs().Count>0;
+                    break;
+                case Constants.lvWhere:
+                    this.btnPrint.Enabled = MainFormBL.Instance.ClassroomList.GetSelectedIDs().Count>0;
+                    break;
+            }
 
             //當選取分課為一門時進行作業
             if (grdEvents.SelectedRows.Count == 1)

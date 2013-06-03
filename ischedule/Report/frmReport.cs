@@ -215,15 +215,15 @@ namespace ischedule
             {
                 //取得所有選取教師系統編號
                 case "Teacher":
-                    AssocIDs = MainFormBL.Instance.TeacherList.GetSelectedIDs();
+                    AssocIDs = MainFormBL.Instance.TeacherList.SelectedIDs;
                     break;
                 //取得所有選取班級系統編號
                 case "Class":
-                    AssocIDs = MainFormBL.Instance.ClassList.GetSelectedIDs();
+                    AssocIDs = MainFormBL.Instance.ClassList.SelectedIDs;
                     break;
                 //取得所有選取場地系統編號
                 case "Classroom":
-                    AssocIDs = MainFormBL.Instance.ClassroomList.GetSelectedIDs();
+                    AssocIDs = MainFormBL.Instance.ClassroomList.SelectedIDs;
                     break;
             }
             #endregion

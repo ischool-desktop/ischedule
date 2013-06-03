@@ -305,13 +305,13 @@ namespace ischedule
             switch (mLPViewType)
             {
                 case Constants.lvWho:
-                    this.btnPrint.Enabled = MainFormBL.Instance.TeacherList.GetSelectedIDs().Count>0;
+                    this.btnPrint.Enabled = MainFormBL.Instance.TeacherList.SelectedIDs.Count>0;
                     break;
                 case Constants.lvWhom:
-                    this.btnPrint.Enabled = MainFormBL.Instance.ClassList.GetSelectedIDs().Count>0;
+                    this.btnPrint.Enabled = MainFormBL.Instance.ClassList.SelectedIDs.Count>0;
                     break;
                 case Constants.lvWhere:
-                    this.btnPrint.Enabled = MainFormBL.Instance.ClassroomList.GetSelectedIDs().Count>0;
+                    this.btnPrint.Enabled = MainFormBL.Instance.ClassroomList.SelectedIDs.Count>0;
                     break;
             }
 

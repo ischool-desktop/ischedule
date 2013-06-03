@@ -323,6 +323,12 @@ namespace ischedule
 
             ttCur = cboTimeTable.SelectedItem as TimeTable;
 
+            if (ttCur == null)
+            {
+                MessageBox.Show("無時間表設定，無法列印！");
+                return;
+            }
+
             Print();
         }
 

@@ -536,12 +536,22 @@ namespace ischedule
 
                     if (!string.IsNullOrEmpty(AssocID))
                     {
-                        if (!AssocID.StartsWith("所有"))
+                        if (AssocID.StartsWith("所有"))
+                        {
+                            foreach (Classroom vClassroom in schLocal.Classrooms)
+                            {
+                                if (!vClassroom.Name.Equals("無"))
+                                    if (!result.Contains(vClassroom.ClassroomID))
+                                        result.Add(vClassroom.ClassroomID);
+                            }
+                        }
+                        else
                         {
                             string[] IDs = AssocID.Split(new char[] { ';' });
 
-                            if (!AssocID.Equals("無") && IDs.Length == 1)
-                                result.Add(AssocID);
+                            for (int i = 0; i < IDs.Length; i++)
+                                if (!result.Contains(IDs[i]))
+                                    result.Add(IDs[i]);
                         }
                     }
                 }

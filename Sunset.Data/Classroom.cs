@@ -63,6 +63,12 @@ namespace Sunset.Data
         /// <param name="nWhich">行事曆索引</param>
         public void UseAppointments(int nWhich)
         {
+            if (mAppointmentsList.Count == 0)
+            {
+                mAppointments = new Appointments();
+                return;
+            }
+
             //若是索引小於0，那麼設為0
             if (nWhich < 0) nWhich = 0;
 

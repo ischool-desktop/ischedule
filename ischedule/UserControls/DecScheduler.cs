@@ -155,7 +155,12 @@ namespace ischedule
             #endregion
         }
 
-        void SchedulerEvents_MultiEventSelected(object sender, EventArgs e)
+        /// <summary>
+        /// 當分課表多選時清空功課表選取狀態
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SchedulerEvents_MultiEventSelected(object sender, EventArgs e)
         {
             idTestEvent = string.Empty;
             idTestEvents.Clear();
@@ -1499,6 +1504,7 @@ namespace ischedule
 
             Console.WriteLine("" + watch.ElapsedMilliseconds);
 
+            //注意，一開始設定為灰色；當時間表有在內容當中才設為白色
             foreach (DecPeriod Period in this.decPeriods.Values)
                 Period.InitialContent(ttCur.TimeTableID,mOption);
 
@@ -1510,7 +1516,9 @@ namespace ischedule
                 {
                     string name = prdMember.WeekDay + "_" + prdMember.PeriodNo;
 
+                    //當有取得時才設定為白色。
                     DecPeriod decPeriod = decPeriods[name];
+                    decPeriod.BackColor = SchedulerColor.lvFreeBackColor;
 
                     bool IsSetWeekDayText = false;
 

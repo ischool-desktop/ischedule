@@ -204,6 +204,8 @@ namespace ischedule
             this._pnl.Click -= new EventHandler(_pnl_Click);
             this._pnl.MouseLeave -= new EventHandler(_pnl_MouseLeave);
 
+            this.BackColor = SchedulerColor.lvTimeTableBackColor;
+
             this._events.Clear();
         }
 

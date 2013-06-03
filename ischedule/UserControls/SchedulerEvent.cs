@@ -10,15 +10,29 @@ namespace ischedule
         /// <summary>
         /// 引發排課課程更新事件
         /// </summary>
-        public static void RaiseChanged(PeriodEventArgs Period)
+        public static void RaisePeriodSelected(PeriodEventArgs Period)
         {
             if (PeriodSelected!=null)
                 PeriodSelected(null,Period);
         }
 
         /// <summary>
+        /// 引發選取多筆事件
+        /// </summary>
+        public static void RaiseMultiEventSelected()
+        {
+            if (MultiEventSelected != null)
+                MultiEventSelected(null, new EventArgs());
+        }
+
+        /// <summary>
         /// 節次選取事件
         /// </summary>
         public static event EventHandler<PeriodEventArgs> PeriodSelected;
+
+        /// <summary>
+        /// 選取多個事件
+        /// </summary>
+        public static event EventHandler MultiEventSelected;
     }
 }

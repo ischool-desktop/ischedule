@@ -272,7 +272,14 @@ namespace ischedule
 
             TimeTableIDs.ForEach(x => cboTimeTable.Items.Add(schLocal.TimeTables[x]));
 
-            cboTimeTable.SelectedIndex = 0;
+            if (cboTimeTable.Items.Count > 0)
+                cboTimeTable.SelectedIndex = 0;
+            else
+            {
+                MessageBox.Show("無時間表設定，無法列印！");
+                this.Close();
+                return;
+            }
 
             chkMergeTimeTable.CheckedChanged += (vsender, ve) =>
             {

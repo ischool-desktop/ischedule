@@ -353,6 +353,8 @@ namespace ischedule
                     }
                 }
             }
+            else if (grdEvents.SelectedRows.Count > 1)
+                SchedulerEvents.RaiseMultiEventSelected();
         }
 
         void grdEvents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

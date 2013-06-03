@@ -74,6 +74,8 @@ namespace ischedule
             this.headerCells = new Dictionary<string, DevComponents.DotNetBar.PanelEx>();
             SetContextMenu();
 
+            SchedulerEvents.MultiEventSelected += new EventHandler(SchedulerEvents_MultiEventSelected);
+
             #region Scheduler相關事件
             schLocal.AutoScheduleComplete += (sender, e) =>
             {
@@ -151,6 +153,15 @@ namespace ischedule
                     UpdateContent();
             };
             #endregion
+        }
+
+        void SchedulerEvents_MultiEventSelected(object sender, EventArgs e)
+        {
+            idTestEvent = string.Empty;
+            idTestEvents.Clear();
+            idTestCourseID = string.Empty;
+
+            UpdateContent();
         }
 
         /// <summary>
@@ -265,7 +276,7 @@ namespace ischedule
                 DecPeriod Period = (DecPeriod)sender;
                 List<string> SelectEventIDs = Period.Data.Select(x=>x.EventID).ToList();
 
-                SchedulerEvents.RaiseChanged(e);
+                SchedulerEvents.RaisePeriodSelected(e);
 
                 //Clear selected for all cells ;
                 foreach (string key in this.decPeriods.Keys)

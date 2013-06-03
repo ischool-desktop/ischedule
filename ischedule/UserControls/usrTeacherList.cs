@@ -559,15 +559,25 @@ namespace ischedule
 
                     if (!string.IsNullOrEmpty(AssocID))
                     {
-                        if (!AssocID.StartsWith("所有"))
+                        if (AssocID.StartsWith("所有"))
+                        {
+                            foreach (Teacher vTeacher in schLocal.Teachers)
+                                if (!vTeacher.Name.Equals("無"))
+                                    if (!result.Contains(vTeacher.TeacherID))
+                                        result.Add(vTeacher.TeacherID);
+                        }
+                        else
                         {
                             string[] IDs = AssocID.Split(new char[] { ';' });
 
-                            if (!AssocID.Equals("無") && IDs.Length == 1)
-                                result.Add(AssocID);
+                            for (int i = 0; i < IDs.Length; i++)
+                                if (!result.Contains(IDs[i]))
+                                    result.Add(IDs[i]);
                         }
                     }
                 }
+
+                result.Sort();
 
                 return result;
             }

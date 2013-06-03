@@ -54,6 +54,9 @@
   <ItemGroup>
     <Compile Include="Appointment.cs" />
     <Compile Include="CEventUpdate.cs" />
+    <Compile Include="CommandPattern\ICommand.cs" />
+    <Compile Include="CommandPattern\LockEventCommand.cs" />
+    <Compile Include="CommandPattern\UnlockEventCommand.cs" />
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="Appointments.cs" />
     <Compile Include="CEvent.cs" />
@@ -61,8 +64,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Distance.cs" />
     <Compile Include="Distances.cs" />
-    <Compile Include="調代課專用\SubsuiteCEvent.cs" />
-    <Compile Include="調代課專用\ExchangeCEvent.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Locations.cs" />
     <Compile Include="MainModule.cs" />

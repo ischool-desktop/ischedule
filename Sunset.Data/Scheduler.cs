@@ -573,6 +573,9 @@ namespace Sunset.Data
 
         #region Private
 
+        private List<ICommand> actionList = new List<ICommand>();
+        private List<ICommand> reDoList = new List<ICommand>();
+
         //constants
         private const int AutoScheduleNotifyThreshold = 5;
         
@@ -742,119 +745,38 @@ namespace Sunset.Data
         }
 
         #region Public functions
+        /// <summary>
+        /// 回復
+        /// </summary>
+        public void Undo()
+        {
+            //find last command object
+            if (this.actionList.Count > 0)
+            {
+                ICommand cmd = this.actionList[this.actionList.Count - 1];
+                cmd.Undo();
+                this.reDoList.Add(cmd);
+                this.actionList.Remove(cmd);
 
-        ///// <summary>
-        ///// 下載週行事曆
-        ///// </summary>
-        ///// <param name="Connections"></param>
-        ///// <param name="Date"></param>
-        ///// <returns></returns>
-        //public bool DownloadWeekly(List<Connection> Connections, DateTime Date)
-        //{
-        //    #region 一週開始及結束
-        //    StartWeekDate = Date.StartOfWeek(DayOfWeek.Monday);
-        //    EndWeekDate = StartWeekDate.AddDays(6);
-        //    #endregion
+                //refreshUI();
+            }
+        }
 
-        //    bool IsSuccess = false;
+        /// <summary>
+        /// 重做
+        /// </summary>
+        public void Redo()
+        {
+            if (this.reDoList.Count > 0)
+            {
+                ICommand cmd = this.reDoList[this.reDoList.Count - 1];
+                cmd.Do();
+                this.reDoList.Remove(cmd);
+                this.actionList.Add(cmd);
 
-        //    //必須要學期課程先下載成功才能下載調代課記錄
-        //    if (!schSource.IsSuccess)
-        //        throw new Exception("Scheduler source not opened");
-        //    try
-        //    {
-        //        if (DownloadSourceStart != null)
-        //            DownloadSourceStart(this, new DownloadSourceStartEventArgs(100));
-
-        //        IsSuccess = schSource.DownloadWeekly(Connections, StartWeekDate,EndWeekDate,
-        //        x =>
-        //        {
-        //            if (DownloadSourceProgress != null)
-        //                DownloadSourceProgress(this, new DownloadSourceProgressEventArgs(x));
-        //        });
-
-        //        if (DownloadSourceComplete != null)
-        //            DownloadSourceComplete(this, null);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-
-        //    return IsSuccess; 
-        //}
-
-        ///// <summary>
-        ///// 根據日期下載學期課程，主要供調代課系統使用
-        ///// </summary>
-        ///// <param name="Connections">多個資料來源</param>
-        ///// <param name="Date">日期</param>
-        ///// <returns>是否下載成功</returns>
-        //public bool Download(List<Connection> Connections, DateTime Date)
-        //{
-        //    bool IsSuccess = false;
-
-        //    if (schSource.IsSuccess)
-        //        throw new Exception("Scheduler source already opened");
-        //    try
-        //    {
-        //        if (DownloadSourceStart != null)
-        //            DownloadSourceStart(this, new DownloadSourceStartEventArgs(100));
-
-        //        IsSuccess = schSource.Download(Connections, Date,
-        //        x =>
-        //        {
-        //            if (DownloadSourceProgress != null)
-        //                DownloadSourceProgress(this, new DownloadSourceProgressEventArgs(x));
-        //        });
-
-        //        if (DownloadSourceComplete != null)
-        //            DownloadSourceComplete(this, null);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-
-        //    return IsSuccess;
-        //}
-
-        ///// <summary>
-        ///// 從多個資料來源下載資料
-        ///// </summary>
-        ///// <param name="Connections">多個資料來源</param>
-        ///// <param name="StartDate">開始日期</param>
-        ///// <param name="EndDate">結束日期</param>
-        ///// <returns>是否下載成功</returns>
-        //public bool Download(List<Connection> Connections,DateTime StartDate,DateTime EndDate)
-        //{
-        //    bool IsSuccess = false;
-
-        //    if (schSource.IsSuccess)
-        //        throw new Exception("Scheduler source already opened");
-        //    try
-        //    {
-        //        if (DownloadSourceStart != null)
-        //            DownloadSourceStart(this, new DownloadSourceStartEventArgs(100));
-
-        //        IsSuccess = schSource.Download(Connections,StartDate,EndDate,
-        //        x =>
-        //        {
-        //            if (DownloadSourceProgress != null)
-        //                DownloadSourceProgress(this, new DownloadSourceProgressEventArgs(x));
-        //        });
-
-        //        if (DownloadSourceComplete != null)
-        //            DownloadSourceComplete(this, null);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-
-        //    return IsSuccess;
-        //}
-
+               //refreshUI();
+            } 
+        }
 
         /// <summary>
         /// 從多個資料來源下載資料
@@ -891,42 +813,6 @@ namespace Sunset.Data
 
             return IsSuccess;
         }
-
-        /// <summary>
-        /// 從Sunset.Data.Integration匯入調代課記錄
-        /// </summary>
-        //public void ImportWeekly()
-        //{
-        //    //回復至原始的『學期課表』
-        //    RollbackEvents();
-
-        //    List<ICreateTime> ICreateTimeList = new List<ICreateTime>();
-
-        //    #region 載入調代課記錄
-        //    schSource.ExchangeCourseSectionResult.Data.ForEach(x => ICreateTimeList.Add(x));
-        //    schSource.SubsuiteCourseSectionResult.Data.ForEach(x => ICreateTimeList.Add(x));
-        //    #endregion
-
-        //    //將調代課記錄依照時間排序，由小到大
-        //    ICreateTimeList = ICreateTimeList.OrderBy(x => x.CreateTime).ToList();
-
-        //    //實際執行調代課動作
-        //    ICreateTimeList.ForEach
-        //    (x =>
-        //        {
-        //            if (x is SExchangeCourseSection)
-        //            {
-        //                SExchangeCourseSection ExchangeCourseSection = x as SExchangeCourseSection;
-        //                ExchangeEvent(ExchangeCourseSection.SrcCourseSectionID,ExchangeCourseSection.DesCourseSectionID);
-        //            }
-        //            else if (x is SSubsuiteCourseSection)
-        //            {
-        //                SSubsuiteCourseSection SubsuiteCourseSection = x as SSubsuiteCourseSection;
-        //                SubstituteWho(SubsuiteCourseSection.CourseSectionID, SubsuiteCourseSection.TeacherID);
-        //            }
-        //        }
-        //    );
-        //}
 
         /// <summary>
         /// 將CourseSection物件轉為CEvent物件
@@ -3667,72 +3553,6 @@ namespace Sunset.Data
         }
 
         /// <summary>
-        /// 新增代課記錄
-        /// </summary>
-        /// <param name="evtTest"></param>
-        private void AddSubstituteUpdate(string EventID,int WeekDay,int PeriodNo,string WhoID)
-        {
-            //將目前分課釋放記錄
-            CEventFreeUpdate EventFreeUpdate = new CEventFreeUpdate();
-            EventFreeUpdate.EventID = EventID;
-            EventFreeUpdate.WeekDay = WeekDay;
-            EventFreeUpdate.PeriodNo = PeriodNo;
-            EventUpdateList.Add(EventFreeUpdate);
-
-            //將目前分課變更屬性記錄
-            CEventChangeWhoUpdate EventChangeWhoUpdate = new CEventChangeWhoUpdate();
-            EventChangeWhoUpdate.EventID = EventID;
-            EventChangeWhoUpdate.WhoID = WhoID; //原來的教師
-            EventUpdateList.Add(EventChangeWhoUpdate);
-
-            //將目前分課重新安排記錄
-            CEventScheduledUpdate EventScheduledUpdate = new CEventScheduledUpdate();
-            EventScheduledUpdate.EventID = EventID;
-            EventUpdateList.Add(EventScheduledUpdate);
-
-            //加入說明
-            CEvent Event = CEvents[EventID];
-            Event.Message = "(代)" + WhoID;
-        }
-
-        /// <summary>
-        /// 代課異動
-        /// </summary>
-        /// <param name="EventID"></param>
-        /// <param name="WhoID"></param>
-        //public void SubstituteWho(string EventID,string WhoID1,string Who)
-        //{
-        //    CEvent evtTest = CEvents[EventID];
-
-        //    int SaveWeekDay = evtTest.WeekDay ;
-        //    int SavePeriodNo = evtTest.PeriodNo;
-        //    string SaveWhoID = evtTest.WhoID;
-
-        //    //釋放事件
-        //    FreeEvent(evtTest.EventID);
-
-        //    //更改屬性
-        //    ChangeEventProperty(
-        //        evtTest.EventID,
-        //        WhoID1,
-        //        WhoID2,
-        //        WhoID3,
-        //        evtTest.WhereID,
-        //        evtTest.WeekFlag,
-        //        evtTest.WeekDayCondition,
-        //        evtTest.PeriodCondition,
-        //        evtTest.AllowLongBreak,
-        //        evtTest.AllowDuplicate,
-        //        evtTest.Comment);
-
-        //    //重新安排代課教師
-        //    bool IsScheduled = ScheduleEvent(evtTest.EventID,SaveWeekDay,SavePeriodNo);
-
-        //    //代課異動
-        //    AddSubstituteUpdate(evtTest.EventID, SaveWeekDay, SavePeriodNo, SaveWhoID);
-        //}
-
-        /// <summary>
         /// 測試兩個Event是否可交換
         /// </summary>
         /// <param name="EventIDA"></param>
@@ -3836,42 +3656,6 @@ namespace Sunset.Data
 
             return IsExchangable;
         }
-
-        /// <summary>
-        /// 新增調課異動
-        /// </summary>
-        /// <param name="EventA"></param>
-        /// <param name="EventB"></param>
-        //private void AddExchangeUpdate(string EventIDA,int WeekDayA,int PeriodA,string EventIDB,int WeekDayB,int PeriodB)
-        //{
-        //    //加入異動
-        //    CEventFreeUpdate FreeEventA = new CEventFreeUpdate();
-        //    FreeEventA.EventID = EventIDA;
-        //    FreeEventA.WeekDay = WeekDayA;
-        //    FreeEventA.PeriodNo = PeriodA;
-        //    EventUpdateList.Add(FreeEventA);
-
-        //    CEventFreeUpdate FreeEventB = new CEventFreeUpdate();
-        //    FreeEventB.EventID = EventIDB;
-        //    FreeEventB.WeekDay = WeekDayB;
-        //    FreeEventB.PeriodNo = PeriodB;
-        //    EventUpdateList.Add(FreeEventB);
-
-        //    CEventScheduledUpdate ScheduledEventA = new CEventScheduledUpdate();
-        //    ScheduledEventA.EventID = EventIDA;
-        //    EventUpdateList.Add(ScheduledEventA);
-
-        //    CEventScheduledUpdate ScheduledEventB = new CEventScheduledUpdate();
-        //    ScheduledEventB.EventID = EventIDB;
-        //    EventUpdateList.Add(ScheduledEventB);
-
-        //    //加入說明
-        //    CEvent EventA = CEvents[EventIDA];
-        //    CEvent EventB = CEvents[EventIDB];
-
-        //    EventA.Message = "(調)" + EventB.WhoID +" " + EventB.WhatID;
-        //    EventB.Message = "(調)" + EventA.WhoID +" " + EventA.WhatID;
-        //}
 
         /// <summary>
         /// 測試兩個Event是否可交換
@@ -3996,44 +3780,6 @@ namespace Sunset.Data
             //RaiseEvent EventSolCountUpdated(evtsCalc)
             #endregion
         }
-
-        /// <summary>
-        /// 回復事件清單
-        /// </summary>
-        //public void RollbackEvents()
-        //{
-        //    #region 將事件進行回復
-        //    for (int i = EventUpdateList.Count - 1; i >= 0; i--)
-        //    {
-        //        CEventUpdate EventUpdate = EventUpdateList[i];
-        //        CEvent Event = CEvents[EventUpdate.EventID];
-        //        Event.Message = string.Empty;
-
-        //        if (EventUpdateList[i] is CEventScheduledUpdate)
-        //            FreeEvent(EventUpdateList[i].EventID);
-        //        else if (EventUpdateList[i] is CEventFreeUpdate)
-        //            ScheduleEvent(EventUpdateList[i].EventID, (EventUpdateList[i] as CEventFreeUpdate).WeekDay, (EventUpdateList[i] as CEventFreeUpdate).PeriodNo);
-        //        else if (EventUpdateList[i] is CEventChangeWhoUpdate)
-        //        {
-        //            CEvent evtBack = CEvents[EventUpdateList[i].EventID];
-        //            string WhoID = (EventUpdateList[i] as CEventChangeWhoUpdate).WhoID;
-
-        //            ChangeEventProperty(
-        //                evtBack.EventID
-        //                , WhoID
-        //                , evtBack.WhereID
-        //                , evtBack.WeekFlag
-        //                , evtBack.WeekDayCondition
-        //                , evtBack.PeriodCondition
-        //                , evtBack.AllowLongBreak
-        //                , evtBack.AllowDuplicate
-        //                , evtBack.Comment);
-        //        }
-        //    }
-        //    #endregion
-
-        //    EventUpdateList.Clear();
-        //}
         #endregion
 
         #region Private functions

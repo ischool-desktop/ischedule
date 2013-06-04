@@ -7,7 +7,7 @@ namespace Sunset.Data
     /// </summary>
     public class Classrooms : IEnumerable<Classroom>
     {
-        private Dictionary<string,Classroom> mWheres;
+        private Dictionary<string,Classroom> mClassrooms;
 
         /// <summary>
         /// 建構式
@@ -15,7 +15,7 @@ namespace Sunset.Data
         public Classrooms()
         {
             //初始化場地集合
-            mWheres = new Dictionary<string, Classroom>();
+            mClassrooms = new Dictionary<string, Classroom>();
         }
 
         /// <summary>
@@ -25,10 +25,10 @@ namespace Sunset.Data
         /// <returns>新增的場地物件，若是沒有新增成功則回傳null。</returns>
         public Classroom Add(Classroom NewWhere)
         {
-            if (mWheres.ContainsKey(NewWhere.ClassroomID))
+            if (mClassrooms.ContainsKey(NewWhere.ClassroomID))
                 return null;
 
-            mWheres.Add(NewWhere.ClassroomID,NewWhere);
+            mClassrooms.Add(NewWhere.ClassroomID,NewWhere);
 
             return NewWhere;
         }
@@ -40,8 +40,8 @@ namespace Sunset.Data
         public void Remove(string Key)
         {
             //假設場地集合包含鍵值，就移除該場地
-            if (mWheres.ContainsKey(Key))
-                mWheres.Remove(Key);
+            if (mClassrooms.ContainsKey(Key))
+                mClassrooms.Remove(Key);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Sunset.Data
         /// <returns>是否包含</returns>
         public bool Exists(string WhereID)
         {
-            return mWheres.ContainsKey("" + WhereID);
+            return mClassrooms.ContainsKey("" + WhereID);
         }
 
         /// <summary>
@@ -61,27 +61,43 @@ namespace Sunset.Data
         /// <returns>場地</returns>
         public Classroom this[string Key]
         {
-            get { return mWheres.ContainsKey(Key)?mWheres[Key]:null; }
+            get { return mClassrooms.ContainsKey(Key)?mClassrooms[Key]:null; }
         }
 
         /// <summary>
         /// 場地集合數量
         /// </summary>
-        public int Count { get { return mWheres.Count; } }
+        public int Count { get { return mClassrooms.Count; } }
 
+        /// <summary>
+        /// 有分課的場地數量
+        /// </summary>
+        public int HasTotalHourCount
+        {
+            get
+            {
+                int vHasTotalHourCount = 0;
+
+                foreach (Classroom vClassroom in mClassrooms.Values)
+                    if (vClassroom.TotalHour > 0)
+                        vHasTotalHourCount++;
+
+                return vHasTotalHourCount;
+            }
+        }
         /// <summary>
         /// 清除所有資料
         /// </summary>
         public void Clear()
         {
-            mWheres.Clear();
+            mClassrooms.Clear();
         }
 
         #region IEnumerable<Where> Members
 
         public IEnumerator<Classroom> GetEnumerator()
         {
-            return mWheres.Values.GetEnumerator();
+            return mClassrooms.Values.GetEnumerator();
         }
 
         #endregion
@@ -90,7 +106,7 @@ namespace Sunset.Data
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return mWheres.Values.GetEnumerator();
+            return mClassrooms.Values.GetEnumerator();
         }
 
         #endregion

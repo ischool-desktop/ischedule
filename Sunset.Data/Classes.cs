@@ -101,6 +101,23 @@ namespace Sunset.Data
         /// </summary>
         public int Count { get { return mClasses.Count; } }
 
+        /// <summary>
+        /// 有分課的班級數量
+        /// </summary>
+        public int HasTotalHourCount
+        {
+            get
+            {
+                int vHasTotalHourCount = 0;
+
+                foreach (Class vClass in mClasses.Values)
+                    if (vClass.TotalHour > 0)
+                        vHasTotalHourCount++;
+
+                return vHasTotalHourCount;
+            }
+        }
+
         #region IEnumerable<Whom> Members
 
         public IEnumerator<Class> GetEnumerator()

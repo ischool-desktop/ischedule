@@ -107,6 +107,7 @@ namespace ischedule
             this.mObjIDs.Clear();
             this.evtsCustom.Clear();
             this.evtsTemp.Clear();
+            this.evtsTransfers.Clear();
             this.grdEvents.DataSource = null;
             this.lblTitle.Text = string.Empty;
         }
@@ -585,11 +586,10 @@ namespace ischedule
         /// <returns></returns>
         private bool IsRelatedEvent(string EventID)
         {
-            CEvent evtTest;
+            CEvent evtTest = evtTest = schLocal.CEvents[EventID];
 
-            //Determine if this event is related to this eventlist
-
-            evtTest = schLocal.CEvents[EventID];
+            if (evtTest == null)
+                return false;
 
             switch (mType)
             {
@@ -687,16 +687,6 @@ namespace ischedule
             //    mStopwatch.Stop();
             //    Console.WriteLine(""+mStopwatch.ElapsedMilliseconds);
             //}
-
-            #region VB
-            //Private Sub RefreshEvent(ByVal idTarget As Long)
-            //    Dim evtsRefresh As CEvents
-
-            //    Set evtsRefresh = New CEvents
-            //    evtsRefresh.Add schLocal.CEvents(CStr(idTarget))
-            //    RefreshEvents rcRefresh, evtsRefresh
-            //End Sub
-            #endregion
         }
 
         /// <summary>
@@ -767,13 +757,8 @@ namespace ischedule
             mStopwatch.Restart();
             grdEvents.SuspendLayout();
             IsSelectionChanged = false;
-
             bool bAdd = false;
-            int nIndex = -1;
             int UpdateIndex;
-            CEvent evtNewTransfer;
-            CEvent evtExistTransfer;
-
 
             foreach (CEvent evtRefresh in evtsRefresh)
             {
@@ -794,35 +779,23 @@ namespace ischedule
                     {
                         //新增OK
                         case RCActions.rcInsert:
-                            AddGridItem(evtRefresh, nIndex);
+                            AddGridItem(evtRefresh, -1);
                             break;
                         //移除OK
                         case RCActions.rcRemove:
                             #region 根據事件編號尋找後移除
-                            CEvent evtTransfer = evtsTransfers
-                                .Single(x => x.EventID.Equals(evtRefresh.EventID));
-
-                            if (evtTransfer != null)
-                            {
-                                evtsTransfers.Remove(evtTransfer);
-                                nIndex--;
-                            }
+                            UpdateIndex = evtsTransfers.IndexOf(evtRefresh);
+                            evtsTransfers.RemoveAt(UpdateIndex);
                             #endregion
                             break;
                         case RCActions.rcRefresh:
                             #region 先移除後再新增
-                            evtExistTransfer = evtsTransfers
-                                .Single(x => x.EventID.Equals(evtRefresh.EventID));
-                            evtExistTransfer = evtRefresh;
-                            UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
+                            UpdateIndex = evtsTransfers.IndexOf(evtRefresh);
                             evtsTransfers.ResetItem(UpdateIndex);
                             #endregion
                             break;
                         case RCActions.rcSolutionCount: //已測試，OK
-                            evtExistTransfer = evtsTransfers
-                                .Single(x => x.EventID.Equals(evtRefresh.EventID));
-                            evtExistTransfer = evtRefresh;
-                            UpdateIndex = evtsTransfers.IndexOf(evtExistTransfer);
+                            UpdateIndex = evtsTransfers.IndexOf(evtRefresh);
                             evtsTransfers.ResetItem(UpdateIndex);
                             break;
                         default:

@@ -150,13 +150,16 @@ namespace ischedule
                     {
                         Class whomPaint = schLocal.Classes[WhomID];
 
-                        int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
+                        if (whomPaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
-                        Node nodeWho = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWho.TagString = whomPaint.ClassID;
-                        nodeGradeYear.Nodes.Add(nodeWho);
-                        Names.Add(whomPaint.ClassID);
-                        Total++;
+                            Node nodeWho = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
+                            nodeWho.TagString = whomPaint.ClassID;
+                            nodeGradeYear.Nodes.Add(nodeWho);
+                            Names.Add(whomPaint.ClassID);
+                            Total++;
+                        }
                     }
                 }
 
@@ -169,7 +172,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classes.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classes.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -221,13 +224,16 @@ namespace ischedule
                     {
                         Class whomPaint = schLocal.Classes[vWhomID];
 
-                        int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
+                        if (whomPaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
-                        Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWhom.TagString = whomPaint.ClassID;
-                        Names.Add(whomPaint.ClassID);
-                        UnAlloc.Nodes.Add(nodeWhom);
-                        Total++;
+                            Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
+                            nodeWhom.TagString = whomPaint.ClassID;
+                            Names.Add(whomPaint.ClassID);
+                            UnAlloc.Nodes.Add(nodeWhom);
+                            Total++;
+                        }
                     }
                 }
 
@@ -240,7 +246,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classes.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classes.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -291,13 +297,16 @@ namespace ischedule
                     {
                         Class whomPaint = schLocal.Classes[vWhomID];
 
-                        int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
+                        if (whomPaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
 
-                        Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                        nodeWhom.TagString = whomPaint.ClassID;
-                        Names.Add(whomPaint.ClassID);
-                        nodeTotalHour.Nodes.Add(nodeWhom);
-                        Total++;
+                            Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
+                            nodeWhom.TagString = whomPaint.ClassID;
+                            Names.Add(whomPaint.ClassID);
+                            nodeTotalHour.Nodes.Add(nodeWhom);
+                            Total++;
+                        }
                     }
                 }
 
@@ -310,7 +319,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classes.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classes.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -351,15 +360,17 @@ namespace ischedule
                 {
                     Class whomPaint = schLocal.Classes[Names[WhomName]];
 
-                    int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
-
-                    Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
-                    nodeWhom.TagString = whomPaint.ClassID;
-                    nodeAll.Nodes.Add(nodeWhom);
+                    if (whomPaint.TotalHour > 0)
+                    {
+                        int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
+                        Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
+                        nodeWhom.TagString = whomPaint.ClassID;
+                        nodeAll.Nodes.Add(nodeWhom);
+                    }
                 }
             }
 
-            nodeAll.Text = nodeAll.Text + "(" + (schLocal.Classrooms.Count - 1) + ")";
+            nodeAll.Text = nodeAll.Text + "(" + schLocal.Classes.HasTotalHourCount + ")";
             nodeAll.Expand();
         }
 

@@ -160,14 +160,15 @@ namespace ischedule
                     {
                         Classroom wherePaint = schLocal.Classrooms[vWhereID];
 
-                        int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
-
-                        Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
-                        nodeWhere.TagString = wherePaint.Name;
-                        nodeCapacity.Nodes.Add(nodeWhere);
-                        Names.Add(wherePaint.Name);
-
-                        Total++;
+                        if (wherePaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
+                            Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
+                            nodeWhere.TagString = wherePaint.Name;
+                            nodeCapacity.Nodes.Add(nodeWhere);
+                            Names.Add(wherePaint.Name);
+                            Total++;
+                        }
                     }
                 }
 
@@ -180,7 +181,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classrooms.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classrooms.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -230,14 +231,17 @@ namespace ischedule
                     {
                         Classroom wherePaint = schLocal.Classrooms[vWhere];
 
-                        int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
+                        if (wherePaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
 
-                        Node nodeWho = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
-                        nodeWho.TagString = wherePaint.Name;
-                        Names.Add(wherePaint.Name);
-                        nodeUnAlloc.Nodes.Add(nodeWho);
+                            Node nodeWho = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
+                            nodeWho.TagString = wherePaint.Name;
+                            Names.Add(wherePaint.Name);
+                            nodeUnAlloc.Nodes.Add(nodeWho);
 
-                        Total++;
+                            Total++;
+                        }
                     }
                 }
 
@@ -250,7 +254,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classrooms.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classrooms.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -300,14 +304,17 @@ namespace ischedule
                     {
                         Classroom wherePaint = schLocal.Classrooms[vWhereID];
 
-                        int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
+                        if (wherePaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
 
-                        Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
-                        nodeWhere.TagString = wherePaint.Name;
-                        Names.Add(wherePaint.Name);
-                        nodeTotal.Nodes.Add(nodeWhere);
+                            Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
+                            nodeWhere.TagString = wherePaint.Name;
+                            Names.Add(wherePaint.Name);
+                            nodeTotal.Nodes.Add(nodeWhere);
 
-                        Total++;
+                            Total++;
+                        }
                     }
                 }
 
@@ -320,7 +327,7 @@ namespace ischedule
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + (schLocal.Classrooms.Count - 1) + ")";
+            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classrooms.HasTotalHourCount + ")";
             nodeRoot.ExpandAll();
         }
 
@@ -334,8 +341,6 @@ namespace ischedule
 
             foreach (Classroom Where in schLocal.Classrooms)
             {
-                int TotalHour = Where.TotalHour;
-
                 if (!ClassroomNames.ContainsKey(Where.Name))
                     ClassroomNames.Add(Where.Name, Where.ClassroomID);
             }
@@ -360,15 +365,18 @@ namespace ischedule
                 {
                     Classroom wherePaint = schLocal.Classrooms[ClassroomNames[WhereName]];
 
-                    int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
+                    if (wherePaint.TotalHour > 0)
+                    {
+                        int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
 
-                    Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
-                    nodeWhere.TagString = wherePaint.Name;
-                    nodeAll.Nodes.Add(nodeWhere);
+                        Node nodeWhere = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
+                        nodeWhere.TagString = wherePaint.Name;
+                        nodeAll.Nodes.Add(nodeWhere);
+                    }
                 }
             }
 
-            nodeAll.Text = nodeAll.Text + "(" + (schLocal.Classrooms.Count - 1) + ")";
+            nodeAll.Text = nodeAll.Text + "(" + schLocal.Classrooms.HasTotalHourCount + ")";
             nodeAll.Expand();
         }
 

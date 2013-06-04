@@ -259,6 +259,8 @@ namespace ischedule
                 schLocal.Open(vFilepath);
 
                 LoadResourceList();
+
+
             }
             catch (Exception ve)
             {

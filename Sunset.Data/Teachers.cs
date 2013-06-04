@@ -7,7 +7,7 @@ namespace Sunset.Data
     /// </summary>
     public class Teachers : IEnumerable<Teacher>
     {
-        private Dictionary<string, Teacher> mWhos;
+        private Dictionary<string, Teacher> mTeachers;
 
         /// <summary>
         /// 建構式
@@ -15,25 +15,25 @@ namespace Sunset.Data
         public Teachers()
         {
             //初始化教師集合
-            mWhos = new Dictionary<string, Teacher>();
+            mTeachers = new Dictionary<string, Teacher>();
         }
 
         /// <summary>
         /// 新增教師
         /// </summary>
-        /// <param name="NewWho">教師物件</param>
+        /// <param name="NewTeacher">教師物件</param>
         /// <returns>新增的教師物件，若是沒有新增成功則回傳null。</returns>
-        public Teacher Add(Teacher NewWho)
+        public Teacher Add(Teacher NewTeacher)
         {
             //假設已有包含鍵值就傳回null
-            if (mWhos.ContainsKey(NewWho.TeacherID))
+            if (mTeachers.ContainsKey(NewTeacher.TeacherID))
                 return null;
 
             //將教師加入到集合中
-            mWhos.Add(NewWho.TeacherID,NewWho);
+            mTeachers.Add(NewTeacher.TeacherID,NewTeacher);
 
             //回傳新增的教師
-            return NewWho;
+            return NewTeacher;
         }
 
         /// <summary>
@@ -43,18 +43,18 @@ namespace Sunset.Data
         public void Remove(string Key)
         {
             //假設教師集合包含鍵值，就移除該教師
-            if (mWhos.ContainsKey(Key))
-                mWhos.Remove(Key);
+            if (mTeachers.ContainsKey(Key))
+                mTeachers.Remove(Key);
         }
 
         /// <summary>
         /// 根據教師編號判斷在集合中是否有該教師
         /// </summary>
-        /// <param name="WhoID">教師編號</param>
+        /// <param name="TeacherID">教師編號</param>
         /// <returns>是否包含</returns>
-        public bool Exists(string WhoID)
+        public bool Exists(string TeacherID)
         {
-            return mWhos.ContainsKey("" + WhoID);
+            return mTeachers.ContainsKey("" + TeacherID);
         }
 
         /// <summary>
@@ -67,28 +67,45 @@ namespace Sunset.Data
             get
             {
                 //假設在教師集合中有包含該鍵值，就傳回該教師，否則傳回null
-                return mWhos.ContainsKey(Key) ? mWhos[Key] : null;
+                return mTeachers.ContainsKey(Key) ? mTeachers[Key] : null;
             }
         }
 
         /// <summary>
         /// 教師集合數量
         /// </summary>
-        public int Count { get { return mWhos.Count; } }
+        public int Count { get { return mTeachers.Count; } }
+
+        /// <summary>
+        /// 有分課的教師數量
+        /// </summary>
+        public int HasTotalHourCount 
+        {
+            get 
+            {
+                int vHasTotalHourCount = 0;
+
+                foreach (Teacher vTeacher in mTeachers.Values)
+                    if (vTeacher.TotalHour > 0)
+                        vHasTotalHourCount++;
+
+                return vHasTotalHourCount; 
+            }
+        }
 
         /// <summary>
         /// 清除所有資料
         /// </summary>
         public void Clear()
         {
-            mWhos.Clear();
+            mTeachers.Clear();
         }
 
         #region IEnumerable<Who> Members
 
         public IEnumerator<Teacher> GetEnumerator()
         {
-            return mWhos.Values.GetEnumerator();
+            return mTeachers.Values.GetEnumerator();
         }
 
         #endregion
@@ -97,7 +114,7 @@ namespace Sunset.Data
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return mWhos.Values.GetEnumerator();
+            return mTeachers.Values.GetEnumerator();
         }
 
         #endregion

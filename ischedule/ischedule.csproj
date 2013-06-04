@@ -241,9 +241,6 @@
     <Compile Include="LPViewOption.cs" />
     <Compile Include="UserControls\EventsView.cs" />
     <Compile Include="UserControls\MainFormBL.cs" />
-    <Compile Include="沒用到的\DataGridViewExtendedControls.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="frmDownloadConfirm.cs">
       <SubType>Form</SubType>
     </Compile>

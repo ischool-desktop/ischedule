@@ -45,31 +45,37 @@ namespace ischedule
             nIndex2 = -1;
             nIndex3 = -1;
 
+            List<string> TeacherIDs = new List<string>();
+
+            //篩選教師
             foreach (Teacher whoMember in schLocal.Teachers)
             {
                 string[] EventIDs = evtChange.EventID.Split(new char[] { ',' });
 
                 //假設教師有在該分課的學校授教才加入該教師
                 if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
-                {
-                    cboWho1.Items.Add(whoMember.TeacherID);
-                    if (whoMember.TeacherID == evtChange.TeacherID1)
-                        nIndex1 = cboWho1.Items.Count - 1;
-                }
+                    //假設是在獨立清單中的教師才加入
+                    if (!whoMember.Name.Equals(whoMember.SourceIDs[0].ID))
+                        TeacherIDs.Add(whoMember.TeacherID);
+            }
 
-                if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
-                {
-                    cboWho2.Items.Add(whoMember.TeacherID);
-                    if (whoMember.TeacherID == evtChange.TeacherID2)
-                        nIndex2 = cboWho2.Items.Count - 1;
-                }
+            TeacherIDs.Sort();
+            
+            //加入教師清單
+            foreach (string TeacherID in TeacherIDs)
+            {
+                cboWho1.Items.Add(TeacherID);
+                cboWho2.Items.Add(TeacherID);
+                cboWho3.Items.Add(TeacherID);
 
-                if (whoMember.SourceIDs.Select(x => x.DSNS).Contains(EventIDs[0]))
-                {
-                    cboWho3.Items.Add(whoMember.TeacherID);
-                    if (whoMember.TeacherID == evtChange.TeacherID3)
-                        nIndex3 = cboWho3.Items.Count - 1;
-                }
+                if (TeacherID.Equals(evtChange.TeacherID1))
+                    nIndex1 = cboWho1.Items.Count - 1;
+
+                if (TeacherID.Equals(evtChange.TeacherID2))
+                    nIndex2 = cboWho2.Items.Count - 1;
+
+                if (TeacherID.Equals(evtChange.TeacherID3))
+                    nIndex3 = cboWho3.Items.Count - 1;
             }
 
             cboWho1.SelectedIndex = nIndex1;

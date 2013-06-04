@@ -199,13 +199,8 @@
     <Compile Include="Windows\TimeTableBusyEditor.cs" />
     <Compile Include="Windows\TimeTableSec.cs" />
     <Compile Include="Windows\Utility.cs" />
-    <Compile Include="沒用到的\CEventTransfer.cs" />
-    <Compile Include="沒用到的\DecLPView.cs" />
-    <Compile Include="沒用到的\DecPeriod.cs" />
-    <Compile Include="沒用到的\LabelContent.cs" />
     <Compile Include="UserControls\SchedulerHelper.cs" />
     <Compile Include="Common\SortableBindingList.cs" />
-    <Compile Include="test\PeriodContent.cs" />
     <Compile Include="frmCandidates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,10 +239,6 @@
       <DependentUpon>frmEventProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="LPViewOption.cs" />
-    <Compile Include="沒用到的\LPViewLayoutHelper.cs" />
-    <Compile Include="沒用到的\LPViewPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="UserControls\EventsView.cs" />
     <Compile Include="UserControls\MainFormBL.cs" />
     <Compile Include="沒用到的\DataGridViewExtendedControls.cs">
@@ -280,29 +271,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="沒用到的\usrLPView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="沒用到的\usrLPView.designer.cs">
-      <DependentUpon>usrLPView.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTestConnection.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTestConnection.Designer.cs">
       <DependentUpon>frmTestConnection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="沒用到的\ucPeriod.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="沒用到的\ucPeriod.designer.cs">
-      <DependentUpon>ucPeriod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="沒用到的\ucScheduler_1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="沒用到的\ucScheduler_1.designer.cs">
-      <DependentUpon>ucScheduler_1.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\usrClassroomList.cs">
       <SubType>UserControl</SubType>
@@ -401,17 +374,8 @@
     <EmbeddedResource Include="Windows\Template\NameCreatorForm.resx">
       <DependentUpon>NameCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="沒用到的\usrLPView.resx">
-      <DependentUpon>usrLPView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmTestConnection.resx">
       <DependentUpon>frmTestConnection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="沒用到的\ucPeriod.resx">
-      <DependentUpon>ucPeriod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="沒用到的\ucScheduler_1.resx">
-      <DependentUpon>ucScheduler_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\usrClassroomList.resx">
       <DependentUpon>usrClassroomList.cs</DependentUpon>

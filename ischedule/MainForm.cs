@@ -620,6 +620,12 @@ namespace ischedule
         #endregion
 
         #region 分課表及功課表相關操作
+        public void SetCommandButtonEnable(bool Undo, bool Redo)
+        {
+            this.btnUndo.Enabled = Undo;
+            this.btnRedo.Enabled = Redo;
+        }
+
         /// <summary>
         /// 開啟教師分課表
         /// </summary>
@@ -1101,6 +1107,26 @@ namespace ischedule
 
             vClassroomEditor.Prepare();
             configClassroom.ShowDialog();
+        }
+
+        /// <summary>
+        /// 回復
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            MainFormBL.Undo();
+        }
+
+        /// <summary>
+        /// 重做
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRedo_Click(object sender, EventArgs e)
+        {
+            MainFormBL.Redo();
         }
     }
 }

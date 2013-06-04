@@ -982,7 +982,14 @@ namespace ischedule
                 }
 
                 if (EventIDs.Count > 0)
-                    EventIDs.ForEach(x => schLocal.UnlockEvent(x));
+                {
+                    foreach (string EventID in EventIDs)
+                    {
+                        IScheduleCommand Command = new UnlockEventCommand(EventID);
+                        Command.Do();
+                        MainFormBL.AddCommand(Command);
+                    }
+                }
             }
         }
 
@@ -1003,7 +1010,14 @@ namespace ischedule
                 }
 
                 if (EventIDs.Count > 0)
-                    EventIDs.ForEach(x => schLocal.LockEvent(x));
+                {
+                    foreach (string EventID in EventIDs)
+                    {
+                        IScheduleCommand Command = new LockEventCommand(EventID);
+                        Command.Do();
+                        MainFormBL.AddCommand(Command);
+                    }
+                }
             }
         }
 

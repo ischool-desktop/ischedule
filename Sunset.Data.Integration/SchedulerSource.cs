@@ -936,6 +936,9 @@ namespace Sunset.Data.Integration
         {
             try
             {
+                this.SchoolYear = Element.AttributeText("SchoolYear");
+                this.Semester = Element.AttributeText("Semester");
+
                 ClassResult = new SIntegrationResult<SClass>();
                 ClassResult.Data = new List<SClass>();
 
@@ -1214,6 +1217,9 @@ namespace Sunset.Data.Integration
             Progress.Invoke(0);
 
             XElement Element = new XElement("Scheduler");
+
+            Element.SetAttributeValue("SchoolYear", this.SchoolYear);
+            Element.SetAttributeValue("Semester", this.Semester);
 
             #region Class Related Resource
             XElement ClassElement = new XElement("Classes");

@@ -885,42 +885,9 @@ namespace Sunset.Data
             StringBuilder strEvtConflict = new StringBuilder();
             #endregion
 
-            #region VB
-            //Dim rstWork As Recordset
-            //Dim appNew As Appointment
-            //Dim whoNew As Who
-            //Dim whrNew As Where
-            //Dim whtNew As What
-            //Dim whmNew As Whom
-            //Dim locNew As Location
-            //Dim dstNew As Distance
-            //Dim ttNew As TimeTable
-            //Dim prdNew As Period
-            //Dim evtNew As CEvent
-            //Dim whoBusy As Who
-            //Dim whrBusy As Where
-            //Dim nIndex As Integer
-            //Dim nTestWeekDay As Integer
-            //Dim nTestPeriod As Integer
-            //Dim nProgress As Integer
-            //Dim nTotRec As Integer
-            #endregion
-
             #region 建立資料庫連線
             if (!schSource.IsSuccess)
                 throw new Exception("Scheduler source not open");
-            #endregion
-
-            #region VB
-            //If Not (cnMain Is Nothing) Then
-            //    Err.Raise errDbAlreadyOpen, , "Database already opened"
-            //End If
-
-            //'Create database connection
-            //Set cnMain = New Connection
-            //cnMain.Provider = "Microsoft.JET.OLEDB.4.0"
-            //cnMain.ConnectionString = "Data Source=" & DatabasePath & ";Persist Security Info=FALSE;"
-            //cnMain.Open
             #endregion
 
             #region 初始化資料
@@ -1049,34 +1016,6 @@ namespace Sunset.Data
             );
             #endregion
 
-            #region VB
-            //Load TeacherBusy
-            //Set rstWork = cnMain.Execute("SELECT * FROM TeacherBusy")
-            //Do Until rstWork.EOF
-            //    If mWhos.Exists(rstWork!TeacherID) Then
-            //        Set appNew = New Appointment
-            //        appNew.SetAppointment rstWork!WeekDay, rstWork!BeginTime, rstWork!Duration, _
-            //                    3, 0, NullToValue(rstWork!LocationID), 0
-            //        Set whoBusy = mWhos(CStr(rstWork!TeacherID))
-            //        nIndex = 1
-            //        Do Until nIndex > whoBusy.Capacity
-            //            whoBusy.UseAppointments nIndex
-            //            With appNew
-            //            If whoBusy.Appointments.IsFreeTime(.WeekDay, .BeginTime, .Duration, .WeekFlag) Then
-            //                whoBusy.Appointments.Add appNew
-            //                Exit Do
-            //            End If
-            //            End With
-            //        Loop
-            //        If nIndex > whoBusy.Capacity Then
-            //            RaiseEvent WhoBusyConflict(whoBusy.WhoID)
-            //        End If
-            //    End If
-            //    rstWork.MoveNext
-            //Loop
-            //rstWork.Close
-            #endregion
-
             #region 載入場地不排課時段（Classroom Busy）
             schSource.ClassroomBusysResult.Data.ForEach
             (x =>
@@ -1162,38 +1101,6 @@ namespace Sunset.Data
                 }
             }
             );
-            #endregion
-
-            #region VB
-            //Load ClassroomBusy
-            //Set rstWork = cnMain.Execute("SELECT * FROM ClassroomBusy")
-            //Do Until rstWork.EOF
-            //    If mWheres.Exists(rstWork!ClassroomID) Then
-            //        Set appNew = New Appointment
-            //        appNew.SetAppointment rstWork!WeekDay, rstWork!BeginTime, rstWork!Duration, _
-            //                    rstWork!WeekFlag, 0, NullValue, 0
-            //        Set whrBusy = mWheres(CStr(rstWork!ClossroomID))
-            //        If whrBusy.LocOnly Then
-            //            RaiseEvent WhereBusyInvalid(whrBusy.WhereID)
-            //        Else
-            //            nIndex = 1
-            //            Do Until nIndex > whrBusy.Capacity
-            //                whrBusy.UseAppointments nIndex
-            //                With appNew
-            //                If whrBusy.Appointments.IsFreeTime(.WeekDay, .BeginTime, .Duration, .WeekFlag) Then
-            //                    whrBusy.Appointments.Add appNew
-            //                    Exit Do
-            //                End If
-            //                End With
-            //            Loop
-            //            If nIndex > whrBusy.Capacity Then
-            //                RaiseEvent WhereBusyConflict(whrBusy.WhereID)
-            //            End If
-            //        End If
-            //    End If
-            //    rstWork.MoveNext
-            //Loop
-            //rstWork.Close
             #endregion
 
             #region 載入課程分段（CEvent）
@@ -1338,88 +1245,6 @@ namespace Sunset.Data
             );
             #endregion
 
-            #region VB
-            //'Load CourseSection
-            //Set rstWork = New Recordset
-            //rstWork.CursorLocation = adUseClient
-            //rstWork.Open "SELECT CourseSection.*,Course.TeacherID,Course.ClassID,Course.SubjectID,Course.TimeTableID,Course.AllowDup FROM CourseSection INNER JOIN Course ON CourseSection.CourseID=Course.CourseID", _
-            //    cnMain
-            //nTotRec = rstWork.RecordCount
-            //idNext = 1
-
-            //RaiseEvent OpenDBStart(nTotRec)
-
-            //Do Until rstWork.EOF
-            //    Set evtNew = New CEvent
-            //    With evtNew
-            //        'Read data into evtNew
-            //        .EventID = rstWork!CourseSectionID
-            //        .WhoID = NullToValue(rstWork!TeacherID)
-            //        .WhereID = NullToValue(rstWork!ClassroomID)
-            //        .WhomID = NullToValue(rstWork!ClassID)
-            //        .WhatID = rstWork!SubjectID
-            //        .Length = rstWork!Length
-            //        .WeekFlag = rstWork!WeekFlag
-            //        .Priority = 1
-            //        .WeekDayCondition = IIf(IsNull(rstWork!WeekDayCond), "", rstWork!WeekDayCond)
-            //        .PeriodCondition = IIf(IsNull(rstWork!PeriodCond), "", rstWork!PeriodCond)
-            //        .ManualLock = rstWork!Lock
-            //        .AllowLongBreak = rstWork!LongBreak
-            //        .AllowDuplicate = rstWork!AllowDup
-            //        .WeekDay = 0
-            //        .PeriodNo = 0
-            //        .SolutionCount = -1 'not calculated yet
-            //        nTestWeekDay = rstWork!WeekDay
-            //        nTestPeriod = rstWork!Period
-            //        'Validate weekday and period
-            //        If nTestWeekDay = 0 Then nTestPeriod = 0
-            //        If nTestPeriod = 0 Then nTestWeekDay = 0
-            //        'Fill weekday and period if the condition is set
-            //        If (.WeekDayOp = opEqual) And (.PeriodOp = opEqual) And _
-            //                IsNumeric(.WeekDayVar) And IsNumeric(.PeriodVar) Then
-            //            nTestWeekDay = CInt(.WeekDayVar)
-            //            nTestPeriod = CInt(.PeriodVar)
-            //            .ManualLock = True
-            //        End If
-            //        .CourseID = rstWork!CourseID
-            //        .TimeTableID = NullToValue(rstWork!TimeTableID)
-
-            //        'Check ID validility
-            //        If Not mWhos.Exists(.WhoID) Then .WhoID = NullValue
-            //        If Not mWhoms.Exists(.WhomID) Then .WhomID = NullValue
-            //        If Not mWheres.Exists(.WhereID) Then .WhereID = NullValue
-            //        If Not mWhats.Exists(.WhatID) Then .WhatID = NullValue
-            //        If Not mTimeTables.Exists(.TimeTableID) Then .TimeTableID = NullValue
-
-            //        'Determine idNext
-            //        If .EventID >= idNext Then
-            //            idNext = .EventID + 1
-            //        End If
-            //    End With
-            //    If Not IsNullValue(evtNew.TimeTableID) Then
-            //        If nTestWeekDay <> 0 Then
-            //            mReason = TestSchedule(evtNew, nTestWeekDay, nTestPeriod)
-            //            If mReason = 0 Then
-            //                AllocEvent
-            //            Else
-            //                RaiseEvent EventLoadConflict(evtNew.EventID)
-            //            End If
-            //        End If
-            //        mCEvents.Add evtNew
-            //        'Calculate WHOs,WHOMs and WHEREs TotalHour and AllocHour
-            //        IncTotalHour evtNew
-            //        If evtNew.WeekDay <> 0 Then
-            //            IncAllocHour evtNew
-            //        End If
-            //    End If
-            //    'Update progress indicator
-            //    nProgress = nProgress + 1
-            //    RaiseEvent OpenDBProgress(nProgress)
-            //    rstWork.MoveNext
-            //Loop
-            //rstWork.Close
-            #endregion
-
             #region 載入學年度及學期（SchoolYear、Semester）
             SchoolYear = SchedulerSource.Source.SchoolYear;
             Semester = SchedulerSource.Source.Semester;
@@ -1431,14 +1256,6 @@ namespace Sunset.Data
             GetSolutionCounts(CEvents);
 
             IsOpen = true;
-
-            #region VB
-            //Set rstWork = cnMain.Execute("SELECT TOP 1 SchoolYear,Semester FROM Course")
-            //mSchoolYear = rstWork!SchoolYear
-            //mSemester = rstWork!Semester
-            //rstWork.Close
-            //RaiseEvent OpenDBComplete 
-            #endregion
         }
 
         private long GetNext(long idNext,string EventID)

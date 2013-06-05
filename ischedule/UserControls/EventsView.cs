@@ -983,12 +983,9 @@ namespace ischedule
 
                 if (EventIDs.Count > 0)
                 {
-                    foreach (string EventID in EventIDs)
-                    {
-                        IScheduleCommand Command = new UnlockEventCommand(EventID);
-                        Command.Do();
-                        MainFormBL.AddCommand(Command);
-                    }
+                    IScheduleCommand Command = new UnlockEventCommand(EventIDs);
+                    Command.Do();
+                    MainFormBL.AddCommand(Command);
                 }
             }
         }
@@ -1011,12 +1008,9 @@ namespace ischedule
 
                 if (EventIDs.Count > 0)
                 {
-                    foreach (string EventID in EventIDs)
-                    {
-                        IScheduleCommand Command = new LockEventCommand(EventID);
-                        Command.Do();
-                        MainFormBL.AddCommand(Command);
-                    }
+                    IScheduleCommand Command = new LockEventCommand(EventIDs);
+                    Command.Do();
+                    MainFormBL.AddCommand(Command);
                 }
             }
         }

@@ -90,6 +90,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandPattern\FreeEventCommand.cs" />
     <Compile Include="CommandPattern\ICommand.cs" />
     <Compile Include="CommandPattern\LockEventCommand.cs" />
     <Compile Include="CommandPattern\UnlockEventCommand.cs" />

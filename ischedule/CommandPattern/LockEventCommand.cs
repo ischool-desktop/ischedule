@@ -1,4 +1,5 @@
-﻿using Sunset.Data;
+﻿using System.Collections.Generic;
+using Sunset.Data;
 
 namespace ischedule
 {
@@ -8,16 +9,16 @@ namespace ischedule
     public class LockEventCommand : IScheduleCommand
     {
         #region ICommand Members
-        private string EventID;
+        private List<string> EventIDs;
         private Scheduler schLocal = Scheduler.Instance;
 
         /// <summary>
         /// 建構式，傳入事件系統編號
         /// </summary>
         /// <param name="EventID"></param>
-        public LockEventCommand(string EventID)
+        public LockEventCommand(List<string> EventIDs)
         {
-            this.EventID = EventID;
+            this.EventIDs = EventIDs;
         }
         
         /// <summary>
@@ -25,7 +26,9 @@ namespace ischedule
         /// </summary>
         public void Do()
         {
-            schLocal.LockEvent(this.EventID);   
+            foreach (string EventID in this.EventIDs)
+                if (!string.IsNullOrEmpty(EventID))
+                    schLocal.LockEvent(EventID);
         }
 
         /// <summary>
@@ -33,7 +36,9 @@ namespace ischedule
         /// </summary>
         public void Undo()
         {
-            schLocal.UnlockEvent(this.EventID);
+            foreach (string EventID in this.EventIDs)
+                if (!string.IsNullOrEmpty(EventID))
+                    schLocal.UnlockEvent(EventID);
         }
 
         /// <summary>

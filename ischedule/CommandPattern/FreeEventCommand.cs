@@ -1,24 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Sunset.Data;
 
 namespace ischedule
 {
     /// <summary>
-    /// 解鎖事件
+    /// 釋放事件
     /// </summary>
-    public class UnlockEventCommand : IScheduleCommand
+    public class FreeEventCommand : IScheduleCommand
     {
-        #region ICommand Members
-        private List<string> EventIDs;
+        private string EventID;
         private Scheduler schLocal = Scheduler.Instance;
+
+        #region IScheduleCommand Members
 
         /// <summary>
         /// 建構式，傳入事件系統編號
         /// </summary>
         /// <param name="EventID"></param>
-        public UnlockEventCommand(List<string> EventIDs)
+        public FreeEventCommand(string EventID)
         {
-            this.EventIDs = EventIDs;
+            this.EventID = EventID;
         }
 
         /// <summary>
@@ -26,9 +30,7 @@ namespace ischedule
         /// </summary>
         public void Do()
         {
-            foreach (string EventID in this.EventIDs)
-                if (!string.IsNullOrEmpty(EventID))
-                    schLocal.UnlockEvent(EventID);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -36,9 +38,7 @@ namespace ischedule
         /// </summary>
         public void Undo()
         {
-            foreach (string EventID in this.EventIDs)
-                if (!string.IsNullOrEmpty(EventID))
-                    schLocal.LockEvent(EventID);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -47,8 +47,9 @@ namespace ischedule
         /// <returns></returns>
         public string Description()
         {
-            return "解鎖事件";
+            return "釋放事件";
         }
+
         #endregion
     }
 }

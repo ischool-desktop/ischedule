@@ -2978,8 +2978,8 @@ namespace Sunset.Data
             //若是沒有對應的節次傳回Constants.tsCannotFit
             if (prdTest == null)
             {
-                ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
-                //ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
+                //ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
                 return Constants.tsCannotFit;
             }
             else if (prdTest.Disable)
@@ -3009,8 +3009,8 @@ namespace Sunset.Data
 
                 if (prdTest == null)
                 {
-                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
-                    //ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
+                    //ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                    ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
                     return Constants.tsCannotFit;
                 }
                 else if (prdTest.Disable)

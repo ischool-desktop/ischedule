@@ -866,7 +866,7 @@ namespace ischedule
         {
             SchedulerType vSchedulerType = SchedulerType.Teacher;
 
-            switch (AssocObjType)
+            switch (AssocType)
             {
                 case lvWho:
                     vSchedulerType = SchedulerType.Teacher;

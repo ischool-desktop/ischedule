@@ -1032,10 +1032,18 @@ namespace ischedule
                 {
                     string EventID = "" + SelectedItem.Cells[colEventID].Value;
 
-                    evtsFree.Add(schLocal.CEvents[EventID]);
+                    CEvent eventLocal = schLocal.CEvents[EventID];
+
+                    if (!eventLocal.ManualLock)
+                        evtsFree.Add(eventLocal);
                 }
 
-                schLocal.FreeEvents(evtsFree);
+                if (evtsFree.Count>0)
+                {
+                    IScheduleCommand Command = new FreeEventCommand(evtsFree);
+                    Command.Do();
+                    MainFormBL.AddCommand(Command);
+                }
             }
 
             mWatch.Stop();

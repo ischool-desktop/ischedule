@@ -387,7 +387,7 @@ namespace ischedule
         public void SetNoSolution(string ReasonDesc,SchedulerType AssocType,string AssocID,string AssocName)
         {
             lbl1.Text = AssocName;
-            lbl1.Tag = ("" + AssocType) + ":" + AssocID;
+            lbl1.Tag = ("" + AssocType) + "：" + AssocID;
             lbl2.Text = ReasonDesc;
             this._events = new List<CEvent>();
             BackColor = SchedulerColor.lvNoSolutionBackColor;

@@ -6,12 +6,22 @@ using Sunset.Data;
 
 namespace ischedule
 {
+    internal class SimpleEvent
+    {
+        public string EventID { get; set; }
+
+        public int Weekday { get; set; }
+
+        public int PeriodNo { get; set; } 
+    }
+
     /// <summary>
     /// 釋放事件
     /// </summary>
     public class FreeEventCommand : IScheduleCommand
     {
-        private string EventID;
+        private CEvents evtsFree;
+        private List<SimpleEvent> SimpleEvents = new List<SimpleEvent>();
         private Scheduler schLocal = Scheduler.Instance;
 
         #region IScheduleCommand Members
@@ -20,9 +30,12 @@ namespace ischedule
         /// 建構式，傳入事件系統編號
         /// </summary>
         /// <param name="EventID"></param>
-        public FreeEventCommand(string EventID)
+        public FreeEventCommand(CEvents evtsFree)
         {
-            this.EventID = EventID;
+            if (evtsFree == null)
+                throw new NullReferenceException("事件列表不得為null");
+
+            this.evtsFree = evtsFree;
         }
 
         /// <summary>
@@ -30,7 +43,18 @@ namespace ischedule
         /// </summary>
         public void Do()
         {
-            throw new NotImplementedException();
+            this.SimpleEvents.Clear();
+
+            foreach (CEvent evtFree in evtsFree)
+            {
+                SimpleEvent Event = new SimpleEvent();
+                Event.EventID = evtFree.EventID;
+                Event.Weekday = evtFree.WeekDay;
+                Event.PeriodNo = evtFree.PeriodNo;
+                SimpleEvents.Add(Event);
+            }
+
+            schLocal.FreeEvents(this.evtsFree);
         }
 
         /// <summary>
@@ -38,7 +62,11 @@ namespace ischedule
         /// </summary>
         public void Undo()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < this.SimpleEvents.Count; i++)
+            {
+                SimpleEvent eventSimple = this.SimpleEvents[this.SimpleEvents.Count - 1 - i];
+                schLocal.ScheduleEvent(eventSimple.EventID, eventSimple.Weekday, eventSimple.PeriodNo);
+            }
         }
 
         /// <summary>

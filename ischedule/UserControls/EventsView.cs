@@ -175,14 +175,6 @@ namespace ischedule
                     frmASProgress.ChangeProgress(e.nCurIndex);
                     e.Cancel = frmASProgress.UserAbort;
                 }
-
-                #region VB
-                //    DoEvents
-                //    If Not (frmASProgress Is Nothing) Then
-                //        frmASProgress.ChangeProgress nCurIndex
-                //        Cancel = frmASProgress.UserAbort
-                //    End If
-                #endregion
             };
 
             //當分課表移除事件時更新畫面
@@ -732,16 +724,6 @@ namespace ischedule
             evtsRefresh.Add(schLocal.CEvents[idTarget]);
 
             RefreshEvents(RCActions.rcRemove, evtsRefresh);
-
-            #region VB
-            //Private Sub RemoveEvent(ByVal idTarget As Long)
-            //    Dim evtsRefresh As CEvents
-
-            //    Set evtsRefresh = New CEvents
-            //    evtsRefresh.Add schLocal.CEvents(CStr(idTarget))
-            //    RefreshEvents rcRemove, evtsRefresh
-            //End Sub
-            #endregion
         }
 
         /// <summary>
@@ -824,6 +806,7 @@ namespace ischedule
             grdEvents.ClearSelection();
             IsSelectionChanged = true;
             grdEvents.ResumeLayout();
+            grdEvents.Refresh();
 
             mStopwatch.Stop();
             Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);

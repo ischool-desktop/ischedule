@@ -40,7 +40,6 @@ namespace ischedule
         //local variables
         private Scheduler schLocal = Scheduler.Instance;
         private LPViewOption mOption = new LPViewOption();
-        private frmProgress frmASProgress;
         private Dictionary<string, int> colTestEvents = new Dictionary<string, int>(); //Holds a list of test event ids
         private string idTestEvent = string.Empty; //Active test event id
         private List<string> idTestEvents = new List<string>();
@@ -95,11 +94,12 @@ namespace ischedule
             //自動排課中顯示進度
             schLocal.AutoScheduleProgress += (sender, e) =>
             {
-                if (frmASProgress != null)
-                {
-                    frmASProgress.ChangeProgress(e.nCurIndex);
-                    e.Cancel = frmASProgress.UserAbort;
-                }            };
+                //if (frmASProgress != null)
+                //{
+                //    frmASProgress.ChangeProgress(e.nCurIndex);
+                //    e.Cancel = frmASProgress.UserAbort;
+                //}            
+            };
 
             schLocal.EventBeforeDelete += (sender, e) =>
             {

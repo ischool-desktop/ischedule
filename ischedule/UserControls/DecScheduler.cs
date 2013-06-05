@@ -27,12 +27,6 @@ namespace ischedule
         private Dictionary<string, DecPeriod> decPeriods;   //所有的panel 的decorator
         private Dictionary<string, DevComponents.DotNetBar.PanelEx> headerCells;
 
-        //private List<CEvent> dataSource;        //所有的課程分段
-        //private TimeTable currentTbl;           //目前的上課時間表
-        //private List<Period> busyPeriods;       //不排課時段
-        //private List<Period> conflictPeriods;   //資源衝突，無法排課的節次清單
-        //private List<Period> readyPeriods;      //可以排課的節次清單
-
         private const int lvWho = 1;
         private const int lvWhom = 2;
         private const int lvWhere = 3;
@@ -418,6 +412,13 @@ namespace ischedule
                     Cursor.Current = Cursors.Arrow;
                 }
                 #endregion
+                else
+                {
+                    idTestEvent = string.Empty;
+                    idTestEvents.Clear();
+                    idTestCourseID = string.Empty;
+                    UpdateContent();
+                }
             }
             else if (sender is PictureBox)
             {

@@ -59,8 +59,8 @@ namespace ischedule
             this.pnlContent.Controls.Add(this.pnlEditor);
             this.pnlContent.Controls.Add(this.expandableSplitter1);
             this.pnlContent.Controls.Add(this.panelEx1);
-            this.pnlContent.Location = new System.Drawing.Point(0, 19);
-            this.pnlContent.Size = new System.Drawing.Size(971, 616);
+            this.pnlContent.Location = new System.Drawing.Point(173, 19);
+            this.pnlContent.Size = new System.Drawing.Size(798, 616);
             // 
             // panelEx1
             // 
@@ -235,7 +235,7 @@ namespace ischedule
             this.pnlEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEditor.Location = new System.Drawing.Point(159, 0);
             this.pnlEditor.Name = "pnlEditor";
-            this.pnlEditor.Size = new System.Drawing.Size(812, 616);
+            this.pnlEditor.Size = new System.Drawing.Size(639, 616);
             this.pnlEditor.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -264,6 +264,7 @@ namespace ischedule
             ((System.ComponentModel.ISupportInitialize)(this.grdNameList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion

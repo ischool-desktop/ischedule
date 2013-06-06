@@ -90,6 +90,9 @@ namespace ischedule
         /// </summary>
         public int Period { get { return this._rowIndex; } }
 
+        /// <summary>
+        /// 節次按下時的事件
+        /// </summary>
         public event PeriodClickedHandler OnPeriodClicked;
 
         /*  Constructor  */

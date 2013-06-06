@@ -12,6 +12,7 @@ namespace ischedule
     /// </summary>
     public partial class usrTeacherList : UserControl
     {
+        private string SelectedTag = string.Empty;
         private Scheduler schLocal = Scheduler.Instance;
         private string idSaveWho1 = string.Empty;
         private string idSaveWho2 = string.Empty;
@@ -354,8 +355,6 @@ namespace ischedule
         /// </summary>
         private void RefreshByName(string idWho)
         {
-            int Total = 0;
-
             //根據分課的科目進行分類
             SortedDictionary<string,string> TeacherNames = new SortedDictionary<string,string>();
 
@@ -394,8 +393,11 @@ namespace ischedule
 
                         Node nodeWho = new Node(whoPaint.Name + "(" + UnAllocHour + "/" + whoPaint.TotalHour + ")");
                         nodeWho.TagString = whoPaint.Name;
+
+                        if (nodeWho.TagString.Equals(SelectedTag))
+                            nodeWho.SetSelectedCell(new Cell(), eTreeAction.Code);
+
                         nodeAll.Nodes.Add(nodeWho);
-                        Total++;
                     }
                 }
             }
@@ -532,6 +534,8 @@ namespace ischedule
 
             if (nodeTree.SelectedNodes.Count > 1)
                 return;
+
+            SelectedTag = nodeTree.SelectedNode != null ? nodeTree.SelectedNode.TagString : string.Empty;
 
             string AssocID = e.Node.TagString;
 

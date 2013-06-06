@@ -2002,16 +2002,32 @@ namespace Sunset.Data
                     {
                         CEvents evtsUpdate = new CEvents();
 
-                        evtTesteds.ForEach(x => evtsUpdate.Add(x.evtTested));
-
-                        foreach(CEvent evtUpdate in evtsUpdate)
+                        //針對現有的群組課程物件列表
+                        foreach(GroupCEvent evtGroup in evtTesteds)
                         {
-                            IncAllocHour(evtUpdate);
+                            //取得群組課程中的分課
+                            CEvent evtUpdate = evtGroup.evtTested;
 
+                            //若是群組課程分課系統編號不等於現在的系統編號，而且群組名稱相同
+                            if (!curEvent.EventID.Equals(evtUpdate.EventID) 
+                                && curEvent.CourseGroup.Equals(evtUpdate.CourseGroup))
+                            {
+                                //增加相關資源
+                                IncAllocHour(evtUpdate);
+                                evtsUpdate.Add(evtUpdate);
+                            }
+                        }
+
+                        if (evtsUpdate.Count > 0)
+                        {
+                            //重新計算解決方案
                             UpdateEventsSolutionCount(evtsUpdate);
 
-                            if (EventScheduled != null)
-                                EventScheduled(this, new EventScheduledEventArgs(evtUpdate.EventID));
+                            foreach (CEvent evtUpdate in evtsUpdate)
+                            {
+                                if (EventScheduled != null)
+                                    EventScheduled(this, new EventScheduledEventArgs(evtUpdate.EventID)); 
+                            }
                         }
                     }
                     #endregion
@@ -3394,14 +3410,6 @@ namespace Sunset.Data
             Appointment appNew;
             #endregion
 
-            #region VB
-            //Dim appsNew As Appointments
-            //Dim appNew As Appointment
-            //Dim varNew As Variable
-            //Dim prdMember As Period
-            //Dim appMember As Appointment
-            #endregion
-
             if (evtTested == null) return; //evtTested需不為null才能安排事件
             if (evtTested.WeekDay != 0) return; //evtTested.WeekDay需為0才能安排事件
 
@@ -3422,19 +3430,6 @@ namespace Sunset.Data
 
                 appsNew.Add(appNew);
             }
-            #endregion
-
-            #region VB
-            //'Prepare Appointment
-            //Set appsNew = New Appointments
-            //For Each prdMember In prdsUse
-            //    Set appNew = New Appointment
-            //    With prdMember
-            //    appNew.SetAppointment .WeekDay, .BeginTime, .Duration, evtTested.WeekFlag, _
-            //                evtTested.EventID, .LocID, evtTested.WhatID
-            //    End With
-            //    appsNew.Add appNew
-            //Next prdMember
             #endregion
 
             #region 將Appointments安排到Who
@@ -3459,20 +3454,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //'Allocate Who
-            //If Not whoTest Is Nothing Then
-            //    If whoTest.Capacity > 1 Then
-            //        whoTest.UseAppointments nWhoAvailable
-            //    End If
-            //    With whoTest.Appointments
-            //    For Each appMember In appsNew
-            //        .Add appMember
-            //    Next appMember
-            //    End With
-            //End If
-            #endregion
-
             #region 將Appointments安排到Where
             if (whrTest != null)
                 if (!whrTest.LocOnly)
@@ -3486,37 +3467,10 @@ namespace Sunset.Data
                 }
             #endregion
 
-            #region VB
-            //'Allocate Where
-            //If Not whrTest Is Nothing Then
-            //    If Not whrTest.LocOnly Then
-            //        If whrTest.Capacity > 1 Then
-            //            whrTest.UseAppointments nWhereAvailable
-            //        End If
-            //        With whrTest.Appointments
-            //        For Each appMember In appsNew
-            //            .Add appMember
-            //        Next appMember
-            //        End With
-            //    End If
-            //End If
-            #endregion
-
             #region 將Appointments安排到Whom
             if (whmTest != null)
                 foreach (Appointment appMember in appsNew)
                     whmTest.Appointments.Add(appMember);
-            #endregion
-
-            #region VB
-            //'Allocate Whom
-            //If Not whmTest Is Nothing Then
-            //    With whmTest.Appointments
-            //        For Each appMember In appsNew
-            //            .Add appMember
-            //        Next appMember
-            //    End With
-            //End If
             #endregion
 
             #region Set WeekDay and Period variables
@@ -3547,43 +3501,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //With evtTested
-            //'Allocate Event
-            //.WeekDay = prdsUse(1).WeekDay
-            //.PeriodNo = prdsUse(1).PeriodNo
-    
-            //'Set WeekDay variables
-            //If (.WeekDayOp = opEqual) And (Not IsNumeric(.WeekDayVar)) Then
-            //    If Not mWVar.Exists(.WeekDayVar) Then
-            //        Set varNew = New Variable
-            //        varNew.SetVariable .WeekDayVar
-            //        mWVar.Add varNew
-            //    End If
-            //    mWVar(.WeekDayVar).AddValue .WeekDay
-            //End If
-    
-            //'Set Period varaibles
-            //If (.PeriodOp = opEqual) And (Not IsNumeric(.PeriodVar)) Then
-            //    If Not mPVar.Exists(.PeriodVar) Then
-            //        Set varNew = New Variable
-            //        varNew.SetVariable .PeriodVar
-            //        mPVar.Add varNew
-            //    End If
-            //    mPVar(.PeriodVar).AddValue .PeriodNo
-            //End If
-            //End With
-            #endregion
-
-            #region 將已排定事件列入記錄
-            //if (IsRecordUpdate)
-            //{
-            //    CEventScheduledUpdate EventUpdate = new CEventScheduledUpdate();
-            //    EventUpdate.EventID = evtTested.EventID;
-            //    mEventUpdateList.Add(EventUpdate);
-            //}
-            #endregion
-
             #region Clear shared variables
             evtTested = null;
             whrTest  = null;
@@ -3609,14 +3526,6 @@ namespace Sunset.Data
                     AllocEvent(false);
                 }
             }
-            #region VB
-            //'Clear shared variables
-            //Set evtTested = Nothing
-            //Set whrTest = Nothing
-            //Set whoTest = Nothing
-            //Set whmTest = Nothing
-            //Set prdsUse = Nothing
-            #endregion 
         }
 
         /// <summary>

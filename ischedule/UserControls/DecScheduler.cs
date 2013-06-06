@@ -1392,7 +1392,7 @@ namespace ischedule
                             }
                         }
 
-                        decPeriod.Data = CEvents;
+                        decPeriod.Data = CEvents.Distinct().ToList();
                         IsSetWeekDayText = true;
                     }
                     #endregion

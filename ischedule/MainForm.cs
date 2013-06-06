@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using FISCA.DSAClient;
+using ischedule.Properties;
 using Sunset.Data;
 using Sunset.Data.Integration;
 
@@ -60,6 +61,8 @@ namespace ischedule
         {
             if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
                 Program.Update();
+
+            this.Icon = Resources.ischedule_logo;
 
             #region 設定Aspose License
             Aspose.Cells.License License = new Aspose.Cells.License();

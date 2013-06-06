@@ -62,20 +62,20 @@ namespace ischedule
             TeacherIDs.Sort();
             
             //加入教師清單
-            foreach (string TeacherID in TeacherIDs)
-            {
-                cboWho1.Items.Add(TeacherID);
-                cboWho2.Items.Add(TeacherID);
-                cboWho3.Items.Add(TeacherID);
+           for (int i = 0; i < TeacherIDs.Count; i++)
+           {
+                cboWho1.Items.Add(TeacherIDs[i]);
+                cboWho2.Items.Add(TeacherIDs[i]);
+                cboWho3.Items.Add(TeacherIDs[i]);
 
-                if (TeacherID.Equals(evtChange.TeacherID1))
-                    nIndex1 = cboWho1.Items.Count - 1;
+                if (TeacherIDs[i].Equals(evtChange.TeacherID1))
+                    nIndex1 = i;
 
-                if (TeacherID.Equals(evtChange.TeacherID2))
-                    nIndex2 = cboWho2.Items.Count - 1;
+                if (TeacherIDs[i].Equals(evtChange.TeacherID2))
+                    nIndex2 = i;
 
-                if (TeacherID.Equals(evtChange.TeacherID3))
-                    nIndex3 = cboWho3.Items.Count - 1;
+                if (TeacherIDs[i].Equals(evtChange.TeacherID3))
+                    nIndex3 = i;
             }
 
             cboWho1.SelectedIndex = nIndex1;

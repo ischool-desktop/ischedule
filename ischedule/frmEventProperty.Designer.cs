@@ -217,6 +217,7 @@
             // 
             this.cboWho3.DisplayMember = "WhoID3";
             this.cboWho3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWho3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho3.FormattingEnabled = true;
             this.cboWho3.ItemHeight = 19;
             this.cboWho3.Location = new System.Drawing.Point(60, 91);
@@ -243,6 +244,7 @@
             // 
             this.cboWho2.DisplayMember = "WhoID2";
             this.cboWho2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWho2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho2.FormattingEnabled = true;
             this.cboWho2.ItemHeight = 19;
             this.cboWho2.Location = new System.Drawing.Point(61, 60);
@@ -269,6 +271,7 @@
             // 
             this.cboWho1.DisplayMember = "WhoID1";
             this.cboWho1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWho1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho1.FormattingEnabled = true;
             this.cboWho1.ItemHeight = 19;
             this.cboWho1.Location = new System.Drawing.Point(60, 25);

@@ -607,7 +607,9 @@ namespace ischedule
                     {
                         schLocal.Import();
 
-                        //schLocal.SaveByBase64(string.Empty);
+                        string SaveFilename = "ischedule_" + DateTime.Now.ToString("yyyyMMdd_hhmmss") + ".sch";
+
+                        schLocal.SaveByBase64(SaveFilename,"1234");
 
                         LoadResourceList();
                     }

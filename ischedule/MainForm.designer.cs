@@ -30,42 +30,42 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle258 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle253 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle254 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle255 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle256 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle257 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle264 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle259 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle260 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle261 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle262 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle263 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle270 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle265 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle266 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle267 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle268 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle269 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle271 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle272 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle273 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle274 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle275 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle276 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle277 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle278 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle279 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle280 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle281 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle282 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle283 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle284 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle285 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle286 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle287 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle288 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle114 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle113 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle120 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle115 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle116 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle117 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle118 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle119 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle134 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle135 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle136 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle137 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle138 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle139 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle140 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle141 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle142 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle143 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle144 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
@@ -111,6 +111,8 @@
             this.ribbonTabTeacher = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabClass = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabClassroom = new DevComponents.DotNetBar.RibbonTabItem();
+            this.btnUndo = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRedo = new DevComponents.DotNetBar.ButtonItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.bar1 = new DevComponents.DotNetBar.Bar();
@@ -313,8 +315,6 @@
             this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUndo = new DevComponents.DotNetBar.ButtonItem();
-            this.btnRedo = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -1008,6 +1008,29 @@
             this.ribbonTabClassroom.Panel = this.ribbonPanel3;
             this.ribbonTabClassroom.Text = "場地";
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Enabled = false;
+            this.btnUndo.Image = global::ischedule.Properties.Resources.Undo_icon;
+            this.btnUndo.ImageFixedSize = new System.Drawing.Size(16, 16);
+            this.btnUndo.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Text = "buttonItem3";
+            this.btnUndo.Tooltip = "回復";
+            this.btnUndo.Visible = false;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Enabled = false;
+            this.btnRedo.Image = global::ischedule.Properties.Resources.Redo_icon;
+            this.btnRedo.ImageFixedSize = new System.Drawing.Size(16, 16);
+            this.btnRedo.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Text = "重做";
+            this.btnRedo.Visible = false;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
+            // 
             // qatCustomizeItem1
             // 
             this.qatCustomizeItem1.Name = "qatCustomizeItem1";
@@ -1165,14 +1188,14 @@
             this.colTimeTable,
             this.colColorIndex,
             this.colEventID});
-            dataGridViewCellStyle258.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle258.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle258.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle258.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle258.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle258.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle258.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle258;
+            dataGridViewCellStyle114.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle114.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle114.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle114.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle114.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle114.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle114.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTeacherEvent.DefaultCellStyle = dataGridViewCellStyle114;
             this.grdTeacherEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTeacherEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdTeacherEvent.Location = new System.Drawing.Point(0, 35);
@@ -1188,8 +1211,8 @@
             // colLock
             // 
             this.colLock.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle253.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colLock.DefaultCellStyle = dataGridViewCellStyle253;
+            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colLock.DefaultCellStyle = dataGridViewCellStyle109;
             this.colLock.HeaderText = "鎖定";
             this.colLock.MinimumWidth = 40;
             this.colLock.Name = "colLock";
@@ -1199,8 +1222,8 @@
             // colSolutionCount
             // 
             this.colSolutionCount.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle254.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colSolutionCount.DefaultCellStyle = dataGridViewCellStyle254;
+            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colSolutionCount.DefaultCellStyle = dataGridViewCellStyle110;
             this.colSolutionCount.HeaderText = "方案";
             this.colSolutionCount.MinimumWidth = 40;
             this.colSolutionCount.Name = "colSolutionCount";
@@ -1210,8 +1233,8 @@
             // colWeekDay
             // 
             this.colWeekDay.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle255.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colWeekDay.DefaultCellStyle = dataGridViewCellStyle255;
+            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colWeekDay.DefaultCellStyle = dataGridViewCellStyle111;
             this.colWeekDay.HeaderText = "星期";
             this.colWeekDay.MinimumWidth = 40;
             this.colWeekDay.Name = "colWeekDay";
@@ -1221,8 +1244,8 @@
             // colPeriodNo
             // 
             this.colPeriodNo.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle256.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPeriodNo.DefaultCellStyle = dataGridViewCellStyle256;
+            dataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPeriodNo.DefaultCellStyle = dataGridViewCellStyle112;
             this.colPeriodNo.HeaderText = "節次";
             this.colPeriodNo.Name = "colPeriodNo";
             this.colPeriodNo.ReadOnly = true;
@@ -1241,8 +1264,8 @@
             // 
             this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colLength.DataPropertyName = "Length";
-            dataGridViewCellStyle257.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colLength.DefaultCellStyle = dataGridViewCellStyle257;
+            dataGridViewCellStyle113.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colLength.DefaultCellStyle = dataGridViewCellStyle113;
             this.colLength.HeaderText = "節數";
             this.colLength.Name = "colLength";
             this.colLength.ReadOnly = true;
@@ -1686,14 +1709,14 @@
             this.dataGridViewTextBoxColumn88,
             this.dataGridViewTextBoxColumn89,
             this.dataGridViewTextBoxColumn90});
-            dataGridViewCellStyle264.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle264.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle264.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle264.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle264.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle264.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle264.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle264;
+            dataGridViewCellStyle120.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle120.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle120.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle120.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle120.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle120.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle120.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassEvent.DefaultCellStyle = dataGridViewCellStyle120;
             this.grdClassEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdClassEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdClassEvent.Location = new System.Drawing.Point(0, 0);
@@ -1709,8 +1732,8 @@
             // dataGridViewTextBoxColumn69
             // 
             this.dataGridViewTextBoxColumn69.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle259.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle259;
+            dataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn69.DefaultCellStyle = dataGridViewCellStyle115;
             this.dataGridViewTextBoxColumn69.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn69.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn69.Name = "dataGridViewTextBoxColumn69";
@@ -1720,8 +1743,8 @@
             // dataGridViewTextBoxColumn70
             // 
             this.dataGridViewTextBoxColumn70.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle260.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle260;
+            dataGridViewCellStyle116.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn70.DefaultCellStyle = dataGridViewCellStyle116;
             this.dataGridViewTextBoxColumn70.HeaderText = "方案";
             this.dataGridViewTextBoxColumn70.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
@@ -1731,8 +1754,8 @@
             // dataGridViewTextBoxColumn71
             // 
             this.dataGridViewTextBoxColumn71.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle261.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle261;
+            dataGridViewCellStyle117.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn71.DefaultCellStyle = dataGridViewCellStyle117;
             this.dataGridViewTextBoxColumn71.HeaderText = "星期";
             this.dataGridViewTextBoxColumn71.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
@@ -1742,8 +1765,8 @@
             // dataGridViewTextBoxColumn72
             // 
             this.dataGridViewTextBoxColumn72.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle262.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle262;
+            dataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn72.DefaultCellStyle = dataGridViewCellStyle118;
             this.dataGridViewTextBoxColumn72.HeaderText = "節次";
             this.dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
             this.dataGridViewTextBoxColumn72.ReadOnly = true;
@@ -1762,8 +1785,8 @@
             // 
             this.dataGridViewTextBoxColumn80.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn80.DataPropertyName = "Length";
-            dataGridViewCellStyle263.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle263;
+            dataGridViewCellStyle119.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn80.DefaultCellStyle = dataGridViewCellStyle119;
             this.dataGridViewTextBoxColumn80.HeaderText = "節數";
             this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
             this.dataGridViewTextBoxColumn80.ReadOnly = true;
@@ -2067,14 +2090,14 @@
             this.dataGridViewTextBoxColumn110,
             this.dataGridViewTextBoxColumn111,
             this.dataGridViewTextBoxColumn112});
-            dataGridViewCellStyle270.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle270.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle270.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle270.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle270.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle270.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle270.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle270;
+            dataGridViewCellStyle126.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle126.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle126.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle126.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle126.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle126.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle126.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdClassroomEvent.DefaultCellStyle = dataGridViewCellStyle126;
             this.grdClassroomEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdClassroomEvent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grdClassroomEvent.Location = new System.Drawing.Point(0, 0);
@@ -2090,8 +2113,8 @@
             // dataGridViewTextBoxColumn91
             // 
             this.dataGridViewTextBoxColumn91.DataPropertyName = "DisplayManualLock";
-            dataGridViewCellStyle265.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle265;
+            dataGridViewCellStyle121.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn91.DefaultCellStyle = dataGridViewCellStyle121;
             this.dataGridViewTextBoxColumn91.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn91.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
@@ -2101,8 +2124,8 @@
             // dataGridViewTextBoxColumn92
             // 
             this.dataGridViewTextBoxColumn92.DataPropertyName = "DisplaySolutionCount";
-            dataGridViewCellStyle266.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle266;
+            dataGridViewCellStyle122.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle122;
             this.dataGridViewTextBoxColumn92.HeaderText = "方案";
             this.dataGridViewTextBoxColumn92.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
@@ -2112,8 +2135,8 @@
             // dataGridViewTextBoxColumn93
             // 
             this.dataGridViewTextBoxColumn93.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle267.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle267;
+            dataGridViewCellStyle123.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle123;
             this.dataGridViewTextBoxColumn93.HeaderText = "星期";
             this.dataGridViewTextBoxColumn93.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
@@ -2123,8 +2146,8 @@
             // dataGridViewTextBoxColumn94
             // 
             this.dataGridViewTextBoxColumn94.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle268.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle268;
+            dataGridViewCellStyle124.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle124;
             this.dataGridViewTextBoxColumn94.HeaderText = "節次";
             this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
             this.dataGridViewTextBoxColumn94.ReadOnly = true;
@@ -2143,8 +2166,8 @@
             // 
             this.dataGridViewTextBoxColumn102.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn102.DataPropertyName = "Length";
-            dataGridViewCellStyle269.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle269;
+            dataGridViewCellStyle125.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle125;
             this.dataGridViewTextBoxColumn102.HeaderText = "節數";
             this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
             this.dataGridViewTextBoxColumn102.ReadOnly = true;
@@ -2507,9 +2530,9 @@
             // 
             this.LeftNavigationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LeftNavigationPanel.CanCollapse = true;
-            this.LeftNavigationPanel.Controls.Add(this.pnlClassroom);
             this.LeftNavigationPanel.Controls.Add(this.pnlTeacher);
             this.LeftNavigationPanel.Controls.Add(this.pnlClass);
+            this.LeftNavigationPanel.Controls.Add(this.pnlClassroom);
             this.LeftNavigationPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftNavigationPanel.ItemPaddingBottom = 2;
             this.LeftNavigationPanel.ItemPaddingTop = 2;
@@ -2547,10 +2570,10 @@
             // 
             this.pnlClassroom.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.pnlClassroom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlClassroom.Location = new System.Drawing.Point(1, 25);
+            this.pnlClassroom.Location = new System.Drawing.Point(1, 1);
             this.pnlClassroom.Name = "pnlClassroom";
             this.pnlClassroom.ParentItem = this.btnClassroom;
-            this.pnlClassroom.Size = new System.Drawing.Size(202, 514);
+            this.pnlClassroom.Size = new System.Drawing.Size(202, 570);
             this.pnlClassroom.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.pnlClassroom.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.pnlClassroom.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -2571,10 +2594,10 @@
             // 
             this.pnlTeacher.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.pnlTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTeacher.Location = new System.Drawing.Point(1, 1);
+            this.pnlTeacher.Location = new System.Drawing.Point(1, 25);
             this.pnlTeacher.Name = "pnlTeacher";
             this.pnlTeacher.ParentItem = this.btnTeacher;
-            this.pnlTeacher.Size = new System.Drawing.Size(202, 538);
+            this.pnlTeacher.Size = new System.Drawing.Size(202, 514);
             this.pnlTeacher.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.pnlTeacher.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.pnlTeacher.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -2584,6 +2607,7 @@
             // 
             // btnTeacher
             // 
+            this.btnTeacher.Checked = true;
             this.btnTeacher.ImageFixedSize = new System.Drawing.Size(16, 16);
             this.btnTeacher.Name = "btnTeacher";
             this.btnTeacher.OptionGroup = "navBar";
@@ -2674,8 +2698,8 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Lock";
-            dataGridViewCellStyle271.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle271;
+            dataGridViewCellStyle127.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle127;
             this.dataGridViewTextBoxColumn1.HeaderText = "*";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 30;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -2685,8 +2709,8 @@
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle272.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle272;
+            dataGridViewCellStyle128.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle128;
             this.dataGridViewTextBoxColumn2.HeaderText = "教師";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 30;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -2697,8 +2721,8 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "WhoName";
-            dataGridViewCellStyle273.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle273;
+            dataGridViewCellStyle129.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle129;
             this.dataGridViewTextBoxColumn3.HeaderText = "課程";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -2708,8 +2732,8 @@
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "WhomName";
-            dataGridViewCellStyle274.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle274;
+            dataGridViewCellStyle130.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle130;
             this.dataGridViewTextBoxColumn4.HeaderText = "星期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -2718,8 +2742,8 @@
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "WhereName";
-            dataGridViewCellStyle275.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle275;
+            dataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle131;
             this.dataGridViewTextBoxColumn5.HeaderText = "場地";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -2728,8 +2752,8 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "WhatName";
-            dataGridViewCellStyle276.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle276;
+            dataGridViewCellStyle132.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle132;
             this.dataGridViewTextBoxColumn6.HeaderText = "科目";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -2868,8 +2892,8 @@
             // 
             this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn23.DataPropertyName = "Lock";
-            dataGridViewCellStyle277.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle277;
+            dataGridViewCellStyle133.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle133;
             this.dataGridViewTextBoxColumn23.HeaderText = "總時數";
             this.dataGridViewTextBoxColumn23.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -2879,8 +2903,8 @@
             // 
             this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn24.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle278.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle278;
+            dataGridViewCellStyle134.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle134;
             this.dataGridViewTextBoxColumn24.HeaderText = "未排時數";
             this.dataGridViewTextBoxColumn24.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
@@ -2889,8 +2913,8 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "Lock";
-            dataGridViewCellStyle279.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle279;
+            dataGridViewCellStyle135.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle135;
             this.dataGridViewTextBoxColumn25.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn25.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
@@ -2900,8 +2924,8 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle280.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle280;
+            dataGridViewCellStyle136.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle136;
             this.dataGridViewTextBoxColumn26.HeaderText = "方案";
             this.dataGridViewTextBoxColumn26.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
@@ -2912,8 +2936,8 @@
             // 
             this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn27.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle281.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle281;
+            dataGridViewCellStyle137.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle137;
             this.dataGridViewTextBoxColumn27.HeaderText = "星期";
             this.dataGridViewTextBoxColumn27.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
@@ -2923,8 +2947,8 @@
             // 
             this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn28.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle282.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle282;
+            dataGridViewCellStyle138.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle138;
             this.dataGridViewTextBoxColumn28.HeaderText = "節次";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -3061,8 +3085,8 @@
             // dataGridViewTextBoxColumn45
             // 
             this.dataGridViewTextBoxColumn45.DataPropertyName = "ColorIndex";
-            dataGridViewCellStyle283.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle283;
+            dataGridViewCellStyle139.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle139;
             this.dataGridViewTextBoxColumn45.HeaderText = "顏色";
             this.dataGridViewTextBoxColumn45.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
@@ -3073,8 +3097,8 @@
             // dataGridViewTextBoxColumn46
             // 
             this.dataGridViewTextBoxColumn46.DataPropertyName = "EventID";
-            dataGridViewCellStyle284.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle284;
+            dataGridViewCellStyle140.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle140;
             this.dataGridViewTextBoxColumn46.HeaderText = "分課編號";
             this.dataGridViewTextBoxColumn46.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
@@ -3084,8 +3108,8 @@
             // dataGridViewTextBoxColumn47
             // 
             this.dataGridViewTextBoxColumn47.DataPropertyName = "Lock";
-            dataGridViewCellStyle285.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle285;
+            dataGridViewCellStyle141.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle141;
             this.dataGridViewTextBoxColumn47.HeaderText = "鎖定";
             this.dataGridViewTextBoxColumn47.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
@@ -3095,8 +3119,8 @@
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "SolutionCount";
-            dataGridViewCellStyle286.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle286;
+            dataGridViewCellStyle142.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle142;
             this.dataGridViewTextBoxColumn48.HeaderText = "方案";
             this.dataGridViewTextBoxColumn48.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
@@ -3107,8 +3131,8 @@
             // 
             this.dataGridViewTextBoxColumn49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn49.DataPropertyName = "WeekDay";
-            dataGridViewCellStyle287.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle287;
+            dataGridViewCellStyle143.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle143;
             this.dataGridViewTextBoxColumn49.HeaderText = "星期";
             this.dataGridViewTextBoxColumn49.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
@@ -3118,8 +3142,8 @@
             // 
             this.dataGridViewTextBoxColumn50.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn50.DataPropertyName = "PeriodNo";
-            dataGridViewCellStyle288.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle288;
+            dataGridViewCellStyle144.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle144;
             this.dataGridViewTextBoxColumn50.HeaderText = "節次";
             this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
             this.dataGridViewTextBoxColumn50.ReadOnly = true;
@@ -3269,29 +3293,6 @@
             this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
             this.dataGridViewTextBoxColumn68.ReadOnly = true;
             this.dataGridViewTextBoxColumn68.Width = 81;
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Enabled = false;
-            this.btnUndo.Image = global::ischedule.Properties.Resources.Undo_icon;
-            this.btnUndo.ImageFixedSize = new System.Drawing.Size(16, 16);
-            this.btnUndo.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Text = "buttonItem3";
-            this.btnUndo.Tooltip = "回復";
-            this.btnUndo.Visible = false;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // btnRedo
-            // 
-            this.btnRedo.Enabled = false;
-            this.btnRedo.Image = global::ischedule.Properties.Resources.Redo_icon;
-            this.btnRedo.ImageFixedSize = new System.Drawing.Size(16, 16);
-            this.btnRedo.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnRedo.Name = "btnRedo";
-            this.btnRedo.Text = "重做";
-            this.btnRedo.Visible = false;
-            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // MainForm
             // 

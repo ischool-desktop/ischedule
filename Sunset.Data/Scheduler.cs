@@ -109,11 +109,11 @@ namespace Sunset.Data
         #region EventLocked
         public class EventLockedEventArgs : EventArgs
         {
-            public string EventID { get; set;}
+            public List<string> EventIDs { get; set;}
 
-            public EventLockedEventArgs(string EventID)
+            public EventLockedEventArgs(List<string> EventIDs)
             {
-                this.EventID = EventID;
+                this.EventIDs = EventIDs;
             }
         }
 
@@ -123,11 +123,11 @@ namespace Sunset.Data
         #region EventUnlocked
         public class EventUnlockedEventArgs : EventArgs
         {
-            public string EventID{get; set;}
+            public List<string> EventIDs {get; set;}
 
-            public EventUnlockedEventArgs(string EventID)
+            public EventUnlockedEventArgs(List<string> EventIDs)
             {
-                this.EventID = EventID;
+                this.EventIDs = EventIDs;
             }
         }
 
@@ -572,10 +572,6 @@ namespace Sunset.Data
         #endregion
 
         #region Private
-
-        private List<ICommand> actionList = new List<ICommand>();
-        private List<ICommand> reDoList = new List<ICommand>();
-
         //constants
         private const int AutoScheduleNotifyThreshold = 5;
         
@@ -745,39 +741,6 @@ namespace Sunset.Data
         }
 
         #region Public functions
-        /// <summary>
-        /// 回復
-        /// </summary>
-        public void Undo()
-        {
-            //find last command object
-            if (this.actionList.Count > 0)
-            {
-                ICommand cmd = this.actionList[this.actionList.Count - 1];
-                cmd.Undo();
-                this.reDoList.Add(cmd);
-                this.actionList.Remove(cmd);
-
-                //refreshUI();
-            }
-        }
-
-        /// <summary>
-        /// 重做
-        /// </summary>
-        public void Redo()
-        {
-            if (this.reDoList.Count > 0)
-            {
-                ICommand cmd = this.reDoList[this.reDoList.Count - 1];
-                cmd.Do();
-                this.reDoList.Remove(cmd);
-                this.actionList.Add(cmd);
-
-               //refreshUI();
-            } 
-        }
-
         /// <summary>
         /// 從多個資料來源下載資料
         /// </summary>
@@ -2064,58 +2027,61 @@ namespace Sunset.Data
         /// </summary>
         /// <param name="EventID">事件編號</param>
         /// <returns>若有進行鎖定，回傳true，否則回傳false。</returns>
-        public bool LockEvent(string EventID)
+        public bool LockEvent(List<string> EventIDs)
         {
-            CEvent evtLock = CEvents["" + EventID];
+            List<string> LockEventIDs = new List<string>();
 
-            if ((!evtLock.ManualLock) && (evtLock.WeekDay!=0))
+            foreach (string EventID in EventIDs)
             {
-                evtLock.ManualLock = true;
+                if (!string.IsNullOrWhiteSpace(EventID) && 
+                    CEvents.Exists(EventID))
+                {
+                    CEvent evtLock = CEvents["" + EventID];
 
-                if (EventLocked != null)
-                    EventLocked(this, new EventLockedEventArgs(EventID));
+                    if ((!evtLock.ManualLock) && (evtLock.WeekDay != 0))
+                    {
+                        evtLock.ManualLock = true;
+                        LockEventIDs.Add(EventID);
+                    }
+                }
+            }
 
+            if (LockEventIDs.Count > 0 && EventLocked != null)
+            {
+                EventLocked(this, new EventLockedEventArgs(EventIDs));
                 return true;
             }
 
             return false;
-
-            #region VB
-            //LockEvent = False
-            //With mCEvents(CStr(EventID))
-            //    If Not .ManualLock And .WeekDay <> 0 Then
-            //        .ManualLock = True
-            //        LockEvent = True
-            //        RaiseEvent EventLocked(EventID)
-            //    End If
-            //End With
-            #endregion
-        }
+       }
 
         /// <summary>
         /// 根據事件編號解除鎖定，當ManualLock為true時才會解除鎖定。
         /// </summary>
         /// <param name="EventID">事件編號</param>
-        public void UnlockEvent(string EventID)
+        public void UnlockEvent(List<string> EventIDs)
         {
-            CEvent evtUnlock = CEvents[EventID];
+            List<string> UnlockEventIDs = new List<string>();
 
-            if (evtUnlock.ManualLock)
+            foreach (string EventID in EventIDs)
             {
-                evtUnlock.ManualLock = false;
+                if (!string.IsNullOrWhiteSpace(EventID) &&
+                    CEvents.Exists(EventID))
+                {
+                    CEvent evtLock = CEvents["" + EventID];
 
-                if (EventUnlocked != null)
-                    EventUnlocked(this, new EventUnlockedEventArgs(EventID));
+                    if (evtLock.ManualLock)
+                    {
+                        evtLock.ManualLock = false;
+                        UnlockEventIDs.Add(EventID);
+                    }
+                } 
             }
 
-            #region VB
-            //With mCEvents(CStr(EventID))
-            //    If .ManualLock Then
-            //        .ManualLock = False
-            //        RaiseEvent EventUnlocked(EventID)
-            //    End If
-            //End With
-            #endregion
+            if (UnlockEventIDs.Count > 0 && EventUnlocked!= null)
+            {
+                EventUnlocked(this, new EventUnlockedEventArgs(EventIDs));
+            }
         }
 
         /// <summary>
@@ -3534,10 +3500,6 @@ namespace Sunset.Data
         /// <param name="TargetEvent"></param>
         private void ReleaseEvent(CEvent TargetEvent,bool ReleaseGroup)
         {
-            //Dim whoRemove As Who
-            //Dim whrRemove As Where
-            //Dim nIndex As Integer
-
             if (TargetEvent.WeekDay == 0) return;
 
             #region 群組釋放課程
@@ -3637,11 +3599,6 @@ namespace Sunset.Data
                 if (Classes.Exists(TargetEvent.ClassID))
                     Classes["" + TargetEvent.ClassID].Appointments.RemoveByID(TargetEvent.EventID);
 
-            //'Release Whom
-            //If Not IsNullValue(.WhomID) Then
-            //    mWhoms(CStr(.WhomID)).Appointments.RemoveID .EventID
-            //End If
-
             #region Clear WeekDay variables
             int WeekDay;
             int Period;
@@ -3651,29 +3608,6 @@ namespace Sunset.Data
 
             if ((TargetEvent.PeriodOp == Constants.opEqual) && (!int.TryParse(TargetEvent.PeriodVar, out Period)))
                 PeriodVariables[TargetEvent.PeriodVar].DelValue(TargetEvent.PeriodNo);
-            #endregion
-
-            #region VB
-            //'Clear WeekDay variables
-            //If (.WeekDayOp = opEqual) And (Not IsNumeric(.WeekDayVar)) Then
-            //    mWVar(.WeekDayVar).DelValue .WeekDay
-            //End If
-
-            //'Set Period varaibles
-            //If (.PeriodOp = opEqual) And (Not IsNumeric(.PeriodVar)) Then
-            //    mPVar(.PeriodVar).DelValue .PeriodNo
-            //End If
-            #endregion 
-
-            #region 記錄UnAllocEvent
-            //if (IsRecordUpdate)
-            //{
-            //    CEventFreeUpdate EventUpdate = new CEventFreeUpdate();
-            //    EventUpdate.EventID = TargetEvent.EventID;
-            //    EventUpdate.WeekDay = TargetEvent.WeekDay;
-            //    EventUpdate.PeriodNo = TargetEvent.PeriodNo;
-            //    mEventUpdateList.Add(EventUpdate);
-            //}
             #endregion
 
             TargetEvent.WeekDay = 0;
@@ -3826,20 +3760,6 @@ namespace Sunset.Data
             CEvents evtsAffected = new CEvents();
             #endregion
 
-            #region VB
-            //Dim evtCalc As CEvent
-            //Dim whosAffected As Whos
-            //Dim whmsAffected As Whoms
-            //Dim whrsAffected As Wheres
-            //Dim evtsAffected As CEvents
-    
-            //'Initialization
-            //Set whosAffected = New Whos
-            //Set whmsAffected = New Whoms
-            //Set whrsAffected = New Wheres
-            //Set evtsAffected = New CEvents
-            #endregion
-
             #region 找出影響事件的相關資源
             foreach (CEvent evtCalc in evtsCalc)
             {
@@ -3865,23 +3785,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //'Find affected resources
-            //For Each evtCalc In evtsCalc
-            //    With evtCalc
-            //    If Not IsNullValue(.WhoID) Then
-            //        whosAffected.Add mWhos(CStr(.WhoID))
-            //    End If
-            //    If Not IsNullValue(.WhomID) Then
-            //        whmsAffected.Add mWhoms(CStr(.WhomID))
-            //    End If
-            //    If Not IsNullValue(.WhereID) Then
-            //        whrsAffected.Add mWheres(CStr(.WhereID))
-            //    End If
-            //    End With
-            //Next evtCalc
-            #endregion
-
             #region 針對所有的事件，找出與資源（whosAffected、whmAffected及whrsAffected）相關的事件
             foreach (CEvent evtCalc in CEvents)
             {
@@ -3894,21 +3797,6 @@ namespace Sunset.Data
             }
             #endregion
 
-            #region VB
-            //'Find affected events
-            //For Each evtCalc In mCEvents
-            //    With evtCalc
-            //    If whosAffected.Exists(.WhoID) Then
-            //        evtsAffected.Add evtCalc
-            //    ElseIf whmsAffected.Exists(.WhomID) Then
-            //        evtsAffected.Add evtCalc
-            //    ElseIf whrsAffected.Exists(.WhereID) Then
-            //        evtsAffected.Add evtCalc
-            //    End If
-            //    End With
-            //Next evtCalc
-            #endregion
-
             #region 計算影響事件的可能解
             foreach (CEvent evtCalc in evtsAffected)
                 evtCalc.SolutionCount = evtCalc.WeekDay == 0 ? GetSolutionCount(evtCalc.EventID) : -1;
@@ -3918,18 +3806,6 @@ namespace Sunset.Data
 
             if (EventSolCountUpdated != null)
                 EventSolCountUpdated(this, new EventSolCountUpdatedEventArgs(evtsCalc));
-            #endregion
-
-            #region VB
-            //'Calc solution count for each affected event
-            //For Each evtCalc In evtsAffected
-            //    With evtCalc
-            //    '.SolutionCount = IIf(.WeekDay = 0, GetSolutionCount(evtCalc.EventID), -1)
-            //    .SolutionCount = -1
-            //    End With
-            //Next evtCalc
-
-            //RaiseEvent EventSolCountUpdated(evtsAffected)
             #endregion
         }
 

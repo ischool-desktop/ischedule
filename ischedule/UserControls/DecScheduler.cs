@@ -110,7 +110,15 @@ namespace ischedule
 
             schLocal.EventLocked += (sender, e) =>
             {
-                if (IsRelatedEvent(e.EventID))
+                bool IsUpdateContent = false;
+
+                foreach (string EventID in e.EventIDs)
+                {
+                    if (IsRelatedEvent(EventID))
+                        IsUpdateContent = true;
+                }
+
+                if (IsUpdateContent)
                     UpdateContent();
             };
 
@@ -143,7 +151,15 @@ namespace ischedule
 
             schLocal.EventUnlocked += (sender, e) =>
             {
-                if (IsRelatedEvent(e.EventID))
+                bool IsUpdateContent = false;
+
+                foreach (string EventID in e.EventIDs)
+                {
+                    if (IsRelatedEvent(EventID))
+                        IsUpdateContent = true;
+                }
+
+                if (IsUpdateContent)
                     UpdateContent();
             };
             #endregion
@@ -1181,9 +1197,9 @@ namespace ischedule
             if (GetTimeTableID(appTest.EventID) == ttCur.TimeTableID)
             {
                 if (schLocal.CEvents[appTest.EventID].ManualLock)
-                    schLocal.UnlockEvent(appTest.EventID);
+                    schLocal.UnlockEvent(new List<string>(){appTest.EventID});
                 else
-                    schLocal.LockEvent(appTest.EventID);
+                    schLocal.LockEvent(new List<string>(){appTest.EventID});
             }
         }
 

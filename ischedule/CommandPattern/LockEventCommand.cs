@@ -26,9 +26,7 @@ namespace ischedule
         /// </summary>
         public void Do()
         {
-            foreach (string EventID in this.EventIDs)
-                if (!string.IsNullOrEmpty(EventID))
-                    schLocal.LockEvent(EventID);
+            schLocal.LockEvent(this.EventIDs);
         }
 
         /// <summary>
@@ -36,9 +34,7 @@ namespace ischedule
         /// </summary>
         public void Undo()
         {
-            foreach (string EventID in this.EventIDs)
-                if (!string.IsNullOrEmpty(EventID))
-                    schLocal.UnlockEvent(EventID);
+            schLocal.UnlockEvent(this.EventIDs);
         }
 
         /// <summary>

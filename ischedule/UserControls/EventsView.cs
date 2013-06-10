@@ -244,19 +244,44 @@ namespace ischedule
             //當分課表鎖定時更新畫面
             schLocal.EventLocked += (sender, e) =>
             {
-                if (IsRelatedEvent(e.EventID))
-                    RefreshEvent(e.EventID);
+                bool IsRefresh = false;
+
+                CEvents evtsRefresh = new CEvents();
+
+                foreach (string EventID in e.EventIDs)
+                {
+                    if (IsRelatedEvent(EventID))
+                    {
+                        evtsRefresh.Add(schLocal.CEvents[EventID]);
+                        IsRefresh = true;
+                    }
+                }
+
+                if (IsRefresh)
+                    RefreshEvents(RCActions.rcRefresh,evtsRefresh);
             };
 
             //當分課表解鎖定時更新畫面
             schLocal.EventUnlocked += (sender, e) =>
             {
-                if (IsRelatedEvent(e.EventID))
-                    RefreshEvent(e.EventID);
+                bool IsRefresh = false;
+
+                CEvents evtsRefresh = new CEvents();
+
+                foreach (string EventID in e.EventIDs)
+                {
+                    if (IsRelatedEvent(EventID))
+                    {
+                        evtsRefresh.Add(schLocal.CEvents[EventID]);
+                        IsRefresh = true;
+                    }
+                }
+
+                if (IsRefresh)
+                    RefreshEvents(RCActions.rcRefresh, evtsRefresh);
             };
 
             SchedulerEvents.PeriodSelected += new EventHandler<PeriodEventArgs>(SchedulerEvents_PeriodSelected);
-
         }
 
         /// <summary>
@@ -741,6 +766,7 @@ namespace ischedule
             IsSelectionChanged = false;
             bool bAdd = false;
             int UpdateIndex;
+            evtsTransfers.RaiseListChangedEvents = false;
 
             foreach (CEvent evtRefresh in evtsRefresh)
             {
@@ -786,6 +812,7 @@ namespace ischedule
                 }               
             }
 
+            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
 
             if (Action == RCActions.rcRemove)
             {
@@ -803,13 +830,13 @@ namespace ischedule
                 }
             }
 
+            evtsTransfers.RaiseListChangedEvents = true;
             grdEvents.ClearSelection();
             IsSelectionChanged = true;
             grdEvents.ResumeLayout();
             grdEvents.Refresh();
 
             mStopwatch.Stop();
-            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
         }
 
         /// <summary>

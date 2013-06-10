@@ -72,6 +72,8 @@ namespace ischedule
                 btnConfirm.Top = 43;
                 btnCancel.Top = 43;
                 this.Height = 100;
+                this.MaximumSize = new System.Drawing.Size(this.Width,100); 
+                this.MinimumSize = new System.Drawing.Size(this.Width,100);
             }
         }
     }

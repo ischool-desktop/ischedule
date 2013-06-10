@@ -130,7 +130,10 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.btnConfirm);
+            this.MaximumSize = new System.Drawing.Size(258, 133);
+            this.MinimumSize = new System.Drawing.Size(258, 133);
             this.Name = "frmPasspordInput";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "輸入密碼";
             this.Load += new System.EventHandler(this.frmPasspordInput_Load);
             this.ResumeLayout(false);

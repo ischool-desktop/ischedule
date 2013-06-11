@@ -1913,23 +1913,6 @@ namespace Sunset.Data
 
             if (EventsFreed != null)
                 EventsFreed(this, new EventsFreedEventArgs(EventList));
-
-            #region VB
-            //Dim evt As CEvent
-    
-            //For Each evt In EventList
-            //    With evt
-            //    If Not .ManualLock Then
-            //        If .WeekDay <> 0 Then
-            //            DecAllocHour evt
-            //            ReleaseEvent evt
-            //        End If
-            //    End If
-            //    End With
-            //Next evt
-            //UpdateEventsSolutionCount EventList
-            //RaiseEvent EventsFreed(EventList) 
-            #endregion
         }
 
         /// <summary>

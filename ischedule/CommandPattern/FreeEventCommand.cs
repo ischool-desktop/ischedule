@@ -1,20 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Sunset.Data;
 
 namespace ischedule
 {
-    internal class SimpleEvent
-    {
-        public string EventID { get; set; }
-
-        public int Weekday { get; set; }
-
-        public int PeriodNo { get; set; } 
-    }
-
     /// <summary>
     /// 釋放事件
     /// </summary>

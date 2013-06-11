@@ -108,6 +108,8 @@
     <Compile Include="CommandPattern\FreeEventCommand.cs" />
     <Compile Include="CommandPattern\ICommand.cs" />
     <Compile Include="CommandPattern\LockEventCommand.cs" />
+    <Compile Include="CommandPattern\ScheduleEventCommand.cs" />
+    <Compile Include="CommandPattern\SimpleEvent.cs" />
     <Compile Include="CommandPattern\UnlockEventCommand.cs" />
     <Compile Include="Common\BaseForm.cs">
       <SubType>Form</SubType>

@@ -823,6 +823,21 @@ namespace Sunset.Data.Integration
                     .Select(x => x.ClassName)
                     .ToList();
 
+                #region 因為排課課程分課是取得獨立課程的名稱，所以需將ID做轉換。
+                Dictionary<string,string> ClassNameIDMaps = new Dictionary<string,string>();
+
+                foreach(SClass Class in ClassResult.Data)
+                {
+                    string[] ClassIDs = Class.ID.Split(new char[]{','});
+
+                    string DSNS = ClassIDs[0];
+                    string ClassName = DSNS+","+Class.ClassName;
+
+                    if (!ClassNameIDMaps.ContainsKey(ClassName))
+                        ClassNameIDMaps.Add(ClassName,Class.ID);
+                }
+                #endregion
+
                 //若課程分段的班級資料，沒有在排課專屬的班級資料中，就加入
                 foreach (SClass Class in CourseSectionClassResult.Data)
                 {
@@ -914,6 +929,15 @@ namespace Sunset.Data.Integration
                     Progress(80);
 
                 CourseSectionResult = SCourseSection.Select(Connections, SchoolYear, Semester);
+
+                #region 取得課程分段後做ID轉換，嘗試對應到獨立的班級清單。
+                foreach (SCourseSection Section in CourseSectionResult.Data)
+                {
+                    if (ClassNameIDMaps.ContainsKey(Section.ClassID))
+                        Section.ClassID = ClassNameIDMaps[Section.ClassID];
+                }
+                #endregion
+
                 IsSuccess &= CourseSectionResult.IsSuccess;
 
                 if (Progress != null)

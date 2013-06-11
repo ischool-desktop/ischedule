@@ -1930,6 +1930,8 @@ namespace Sunset.Data
             if (curEvent.WeekDay == 0)
             {
                 //測試是否可以安排事件
+                evtTested = null;
+                evtTesteds.Clear();
                 Reason = TestSchedule(curEvent, WeekDay, PeriodNo,true);
 
                 if (Reason == 0)

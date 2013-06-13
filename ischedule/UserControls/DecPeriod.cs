@@ -108,9 +108,10 @@ namespace ischedule
             this._pnl.Tag = this;
             
             /* 註冊事件  */
-            
-            //this._pnl.Click += new EventHandler(_pnl_Click);
+
+            this._pnl.Click += new EventHandler(_pnl_MouseEnter);
             this._pnl.MouseEnter += new EventHandler(_pnl_MouseEnter);
+
             //this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
             
             /* picBox */

@@ -2945,8 +2945,7 @@ namespace Sunset.Data
             //若是沒有對應的節次傳回Constants.tsCannotFit
             if (prdTest == null)
             {
-                //ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
-                ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
+                ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                 return Constants.tsCannotFit;
             }
             else if (prdTest.Disable)
@@ -2976,8 +2975,7 @@ namespace Sunset.Data
 
                 if (prdTest == null)
                 {
-                    //ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
-                    ReasonDesc.Desc = "節數" + NewEvent.Length + "塞不下";
+                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
                     return Constants.tsCannotFit;
                 }
                 else if (prdTest.Disable)
@@ -3002,7 +3000,6 @@ namespace Sunset.Data
                 if (prdTest.BeginTime.After(prdBreak.BeginTime))
                 {
                     ReasonDesc.Desc = "此課程不允" + System.Environment.NewLine + "跨中午排課";
-                    //ReasonDesc.Desc = "不可跨中午";
                     return Constants.tsLongBreak;
                 }
             #endregion
@@ -3042,7 +3039,6 @@ namespace Sunset.Data
                     if (!bPass)
                     {
                         ReasonDesc.Desc = "此課程必需排在" + System.Environment.NewLine + "星期" + NewEvent.WeekDayCondition;
-                        //ReasonDesc.Desc = "星期"+NewEvent.WeekDayCondition+"不符";
                         return Constants.tsWeekDayConflict;
                     }
                 }
@@ -3051,7 +3047,6 @@ namespace Sunset.Data
                         if (!WeekDayVariables[NewEvent.WeekDayVar].Fit(WeekDay))
                         {
                             ReasonDesc.Desc = "此課程必需排在" + System.Environment.NewLine + "星期" + NewEvent.WeekDayCondition;
-                            //ReasonDesc.Desc = "星期" + NewEvent.WeekDayCondition + "不符";
                             return Constants.tsWeekDayConflict;
                         }
             }
@@ -3093,7 +3088,6 @@ namespace Sunset.Data
                     if (!bPass)
                     {
                         ReasonDesc.Desc = "此課程必需排在" + System.Environment.NewLine + "第" + NewEvent.PeriodCondition + "節";
-                        //ReasonDesc.Desc = "節次" + NewEvent.PeriodCondition + "不符";
                         return Constants.tsPeriodConflict;
                     }
                 }
@@ -3102,7 +3096,6 @@ namespace Sunset.Data
                         if (!PeriodVariables[NewEvent.PeriodVar].Fit(PeriodNo))
                         {
                             ReasonDesc.Desc = "此課程必需排在" + System.Environment.NewLine + "第" + NewEvent.PeriodCondition + "節";
-                            //ReasonDesc.Desc = "節次" + NewEvent.PeriodCondition + "不符";
                             return Constants.tsPeriodConflict;
                         }
             }
@@ -3121,8 +3114,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassID;
                             ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
                             ReasonDesc.AssocType = Constants.lvWhom;
-                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
-                            //ReasonDesc.Desc = "塞不下";
+                            ReasonDesc.Desc = "這節已排課";
                             return Constants.tsWhomConflict;
                         case 3:
                             ReasonDesc.Desc = "今天已經排" + System.Environment.NewLine + Subjects[NewEvent.SubjectID].Name;
@@ -3134,7 +3126,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassID;
                             ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
                             ReasonDesc.AssocType = Constants.lvWhom;
-                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                            ReasonDesc.Desc = "這節已排課";
                             return Constants.tsWhomConflict;
                     }
                 }   
@@ -3168,7 +3160,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.ClassroomID;
                             ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
                             ReasonDesc.AssocType = Constants.lvWhere;
-                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                            ReasonDesc.Desc = "這節已排課";
                             return Constants.tsWhereConflict;
                         }
                     }
@@ -3177,7 +3169,7 @@ namespace Sunset.Data
                         ReasonDesc.AssocID = NewEvent.ClassroomID;
                         ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
                         ReasonDesc.AssocType = Constants.lvWhere;
-                        ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                        ReasonDesc.Desc = "這節已排課";
                         return Constants.tsWhereConflict;
                     }
                 }
@@ -3218,7 +3210,7 @@ namespace Sunset.Data
                             ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                             ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                             ReasonDesc.AssocType = Constants.lvWho;
-                            ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                            ReasonDesc.Desc = "這節已排課";
                             return Constants.tsWhoConflict;
                         }
                     }
@@ -3234,7 +3226,7 @@ namespace Sunset.Data
                                     ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                                     ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
-                                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                                    ReasonDesc.Desc = "這節已排課";
                                     return Constants.tsWhoConflict;
                                 case 2:
                                     ReasonDesc.Desc = "通車來不及";
@@ -3243,7 +3235,7 @@ namespace Sunset.Data
                                     ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
                                     ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
-                                    ReasonDesc.Desc = "未排節數不足" + System.Environment.NewLine + "無法排課";
+                                    ReasonDesc.Desc = "這節已排課";
                                     return Constants.tsWhoConflict;
                             }
                         }

@@ -174,6 +174,11 @@ namespace ischedule
                 {
                     frmASProgress.ChangeProgress(e.nCurIndex);
                     e.Cancel = frmASProgress.UserAbort;
+
+                    if (e.Cancel)
+                    {
+ 
+                    }
                 }
             };
 

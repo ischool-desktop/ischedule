@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using FISCA.DSAClient;
 using Sunset.Data.Integration;
-using System.Diagnostics;
 
 namespace Sunset.Data
 {
@@ -1738,7 +1738,9 @@ namespace Sunset.Data
                         AutoScheduleProgress(this, EventArgs );
 
                         if (EventArgs.Cancel)
+                        {
                             break;
+                        }
                     }
 
                     nThreshold = 0;

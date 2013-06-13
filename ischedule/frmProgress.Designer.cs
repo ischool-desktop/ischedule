@@ -88,6 +88,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblNotice);
             this.Controls.Add(this.btnCancel);
+            this.MaximumSize = new System.Drawing.Size(349, 113);
+            this.MinimumSize = new System.Drawing.Size(349, 113);
             this.Name = "frmProgress";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "";

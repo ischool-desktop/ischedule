@@ -8,11 +8,12 @@ namespace ischedule
     {
         private bool bCancel = false;
 
+        /// <summary>
+        /// 無參數建構式
+        /// </summary>
         public frmProgress()
         {
             InitializeComponent();
-
-            btnCancel.Click += (sender, e) => bCancel = true;
         }
         
         /// <summary>
@@ -55,6 +56,17 @@ namespace ischedule
         public bool UserAbort
         {
             get { return bCancel; }
+        }
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            this.bCancel = true;
+            this.Close();
         }
     }
 }

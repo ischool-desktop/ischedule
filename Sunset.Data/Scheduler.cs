@@ -1731,7 +1731,8 @@ namespace Sunset.Data
                 if (nThreshold > AutoScheduleNotifyThreshold)
                 {
                     if (AutoScheduleProgress != null)
-                    {
+                    {                        
+
                         AutoScheduleProgressEventArgs EventArgs = new AutoScheduleProgressEventArgs(nCurIndex,false);
 
                         AutoScheduleProgress(this, EventArgs );

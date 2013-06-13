@@ -282,6 +282,8 @@ namespace ischedule
             };
 
             SchedulerEvents.PeriodSelected += new EventHandler<PeriodEventArgs>(SchedulerEvents_PeriodSelected);
+
+            grdEvents.DataError += (sender, e) => { };
         }
 
         /// <summary>
@@ -378,7 +380,19 @@ namespace ischedule
         void grdEvents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             DataGridViewX dgv = sender as DataGridViewX;
-            CEvent evtTransfer = dgv.Rows[e.RowIndex].DataBoundItem as CEvent;
+
+            if (e.RowIndex >= dgv.Rows.Count)
+                return;
+
+            CEvent evtTransfer = null;
+
+            try
+            {
+               evtTransfer = dgv.Rows[e.RowIndex].DataBoundItem as CEvent;
+            }catch
+            {
+                
+            }
 
             if (evtTransfer == null)
                 return;

@@ -1687,6 +1687,9 @@ namespace Sunset.Data
         /// <returns>事件列表最後有排課的事件編號</returns>
         public string AutoSchedule(CEvents EventList)
         {
+            evtTested = null;
+            evtTesteds.Clear();
+
             string Result = string.Empty;
             int nCurIndex = 0;
             int nTotItem = EventList.Count;

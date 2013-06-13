@@ -72,33 +72,25 @@ namespace ischedule
             #region Scheduler相關事件
             schLocal.AutoScheduleComplete += (sender, e) =>
             {
-                string idBottom = e.EventList[e.BottomIndex].EventID;
-                bool bUpdateContent = false;
+                //string idBottom = e.EventList[e.BottomIndex].EventID;
+                //bool bUpdateContent = false;
 
-                foreach (CEvent evtMember in e.EventList)
-                {
-                    if (IsRelatedEvent(evtMember.EventID))
-                    {
-                        if (evtMember.WeekDay != 0)
-                        {
-                            RemoveTestEvent(evtMember.EventID);
-                        }
-
-                        bUpdateContent = true;
-                    }
-                    if (evtMember.EventID == idBottom) return;
-                }
-                if (bUpdateContent) UpdateContent();
-            };
-
-            //自動排課中顯示進度
-            schLocal.AutoScheduleProgress += (sender, e) =>
-            {
-                //if (frmASProgress != null)
+                //foreach (CEvent evtMember in e.EventList)
                 //{
-                //    frmASProgress.ChangeProgress(e.nCurIndex);
-                //    e.Cancel = frmASProgress.UserAbort;
-                //}            
+                //    if (IsRelatedEvent(evtMember.EventID))
+                //    {
+                //        if (evtMember.WeekDay != 0)
+                //        {
+                //            RemoveTestEvent(evtMember.EventID);
+                //        }
+
+                //        bUpdateContent = true;
+                //    }
+                //    if (evtMember.EventID == idBottom) return;
+                //}
+                //if (bUpdateContent) UpdateContent();
+
+                UpdateContent();
             };
 
             schLocal.EventBeforeDelete += (sender, e) =>

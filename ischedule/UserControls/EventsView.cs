@@ -338,7 +338,18 @@ namespace ischedule
             //當選取分課為一門時進行作業
             if (grdEvents.SelectedRows.Count == 1)
             {
-                CEvent EventTransfer = grdEvents.SelectedRows[0].DataBoundItem as CEvent;
+                CEvent EventTransfer = null;
+
+                try
+                {
+                    EventTransfer = grdEvents.SelectedRows[0].DataBoundItem as CEvent;
+                }catch
+                {
+
+                }
+
+                if (EventTransfer == null)
+                    return;
 
                 CEvent Event = schLocal.CEvents[EventTransfer.EventID];
 

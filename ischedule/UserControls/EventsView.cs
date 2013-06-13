@@ -657,7 +657,7 @@ namespace ischedule
         }
 
         /// <summary>
-        /// 根據單一事件更新DataGrid
+        /// 根據事件系統編號更新
         /// </summary>
         /// <param name="idTarget"></param>
         private void RefreshEvent(string idTarget)
@@ -668,42 +668,8 @@ namespace ischedule
 
             evtsRefresh.Add(evtRefresh);
 
-            RefreshEvents(RCActions.rcRefresh, evtsRefresh);
-
-            //CEvents evtsSolutionUpdate = new CEvents();
-
-            //foreach (CEvent evtPaint in schLocal.CEvents)           
-            //{
-            //    if (!string.IsNullOrEmpty(evtRefresh.WhoID1))
-            //        if (evtRefresh.WhoID1.Equals(evtPaint.WhoID1))
-            //            evtsSolutionUpdate.Add(evtPaint);
-
-            //    if (!string.IsNullOrEmpty(evtRefresh.WhoID2))
-            //        if (evtRefresh.WhoID2.Equals(evtPaint.WhoID2))
-            //            evtsSolutionUpdate.Add(evtPaint);
-
-            //    if (!string.IsNullOrEmpty(evtRefresh.WhoID3))
-            //        if (evtRefresh.WhoID3.Equals(evtPaint.WhoID3))
-            //            evtsSolutionUpdate.Add(evtPaint);
-
-            //    if (!string.IsNullOrEmpty(evtRefresh.WhomID))
-            //        if (evtRefresh.WhomID.Equals(evtPaint.WhomID))
-            //            evtsSolutionUpdate.Add(evtPaint);
-
-            //    if (!string.IsNullOrEmpty(evtRefresh.WhereID))
-            //        if (evtRefresh.WhereID.Equals(evtPaint.WhereID))
-            //            evtsSolutionUpdate.Add(evtPaint);
-            //}
-
-            //evtsSolutionUpdate.Add(evtRefresh);
-
-            //if (evtsSolutionUpdate.Count > 0)
-            //{
-            //    mStopwatch.Restart();
-            //    schLocal.GetSolutionCounts(evtsSolutionUpdate);
-            //    mStopwatch.Stop();
-            //    Console.WriteLine(""+mStopwatch.ElapsedMilliseconds);
-            //}
+            //運用重新計算解決方案的方式來進行更新，這樣才能達到自動計算解決方案的目的。
+            schLocal.GetSolutionCounts(evtsRefresh);
         }
 
         /// <summary>

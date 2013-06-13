@@ -31,7 +31,7 @@ namespace ischedule
                     {
                         if (x != null)
                             if (y != null)
-                                return (x.DisplaySolutionCount.CompareTo(y.DisplaySolutionCount));
+                                return (x.SolutionCount.CompareTo(y.SolutionCount));
                             else
                                 return 1;
                         else if (y != null)

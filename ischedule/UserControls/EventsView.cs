@@ -385,7 +385,7 @@ namespace ischedule
                 }
             }
             else if (grdEvents.SelectedRows.Count > 1)
-                SchedulerEvents.RaiseMultiEventSelected();
+                SchedulerEvents.RaiseClearEvent();
         }
 
         void grdEvents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -987,6 +987,7 @@ namespace ischedule
                     IScheduleCommand Command = new UnlockEventCommand(EventIDs);
                     Command.Do();
                     MainFormBL.AddCommand(Command);
+                    SchedulerEvents.RaiseClearEvent();
                 }
             }
         }
@@ -1012,6 +1013,7 @@ namespace ischedule
                     IScheduleCommand Command = new LockEventCommand(EventIDs);
                     Command.Do();
                     MainFormBL.AddCommand(Command);
+                    SchedulerEvents.RaiseClearEvent();
                 }
             }
         }
@@ -1088,6 +1090,7 @@ namespace ischedule
 
             frmASProgress.Close();
             frmASProgress = null;
+            SchedulerEvents.RaiseClearEvent();
         }
 
         /// <summary>

@@ -67,7 +67,7 @@ namespace ischedule
             this.headerCells = new Dictionary<string, DevComponents.DotNetBar.PanelEx>();
             SetContextMenu();
 
-            SchedulerEvents.MultiEventSelected += new EventHandler(SchedulerEvents_MultiEventSelected);
+            SchedulerEvents.ClearEvent += new EventHandler(SchedulerEvents_MultiEventSelected);
 
             #region Scheduler相關事件
             schLocal.AutoScheduleComplete += (sender, e) =>

@@ -19,10 +19,10 @@ namespace ischedule
         /// <summary>
         /// 引發選取多筆事件
         /// </summary>
-        public static void RaiseMultiEventSelected()
+        public static void RaiseClearEvent()
         {
-            if (MultiEventSelected != null)
-                MultiEventSelected(null, new EventArgs());
+            if (ClearEvent != null)
+                ClearEvent(null, new EventArgs());
         }
 
         /// <summary>
@@ -33,6 +33,6 @@ namespace ischedule
         /// <summary>
         /// 選取多個事件
         /// </summary>
-        public static event EventHandler MultiEventSelected;
+        public static event EventHandler ClearEvent;
     }
 }

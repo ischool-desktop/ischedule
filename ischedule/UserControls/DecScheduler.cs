@@ -116,10 +116,13 @@ namespace ischedule
 
             schLocal.EventPropertyChanged += (sender, e) =>
             {
-                RemoveTestEvent(e.EventID);
+                //RemoveTestEvent(e.EventID);
+
+                //if (IsRelatedEvent(e.EventID))
+                //    AddTestEvent(e.EventID);
 
                 if (IsRelatedEvent(e.EventID))
-                    AddTestEvent(e.EventID);
+                    UpdateContent();
             };
 
             schLocal.EventScheduled += (sender, e) =>

@@ -3257,7 +3257,7 @@ namespace Sunset.Data
                 List<int> WhatIDWeekdays = new List<int>();
 
                 //取得已排課課程分段
-                CEvents evtsCourse = CEvents.GetScheduledByCourseID(NewEvent.CourseID);
+                CEvents evtsCourse = CEvents.GetByCourseID(NewEvent.CourseID);
 
                 //將課程分段的星期加入到列表
                 foreach (CEvent evtCourse in evtsCourse)

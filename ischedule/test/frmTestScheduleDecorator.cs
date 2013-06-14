@@ -55,7 +55,7 @@ namespace ischedule.test
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Teacher t = ((TeacherWrapper)this.listBox1.SelectedItem).Teacher;
-            List<CEvent> events = Scheduler.Instance.CEvents.GetEventsByTeacherID(t.TeacherID);
+            List<CEvent> events = Scheduler.Instance.CEvents.GetByTeacherID(t.TeacherID);
             this.dataGridViewX1.DataSource = events;
         }
 
@@ -87,7 +87,7 @@ namespace ischedule.test
             this.scheduler.SetTimeTable(tbl);
 
             //3. 取得 這位教師的所有課程分段
-            List<CEvent> evts = Scheduler.Instance.CEvents.GetEventsByTeacherID(evt.TeacherID1);
+            List<CEvent> evts = Scheduler.Instance.CEvents.GetByTeacherID(evt.TeacherID1);
             this.scheduler.SetCourseSections(evts);
             //2. 取得 Teacher Busy 時段
             Teacher t = Scheduler.Instance.Teachers[evt.TeacherID1];

@@ -787,17 +787,17 @@ namespace ischedule
             {
                 case Constants.lvWho:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByTeacherID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByTeacherID(AssocID);
                     AssocName = schLocal.Teachers[AssocID].Name;
                     break;
                 case Constants.lvWhom:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassID(AssocID);
                     AssocName = schLocal.Classes[AssocID].Name;
                     break;
                 case Constants.lvWhere:
                     if (string.IsNullOrEmpty(AssocID) || schLocal.Classrooms[AssocID].LocOnly) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassroomID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassroomID(AssocID);
                     AssocName = schLocal.Classrooms[AssocID].Name;
                     break;
             }
@@ -904,17 +904,17 @@ namespace ischedule
             {
                 case Constants.lvWho:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByTeacherID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByTeacherID(AssocID);
                     AssocName = schLocal.Teachers[AssocID].Name;
                     break;
                 case Constants.lvWhom:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassID(AssocID);
                     AssocName = schLocal.Classes[AssocID].Name;
                     break;
                 case Constants.lvWhere:
                     if (string.IsNullOrEmpty(AssocID) || schLocal.Classrooms[AssocID].LocOnly) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassroomID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassroomID(AssocID);
                     AssocName = schLocal.Classrooms[AssocID].Name;
                     break;
             }
@@ -1021,19 +1021,19 @@ namespace ischedule
             {
                 case Constants.lvWho:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByTeacherID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByTeacherID(AssocID);
                     AssocName = schLocal.Teachers[AssocID].Name;
                     break;
                 case Constants.lvWhom:
                     if (string.IsNullOrEmpty(AssocID)) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassID(AssocID);
                     AssocName = schLocal.Classes[AssocID].Name;
                     break;
                 case Constants.lvWhere:
                     if (string.IsNullOrEmpty(AssocID) || !schLocal.Classrooms.Exists(AssocID))
                         return null;
                     if (schLocal.Classrooms[AssocID].LocOnly) return null;
-                    RelatedEvents = schLocal.CEvents.GetEventsByClassroomID(AssocID);
+                    RelatedEvents = schLocal.CEvents.GetByClassroomID(AssocID);
                     AssocName = schLocal.Classrooms[AssocID].Name;
                     break;
             }

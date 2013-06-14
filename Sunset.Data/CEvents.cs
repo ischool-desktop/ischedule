@@ -9,13 +9,6 @@ namespace Sunset.Data
     public class CEvents : IEnumerable<CEvent>
     {
         private List<CEvent> mCEvents;
-        private Dictionary<string, CEvent> dicAllEvents;    //Dictionary<courseSectionID, CEvent>
-        private Dictionary<string, List<CEvent>> dicCourseEvents;  //Dictionary<courseID, List<CEvents>>
-        private Dictionary<string, List<CEvent>> dicTeacher1Events;  //Dictionary<teacherID, List<CEvents>>
-        private Dictionary<string, List<CEvent>> dicTeacher2Events;
-        private Dictionary<string, List<CEvent>> dicTeacher3Events;
-        private Dictionary<string, List<CEvent>> dicClassEvents;  //Dictionary<classID, List<CEvents>>
-        private Dictionary<string, List<CEvent>> dicPlaceEvents;  //Dictionary<placeID, List<CEvents>>
 
         /// <summary>
         /// 建構式
@@ -24,56 +17,70 @@ namespace Sunset.Data
         {
             //初始化集合
             mCEvents = new List<CEvent>();
-
-            this.dicAllEvents = new Dictionary<string, CEvent>();
-            this.dicClassEvents = new Dictionary<string, List<CEvent>>();
-            this.dicCourseEvents = new Dictionary<string, List<CEvent>>();
-            this.dicPlaceEvents = new Dictionary<string, List<CEvent>>();
-            this.dicTeacher1Events = new Dictionary<string, List<CEvent>>();
-            this.dicTeacher2Events = new Dictionary<string, List<CEvent>>();
-            this.dicTeacher3Events = new Dictionary<string, List<CEvent>>();
         }
 
-        /* 取得指定課程的 課程分段 */
-        public List<CEvent> GetEventsByCourseID(string courseID)
+        /// <summary>
+        /// 取得指定教師的課程分段
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <returns></returns>
+        public List<CEvent> GetByTeacherID(string teacherID)
         {
-            return this.getEventsByKey(this.dicCourseEvents, courseID);
-        }
+            List<CEvent> result = new List<CEvent>();
 
-        /* 取得指定教師的 課程分段 */
-        public List<CEvent> GetEventsByTeacherID(string teacherID)
-        {
-            List<CEvent> Teacher1Events = this.getEventsByKey(this.dicTeacher1Events, teacherID);
-
-            List<CEvent> Teacher2Events = this.getEventsByKey(this.dicTeacher2Events, teacherID);
-
-            List<CEvent> Teacher3Events = this.getEventsByKey(this.dicTeacher3Events, teacherID);
-
-            return Teacher1Events.Union(Teacher2Events).Union(Teacher3Events).ToList();
-        }
-        /* 取得指定場地的 課程分段 */
-        public List<CEvent> GetEventsByClassroomID(string placeID)
-        {
-            return this.getEventsByKey(this.dicPlaceEvents, placeID);
-        }
-        /* 取得指定班級的 課程分段 */
-        public List<CEvent> GetEventsByClassID(string classID)
-        {
-            return this.getEventsByKey(this.dicClassEvents, classID);
-        }
-
-        private List<CEvent> getEventsByKey(Dictionary<string, List<CEvent>> dicSource, string key)
-        {
-            List<CEvent> result = null;
-            if (dicSource.ContainsKey(key))
-                result = dicSource[key];
-            else
-                result = new List<CEvent>();
+            foreach (CEvent mCEvent in mCEvents)
+            {
+                if (mCEvent.TeacherID1.Equals(teacherID) ||
+                    mCEvent.TeacherID2.Equals(teacherID) ||
+                    mCEvent.TeacherID3.Equals(teacherID))
+                    result.Add(mCEvent);
+            }
 
             return result;
         }
 
-        public CEvents GetScheduledByCourseID(string CourseID)
+        /// <summary>
+        /// 取得指定場地的課程分段
+        /// </summary>
+        /// <param name="ClassroomID"></param>
+        /// <returns></returns>
+        public List<CEvent> GetByClassroomID(string ClassroomID)
+        {
+            List<CEvent> result = new List<CEvent>();
+
+            foreach (CEvent mCEvent in mCEvents)
+            {
+                if (mCEvent.ClassroomID.Equals(ClassroomID))
+                    result.Add(mCEvent);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 取得指定班級的課程分段 
+        /// </summary>
+        /// <param name="classID"></param>
+        /// <returns></returns>
+        public List<CEvent> GetByClassID(string ClassID)
+        {
+            List<CEvent> result = new List<CEvent>();
+
+            foreach (CEvent mCEvent in mCEvents)
+            {
+                if (mCEvent.ClassID.Equals(ClassID))
+                    result.Add(mCEvent);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 根據課程系統編號取得分課
+        /// </summary>
+        /// <param name="CourseID"></param>
+        /// <returns></returns>
+        public CEvents GetByCourseID(string CourseID)
         {
             CEvents Events = new CEvents();
 
@@ -172,32 +179,7 @@ namespace Sunset.Data
 
             mCEvents.Add(NewEvent);
 
-            //Add By CourseID
-            this.addByKey(this.dicCourseEvents, NewEvent.CourseID, NewEvent);
-
-            //Add By TeacherID
-            this.addByKey(this.dicTeacher1Events, NewEvent.TeacherID1, NewEvent);
-
-            this.addByKey(this.dicTeacher2Events, NewEvent.TeacherID2, NewEvent);
-
-            this.addByKey(this.dicTeacher3Events, NewEvent.TeacherID3, NewEvent);
-
-            //Add By ClassID
-            this.addByKey(this.dicClassEvents, NewEvent.ClassID, NewEvent);
-
-            //Add By PlaceID
-            this.addByKey(this.dicPlaceEvents, NewEvent.ClassroomID, NewEvent);
-
             return NewEvent;
-        }
-
-        private void addByKey(Dictionary<string, List<CEvent>> dicTarget, string key, CEvent newEvent)
-        {
-            if (!dicTarget.ContainsKey(key))
-            {
-                dicTarget.Add(key, new List<CEvent>());
-            }
-            dicTarget[key].Add(newEvent);
         }
 
         /// <summary>

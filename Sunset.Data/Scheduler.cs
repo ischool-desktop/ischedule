@@ -1688,7 +1688,8 @@ namespace Sunset.Data
         public string AutoSchedule(CEvents EventList)
         {
             evtTested = null;
-            evtTesteds.Clear();
+            if (evtTesteds!=null)
+                evtTesteds.Clear();
 
             string Result = string.Empty;
             int nCurIndex = 0;
@@ -1937,7 +1938,8 @@ namespace Sunset.Data
             {
                 //測試是否可以安排事件
                 evtTested = null;
-                evtTesteds.Clear();
+                if (evtTesteds!=null)
+                    evtTesteds.Clear();
                 Reason = TestSchedule(curEvent, WeekDay, PeriodNo,true);
 
                 if (Reason == 0)

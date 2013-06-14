@@ -310,14 +310,52 @@ namespace ischedule
             IsSelectionChanged = true;
         }
 
+        /// <summary>
+        /// 是否能鎖定
+        /// </summary>
+        /// <returns></returns>
+        private bool IsLockEnable()
+        {
+            foreach (DataGridViewRow Row in grdEvents.SelectedRows)
+            {
+                string Weekday = "" + Row.Cells[colWeekday].Value;
+
+                string Lock = "" + Row.Cells[colLock].Value;
+
+                if (!Weekday.Equals("0") && string.IsNullOrWhiteSpace(Lock))
+                    return true;                 
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 是否能解除鎖定
+        /// </summary>
+        /// <returns></returns>
+        private bool IsUnLockEnable()
+        {
+            foreach (DataGridViewRow Row in grdEvents.SelectedRows)
+            {
+                string Weekday = "" + Row.Cells[colWeekday].Value;
+
+                string Lock = "" + Row.Cells[colLock].Value;
+
+                if (!Weekday.Equals("0") && Lock.Equals("是"))
+                    return true; 
+            }
+
+            return false; 
+        }
+
         void grdEvents_SelectionChanged(object sender, EventArgs e)
         {
             if (!IsSelectionChanged)
                 return;
 
             this.btnAutoSchedule.Enabled = grdEvents.SelectedRows.Count > 0;
-            this.btnLock.Enabled = grdEvents.SelectedRows.Count > 0;
-            this.btnUnLock.Enabled = grdEvents.SelectedRows.Count > 0;
+            this.btnLock.Enabled = IsLockEnable();
+            this.btnUnLock.Enabled = IsUnLockEnable();
             this.btnFree.Enabled = grdEvents.SelectedRows.Count > 0;
             this.btnProperty.Enabled = grdEvents.SelectedRows.Count == 1;
 

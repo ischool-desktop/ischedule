@@ -212,63 +212,6 @@ namespace Sunset.Data
             );            
 
             return Result;
-
-            #region VB
-            //'NOTICE: IsFreePeriods assumes that TestPrds is sorted by time, and of the same location and same weekday
-            //Public Function IsFreePeriods(TestPrds As Periods, ByVal TestWeekFlag As Byte) As Boolean
-            //    Dim TestWeekDay As Integer
-            //    Dim dblMinUnit As Double
-            //    Dim nPrdsIndex As Integer
-            //    Dim nPrdsCount As Integer
-            //    Dim nTimeDif As Integer
-            //    Dim apMember As Appointment
-            //    Dim prdTest As Period
-
-            //    dblMinUnit = CDate("0:1")
-
-            //    IsFreePeriods = True
-
-            //    nPrdsCount = TestPrds.Count
-            //    ' Move to first period
-            //    nPrdsIndex = 1
-            //    Set prdTest = TestPrds(1)
-            //    ' Initialize variables for check loop
-            //    TestWeekDay = prdTest.WeekDay
-
-            //    For Each apMember In mCol
-            //        With apMember
-            //        If .WeekDay > TestWeekDay Then Exit For
-            //        If (TestWeekDay = .WeekDay) And ((TestWeekFlag And .WeekFlag) > 0) Then
-            //            nTimeDif = CInt((.BeginTime - prdTest.BeginTime) / dblMinUnit)
-            //            If nTimeDif >= prdTest.Duration Then
-            //                ' The test period is wholely above current appointment
-            //                ' Move to next period that is not wholely above the current appointment
-            //                nPrdsIndex = nPrdsIndex + 1
-            //                Do While nPrdsIndex <= nPrdsCount
-            //                    Set prdTest = TestPrds(nPrdsIndex)
-            //                    nTimeDif = CInt((.BeginTime - prdTest.BeginTime) / dblMinUnit)
-            //                    If nTimeDif < prdTest.Duration Then Exit Do
-            //                    nPrdsIndex = nPrdsIndex + 1
-            //                Loop
-            //                If nPrdsIndex > nPrdsCount Then Exit Function
-            //            End If
-            //            If Not (prdTest Is Nothing) Then
-            //                If nTimeDif >= 0 Then
-            //                    'Conflict! test period starts earlier than current appointment
-            //                    IsFreePeriods = False
-            //                    Exit For
-            //                ElseIf -nTimeDif < .Duration Then
-            //                    'Conflict! current appointment starts earlier than test period
-            //                    IsFreePeriods = False
-            //                    Exit For
-            //                End If
-            //            End If
-            //            ' The test period is wholely below current appointment
-            //        End If
-            //        End With
-            //    Next
-            //End Function
-            #endregion
         }
 
         /// <summary>
@@ -355,11 +298,21 @@ namespace Sunset.Data
                     #region Conflict! test period starts earlier than current appointment
                     //若是prdTest不為null
                     if (prdTest != null)
-                    {                        
+                    {
                         if (nTimeDif >= 0)
-                            return Constants.apsTimeConflict;
+                        {
+                            if (!string.IsNullOrWhiteSpace(apMember.EventID))
+                                return Constants.apsTimeConflict;
+                            else
+                                return Constants.apsBusyConflict;
+                        }
                         else if (-nTimeDif < apMember.Duration)
-                            return Constants.apsTimeConflict;
+                        {
+                            if (!string.IsNullOrWhiteSpace(apMember.EventID))
+                                return Constants.apsTimeConflict;
+                            else 
+                                return Constants.apsBusyConflict;
+                        }
                     }
                     #endregion
 
@@ -463,9 +416,19 @@ namespace Sunset.Data
 
                         if (prdTest != null)
                             if (nTimeDif >= 0)
-                                return Constants.apsTimeConflict; //Appointment的開始時間大於Period的開始時間，兩者有交集，例如Appointment為9：00~10：00，而Period為8：30~9：30
+                            {
+                                if (!string.IsNullOrWhiteSpace(apMember.EventID))
+                                    return Constants.apsTimeConflict; //Appointment的開始時間大於Period的開始時間，兩者有交集，例如Appointment為9：00~10：00，而Period為8：30~9：30
+                                else
+                                    return Constants.apsBusyConflict;
+                            }
                             else if (-nTimeDif < apMember.Duration)
-                                return Constants.apsTimeConflict; //Appointment的開始時間小於Period的開始時間，兩者有交集，例如Appointment為8：00~9：00，而Period為8：30~9：30
+                            {
+                                if (!string.IsNullOrWhiteSpace(apMember.EventID))
+                                    return Constants.apsTimeConflict; //Appointment的開始時間小於Period的開始時間，兩者有交集，例如Appointment為8：00~9：00，而Period為8：30~9：30
+                                else
+                                    return Constants.apsBusyConflict;
+                            }
                     }
 
                     //Check duplicate WhatID

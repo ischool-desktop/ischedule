@@ -57,6 +57,7 @@ namespace Sunset.Data
         public const int apsTooFar = 2;
         public const int apsDupWhat = 3;
         public const int apsDupDayWhat = 4;
+        public const int apsBusyConflict = 5;
 
         //CEvent object
         public const int opNone = 0;

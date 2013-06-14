@@ -3130,6 +3130,12 @@ namespace Sunset.Data
                         case 4:
                             ReasonDesc.Desc = "隔日已排" + System.Environment.NewLine + Subjects[NewEvent.SubjectID].Name;
                             return Constants.tsDupWhat;
+                        case 5:
+                            ReasonDesc.AssocID = NewEvent.ClassID;
+                            ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
+                            ReasonDesc.AssocType = Constants.lvWhom;
+                            ReasonDesc.Desc = "不排課時段";
+                            return Constants.tsWhomConflict;
                         default:
                             ReasonDesc.AssocID = NewEvent.ClassID;
                             ReasonDesc.AssocName = Classes[NewEvent.ClassID].Name;
@@ -3198,28 +3204,50 @@ namespace Sunset.Data
                 {
                     if (whoTest.Capacity > 1)
                     {
+                        int intCapacity = 0;
                         intTempVal = 0;
                         bPass = false;
 
-                        while (intTempVal < whoTest.Capacity)
+                        while (intCapacity < whoTest.Capacity)
                         {
-                            whoTest.UseAppointments(intTempVal);
-                            if (whoTest.Appointments.CheckWho(prdsUse, Distances, NewEvent.WeekFlag) == 0)
+                            whoTest.UseAppointments(intCapacity);
+                            intTempVal = whoTest.Appointments.CheckWho(prdsUse, Distances, NewEvent.WeekFlag);
+
+                            if ( intTempVal == 0)
                             {
-                                nWhoAvailable = intTempVal;
+                                nWhoAvailable = intCapacity;
                                 bPass = true;
                                 break;
                             }
-                            intTempVal++;
+                            intCapacity++;
                         }
 
                         if (!bPass)
                         {
-                            ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
-                            ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
-                            ReasonDesc.AssocType = Constants.lvWho;
-                            ReasonDesc.Desc = "這節已排課";
-                            return Constants.tsWhoConflict;
+                            switch (intTempVal)
+                            {
+                                case 1:
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
+                                    ReasonDesc.AssocType = Constants.lvWho;
+                                    ReasonDesc.Desc = "這節已排課";
+                                    return Constants.tsWhoConflict;
+                                case 5:
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
+                                    ReasonDesc.AssocType = Constants.lvWho;
+                                    ReasonDesc.Desc = "不排課時段";
+                                    return Constants.tsWhoConflict;
+                                case 2:
+                                    ReasonDesc.Desc = "通車來不及";
+                                    return Constants.tsDistanceFar;
+                                default:
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
+                                    ReasonDesc.AssocType = Constants.lvWho;
+                                    ReasonDesc.Desc = "這節已排課";
+                                    return Constants.tsWhoConflict;
+                            }
                         }
                     }
                     else
@@ -3235,6 +3263,12 @@ namespace Sunset.Data
                                     ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
                                     ReasonDesc.Desc = "這節已排課";
+                                    return Constants.tsWhoConflict;
+                                case 5:
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
+                                    ReasonDesc.AssocType = Constants.lvWho;
+                                    ReasonDesc.Desc = "不排課時段";
                                     return Constants.tsWhoConflict;
                                 case 2:
                                     ReasonDesc.Desc = "通車來不及";

@@ -121,8 +121,8 @@ namespace ischedule
                 //if (IsRelatedEvent(e.EventID))
                 //    AddTestEvent(e.EventID);
 
-                if (IsRelatedEvent(e.EventID))
-                    UpdateContent();
+                //if (IsRelatedEvent(e.EventID))
+                //    UpdateContent();
             };
 
             schLocal.EventScheduled += (sender, e) =>

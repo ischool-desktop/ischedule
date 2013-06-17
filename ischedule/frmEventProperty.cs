@@ -15,19 +15,15 @@ namespace ischedule
         bool bReentrantFlag;
 
         /// <summary>
-        /// 建構式，傳入事件編號
+        /// 初始化內容
         /// </summary>
-        /// <param name="EventID"></param>
-        public frmEventProperty(string EventID)
+        private void LoadContent()
         {
-            InitializeComponent();
-
             int nIndex1;
             int nIndex2;
             int nIndex3;
 
             bReentrantFlag = true;
-            evtChange = schLocal.CEvents[EventID];
 
             //populate dialog controls' value
             //txtEventID.Text = evtChange.EventID;
@@ -60,10 +56,14 @@ namespace ischedule
             }
 
             TeacherIDs.Sort();
-            
+
+            cboWho1.Items.Clear();
+            cboWho2.Items.Clear();
+            cboWho3.Items.Clear();
+
             //加入教師清單
-           for (int i = 0; i < TeacherIDs.Count; i++)
-           {
+            for (int i = 0; i < TeacherIDs.Count; i++)
+            {
                 cboWho1.Items.Add(TeacherIDs[i]);
                 cboWho2.Items.Add(TeacherIDs[i]);
                 cboWho3.Items.Add(TeacherIDs[i]);
@@ -86,6 +86,8 @@ namespace ischedule
             #region 加入班級清單，並指定目前班級
             nIndex1 = 0;
 
+            cboWhom.Items.Clear();
+
             foreach (Class whomMember in schLocal.Classes)
             {
                 cboWhom.Items.Add(whomMember.Name);
@@ -98,6 +100,8 @@ namespace ischedule
 
             #region 加入場地清單，並指定目前場地
             nIndex1 = 0;
+
+            cboWhere.Items.Clear();
 
             foreach (Classroom whereMember in schLocal.Classrooms)
             {
@@ -112,6 +116,8 @@ namespace ischedule
             #region 加入科目清單
             nIndex1 = 0;
 
+            cboWhat.Items.Clear();
+
             foreach (Subject whatMember in schLocal.Subjects)
             {
                 cboWhat.Items.Add(whatMember.WhatID);
@@ -125,6 +131,7 @@ namespace ischedule
             #region 加入單雙週
             nIndex1 = 0;
 
+            cboWeekFlag.Items.Clear();
             cboWeekFlag.Items.Add("單週");
             cboWeekFlag.Items.Add("雙週");
             cboWeekFlag.Items.Add("單雙週");
@@ -136,6 +143,8 @@ namespace ischedule
             int intRelatedEventCount = 0;
 
             #region 加入相關分課
+            lstSplit.Items.Clear();
+
             List<object> RelatedEvetns = new List<object>();
 
             foreach (CEvent evtMember in schLocal.CEvents)
@@ -209,6 +218,15 @@ namespace ischedule
             }
 
             bReentrantFlag = false;
+        }
+
+        /// <summary>
+        /// 建構式，傳入事件編號
+        /// </summary>
+        /// <param name="EventID"></param>
+        public frmEventProperty(string EventID)
+        {
+            InitializeComponent();
 
             btnCancel.Click += (sender, e) => this.Close();
 
@@ -259,6 +277,10 @@ namespace ischedule
                 if (!("" + cboWhom.SelectedValue).Equals("" + evtChange.ClassID))
                     DisableSplitMergeControl();
             };
+
+            evtChange = schLocal.CEvents[EventID];
+
+            LoadContent();
         }
 
         /// <summary>
@@ -336,6 +358,8 @@ namespace ischedule
                 };
 
                 EventSplit.ShowDialog();
+
+                LoadContent();
             }
         }
 
@@ -374,6 +398,8 @@ namespace ischedule
 
             if (evtChange.Length > 1)
                 btnSplit.Enabled = true;
+
+            LoadContent();
         }
 
         /// <summary>

@@ -399,9 +399,19 @@ namespace ischedule
                     switch (mLPViewType)
                     {
                         case Constants.lvWho:
+                            string TeacherID = Event.TeacherID1;
+
+                            if (this.AssocObjID.Count == 1)
+                            {
+                                if (Event.TeacherID2.Equals(this.AssocObjID[0]))
+                                    TeacherID = Event.TeacherID2;
+                                else if (Event.TeacherID3.Equals(this.AssocObjID[0]))
+                                    TeacherID = Event.TeacherID3;
+                            }
+
                             MainFormBL.Instance.OpenTeacherSchedule(
                             Constants.lvWho,
-                            Event.TeacherID1,
+                            TeacherID,
                             false,
                             Event.EventID, true);
                             break;
@@ -746,16 +756,6 @@ namespace ischedule
             evtsRefresh.Add(schLocal.CEvents[idTarget]);
 
             RefreshEvents(RCActions.rcInsert, evtsRefresh);
-
-            #region VB
-            //Private Sub InsertEvent(ByVal idTarget As Long)
-            //    Dim evtsRefresh As CEvents
-
-            //    Set evtsRefresh = New CEvents
-            //    evtsRefresh.Add schLocal.CEvents(CStr(idTarget))
-            //    RefreshEvents rcInsert, evtsRefresh
-            //End Sub
-            #endregion
         }
 
         /// <summary>

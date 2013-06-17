@@ -841,7 +841,11 @@ namespace ischedule
                 }               
             }
 
-            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
+            evtsTransfers.RaiseListChangedEvents = true;
+            grdEvents.ClearSelection();
+            IsSelectionChanged = true;
+            grdEvents.ResumeLayout();
+            grdEvents.Refresh();
 
             if (Action == RCActions.rcRemove)
             {
@@ -850,20 +854,18 @@ namespace ischedule
                     if (evtsTemp.Exists(evtRefresh.EventID))
                         evtsTemp.RemoveID(evtRefresh.EventID);
 
-                    if (evtsCustom!=null)
+                    if (evtsCustom != null)
                         if (evtsCustom.Exists(evtRefresh.EventID))
                             evtsCustom.RemoveID(evtRefresh.EventID);
 
                     if (evtsTransfers.Contains(evtRefresh))
                         evtsTransfers.Remove(evtRefresh);
                 }
+
+                evtsTransfers.ResetBindings();
             }
 
-            evtsTransfers.RaiseListChangedEvents = true;
-            grdEvents.ClearSelection();
-            IsSelectionChanged = true;
-            grdEvents.ResumeLayout();
-            grdEvents.Refresh();
+            Console.WriteLine("" + mStopwatch.Elapsed.TotalSeconds);
 
             mStopwatch.Stop();
         }

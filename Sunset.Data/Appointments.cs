@@ -197,21 +197,28 @@ namespace Sunset.Data
             #endregion
         }
 
-        public bool IsFreePeriods(Periods TestPeriods,Byte TestWeekFlag)
+        public int IsFreePeriods(Periods TestPeriods,Byte TestWeekFlag)
         {
-            bool Result = true;
+            foreach (Appointment apMember in mAppointments)
+            {
+                bool TestFree = TestPeriods
+                    .ToList()
+                    .TrueForAll(y => !apMember.IntersectsWith(y.WeekDay, y.BeginTime, y.Duration, TestWeekFlag));
 
-            mAppointments.ForEach
-            (
-                x => 
+                if (!TestFree)
                 {
-                     bool TestFree = TestPeriods.ToList().TrueForAll(y => !x.IntersectsWith(y.WeekDay, y.BeginTime, y.Duration, TestWeekFlag));
+                    if (!string.IsNullOrWhiteSpace(apMember.EventID))
+                    {
+                        return Constants.apsTimeConflict;
+                    }
+                    else
+                    {
+                        return Constants.apsBusyConflict;
+                    }
+                }
+            }
 
-                     if (!TestFree) Result = false;
-                }                           
-            );            
-
-            return Result;
+            return Constants.apsNoConflict;
         }
 
         /// <summary>

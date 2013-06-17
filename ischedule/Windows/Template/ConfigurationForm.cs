@@ -122,5 +122,10 @@ namespace ischedule
         }
 
         #endregion
+
+        private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SchedulerEvents.RaiseBusyEditorEvent();
+        }
     }
 }

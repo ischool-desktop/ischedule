@@ -69,6 +69,8 @@ namespace ischedule
 
             SchedulerEvents.ClearEvent += new EventHandler(SchedulerEvents_MultiEventSelected);
 
+            SchedulerEvents.BusyEditorEvent += new EventHandler(SchedulerEvents_BusyEditorEvent);
+
             #region Scheduler相關事件
             schLocal.AutoScheduleComplete += (sender, e) =>
             {
@@ -158,6 +160,16 @@ namespace ischedule
                     UpdateContent();
             };
             #endregion
+        }
+
+        /// <summary>
+        /// 不排課時段編輯更新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SchedulerEvents_BusyEditorEvent(object sender, EventArgs e)
+        {
+            UpdateContent();
         }
 
         /// <summary>

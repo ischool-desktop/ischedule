@@ -26,6 +26,15 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 引發不排課時段編輯事件
+        /// </summary>
+        public static void RaiseBusyEditorEvent()
+        {
+            if (BusyEditorEvent != null)
+                BusyEditorEvent(null, new EventArgs()); 
+        }
+
+        /// <summary>
         /// 節次選取事件
         /// </summary>
         public static event EventHandler<PeriodEventArgs> PeriodSelected;
@@ -34,5 +43,10 @@ namespace ischedule
         /// 選取多個事件
         /// </summary>
         public static event EventHandler ClearEvent;
+
+        /// <summary>
+        /// 不排課時段修改事件
+        /// </summary>
+        public static event EventHandler BusyEditorEvent;
     }
 }

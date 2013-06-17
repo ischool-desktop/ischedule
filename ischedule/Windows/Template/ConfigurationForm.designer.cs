@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.SC = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.SC)).BeginInit();
             this.SC.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,9 @@
             this.MaximizeBox = true;
             this.Name = "ConfigurationForm";
             this.Text = "ConfigurationForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigurationForm_FormClosed);
             this.Load += new System.EventHandler(this.ConfigurationForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.SC)).EndInit();
             this.SC.ResumeLayout(false);
             this.ResumeLayout(false);
 

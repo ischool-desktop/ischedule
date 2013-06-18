@@ -756,6 +756,8 @@ namespace ischedule
             evtsRefresh.Add(schLocal.CEvents[idTarget]);
 
             RefreshEvents(RCActions.rcInsert, evtsRefresh);
+
+            schLocal.GetSolutionCounts(evtsRefresh);
         }
 
         /// <summary>
@@ -861,7 +863,11 @@ namespace ischedule
                     if (evtsTransfers.Contains(evtRefresh))
                         evtsTransfers.Remove(evtRefresh);
                 }
+            }
 
+            if (Action == RCActions.rcRemove || 
+                Action == RCActions.rcInsert)
+            {
                 evtsTransfers.ResetBindings();
             }
 

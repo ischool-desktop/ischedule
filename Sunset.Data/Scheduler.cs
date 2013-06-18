@@ -3204,26 +3204,29 @@ namespace Sunset.Data
                     {
                         testResult = whrTest.Appointments.IsFreePeriods(prdsUse, NewEvent.WeekFlag);
 
-                        switch (testResult)
+                        if (testResult != Constants.apsNoConflict)
                         {
-                            case 1:
-                                ReasonDesc.AssocID = NewEvent.ClassroomID;
-                                ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
-                                ReasonDesc.AssocType = Constants.lvWhere;
-                                ReasonDesc.Desc = "這節已排課";
-                                return Constants.tsWhereConflict;
-                            case 5:
-                                ReasonDesc.AssocID = NewEvent.ClassroomID;
-                                ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
-                                ReasonDesc.AssocType = Constants.lvWhere;
-                                ReasonDesc.Desc = "不排課時段";
-                                return Constants.tsWhereConflict;
-                            default:
-                                ReasonDesc.AssocID = NewEvent.ClassroomID;
-                                ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
-                                ReasonDesc.AssocType = Constants.lvWhere;
-                                ReasonDesc.Desc = "這節已排課";
-                                return Constants.tsWhereConflict;
+                            switch (testResult)
+                            {
+                                case 1:
+                                    ReasonDesc.AssocID = NewEvent.ClassroomID;
+                                    ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
+                                    ReasonDesc.AssocType = Constants.lvWhere;
+                                    ReasonDesc.Desc = "這節已排課";
+                                    return Constants.tsWhereConflict;
+                                case 5:
+                                    ReasonDesc.AssocID = NewEvent.ClassroomID;
+                                    ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
+                                    ReasonDesc.AssocType = Constants.lvWhere;
+                                    ReasonDesc.Desc = "不排課時段";
+                                    return Constants.tsWhereConflict;
+                                default:
+                                    ReasonDesc.AssocID = NewEvent.ClassroomID;
+                                    ReasonDesc.AssocName = Classrooms[NewEvent.ClassroomID].Name;
+                                    ReasonDesc.AssocType = Constants.lvWhere;
+                                    ReasonDesc.Desc = "這節已排課";
+                                    return Constants.tsWhereConflict;
+                            }
                         }
                     }
                 }

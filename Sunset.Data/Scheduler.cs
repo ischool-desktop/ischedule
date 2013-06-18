@@ -3159,6 +3159,8 @@ namespace Sunset.Data
                     {
                         intTempVal = 0;
                         bPass = false;
+
+                        //針對每個場地容納數尋找是否有空堂
                         while(intTempVal < whrTest.Capacity)
                         {
                             whrTest.UseAppointments(intTempVal);
@@ -3171,6 +3173,9 @@ namespace Sunset.Data
                                 bPass = true;
                                 break;
                             }
+                            //若原因是不排課時段衝堂則結束
+                            else if (testResult == Constants.apsBusyConflict)
+                                break;
 
                             intTempVal++;
                         }

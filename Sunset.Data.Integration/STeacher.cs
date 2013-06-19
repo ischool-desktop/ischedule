@@ -103,7 +103,7 @@ namespace Sunset.Data.Integration
             string ID = Element.ElementText("Id");
             string Name = Element.ElementText("TeacherName");
             string NickName = Element.ElementText("TeacherNickName");
-            string FullName = Name + NickName;
+            string FullName = !string.IsNullOrEmpty(NickName) ? Name + "(" + NickName +")" : Name;
             int? BasicLength = Int.ParseAllowNull(Element.ElementText("BasicLength"));
             int? ExtraLength = Int.ParseAllowNull(Element.ElementText("ExtraLength"));
             int? CounselingLength = Int.ParseAllowNull(Element.ElementText("CounselingLength"));

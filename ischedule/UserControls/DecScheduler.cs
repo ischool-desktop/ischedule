@@ -1347,7 +1347,10 @@ namespace ischedule
 
             //注意，一開始設定為灰色；當時間表有在內容當中才設為白色
             foreach (DecPeriod Period in this.decPeriods.Values)
-                Period.InitialContent(ttCur.TimeTableID,mOption);
+            {
+                if (!Period.IsSelected)
+                    Period.InitialContent(ttCur.TimeTableID,mOption);
+            }
 
             #region  針對時間表當中的每個時段
             foreach (Period prdMember in ttCur.Periods)

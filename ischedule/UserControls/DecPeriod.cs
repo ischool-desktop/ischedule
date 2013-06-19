@@ -316,7 +316,7 @@ namespace ischedule
         /// </summary>
         public bool IsSelected
         {
-            get { return this.IsSelected; }
+            get { return this._selected; }
             set
             {
                 this._selected = value;

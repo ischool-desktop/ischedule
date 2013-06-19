@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sunset.Data;
+using System.Windows.Forms;
 
 namespace ischedule
 {
@@ -427,6 +428,24 @@ namespace ischedule
             string WhoID1 = ""+cboWho1.SelectedItem; //SelectedWho1 != null ? SelectedWho1.WhoID : string.Empty;
             string WhoID2 = "" + cboWho2.SelectedItem; //SelectedWho2 != null ? SelectedWho2.WhoID : string.Empty;
             string WhoID3 = "" + cboWho3.SelectedItem;  //SelectedWho3 != null ? SelectedWho3.WhoID : string.Empty;
+
+            List<string> TeacherNames = new List<string>();
+
+            TeacherNames.Add(WhoID1);
+
+            if (TeacherNames.Contains(WhoID2))
+            {
+                MessageBox.Show("授課教師不允許重覆！");
+                return;
+            }
+            else
+                TeacherNames.Add(WhoID2);
+
+            if (TeacherNames.Contains(WhoID3))
+            {
+                MessageBox.Show("授課教師不允許重覆！");
+                return;
+            }
 
             string WhereID = "" + cboWhere.SelectedItem; //SelectedWhere.WhereID;
             byte WeekFlag = (byte)(cboWeekFlag.SelectedIndex + 1);

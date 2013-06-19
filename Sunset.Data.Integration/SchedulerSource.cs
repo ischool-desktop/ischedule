@@ -843,15 +843,22 @@ namespace Sunset.Data.Integration
                 {
                     if (!ClassNames.Contains(Class.ClassName))
                     {
-                        SClass ExtraClass = new SClass();
-                        ExtraClass.ClassName = Class.ClassName;
-                        ExtraClass.ID = Class.ID + Class.ClassName;
-                        ExtraClass.GradeYear = string.Empty;
-                        ExtraClass.NamingRule = string.Empty;
-                        ExtraClass.TeacherName = string.Empty;
-                        ExtraClass.TimeTableID = string.Empty;
+                        string[] ClassIDs = Class.ID.Split(new char[] { ',' });
 
-                        ClassResult.Data.Add(ExtraClass);
+                        if (ClassIDs.Length >= 1)
+                        {
+                            string DSNS = ClassIDs[0];
+                            SClass ExtraClass = new SClass();
+                            ExtraClass.ClassName = Class.ClassName;
+
+                            ExtraClass.ID = DSNS +","+ Class.ClassName;
+                            ExtraClass.GradeYear = string.Empty;
+                            ExtraClass.NamingRule = string.Empty;
+                            ExtraClass.TeacherName = string.Empty;
+                            ExtraClass.TimeTableID = string.Empty;
+
+                            ClassResult.Data.Add(ExtraClass);
+                        }
                     }
                 }
 

@@ -59,8 +59,11 @@ namespace ischedule
             TeacherIDs.Sort();
 
             cboWho1.Items.Clear();
+            cboWho1.Items.Add("");
             cboWho2.Items.Clear();
+            cboWho2.Items.Add("");
             cboWho3.Items.Clear();
+            cboWho3.Items.Add("");
 
             //加入教師清單
             for (int i = 0; i < TeacherIDs.Count; i++)
@@ -431,21 +434,28 @@ namespace ischedule
 
             List<string> TeacherNames = new List<string>();
 
-            TeacherNames.Add(WhoID1);
+            if (!string.IsNullOrEmpty(WhoID1))
+                TeacherNames.Add(WhoID1);
 
-            if (TeacherNames.Contains(WhoID2))
+            if (!string.IsNullOrEmpty(WhoID2))
             {
-                MessageBox.Show("授課教師不允許重覆！");
-                return;
+                if (TeacherNames.Contains(WhoID2))
+                {
+                    MessageBox.Show("授課教師不允許重覆！");
+                    return;
+                }
+                else
+                    TeacherNames.Add(WhoID2);
             }
-            else
-                TeacherNames.Add(WhoID2);
 
-            if (TeacherNames.Contains(WhoID3))
+            if (!string.IsNullOrEmpty(WhoID3))
             {
-                MessageBox.Show("授課教師不允許重覆！");
-                return;
-            }
+                if (TeacherNames.Contains(WhoID3))
+                {
+                    MessageBox.Show("授課教師不允許重覆！");
+                    return;
+                }
+            }        
 
             string WhereID = "" + cboWhere.SelectedItem; //SelectedWhere.WhereID;
             byte WeekFlag = (byte)(cboWeekFlag.SelectedIndex + 1);

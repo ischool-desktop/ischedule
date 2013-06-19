@@ -341,7 +341,7 @@ namespace ischedule
 
                 string Lock = "" + Row.Cells[colLock].Value;
 
-                if (!Weekday.Equals("0") && Lock.Equals("是"))
+                if (Lock.Equals("是"))
                     return true; 
             }
 

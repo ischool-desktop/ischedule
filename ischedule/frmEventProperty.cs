@@ -44,6 +44,8 @@ namespace ischedule
 
             List<string> TeacherIDs = new List<string>();
 
+            TeacherIDs.Add("");
+
             //篩選教師
             foreach (Teacher whoMember in schLocal.Teachers)
             {
@@ -59,11 +61,8 @@ namespace ischedule
             TeacherIDs.Sort();
 
             cboWho1.Items.Clear();
-            cboWho1.Items.Add("");
             cboWho2.Items.Clear();
-            cboWho2.Items.Add("");
             cboWho3.Items.Clear();
-            cboWho3.Items.Add("");
 
             //加入教師清單
             for (int i = 0; i < TeacherIDs.Count; i++)

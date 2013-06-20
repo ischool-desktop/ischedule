@@ -161,6 +161,63 @@ namespace ischedule
             }
         }
 
+        public void RebindEvent()
+        {
+            this.lbl1.MouseEnter -= new EventHandler(lbl_MouseEnter);
+            this.lbl1.MouseLeave -= new EventHandler(lbl_MouseLeave);
+            this.lbl1.Click -= new EventHandler(_label_Click);
+
+            this.lbl2.MouseEnter -= new EventHandler(lbl_MouseEnter);
+            this.lbl2.MouseLeave -= new EventHandler(lbl_MouseLeave);
+            this.lbl2.Click -= new EventHandler(_label_Click);
+
+            this.lbl3.MouseEnter -= new EventHandler(lbl_MouseEnter);
+            this.lbl3.MouseLeave -= new EventHandler(lbl_MouseLeave);
+            this.lbl3.Click -= new EventHandler(_label_Click);
+
+            this.lbl4.MouseEnter -= new EventHandler(lbl_MouseEnter);
+            this.lbl4.MouseLeave -= new EventHandler(lbl_MouseLeave);
+            this.lbl4.Click -= new EventHandler(_label_Click);
+
+            this.picBox.Click -= new EventHandler(picBox_Click);
+
+            this._pnl.Click -= new EventHandler(_pnl_Click);
+            this._pnl.MouseLeave -= new EventHandler(_pnl_MouseLeave);
+
+            if (!string.IsNullOrEmpty("" + this.lbl1.Tag))
+            {
+                this.lbl1.MouseEnter += new EventHandler(lbl_MouseEnter);
+                this.lbl1.MouseLeave += new EventHandler(lbl_MouseLeave);
+                this.lbl1.Click += new EventHandler(_label_Click);
+            }
+
+            if (!string.IsNullOrEmpty("" + this.lbl2.Tag))
+            {
+                this.lbl2.MouseEnter += new EventHandler(lbl_MouseEnter);
+                this.lbl2.MouseLeave += new EventHandler(lbl_MouseLeave);
+                this.lbl2.Click += new EventHandler(_label_Click);
+            }
+
+            if (!string.IsNullOrEmpty("" + this.lbl3.Tag))
+            {
+                this.lbl3.MouseEnter += new EventHandler(lbl_MouseEnter);
+                this.lbl3.MouseLeave += new EventHandler(lbl_MouseLeave);
+                this.lbl3.Click += new EventHandler(_label_Click);
+            }
+
+            if (!string.IsNullOrEmpty("" + this.lbl4.Tag))
+            {
+                this.lbl4.MouseEnter += new EventHandler(lbl_MouseEnter);
+                this.lbl4.MouseLeave += new EventHandler(lbl_MouseLeave);
+                this.lbl4.Click += new EventHandler(_label_Click);
+            }
+
+            this._pnl.Click += new EventHandler(_pnl_Click);
+            this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
+
+            this.picBox.Click += new EventHandler(picBox_Click);
+        }
+
         /// <summary>
         /// 根據時間表編號初始化內容
         /// </summary>

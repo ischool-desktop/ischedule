@@ -324,8 +324,12 @@ namespace ischedule
                 {
                     this._pnl.Style.BorderColor.Color = Color.Orange;
                     this._pnl.Style.BorderWidth = 2;
-                    this.picBox.Image = Resources.delete1;
-                    this.picBox.Tag = "delete";
+
+                    if (!("" + this.picBox.Tag).Equals("lock"))
+                    {
+                        this.picBox.Image = Resources.delete1;
+                        this.picBox.Tag = "delete";
+                    }
                 }
                 else
                 {

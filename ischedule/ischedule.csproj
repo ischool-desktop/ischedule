@@ -222,12 +222,6 @@
     <Compile Include="Windows\Utility.cs" />
     <Compile Include="UserControls\SchedulerHelper.cs" />
     <Compile Include="Common\SortableBindingList.cs" />
-    <Compile Include="frmCandidates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCandidates.Designer.cs">
-      <DependentUpon>frmCandidates.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEventSelector.cs">
       <SubType>Form</SubType>
     </Compile>

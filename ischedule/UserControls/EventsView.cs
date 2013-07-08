@@ -1177,9 +1177,9 @@ namespace ischedule
             {
                 string SelectedEventID = "" + grdEvents.SelectedRows[0].Cells[colEventID].Value;
 
-                frmCandidates frmCand = new frmCandidates(SelectedEventID);
+                //frmCandidates frmCand = new frmCandidates(SelectedEventID);
 
-                frmCand.ShowDialog();
+                //frmCand.ShowDialog();
             }
         }
 

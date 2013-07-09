@@ -873,7 +873,7 @@ namespace Sunset.Data.Integration
                 SIntegrationResult<STeacher> CourseSectionTeacherResult = STeacher.SelectByCourseSection(Connections,SchoolYear,Semester);
                 
                 //取得排課專屬的教師資料
-                TeacherResult = STeacher.Select(Connections);
+                TeacherResult = STeacher.Select(Connections, "_.GetTeacherEx");
 
                 //取得排課專屬的教師名稱
                 List<string> TeacherNames = TeacherResult.Data
@@ -891,7 +891,7 @@ namespace Sunset.Data.Integration
 
                 IsSuccess &= TeacherResult.IsSuccess && CourseSectionTeacherResult.IsSuccess;
 
-                FullTeacherResult = STeacher.Select(Connections);
+                FullTeacherResult = STeacher.Select(Connections, "_.GetTeacher");
 
                 IsSuccess &= FullTeacherResult.IsSuccess;
                 #endregion

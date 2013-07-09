@@ -222,11 +222,11 @@ namespace Sunset.Data.Integration
         /// </summary>
         /// <param name="Connection">連線物件</param>
         /// <returns>教師物件列表</returns>
-        private static List<STeacher> Select(Connection Connection)
+        private static List<STeacher> Select(Connection Connection,string ServiceName)
         {
             #region 取得教師原始資料
 
-            XElement Element = ContractService.GetTeacher(Connection);
+            XElement Element = ContractService.GetTeacher(Connection,ServiceName);
 
             List<STeacher> Teachers = new List<STeacher>();
             #endregion
@@ -293,7 +293,7 @@ namespace Sunset.Data.Integration
         /// </summary>
         /// <param name="Connections"></param>
         /// <returns></returns>
-        public static SIntegrationResult<STeacher> Select(List<Connection> Connections)
+        public static SIntegrationResult<STeacher> Select(List<Connection> Connections,string ServiceName)
         {
             #region 取得不同資料來源的課程，使用非同步執行
             SIntegrationResult<STeacher> Result = new SIntegrationResult<STeacher>();
@@ -302,7 +302,7 @@ namespace Sunset.Data.Integration
             {
                 try
                 {
-                    List<STeacher> Teachers = Select(x);
+                    List<STeacher> Teachers = Select(x,ServiceName);
                     Result.Data.AddRange(Teachers);
                 }
                 catch (Exception e)

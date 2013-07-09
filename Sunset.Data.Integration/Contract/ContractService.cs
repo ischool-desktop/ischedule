@@ -480,9 +480,11 @@ namespace Sunset.Data.Integration
         /// 根據連線取得教師
         /// </summary>
         /// <param name="Connection"></param>
-        public static XElement GetTeacher(Connection Connection)
+        public static XElement GetTeacher(Connection Connection,string ServiceName)
         {
             #region 範例
+            //_.GetTeacher
+            //_.GetTeacherEx
             //<Response>
             //    <Teacher>
             //        <Id>9186</Id>
@@ -492,7 +494,10 @@ namespace Sunset.Data.Integration
             //</Response>
             #endregion
 
-            XElement Element = SendRequest(Connection,"_.GetTeacherEx", new XElement("Request"));
+            XElement Element = SendRequest(
+                Connection,
+                ServiceName, 
+                new XElement("Request"));
 
             return Element;
         }

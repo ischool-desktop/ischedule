@@ -216,7 +216,10 @@ namespace Sunset.Data.Integration
                         PreWeekDay,PreDateTime,PreDuration,3,
                         CurWeekDay,CurDateTime,CurDuration,3))
                     {
-                        if (PreWeekDay.Equals(CurWeekDay) && PreDateTime.Equals(CurDateTime) && PreDuration.Equals(CurDuration) && PreDesc.Equals(CurDesc))
+                        if (PreWeekDay.Equals(CurWeekDay) && 
+                            PreDateTime.Equals(CurDateTime) && 
+                            PreDuration.Equals(CurDuration) && 
+                            PreDesc.Equals(CurDesc))
                         {
                             RemoveList.Add(SortedTeacherBusys[i - 1]);
                         }

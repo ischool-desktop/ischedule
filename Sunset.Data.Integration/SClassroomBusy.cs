@@ -206,6 +206,8 @@ namespace Sunset.Data.Integration
         {
             List<string> ClassroomBusyTimeConflict = new List<string>();
 
+            List<SClassroomBusy> RemoveList = new List<SClassroomBusy>();
+
             //根據場地名稱做群組
             var ClassroomGroups = ClassroomBusys.GroupBy(x => x.ClassroomID);
 
@@ -238,12 +240,23 @@ namespace Sunset.Data.Integration
                         PreWeekDay,PreDateTime,PreDuration,PreWeekFlag,
                         CurWeekDay,CurDateTime,CurDuration,CurWeekFlag))
                     {
-                        ClassroomBusyTimeConflict.Add("場地:"+PreClassroomName+"星期:"+PreWeekDay+",時間:"+PreDateTime.Hour +":"+PreDateTime.Minute+",持續分鐘："+PreDuration+",單雙週:"+PreWeekFlag+",來源："+PreAccessPoint);
-                        ClassroomBusyTimeConflict.Add("場地:" + CurClassroomName + "星期:" + CurWeekDay + ",時間:" + CurDateTime.Hour + ":" + CurDateTime.Minute + ",持續分鐘：" + CurDuration + ",單雙週:" + CurWeekFlag + ",來源：" + CurAccessPoint);
+                        if (PreWeekDay.Equals(CurWeekDay) && 
+                            PreDateTime.Equals(CurDateTime) && 
+                            PreDuration.Equals(CurDuration))
+                        {
+                            RemoveList.Add(SortedClassroomBusys[i - 1]);
+                        }
+                        else
+                        {
+                            ClassroomBusyTimeConflict.Add("場地:" + PreClassroomName + "星期:" + PreWeekDay + ",時間:" + PreDateTime.Hour + ":" + PreDateTime.Minute + ",持續分鐘：" + PreDuration + ",單雙週:" + PreWeekFlag + ",來源：" + PreAccessPoint);
+                            ClassroomBusyTimeConflict.Add("場地:" + CurClassroomName + "星期:" + CurWeekDay + ",時間:" + CurDateTime.Hour + ":" + CurDateTime.Minute + ",持續分鐘：" + CurDuration + ",單雙週:" + CurWeekFlag + ",來源：" + CurAccessPoint);
+                        }
                     }
                 }
                 #endregion
             }
+
+            RemoveList.ForEach(x => ClassroomBusys.Remove(x));
 
             return new Tuple<List<SClassroomBusy>, List<string>>(ClassroomBusys, ClassroomBusyTimeConflict);
         }

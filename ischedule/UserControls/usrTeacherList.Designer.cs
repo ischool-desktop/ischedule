@@ -86,9 +86,9 @@
             this.panel2.Controls.Add(this.chkWhat);
             this.panel2.Controls.Add(this.btnAddToTemp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
+            this.panel2.Location = new System.Drawing.Point(0, 410);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 120);
+            this.panel2.Size = new System.Drawing.Size(200, 90);
             this.panel2.TabIndex = 3;
             // 
             // chkName
@@ -123,6 +123,7 @@
             this.chkTotalHour.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.chkTotalHour.TabIndex = 4;
             this.chkTotalHour.Text = "按照總時數";
+            this.chkTotalHour.Visible = false;
             // 
             // chkUnAlloc
             // 
@@ -173,10 +174,10 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 355);
+            this.panel3.Size = new System.Drawing.Size(200, 385);
             this.panel3.TabIndex = 4;
             // 
-            // treeWho
+            // nodeTree
             // 
             this.nodeTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
             this.nodeTree.AllowDrop = true;
@@ -191,16 +192,18 @@
             this.nodeTree.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             this.nodeTree.Location = new System.Drawing.Point(0, 0);
             this.nodeTree.MultiSelect = true;
-            this.nodeTree.Name = "treeWho";
+            this.nodeTree.Name = "nodeTree";
             this.nodeTree.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
             this.node1});
             this.nodeTree.NodesConnector = this.nodeConnector1;
             this.nodeTree.NodeStyle = this.elementStyle1;
             this.nodeTree.PathSeparator = ";";
-            this.nodeTree.Size = new System.Drawing.Size(200, 355);
+            this.nodeTree.Size = new System.Drawing.Size(200, 385);
             this.nodeTree.Styles.Add(this.elementStyle1);
             this.nodeTree.TabIndex = 0;
             this.nodeTree.Text = "advTree1";
+            this.nodeTree.AfterCollapse += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.nodeTree_AfterCollapse);
+            this.nodeTree.AfterExpand += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.nodeTree_AfterExpand);
             this.nodeTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.treeWho_AfterNodeSelect);
             this.nodeTree.NodeMouseDown += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treeWho_NodeMouseDown);
             // 

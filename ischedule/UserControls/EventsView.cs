@@ -147,6 +147,7 @@ namespace ischedule
 
             this.grdEvents.CellFormatting -= new DataGridViewCellFormattingEventHandler(grdEvents_CellFormatting);
             this.grdEvents.SelectionChanged -= new EventHandler(grdEvents_SelectionChanged);
+            this.grdEvents.DoubleClick -= new EventHandler(grdEvents_DoubleClick);
 
             this.btnAutoSchedule.Click += new EventHandler(btnAutoSchedule_Click);
             this.btnLock.Click += new EventHandler(btnLock_Click);
@@ -157,6 +158,7 @@ namespace ischedule
 
             this.grdEvents.CellFormatting += new DataGridViewCellFormattingEventHandler(grdEvents_CellFormatting);
             this.grdEvents.SelectionChanged += new EventHandler(grdEvents_SelectionChanged);
+            this.grdEvents.DoubleClick += new EventHandler(grdEvents_DoubleClick);
 
             //當自動排課完成時更新
             schLocal.AutoScheduleComplete += (sender, e) =>
@@ -286,6 +288,12 @@ namespace ischedule
             grdEvents.DataError += (sender, e) => { };
         }
 
+        void grdEvents_DoubleClick(object sender, EventArgs e)
+        {
+            if (IsPropertyChangable())
+                ChangeProperty();
+        }
+
         /// <summary>
         /// 功課表節次被選取
         /// </summary>
@@ -348,6 +356,18 @@ namespace ischedule
             return false; 
         }
 
+        private bool IsPropertyChangable()
+        {
+            if (grdEvents.SelectedRows.Count == 1)
+            {
+                string Weekday = "" + grdEvents.SelectedRows[0].Cells[colWeekday].Value;
+
+                return Weekday.Equals("0");
+            }
+            else
+                return false;
+        }
+
         void grdEvents_SelectionChanged(object sender, EventArgs e)
         {
             if (!IsSelectionChanged)
@@ -357,7 +377,7 @@ namespace ischedule
             this.btnLock.Enabled = IsLockEnable();
             this.btnUnLock.Enabled = IsUnLockEnable();
             this.btnFree.Enabled = grdEvents.SelectedRows.Count > 0;
-            this.btnProperty.Enabled = grdEvents.SelectedRows.Count == 1;
+            this.btnProperty.Enabled = IsPropertyChangable();
 
             //判斷目前是屬於哪個資源，教師、班級或是場地
             switch (mLPViewType)
@@ -1165,6 +1185,17 @@ namespace ischedule
                 frmEventProperty frmProperty = new frmEventProperty(SelectedEventID);
 
                 frmProperty.ShowDialog();
+
+                foreach (DataGridViewRow Row in grdEvents.Rows)
+                {
+                    string EventID = "" + Row.Cells[colEventID].Value;
+
+                    if (EventID.Equals(SelectedEventID))
+                    {
+                        Row.Selected = true;
+                        break;
+                    }
+                }
             }
         }
 

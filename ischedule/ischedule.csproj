@@ -398,7 +398,9 @@
     <EmbeddedResource Include="UserControls\usrClassList.resx">
       <DependentUpon>usrClassList.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="html\img\.DS_Store" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

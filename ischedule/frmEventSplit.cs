@@ -33,15 +33,21 @@ namespace ischedule
 
             #region Populate combo box
             //將節數加到清單中
-            for (int i = 1; i <= nTot; i++)
+            for (int i = 1; i <= nTot-1; i++)
                 cboSelection0.Items.Add(i);
 
             //選到最後一個
             cboSelection0.SelectedIndex = cboSelection0.Items.Count - 1;
+
+            for (int i = 1; i <= 1; i++)
+                cboSelection1.Items.Add(i);
+
+            cboSelection1.SelectedIndex = cboSelection1.Items.Count - 1;
+
+            this.cboSelection_SelectionChangeCommitted(cboSelection1 , new EventArgs());
             #endregion
 
             #region Disable combos
-            cboSelection1.Enabled = false;
             cboSelection2.Enabled = false;
             cboSelection3.Enabled = false;
 
@@ -56,8 +62,6 @@ namespace ischedule
         {
             get { return nSectionCount; }
         }
-
-
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {

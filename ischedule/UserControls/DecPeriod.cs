@@ -9,6 +9,7 @@ using Sunset.Data;
 namespace ischedule
 {
     public delegate void PeriodClickedHandler(object sender, PeriodEventArgs e);
+    public delegate void PeriodDoubleClickedHandler(object sender,PeriodEventArgs e);
 
     /// <summary>
     /// 排課顏色
@@ -95,7 +96,18 @@ namespace ischedule
         /// </summary>
         public event PeriodClickedHandler OnPeriodClicked;
 
-        /*  Constructor  */
+        /// <summary>
+        /// 節次雙擊按下時的事件
+        /// </summary>
+        public event PeriodDoubleClickedHandler OnPeriodDoubleClicked;
+
+        /// <summary>
+        /// 建構式
+        /// </summary>
+        /// <param name="pnl"></param>
+        /// <param name="colIndex"></param>
+        /// <param name="rowIndex"></param>
+        /// <param name="schType"></param>
         public DecPeriod(DevComponents.DotNetBar.PanelEx pnl, 
             int colIndex, 
             int rowIndex,
@@ -110,6 +122,7 @@ namespace ischedule
             /* 註冊事件  */
 
             this._pnl.Click += new EventHandler(_pnl_MouseEnter);
+            this._pnl.DoubleClick += new EventHandler(_pnl_DoubleClick);
             this._pnl.MouseEnter += new EventHandler(_pnl_MouseEnter);
 
             //this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
@@ -161,6 +174,9 @@ namespace ischedule
             }
         }
 
+        /// <summary>
+        /// 重新繫結事件
+        /// </summary>
         public void RebindEvent()
         {
             this.lbl1.MouseEnter -= new EventHandler(lbl_MouseEnter);
@@ -213,6 +229,7 @@ namespace ischedule
             }
 
             this._pnl.Click += new EventHandler(_pnl_Click);
+            this._pnl.DoubleClick += new EventHandler(_pnl_DoubleClick);
             this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
 
             this.picBox.Click += new EventHandler(picBox_Click);
@@ -262,6 +279,7 @@ namespace ischedule
             this._pnl.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
             this._pnl.Style.BorderWidth = 1;
             this._pnl.Click -= new EventHandler(_pnl_Click);
+            this._pnl.DoubleClick -= new EventHandler(_pnl_DoubleClick);
             this._pnl.MouseLeave -= new EventHandler(_pnl_MouseLeave);
             this.BackColor = SchedulerColor.lvTimeTableBackColor;
 
@@ -297,6 +315,11 @@ namespace ischedule
             Console.WriteLine("_pnl_MouseLeave");
         }
 
+        /// <summary>
+        /// 滑鼠移過去時再動態繫結事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void _pnl_MouseEnter(object sender, EventArgs e)
         {            
             this.MouseEnterHandler(sender, e);
@@ -332,13 +355,12 @@ namespace ischedule
                 }
 
                 this._pnl.Click += new EventHandler(_pnl_Click);
+                this._pnl.DoubleClick += new EventHandler(_pnl_DoubleClick);
                 this._pnl.MouseLeave += new EventHandler(_pnl_MouseLeave);
 
                 this.picBox.Click += new EventHandler(picBox_Click);
                 this.isBindEvent = true;                 
-            }
-             
-            Console.WriteLine("_pnl_MouseEnter");
+            }             
         }
 
         private void MouseEnterHandler(object sender, EventArgs e)
@@ -353,6 +375,17 @@ namespace ischedule
             if (OnPeriodClicked != null)
             {
                 this.OnPeriodClicked(sender, new PeriodEventArgs(this._colIndex, this._rowIndex, this._events));
+            }
+        }
+
+        void _pnl_DoubleClick(object sender, EventArgs e)
+        {
+            /* 可已先行處理，如果有需要的話。 */
+
+            /* 再把事件丟出去給上層容器 */
+            if (OnPeriodDoubleClicked !=null)
+            {
+                this.OnPeriodDoubleClicked(this, new PeriodEventArgs(this._colIndex, this._rowIndex, this._events));
             }
         }
 
@@ -612,6 +645,12 @@ namespace ischedule
             }
         }
 
+        /// <summary>
+        /// 設定文件內容
+        /// </summary>
+        /// <param name="Index"></param>
+        /// <param name="Text"></param>
+        /// <param name="Tag"></param>
         private void SetLabelText(ref int Index,string Text, string Tag)
         {
             if (Index == 1)
@@ -638,6 +677,10 @@ namespace ischedule
             Index++;
         }
 
+        /// <summary>
+        /// 設定事件
+        /// </summary>
+        /// <param name="_vo"></param>
         private void SetSingleEvent(CEvent _vo)
         {
             this.picBox.Image = (_vo.ManualLock) ? Properties.Resources.lock_3 : null;
@@ -733,23 +776,7 @@ namespace ischedule
                 this.BackColor = (this.isValid) ? Color.White : this.unselectedColor;
 
             }
-        }
-
-        /* 因為Bind Event Handler 效能慢，所以選在顯示之後， 再呼叫此方法 bind events */
-        //public void AttachEvents()
-        //{
-        //    this._pnl.Click += (object sender, EventArgs e) =>
-        //    {
-        //        this.IsSelected = true;
-        //        if (OnPeriodClicked != null)
-        //        {
-        //            if (this._vo != null)
-        //                this.OnPeriodClicked(this, new PeriodEventArgs(this._colIndex, this._rowIndex, this._vo));
-        //        }
-        //    };
-        //}
-
-        
+        }        
         #endregion
     }
 

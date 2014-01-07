@@ -9,12 +9,26 @@ namespace ischedule
 {
     static class Program
     {
+        static void LoadModules()
+        {
+            string ModuleFolder = AppDomain.CurrentDomain.BaseDirectory + "modules\\";
+
+            // Create application domain setup information.
+            AppDomainSetup domaininfo = new AppDomainSetup();
+            domaininfo.ApplicationBase = ModuleFolder;
+
+            // Create the application domain.
+            AppDomain domain = AppDomain.CreateDomain("ModuleDomain", null, domaininfo);
+        }
+
         /// <summary>
         /// 應用程式的主要進入點。
         /// </summary>
         [STAThread]
         static void Main()
         {
+            LoadModules();
+
             if (!System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "開發模式")))
             {
                 string updatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "update_padding.xml");

@@ -64,10 +64,22 @@ namespace ischedule
 
             this.Icon = Resources.ischedule_logo;
 
+            schLocal.ImportSourceComplete += (vsender, ve) =>
+            {
+                GC.Collect();
+                lblMemoryUsage.Text = "使用記憶體：" + ((float)GC.GetTotalMemory(false) / (1024 * 1024)) + " MB";
+            };
+
+            schLocal.EventScheduled += (vsender, ve) =>
+            {
+                GC.Collect();
+                lblMemoryUsage.Text = "使用記憶體：" + ((float)GC.GetTotalMemory(false) / (1024 * 1024)) + " MB";
+            };
+
             #region 設定Aspose License
             Aspose.Cells.License License = new Aspose.Cells.License();
 
-            FileStream Stream = new FileStream(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Aspose.Total.lic", FileMode.Open);
+            FileStream Stream = new FileStream(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\components\\Aspose.Total.lic", FileMode.Open);
 
             License.SetLicense(Stream);
             #endregion
@@ -453,7 +465,7 @@ namespace ischedule
         private void SetScheduleSourceCloseMenu()
         {
             btnOpen.Enabled = true;
-            btnOpenOld.Enabled = true;
+            //btnOpenOld.Enabled = true;
             btnSave.Enabled = false;
             btnSaveAs.Enabled = false;
             btnDownload.Enabled = true;
@@ -492,7 +504,7 @@ namespace ischedule
         private void SetScheduleSourceOpenMenu()
         {
             btnOpen.Enabled = false;
-            btnOpenOld.Enabled = false;
+            //btnOpenOld.Enabled = false;
             btnSave.Enabled = true;
             btnSaveAs.Enabled = true;
             btnDownload.Enabled = false;
@@ -1132,6 +1144,27 @@ namespace ischedule
         private void btnRedo_Click(object sender, EventArgs e)
         {
             MainFormBL.Redo();
+        }
+
+        private void office2007StartButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (schLocal.IsOpen == true)
+            {
+                if (MessageBox.Show("提醒您是否已將排課資料上傳或存檔？", "確認關閉", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

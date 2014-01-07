@@ -143,7 +143,7 @@ namespace ischedule
 
             Node nodeRoot = new Node("所有場地");
             nodeRoot.TagString = "所有場地";
-            Node nodeNull = new Node("無場地分課");
+            Node nodeNull = new Node("無場地");
             nodeNull.TagString = "無";
 
             nodeTree.Nodes.Add(nodeRoot);
@@ -214,7 +214,7 @@ namespace ischedule
             Node nodeRoot = new Node("所有場地");
             nodeRoot.TagString = "所有場地";
 
-            Node nodeNull = new Node("無場地分課");
+            Node nodeNull = new Node("無場地");
             nodeNull.TagString = "無";
 
             nodeTree.Nodes.Add(nodeRoot);
@@ -287,7 +287,7 @@ namespace ischedule
             Node nodeRoot = new Node("所有場地");
             nodeRoot.TagString = "所有場地";
 
-            Node nodeNull = new Node("無場地分課");
+            Node nodeNull = new Node("無場地");
             nodeNull.TagString = "無";
 
             nodeTree.Nodes.Add(nodeRoot);

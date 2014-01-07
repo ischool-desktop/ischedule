@@ -1120,7 +1120,9 @@ namespace Sunset.Data
                                    #region 針對群組課程先行轉換
                                    //尋找對應的群組課程，不含自己
                                    List<SCourseSection> Sections = schSource.CourseSectionResult.Data
-                                       .FindAll(y=>y.CourseGroup.Equals(x.CourseGroup) && !y.ID.Equals(x.ID));
+                                       .FindAll(y=>y.CourseGroup.Equals(x.CourseGroup) 
+                                           && !y.ID.Equals(x.ID)
+                                           && !y.CourseName.Equals(x.CourseName));
 
                                    List<CEvent> evtsGroup = new List<CEvent>();
 

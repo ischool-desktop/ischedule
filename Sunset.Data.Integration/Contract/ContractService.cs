@@ -868,22 +868,28 @@ namespace Sunset.Data.Integration
         {
             XElement Request = XElement.Load(new StringReader("<Request/>"));
 
+            int intTry;
+
             foreach(STeacherBusy vTeacherBusy in TeacherBusys)
             {
-                XElement Element = new XElement("TeacherBusy");
+                //判斷教師系統編號是否為數字才新增
+                if (int.TryParse(vTeacherBusy.TeacherID, out intTry))
+                {
+                    XElement Element = new XElement("TeacherBusy");
 
-                XElement elmField = new XElement("Field");
+                    XElement elmField = new XElement("Field");
 
-                elmField.Add(new XElement("BeginTime",vTeacherBusy.BeginTime.ToString("yyyy/MM/dd HH:mm:ss")));
-                elmField.Add(new XElement("BusyDescription",vTeacherBusy.Description));
-                elmField.Add(new XElement("Duration",vTeacherBusy.Duration));
-                elmField.Add(new XElement("TeacherID",vTeacherBusy.TeacherID));
-                elmField.Add(new XElement("LocationID", vTeacherBusy.LocationID));
-                elmField.Add(new XElement("Weekday",vTeacherBusy.WeekDay));
+                    elmField.Add(new XElement("BeginTime", vTeacherBusy.BeginTime.ToString("yyyy/MM/dd HH:mm:ss")));
+                    elmField.Add(new XElement("BusyDescription", vTeacherBusy.Description));
+                    elmField.Add(new XElement("Duration", vTeacherBusy.Duration));
+                    elmField.Add(new XElement("TeacherID", vTeacherBusy.TeacherID));
+                    elmField.Add(new XElement("LocationID", vTeacherBusy.LocationID));
+                    elmField.Add(new XElement("Weekday", vTeacherBusy.WeekDay));
 
-                Element.Add(elmField);
+                    Element.Add(elmField);
 
-                Request.Add(Element);
+                    Request.Add(Element);
+                }
             }
 
             SendRequest(Conn, "_.InsertTeacherBusy", Request);

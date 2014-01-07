@@ -287,6 +287,20 @@ namespace ischedule
         public static extern bool Beep(int BeepFreq, int BeepDuration);
 
         /// <summary>
+        /// 當節次被雙擊時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dec_OnPeriodDoubleClicked(object sender, PeriodEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            string idEvent = Unschedule(e.Weekday, e.Period);
+
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        /// <summary>
         /// 當某一節次被按下時
         /// </summary>
         /// <param name="sender"></param>
@@ -746,6 +760,7 @@ namespace ischedule
         private DevComponents.DotNetBar.PanelEx makePanel(string name, string txt, Point location, Size size)
         {
             DevComponents.DotNetBar.PanelEx pnl = new DevComponents.DotNetBar.PanelEx();
+
             pnl.CanvasColor = System.Drawing.SystemColors.Control;
             pnl.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             pnl.Location = location;
@@ -1246,23 +1261,26 @@ namespace ischedule
             int pnlHeight = rowCount > 0 ? (this.pnlContainer.Size.Height - this.colHeaderHeight) / rowCount : 0;
 
             #region Create Headers
+            List<string> WeekdayStrs = new List<string>() {"一","二","三","四","五","六","日"};
+
             //建立星期物件
             for (int i = 0; i < colCount; i++)
             {
                 Point p = new Point(rowHeaderWidth + i * pnlWidth, 0);
                 Size s = new Size(pnlWidth, colHeaderHeight);
-                string name = string.Format("header_0_{0}", (i + 1).ToString());
+                string name = string.Format("header_0_{0}",  (i + 1).ToString());
                 DevComponents.DotNetBar.PanelEx pnl = null;
                 if (this.headerCells.ContainsKey(name))
                 {
                     pnl = this.headerCells[name];
+                    pnl.Text = WeekdayStrs[i];
                     pnl.Location = p;
                     pnl.Size = s;
                     pnl.Visible = true;
                 }
                 else
                 {
-                    pnl = this.makePanel(name, (i + 1).ToString(), p, s);
+                    pnl = this.makePanel(name, WeekdayStrs[i], p, s);
                     this.headerCells.Add(name, pnl);
                 }
                 this.pnlContainer.Controls.Add(pnl);
@@ -1316,6 +1334,7 @@ namespace ischedule
                         dec.BackColor = Color.White;
                         this.decPeriods.Add(name, dec);
                         dec.OnPeriodClicked += new PeriodClickedHandler(dec_OnPeriodClicked);
+                        dec.OnPeriodDoubleClicked += new PeriodDoubleClickedHandler(dec_OnPeriodDoubleClicked);
                     }
 
                     this.pnlContainer.Controls.Add(pnl);

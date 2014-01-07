@@ -522,7 +522,7 @@ namespace ischedule
 
             if (chkTeacher.Checked) strEvtInfo = eventLocal.GetTeacherString();
 
-            if (chkClass.Checked && !schLocal.Classrooms[eventLocal.ClassroomID].Name.Equals("無"))
+            if (chkClassroom.Checked && !schLocal.Classrooms[eventLocal.ClassroomID].Name.Equals("無"))
             {
                 if (!string.IsNullOrEmpty(strEvtInfo))
                     strEvtInfo += System.Environment.NewLine;

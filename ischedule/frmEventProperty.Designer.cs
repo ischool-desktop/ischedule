@@ -47,13 +47,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnMerge = new DevComponents.DotNetBar.ButtonX();
             this.lstSplit = new System.Windows.Forms.ListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtComment = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.cboWeekFlag = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
-            this.txtPriority = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chkDup = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkLongBreak = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -63,15 +56,26 @@
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.txtComment = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.cboWeekFlag = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.txtPriority = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.txtComment);
+            this.groupBox1.Controls.Add(this.labelX12);
+            this.groupBox1.Controls.Add(this.cboWeekFlag);
+            this.groupBox1.Controls.Add(this.labelX11);
+            this.groupBox1.Controls.Add(this.txtPriority);
+            this.groupBox1.Controls.Add(this.labelX10);
             this.groupBox1.Controls.Add(this.btnSplit);
             this.groupBox1.Controls.Add(this.txtLength);
             this.groupBox1.Controls.Add(this.labelX7);
@@ -89,7 +93,7 @@
             this.groupBox1.Controls.Add(this.labelX1);
             this.groupBox1.Location = new System.Drawing.Point(11, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(191, 252);
+            this.groupBox1.Size = new System.Drawing.Size(191, 373);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本資料";
@@ -98,7 +102,7 @@
             // 
             this.btnSplit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSplit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSplit.Location = new System.Drawing.Point(120, 216);
+            this.btnSplit.Location = new System.Drawing.Point(120, 228);
             this.btnSplit.Name = "btnSplit";
             this.btnSplit.Size = new System.Drawing.Size(61, 23);
             this.btnSplit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -114,7 +118,7 @@
             this.txtLength.Border.Class = "TextBoxBorder";
             this.txtLength.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtLength.Enabled = false;
-            this.txtLength.Location = new System.Drawing.Point(61, 216);
+            this.txtLength.Location = new System.Drawing.Point(61, 228);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(53, 25);
             this.txtLength.TabIndex = 13;
@@ -127,7 +131,7 @@
             // 
             this.labelX7.BackgroundStyle.Class = "";
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(18, 218);
+            this.labelX7.Location = new System.Drawing.Point(18, 230);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(34, 21);
             this.labelX7.TabIndex = 12;
@@ -139,7 +143,7 @@
             this.cboWhere.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboWhere.FormattingEnabled = true;
             this.cboWhere.ItemHeight = 19;
-            this.cboWhere.Location = new System.Drawing.Point(60, 184);
+            this.cboWhere.Location = new System.Drawing.Point(60, 193);
             this.cboWhere.Name = "cboWhere";
             this.cboWhere.Size = new System.Drawing.Size(121, 25);
             this.cboWhere.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -153,7 +157,7 @@
             // 
             this.labelX6.BackgroundStyle.Class = "";
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(18, 184);
+            this.labelX6.Location = new System.Drawing.Point(18, 193);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(34, 21);
             this.labelX6.TabIndex = 10;
@@ -166,7 +170,7 @@
             this.cboWhat.Enabled = false;
             this.cboWhat.FormattingEnabled = true;
             this.cboWhat.ItemHeight = 19;
-            this.cboWhat.Location = new System.Drawing.Point(60, 153);
+            this.cboWhat.Location = new System.Drawing.Point(60, 162);
             this.cboWhat.Name = "cboWhat";
             this.cboWhat.Size = new System.Drawing.Size(121, 25);
             this.cboWhat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -180,7 +184,7 @@
             // 
             this.labelX5.BackgroundStyle.Class = "";
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(18, 153);
+            this.labelX5.Location = new System.Drawing.Point(18, 162);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(34, 21);
             this.labelX5.TabIndex = 8;
@@ -193,7 +197,7 @@
             this.cboWhom.Enabled = false;
             this.cboWhom.FormattingEnabled = true;
             this.cboWhom.ItemHeight = 19;
-            this.cboWhom.Location = new System.Drawing.Point(60, 122);
+            this.cboWhom.Location = new System.Drawing.Point(60, 131);
             this.cboWhom.Name = "cboWhom";
             this.cboWhom.Size = new System.Drawing.Size(121, 25);
             this.cboWhom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -207,7 +211,7 @@
             // 
             this.labelX4.BackgroundStyle.Class = "";
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(18, 122);
+            this.labelX4.Location = new System.Drawing.Point(18, 131);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(34, 21);
             this.labelX4.TabIndex = 6;
@@ -220,7 +224,7 @@
             this.cboWho3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho3.FormattingEnabled = true;
             this.cboWho3.ItemHeight = 19;
-            this.cboWho3.Location = new System.Drawing.Point(60, 91);
+            this.cboWho3.Location = new System.Drawing.Point(60, 100);
             this.cboWho3.Name = "cboWho3";
             this.cboWho3.Size = new System.Drawing.Size(121, 25);
             this.cboWho3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -234,7 +238,7 @@
             // 
             this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(5, 91);
+            this.labelX3.Location = new System.Drawing.Point(5, 100);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(47, 21);
             this.labelX3.TabIndex = 4;
@@ -247,7 +251,7 @@
             this.cboWho2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho2.FormattingEnabled = true;
             this.cboWho2.ItemHeight = 19;
-            this.cboWho2.Location = new System.Drawing.Point(61, 60);
+            this.cboWho2.Location = new System.Drawing.Point(61, 69);
             this.cboWho2.Name = "cboWho2";
             this.cboWho2.Size = new System.Drawing.Size(121, 25);
             this.cboWho2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -261,7 +265,7 @@
             // 
             this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(6, 60);
+            this.labelX2.Location = new System.Drawing.Point(6, 69);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(47, 21);
             this.labelX2.TabIndex = 2;
@@ -274,7 +278,7 @@
             this.cboWho1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWho1.FormattingEnabled = true;
             this.cboWho1.ItemHeight = 19;
-            this.cboWho1.Location = new System.Drawing.Point(60, 25);
+            this.cboWho1.Location = new System.Drawing.Point(60, 34);
             this.cboWho1.Name = "cboWho1";
             this.cboWho1.Size = new System.Drawing.Size(121, 25);
             this.cboWho1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -288,7 +292,7 @@
             // 
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(7, 25);
+            this.labelX1.Location = new System.Drawing.Point(7, 34);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(47, 21);
             this.labelX1.TabIndex = 0;
@@ -327,103 +331,6 @@
             this.lstSplit.Size = new System.Drawing.Size(184, 191);
             this.lstSplit.TabIndex = 0;
             this.lstSplit.SelectedValueChanged += new System.EventHandler(this.lstSplit_SelectedValueChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.txtComment);
-            this.groupBox3.Controls.Add(this.labelX12);
-            this.groupBox3.Controls.Add(this.cboWeekFlag);
-            this.groupBox3.Controls.Add(this.labelX11);
-            this.groupBox3.Controls.Add(this.txtPriority);
-            this.groupBox3.Controls.Add(this.labelX10);
-            this.groupBox3.Location = new System.Drawing.Point(11, 259);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(191, 119);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "其他資料";
-            // 
-            // txtComment
-            // 
-            // 
-            // 
-            // 
-            this.txtComment.Border.Class = "TextBoxBorder";
-            this.txtComment.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtComment.Location = new System.Drawing.Point(60, 53);
-            this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(121, 25);
-            this.txtComment.TabIndex = 19;
-            // 
-            // labelX12
-            // 
-            this.labelX12.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.Class = "";
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(18, 57);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(34, 21);
-            this.labelX12.TabIndex = 18;
-            this.labelX12.Text = "註記";
-            // 
-            // cboWeekFlag
-            // 
-            this.cboWeekFlag.DisplayMember = "Text";
-            this.cboWeekFlag.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboWeekFlag.FormattingEnabled = true;
-            this.cboWeekFlag.ItemHeight = 19;
-            this.cboWeekFlag.Location = new System.Drawing.Point(60, 22);
-            this.cboWeekFlag.Name = "cboWeekFlag";
-            this.cboWeekFlag.Size = new System.Drawing.Size(121, 25);
-            this.cboWeekFlag.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cboWeekFlag.TabIndex = 17;
-            // 
-            // labelX11
-            // 
-            this.labelX11.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.Class = "";
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(7, 22);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(47, 21);
-            this.labelX11.TabIndex = 16;
-            this.labelX11.Text = "單雙週";
-            // 
-            // txtPriority
-            // 
-            // 
-            // 
-            // 
-            this.txtPriority.Border.Class = "TextBoxBorder";
-            this.txtPriority.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPriority.Enabled = false;
-            this.txtPriority.Location = new System.Drawing.Point(60, 84);
-            this.txtPriority.Name = "txtPriority";
-            this.txtPriority.Size = new System.Drawing.Size(121, 25);
-            this.txtPriority.TabIndex = 15;
-            this.txtPriority.Visible = false;
-            // 
-            // labelX10
-            // 
-            this.labelX10.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.Class = "";
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(18, 88);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(34, 21);
-            this.labelX10.TabIndex = 14;
-            this.labelX10.Text = "優先";
-            this.labelX10.Visible = false;
             // 
             // groupBox4
             // 
@@ -549,6 +456,87 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "取消";
             // 
+            // txtComment
+            // 
+            // 
+            // 
+            // 
+            this.txtComment.Border.Class = "TextBoxBorder";
+            this.txtComment.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtComment.Location = new System.Drawing.Point(59, 294);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(121, 25);
+            this.txtComment.TabIndex = 25;
+            // 
+            // labelX12
+            // 
+            this.labelX12.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.Class = "";
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(17, 298);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(34, 21);
+            this.labelX12.TabIndex = 24;
+            this.labelX12.Text = "註記";
+            // 
+            // cboWeekFlag
+            // 
+            this.cboWeekFlag.DisplayMember = "Text";
+            this.cboWeekFlag.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboWeekFlag.FormattingEnabled = true;
+            this.cboWeekFlag.ItemHeight = 19;
+            this.cboWeekFlag.Location = new System.Drawing.Point(59, 263);
+            this.cboWeekFlag.Name = "cboWeekFlag";
+            this.cboWeekFlag.Size = new System.Drawing.Size(121, 25);
+            this.cboWeekFlag.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboWeekFlag.TabIndex = 23;
+            // 
+            // labelX11
+            // 
+            this.labelX11.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.Class = "";
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(6, 263);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(47, 21);
+            this.labelX11.TabIndex = 22;
+            this.labelX11.Text = "單雙週";
+            // 
+            // txtPriority
+            // 
+            // 
+            // 
+            // 
+            this.txtPriority.Border.Class = "TextBoxBorder";
+            this.txtPriority.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPriority.Enabled = false;
+            this.txtPriority.Location = new System.Drawing.Point(59, 325);
+            this.txtPriority.Name = "txtPriority";
+            this.txtPriority.Size = new System.Drawing.Size(121, 25);
+            this.txtPriority.TabIndex = 21;
+            this.txtPriority.Visible = false;
+            // 
+            // labelX10
+            // 
+            this.labelX10.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.Class = "";
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(17, 329);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(34, 21);
+            this.labelX10.TabIndex = 20;
+            this.labelX10.Text = "優先";
+            this.labelX10.Visible = false;
+            // 
             // frmEventProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -557,7 +545,6 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximumSize = new System.Drawing.Size(430, 450);
@@ -568,8 +555,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -580,7 +565,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboWho1;
@@ -605,13 +589,13 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtPDCondition;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkLongBreak;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkDup;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtPriority;
-        private DevComponents.DotNetBar.LabelX labelX10;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cboWeekFlag;
-        private DevComponents.DotNetBar.LabelX labelX11;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtComment;
-        private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.ButtonX btnConfirm;
         private DevComponents.DotNetBar.ButtonX btnCancel;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtComment;
+        private DevComponents.DotNetBar.LabelX labelX12;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboWeekFlag;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtPriority;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

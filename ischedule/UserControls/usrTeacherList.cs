@@ -17,6 +17,7 @@ namespace ischedule
         private string idSaveWho1 = string.Empty;
         private string idSaveWho2 = string.Empty;
         private string idSaveWho3 = string.Empty;
+        private List<string> SubjectExpandNames = new List<string>();
 
         /// <summary>
         /// 無參數建構式
@@ -60,10 +61,26 @@ namespace ischedule
             //更新所有教師清單
             RefreshAll();
 
-            chkName.CheckedChanged += (sender, e) => RefreshAll();
-            chkWhat.CheckedChanged += (sender, e) => RefreshAll();
-            chkTotalHour.CheckedChanged += (sender, e) => RefreshAll();
-            chkUnAlloc.CheckedChanged += (sender, e) => RefreshAll();
+            chkName.CheckedChanged += (sender, e) =>
+            {
+                SubjectExpandNames.Clear();
+                RefreshAll();
+            };
+            chkWhat.CheckedChanged += (sender, e) =>
+            {
+                SubjectExpandNames.Clear();
+                RefreshAll();
+            };
+            chkTotalHour.CheckedChanged += (sender, e) =>
+            {
+                SubjectExpandNames.Clear();
+                RefreshAll();
+            };
+            chkUnAlloc.CheckedChanged += (sender, e) =>
+            {
+                SubjectExpandNames.Clear();
+                RefreshAll();
+            };
 
             btnAddToTemp.Click += (sender, e) => MainFormBL.Instance.OpenTeacherEventsView(Constants.evCustom, string.Empty,"待處理");
             menuOpenNewLPView.Click += (sender,e)=>
@@ -154,13 +171,13 @@ namespace ischedule
 
             nodeTree.Nodes.Clear();
 
-            Node nodeRoot = new Node("所有教師");
-            nodeRoot.TagString = "所有教師";
-            Node nodeNull = new Node("無授課教師分課");
+            //Node nodeRoot = new Node("所有教師");
+            //nodeRoot.TagString = "所有教師";
+            Node nodeNull = new Node("無教師");
             nodeNull.TagString = "無";
 
-            nodeTree.Nodes.Add(nodeRoot);
-            nodeTree.Nodes.Add(nodeNull);
+            //nodeTree.Nodes.Add(nodeRoot);
+
 
             foreach (string strWhat in WhatWhos.Keys)
             {
@@ -191,13 +208,20 @@ namespace ischedule
                 {
                     nodeWhat.Text = nodeWhat.Text + "(" + nodeWhat.Nodes.Count + ")";
                     nodeWhat.TagString = string.Join(";", Names.ToArray());
-                    nodeRoot.Nodes.Add(nodeWhat);
-                    nodeRoot.Expand();
+                    nodeTree.Nodes.Add(nodeWhat);
+
+                    if (SubjectExpandNames.Contains(nodeWhat.Text))
+                        nodeWhat.Expand();
+
+                    //nodeRoot.Nodes.Add(nodeWhat);
+                    //nodeRoot.Expand();
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Teachers.HasTotalHourCount + ")";
-            nodeRoot.ExpandAll();
+            nodeTree.Nodes.Add(nodeNull);
+
+            //nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Teachers.HasTotalHourCount + ")";
+            //nodeRoot.ExpandAll();
         }
 
         /// <summary>
@@ -205,6 +229,8 @@ namespace ischedule
         /// </summary>
         private void RefreshByUnAlloc(string idWho)
         {
+            //2.按照未排時數，分為未完成排課及已完成排課。
+
             int Total = 0;
 
             //根據分課的科目進行分類
@@ -228,14 +254,21 @@ namespace ischedule
 
             nodeTree.Nodes.Clear();
 
-            Node nodeRoot = new Node("所有教師");
-            nodeRoot.TagString = "所有教師";
+            //未完成排課及已完成排課。
+            Node nodeUnAlloc = new Node("未完成排課");
+            Node nodeAlloced = new Node("已完成排課");
 
-            Node nodeNull = new Node("無授課教師分課");
-            nodeNull.TagString = "無";
+            nodeTree.Nodes.Add(nodeUnAlloc);
+            nodeTree.Nodes.Add(nodeAlloced);
 
-            nodeTree.Nodes.Add(nodeRoot);
-            nodeTree.Nodes.Add(nodeNull);
+            //Node nodeRoot = new Node("所有教師");
+            //nodeRoot.TagString = "所有教師";
+
+            //Node nodeNull = new Node("無教師");
+            //nodeNull.TagString = "無";
+
+            //nodeTree.Nodes.Add(nodeRoot);
+            //nodeTree.Nodes.Add(nodeNull);
 
             foreach (int strWhat in UnAllocWhos.Keys.ToList().OrderByDescending(x=>x))
             {
@@ -255,7 +288,11 @@ namespace ischedule
                             Node nodeWho = new Node(whoPaint.Name + "(" + UnAllocHour + "/" + whoPaint.TotalHour + ")");
                             nodeWho.TagString = whoPaint.Name;
                             Names.Add(whoPaint.Name);
-                            nodeWhat.Nodes.Add(nodeWho);
+
+                            if (UnAllocHour > 0)
+                                nodeWhat.Nodes.Add(nodeWho);
+                            else
+                                nodeAlloced.Nodes.Add(nodeWho);
 
                             Total++;
                         }
@@ -266,13 +303,19 @@ namespace ischedule
                 {
                     nodeWhat.Text = nodeWhat.Text + "(" + nodeWhat.Nodes.Count + ")";
                     nodeWhat.TagString = string.Join(";", Names.ToArray());
-                    nodeRoot.Nodes.Add(nodeWhat);
-                    nodeRoot.Expand();
+                    nodeUnAlloc.Nodes.Add(nodeWhat);
+                    nodeWhat.Expand();
+
+                    //nodeRoot.Nodes.Add(nodeWhat);
+                    //nodeRoot.Expand();
                 }
             }
 
-            nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Teachers.HasTotalHourCount + ")";
-            nodeRoot.ExpandAll();
+            nodeUnAlloc.Expand();
+            nodeAlloced.Expand();
+
+            //nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Teachers.HasTotalHourCount + ")";
+            //nodeRoot.ExpandAll();
         }
 
         /// <summary>
@@ -306,7 +349,7 @@ namespace ischedule
             Node nodeRoot = new Node("所有教師");
             nodeRoot.TagString = "所有教師";
 
-            Node nodeNull = new Node("無授課教師分課");
+            Node nodeNull = new Node("無教師");
             nodeNull.TagString = "無";
 
             nodeTree.Nodes.Add(nodeRoot);
@@ -372,7 +415,7 @@ namespace ischedule
             Node nodeAll = new Node("所有教師");
             nodeAll.TagString = "所有教師";
 
-            Node nodeNull = new Node("無授課教師");
+            Node nodeNull = new Node("無教師");
             nodeNull.TagString = "無";
 
             nodeTree.Nodes.Add(nodeAll);
@@ -598,6 +641,18 @@ namespace ischedule
 
                 return result;
             }
+        }
+
+        private void nodeTree_AfterCollapse(object sender, AdvTreeNodeEventArgs e)
+        {
+            if (SubjectExpandNames.Contains(e.Node.Text))
+                SubjectExpandNames.Remove(e.Node.Text);
+        }
+
+        private void nodeTree_AfterExpand(object sender, AdvTreeNodeEventArgs e)
+        {
+            if (!SubjectExpandNames.Contains(e.Node.Text))
+                SubjectExpandNames.Add(e.Node.Text);
         }
         #endregion
     }

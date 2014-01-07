@@ -44,16 +44,9 @@ namespace ischedule
         {
             if (this.IsConfirm)
             {
-                if (string.IsNullOrEmpty(txtPassword.Text) ||
-                    string.IsNullOrEmpty(txtPasswordConfirm.Text))
+                if (string.IsNullOrEmpty(txtPassword.Text))
                 {
-                    MessageBox.Show("請輸入密碼及密碼確認欄位！");
-                    return;
-                }
-
-                if (!txtPassword.Text.Equals(txtPasswordConfirm.Text))
-                {
-                    MessageBox.Show("密碼及密碼確認欄位不一致！");
+                    MessageBox.Show("請輸入密碼欄位！");
                     return;
                 }
             }
@@ -67,8 +60,6 @@ namespace ischedule
         {
             if (!this.IsConfirm)
             {
-                labelX2.Visible = false;
-                txtPasswordConfirm.Visible = false;
                 btnConfirm.Top = 43;
                 btnCancel.Top = 43;
                 this.Height = 100;

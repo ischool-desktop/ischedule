@@ -46,6 +46,15 @@ namespace ischedule
 
             TeacherIDs.Add("");
 
+            if (!TeacherIDs.Contains(evtChange.TeacherID1))
+                TeacherIDs.Add(evtChange.TeacherID1);
+
+            if (!TeacherIDs.Contains(evtChange.TeacherID2))
+                TeacherIDs.Add(evtChange.TeacherID2);
+
+            if (!TeacherIDs.Contains(evtChange.TeacherID3))
+                TeacherIDs.Add(evtChange.TeacherID3);
+
             //篩選教師
             foreach (Teacher whoMember in schLocal.Teachers)
             {
@@ -63,7 +72,7 @@ namespace ischedule
             cboWho1.Items.Clear();
             cboWho2.Items.Clear();
             cboWho3.Items.Clear();
-
+             
             //加入教師清單
             for (int i = 0; i < TeacherIDs.Count; i++)
             {

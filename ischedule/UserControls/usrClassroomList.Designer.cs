@@ -74,7 +74,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 355);
+            this.panel3.Size = new System.Drawing.Size(200, 385);
             this.panel3.TabIndex = 10;
             // 
             // nodeTree
@@ -97,7 +97,7 @@
             this.nodeTree.NodesConnector = this.nodeConnector1;
             this.nodeTree.NodeStyle = this.elementStyle1;
             this.nodeTree.PathSeparator = ";";
-            this.nodeTree.Size = new System.Drawing.Size(200, 355);
+            this.nodeTree.Size = new System.Drawing.Size(200, 385);
             this.nodeTree.Styles.Add(this.elementStyle1);
             this.nodeTree.TabIndex = 0;
             this.nodeTree.Text = "advTree1";
@@ -144,9 +144,9 @@
             this.panel2.Controls.Add(this.chkCapacity);
             this.panel2.Controls.Add(this.btnAddToTemp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
+            this.panel2.Location = new System.Drawing.Point(0, 410);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 120);
+            this.panel2.Size = new System.Drawing.Size(200, 90);
             this.panel2.TabIndex = 9;
             // 
             // chkName
@@ -181,6 +181,7 @@
             this.chkTotalAlloc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.chkTotalAlloc.TabIndex = 4;
             this.chkTotalAlloc.Text = "按照總時數";
+            this.chkTotalAlloc.Visible = false;
             // 
             // chkUnAlloc
             // 

@@ -564,6 +564,10 @@ namespace ischedule
                 strEvtInfo += eventLocal.Comment;
             }
 
+            if (chkLock.Checked)
+                if (eventLocal.ManualLock)
+                    strEvtInfo += "*";
+
             return strEvtInfo;
         }
 
@@ -809,6 +813,11 @@ namespace ischedule
                 tabSchedule = GetTimeTableLPView();
 
             return tabSchedule;
+        }
+
+        private void txtPeriod_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

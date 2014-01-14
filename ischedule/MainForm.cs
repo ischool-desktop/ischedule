@@ -9,6 +9,7 @@ using FISCA.DSAClient;
 using ischedule.Properties;
 using Sunset.Data;
 using Sunset.Data.Integration;
+using FISCA;
 
 namespace ischedule
 {
@@ -221,6 +222,7 @@ namespace ischedule
             this.pnlWhomLPView.Width = 600;
             this.pnlWhereLPView.Width = 600;
 
+            //改由各個學校更新
             //ServerModule.AutoManaged("http://module.ischool.com.tw/module/89/ischedule/udm.xml");
 
             #region 測試用程式碼

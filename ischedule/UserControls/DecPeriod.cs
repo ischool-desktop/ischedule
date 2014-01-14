@@ -699,6 +699,9 @@ namespace ischedule
             if (Option.IsSubjectAlias)
                 SetLabelText(ref index, _vo.SubjectAlias, string.Empty);
 
+            if (Option.IsCourseName)
+                SetLabelText(ref index, _vo.CourseName, string.Empty);
+
             if (Option.IsClass)
                 SetLabelText(
                     ref index,
@@ -716,6 +719,9 @@ namespace ischedule
                     ref index, 
                     _vo.DisplayClassroomName,
                     !string.IsNullOrEmpty(_vo.ClassroomID) ? string.Format("Classroom：{0}", _vo.ClassroomID) : string.Empty);
+
+            if (Option.IsComment)
+                SetLabelText(ref index, _vo.Comment, string.Empty);
         }
 
         /// <summary>

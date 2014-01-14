@@ -69,10 +69,6 @@
       <HintPath>LibraryProject\DevComponents.DotNetBar2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FISCA">
-      <HintPath>..\SharedLib\FISCA.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="FISCA.Authentication">
       <HintPath>..\SharedLib\FISCA.Authentication.dll</HintPath>
       <Private>True</Private>

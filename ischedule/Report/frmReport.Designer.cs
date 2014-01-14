@@ -51,6 +51,7 @@
             this.rdoDefualt = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.btnPrint = new DevComponents.DotNetBar.ButtonX();
             this.btnExit = new DevComponents.DotNetBar.ButtonX();
+            this.chkLock = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,7 +94,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(14, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 81);
+            this.groupBox1.Size = new System.Drawing.Size(259, 86);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "選項設定";
@@ -106,7 +107,7 @@
             // 
             this.chkTeacherBusyDesc.BackgroundStyle.Class = "";
             this.chkTeacherBusyDesc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkTeacherBusyDesc.Location = new System.Drawing.Point(6, 53);
+            this.chkTeacherBusyDesc.Location = new System.Drawing.Point(15, 53);
             this.chkTeacherBusyDesc.Name = "chkTeacherBusyDesc";
             this.chkTeacherBusyDesc.Size = new System.Drawing.Size(147, 21);
             this.chkTeacherBusyDesc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -120,7 +121,7 @@
             // 
             this.chkMergeTimeTable.BackgroundStyle.Class = "";
             this.chkMergeTimeTable.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkMergeTimeTable.Location = new System.Drawing.Point(6, 24);
+            this.chkMergeTimeTable.Location = new System.Drawing.Point(15, 24);
             this.chkMergeTimeTable.Name = "chkMergeTimeTable";
             this.chkMergeTimeTable.Size = new System.Drawing.Size(100, 23);
             this.chkMergeTimeTable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -131,6 +132,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.txtPeriod);
+            this.groupBox2.Controls.Add(this.chkLock);
             this.groupBox2.Controls.Add(this.labelX2);
             this.groupBox2.Controls.Add(this.chkComment);
             this.groupBox2.Controls.Add(this.chkCourseName);
@@ -140,9 +142,9 @@
             this.groupBox2.Controls.Add(this.chkClass);
             this.groupBox2.Controls.Add(this.chkTeacher);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox2.Location = new System.Drawing.Point(14, 130);
+            this.groupBox2.Location = new System.Drawing.Point(14, 139);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(227, 112);
+            this.groupBox2.Size = new System.Drawing.Size(259, 112);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "顯示設定";
@@ -154,21 +156,23 @@
             // 
             this.txtPeriod.Border.Class = "TextBoxBorder";
             this.txtPeriod.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPeriod.Location = new System.Drawing.Point(137, 77);
+            this.txtPeriod.Location = new System.Drawing.Point(212, 78);
             this.txtPeriod.Name = "txtPeriod";
-            this.txtPeriod.Size = new System.Drawing.Size(73, 25);
+            this.txtPeriod.Size = new System.Drawing.Size(34, 25);
             this.txtPeriod.TabIndex = 8;
+            this.txtPeriod.TextChanged += new System.EventHandler(this.txtPeriod_TextChanged);
             // 
             // labelX2
             // 
             this.labelX2.AutoSize = true;
+            this.labelX2.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
             this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelX2.Location = new System.Drawing.Point(64, 79);
+            this.labelX2.Location = new System.Drawing.Point(139, 80);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(74, 21);
             this.labelX2.TabIndex = 7;
@@ -182,7 +186,7 @@
             // 
             this.chkComment.BackgroundStyle.Class = "";
             this.chkComment.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkComment.Location = new System.Drawing.Point(6, 78);
+            this.chkComment.Location = new System.Drawing.Point(16, 78);
             this.chkComment.Name = "chkComment";
             this.chkComment.Size = new System.Drawing.Size(54, 21);
             this.chkComment.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -197,7 +201,7 @@
             // 
             this.chkCourseName.BackgroundStyle.Class = "";
             this.chkCourseName.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkCourseName.Location = new System.Drawing.Point(117, 51);
+            this.chkCourseName.Location = new System.Drawing.Point(137, 51);
             this.chkCourseName.Name = "chkCourseName";
             this.chkCourseName.Size = new System.Drawing.Size(80, 21);
             this.chkCourseName.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -212,7 +216,7 @@
             // 
             this.chkClassroom.BackgroundStyle.Class = "";
             this.chkClassroom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkClassroom.Location = new System.Drawing.Point(57, 51);
+            this.chkClassroom.Location = new System.Drawing.Point(75, 51);
             this.chkClassroom.Name = "chkClassroom";
             this.chkClassroom.Size = new System.Drawing.Size(54, 21);
             this.chkClassroom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -227,7 +231,7 @@
             // 
             this.chkSubject.BackgroundStyle.Class = "";
             this.chkSubject.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkSubject.Location = new System.Drawing.Point(6, 51);
+            this.chkSubject.Location = new System.Drawing.Point(16, 51);
             this.chkSubject.Name = "chkSubject";
             this.chkSubject.Size = new System.Drawing.Size(54, 21);
             this.chkSubject.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -242,7 +246,7 @@
             // 
             this.chkSubjectAlias.BackgroundStyle.Class = "";
             this.chkSubjectAlias.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkSubjectAlias.Location = new System.Drawing.Point(117, 24);
+            this.chkSubjectAlias.Location = new System.Drawing.Point(137, 24);
             this.chkSubjectAlias.Name = "chkSubjectAlias";
             this.chkSubjectAlias.Size = new System.Drawing.Size(80, 21);
             this.chkSubjectAlias.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -257,7 +261,7 @@
             // 
             this.chkClass.BackgroundStyle.Class = "";
             this.chkClass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkClass.Location = new System.Drawing.Point(57, 24);
+            this.chkClass.Location = new System.Drawing.Point(75, 24);
             this.chkClass.Name = "chkClass";
             this.chkClass.Size = new System.Drawing.Size(54, 21);
             this.chkClass.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -272,7 +276,7 @@
             // 
             this.chkTeacher.BackgroundStyle.Class = "";
             this.chkTeacher.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkTeacher.Location = new System.Drawing.Point(6, 24);
+            this.chkTeacher.Location = new System.Drawing.Point(16, 24);
             this.chkTeacher.Name = "chkTeacher";
             this.chkTeacher.Size = new System.Drawing.Size(54, 21);
             this.chkTeacher.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -288,12 +292,12 @@
             this.groupBox3.Controls.Add(this.rdoCustomize);
             this.groupBox3.Controls.Add(this.rdoDefualt);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(14, 248);
+            this.groupBox3.Location = new System.Drawing.Point(14, 263);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(227, 81);
+            this.groupBox3.Size = new System.Drawing.Size(259, 79);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "選項設定";
+            this.groupBox3.Text = "範本設定";
             // 
             // lnkUploadCustom
             // 
@@ -376,7 +380,7 @@
             this.btnPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnPrint.BackColor = System.Drawing.Color.Transparent;
             this.btnPrint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint.Location = new System.Drawing.Point(108, 338);
+            this.btnPrint.Location = new System.Drawing.Point(141, 357);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(59, 23);
             this.btnPrint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -389,7 +393,7 @@
             this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(173, 338);
+            this.btnExit.Location = new System.Drawing.Point(206, 357);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(66, 23);
             this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -397,11 +401,26 @@
             this.btnExit.Text = "離開";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // chkLock
+            // 
+            this.chkLock.AutoSize = true;
+            // 
+            // 
+            // 
+            this.chkLock.BackgroundStyle.Class = "";
+            this.chkLock.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkLock.Location = new System.Drawing.Point(75, 78);
+            this.chkLock.Name = "chkLock";
+            this.chkLock.Size = new System.Drawing.Size(54, 21);
+            this.chkLock.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkLock.TabIndex = 7;
+            this.chkLock.Text = "鎖定";
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 373);
+            this.ClientSize = new System.Drawing.Size(285, 393);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox3);
@@ -409,8 +428,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cboTimeTable);
             this.Controls.Add(this.labelX1);
-            this.MaximumSize = new System.Drawing.Size(260, 400);
-            this.MinimumSize = new System.Drawing.Size(260, 400);
             this.Name = "frmReport";
             this.Text = "列印功課表";
             this.Load += new System.EventHandler(this.frmReport_Load);
@@ -450,6 +467,7 @@
         private DevComponents.DotNetBar.LabelX lnkUploadCustom;
         private DevComponents.DotNetBar.ButtonX btnPrint;
         private DevComponents.DotNetBar.ButtonX btnExit;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkLock;
 
     }
 }

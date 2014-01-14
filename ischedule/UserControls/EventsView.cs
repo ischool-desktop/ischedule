@@ -908,6 +908,23 @@ namespace ischedule
 
             CEvent evtTransfer = evtAdd;
 
+            #region 取得選取的分課
+            CEvents evtsSelected = this.GetSelectedEvents();
+            CEvent evtSelected = null;
+
+            if (evtsSelected.Count > 0)
+                evtSelected = evtsSelected[0];
+            #endregion
+
+            if (evtsSelected != null)
+            {
+                for (int i = 0; i < evtsTransfers.Count; i++)
+                {
+                    if (evtsTransfers[i].CourseName.Equals(evtTransfer.CourseName))
+                        nPos = i;
+                }
+            }            
+
             evtsTransfers.Insert(nPos, evtTransfer);
 
             #region SetRow的作法

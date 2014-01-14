@@ -24,8 +24,6 @@ namespace ischedule.test
         private List<CEvent> dataSource;        //所有的課程分段
         private TimeTable currentTbl;           //目前的上課時間表
         private List<Period> busyPeriods;       //不排課時段
-        private List<Period> conflictPeriods;   //資源衝突，無法排課的節次清單
-        private List<Period> readyPeriods;      //可以排課的節次清單
 
         /// <summary>
         /// pnl : 整個課表的 container

@@ -219,6 +219,18 @@ namespace ischedule
             itemSubjectAlias.Click += new EventHandler(ContextItem_Click);
             Menu.MenuItems.Add(itemSubjectAlias);
 
+            MenuItem itemCourseName = new MenuItem();
+            itemCourseName.Text = "課程名稱";
+            itemCourseName.Checked = mOption.IsCourseName;
+            itemCourseName.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemCourseName);
+
+            MenuItem itemComment = new MenuItem();
+            itemComment.Text = "註記";
+            itemComment.Checked = mOption.IsComment;
+            itemComment.Click += new EventHandler(ContextItem_Click);
+            Menu.MenuItems.Add(itemComment);
+
             MenuItem itemClass = new MenuItem();
             itemClass.Text = "班級";
             itemClass.Checked = mOption.IsClass;
@@ -270,6 +282,12 @@ namespace ischedule
 
             if (Item.Text.EndsWith("科目別名"))
                 mOption.IsSubjectAlias = !mOption.IsSubjectAlias;
+
+            if (Item.Text.EndsWith("課程名稱"))
+                mOption.IsCourseName = !mOption.IsCourseName;
+
+            if (Item.Text.EndsWith("註記"))
+                mOption.IsComment = !mOption.IsComment;
 
             if (Item.Text.EndsWith("教師"))
                 mOption.IsTeacher = !mOption.IsTeacher;
@@ -776,6 +794,18 @@ namespace ischedule
             pnl.TabIndex = 1;
             pnl.Text = txt;
 
+            if ((name.EndsWith("4") && !name.StartsWith("header")) ||
+                name.Equals("header_4_0"))
+            {
+                Panel pnlBorder = new Panel();
+
+                pnlBorder.Height = 3;
+                pnlBorder.Dock = DockStyle.Bottom;
+                pnlBorder.BackColor = Color.PowderBlue;
+
+                pnl.Controls.Add(pnlBorder);
+            }
+            
             return pnl;
         }
 

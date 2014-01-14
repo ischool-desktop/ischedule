@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ischedule
 {
+    /// <summary>
+    /// 功課表顯示設定
+    /// </summary>
     public class LPViewOption
     {
         public string TimeTableID { get; set; }
@@ -23,8 +26,15 @@ namespace ischedule
 
         public bool IsSubjectAlias { get; set; }
 
+        public bool IsCourseName { get; set; }
+
+        public bool IsComment { get; set; }
+
         public bool IsTimeTable { get; set; }
 
+        /// <summary>
+        /// 無參數建構式
+        /// </summary>
         public LPViewOption()
         {
             TimeTableID = string.Empty;
@@ -35,6 +45,7 @@ namespace ischedule
             IsClass = false;
             IsSubject = false;
             IsSubjectAlias = false;
+            IsCourseName = false;
             IsTimeTable = false;
         }
     }

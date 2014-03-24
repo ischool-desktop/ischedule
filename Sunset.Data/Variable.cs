@@ -1,4 +1,5 @@
 ﻿
+using System;
 namespace Sunset.Data
 {
     /// <summary>
@@ -160,27 +161,35 @@ namespace Sunset.Data
         {
             if (!IsValid()) return;
 
-            int nIndex = 0;
-
-            while (nIndex <= mValueNo)
+            try
             {
-                if (mValues[nIndex, 0] == NewValue)
+
+                int nIndex = 0;
+
+                while (nIndex <= mValueNo)
                 {
-                    mValues[nIndex, 1]++;
-                    break;
+                    if (mValues[nIndex, 0] == NewValue)
+                    {
+                        mValues[nIndex, 1]++;
+                        break;
+                    }
+
+                    nIndex++;
                 }
 
-                nIndex++;
+                if (nIndex > mValueNo)
+                {
+                    if (mValueNo < mCount)
+                    {
+                        mValueNo++;
+                        mValues[mValueNo, 0] = NewValue;
+                        mValues[mValueNo, 1] = 1;
+                    }
+                }
             }
-
-            if (nIndex > mValueNo)
+            catch (Exception e)
             {
-                if (mValueNo < mCount)
-                {
-                    mValueNo++;
-                    mValues[mValueNo, 0] = NewValue;
-                    mValues[mValueNo, 1] = 1;
-                }
+                Console.WriteLine(e);
             }
 
             #region VB

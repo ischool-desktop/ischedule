@@ -17,6 +17,8 @@ namespace Sunset.Data
         private int? mBasicLength;
         private int? mExtraLength;
         private int? mCounselingLength;
+        private string mCode;
+        private string mExpertise;
         private string mComment;
         private List<Appointments> mAppointmentsList;
         private Appointments mAppointments;
@@ -30,7 +32,7 @@ namespace Sunset.Data
         /// <param name="TeacherID">教師編號</param>
         /// <param name="Name">教師名稱</param>
         /// <param name="Capacity">行事曆數量</param>
-        public Teacher(string TeacherID, string Name, int Capacity, int? BasicLength, int? ExtraLength, int? CounselingLength,string Comment)
+        public Teacher(string TeacherID, string Name, int Capacity, int? BasicLength, int? ExtraLength, int? CounselingLength,string Code,string Expertise,string Comment)
         {
             //指定教師編號及姓名
             this.mTeacherID = TeacherID;
@@ -38,6 +40,8 @@ namespace Sunset.Data
             this.mBasicLength = BasicLength;
             this.mExtraLength = ExtraLength;
             this.mCounselingLength = CounselingLength;
+            this.mCode = Code;
+            this.mExpertise = Expertise;
             this.mComment = Comment;
 
             //若是行事曆數量小於1，那麼設行事曆數量為1，也就是教師一定會有預設的行事曆
@@ -114,6 +118,16 @@ namespace Sunset.Data
         /// 輔導時數
         /// </summary>
         public int? CounselingLength { get { return mCounselingLength; } }
+
+        /// <summary>
+        /// 教師代碼
+        /// </summary>
+        public string Code { get { return mCode; } }
+
+        /// <summary>
+        /// 教師專長
+        /// </summary>
+        public string Expertise { get { return mExpertise; } }
 
         /// <summary>
         /// 註解

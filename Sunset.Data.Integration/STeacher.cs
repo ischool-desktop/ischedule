@@ -50,6 +50,16 @@ namespace Sunset.Data.Integration
         public int? CounselingLength {get; set;}
 
         /// <summary>
+        /// 代碼
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
+        /// 專長
+        /// </summary>
+        public string Expertise { get; set; }
+
+        /// <summary>
         /// 註記
         /// </summary>
         public string Comment { get; set; }
@@ -83,6 +93,9 @@ namespace Sunset.Data.Integration
             this.BasicLength = Int.ParseAllowNull(Element.AttributeText("BasicLength"));
             this.ExtraLength = Int.ParseAllowNull(Element.AttributeText("ExtraLength"));
             this.CounselingLength = Int.ParseAllowNull(Element.AttributeText("CounselingLength"));
+
+            this.Code = Element.AttributeText("Code");
+            this.Expertise = Element.AttributeText("Expertise");
             this.Comment = Element.AttributeText("Comment");
 
             foreach (XElement SubElement in Element.Element("SourceIDs").Elements("SourceID"))
@@ -107,6 +120,9 @@ namespace Sunset.Data.Integration
             int? BasicLength = Int.ParseAllowNull(Element.ElementText("BasicLength"));
             int? ExtraLength = Int.ParseAllowNull(Element.ElementText("ExtraLength"));
             int? CounselingLength = Int.ParseAllowNull(Element.ElementText("CounselingLength"));
+
+            string Code = Element.ElementText("Code");
+            string Expertise = Element.ElementText("Expertise");
             string Comment = Element.ElementText("Comment");
 
             this.ID = FullName;
@@ -114,6 +130,8 @@ namespace Sunset.Data.Integration
             this.BasicLength = BasicLength;
             this.ExtraLength = ExtraLength;
             this.CounselingLength = CounselingLength;
+            this.Code = Code;
+            this.Expertise = Expertise;
             this.Comment = Comment;
             this.SourceIDs.Add(new SourceID(DSNS, ID));
         }
@@ -130,6 +148,8 @@ namespace Sunset.Data.Integration
             Element.SetAttributeValue("BasicLength", Int.GetString(BasicLength));
             Element.SetAttributeValue("ExtraLength", Int.GetString(ExtraLength));
             Element.SetAttributeValue("CounselingLength", Int.GetString(CounselingLength));
+            Element.SetAttributeValue("Code", Code);
+            Element.SetAttributeValue("Expertise", Expertise);
             Element.SetAttributeValue("Comment", Comment);
 
             XElement SubElement = new XElement("SourceIDs");
@@ -158,7 +178,26 @@ namespace Sunset.Data.Integration
                 try
                 {
                     List<STeacher> Teachers = SelectByCourseSection(x, SchoolYear, Semester);
-                    Result.Data.AddRange(Teachers);
+
+                    foreach (STeacher Teacher in Teachers)
+                    {
+                        //根據姓名比對教師是否存在
+                        STeacher FindTeacher = Result.Data.Find(y=>y.Name.Equals(Teacher.Name));
+
+                        //若不存在則新增
+                        if (FindTeacher==null)
+                        {
+                            Result.Data.Add(Teacher);
+                        }else
+                        {
+                            //若已存在則將DSNS加入
+                            foreach (SourceID SourceID in Teacher.SourceIDs)
+                            {
+                                if (FindTeacher.SourceIDs.Find(y => y.DSNS.Equals(SourceID.DSNS))==null)
+                                    FindTeacher.SourceIDs.Add(SourceID);
+                            }
+                        }
+                    }
                 }
                 catch (Exception e)
                 {

@@ -134,10 +134,5 @@ namespace ischedule
         {
             MainFormBL.Instance.Download();
         }
-
-        private void btnImport_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

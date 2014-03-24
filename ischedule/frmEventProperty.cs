@@ -193,9 +193,14 @@ namespace ischedule
             //chkDup.IsEnabled = !blnContainsSchEvent;
 
             //修改成只有當課程下的分課只有一個才能修改授課教師及本日是否重覆屬性
-            cboWho1.Enabled = intRelatedEventCount == 0;
-            cboWho2.Enabled = intRelatedEventCount == 0;
-            cboWho3.Enabled = intRelatedEventCount == 0;
+            //cboWho1.Enabled = intRelatedEventCount == 0;
+            //cboWho2.Enabled = intRelatedEventCount == 0;
+            //cboWho3.Enabled = intRelatedEventCount == 0;
+
+            cboWho1.Enabled = true;
+            cboWho2.Enabled = true;
+            cboWho3.Enabled = true;
+
             chkDup.Enabled = intRelatedEventCount == 0;
 
             //Disable controls if it is a scheduled event

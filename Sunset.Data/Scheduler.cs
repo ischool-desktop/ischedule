@@ -903,7 +903,7 @@ namespace Sunset.Data
             schSource.TeacherResult.Data.ForEach
             (x =>
                 {
-                    Teacher whoNew = new Teacher(x.ID, x.Name,1,x.BasicLength,x.ExtraLength,x.CounselingLength,x.Comment);
+                    Teacher whoNew = new Teacher(x.ID, x.Name,1,x.BasicLength,x.ExtraLength,x.CounselingLength,x.Code,x.Expertise,x.Comment);
                     x.SourceIDs.ForEach(y => whoNew.SourceIDs.Add(y));
                     Teachers.Add(whoNew);
                 }
@@ -1693,6 +1693,8 @@ namespace Sunset.Data
             if (evtTesteds!=null)
                 evtTesteds.Clear();
 
+            Dictionary<string, Periods> RandomPeriods = new Dictionary<string, Periods>();
+
             string Result = string.Empty;
             int nCurIndex = 0;
             int nTotItem = EventList.Count;
@@ -1703,6 +1705,7 @@ namespace Sunset.Data
             bool bUserAbort;
             int nThreshold = 0;
             CEvent evtTest;
+            Dictionary<int, int> ErrorCount = new Dictionary<int, int>();
 
             if (AutoScheduleStart != null)
                 AutoScheduleStart(this, new AutoScheduleStartEventArgs(nTotItem));
@@ -1714,7 +1717,7 @@ namespace Sunset.Data
             #endregion
 
             #region Find first unscheduled event
-            //找到第一個未排課分課
+            //找到事件列表第一個未排課分課
             while (nCurIndex < nTotItem-1)
             {
                 if (EventList[nCurIndex].WeekDay == 0)
@@ -1738,7 +1741,6 @@ namespace Sunset.Data
                 {
                     if (AutoScheduleProgress != null)
                     {                        
-
                         AutoScheduleProgressEventArgs EventArgs = new AutoScheduleProgressEventArgs(nCurIndex,false);
 
                         AutoScheduleProgress(this, EventArgs );
@@ -1765,19 +1767,24 @@ namespace Sunset.Data
                 }
                 else
                 {
-                    //取得事件對應時間表的節次
+                    //取得事件對應時間表的節次，當第一次取得時將節次打算
+                    //if (!RandomPeriods.ContainsKey(evtTest.TimeTableID))
+                    //{
+                        Periods vPeriods = TimeTables[evtTest.TimeTableID].Periods;
+                        vPeriods.RandomPeriods();
+                    //}
+
                     prdsTest = TimeTables[evtTest.TimeTableID].Periods;
-                    prdsTest.RandomPeriods();
 
                     //若事件未安排，則prdTest為第一節
                     if (evtTest.WeekDay == 0)
-                        //prdTest = prdsTest.GetNextRandomPeriod();
-                        prdTest = prdsTest.FirstPeriod(0);
+                        prdTest = prdsTest.GetFirstRandomPeriod();
+                        //prdTest = prdsTest.FirstPeriod(0);
                     else
                     {
                         //若事件有安排，則prdTest為目前節數的下一節
-                        //prdTest = prdsTest.GetNextRandomPeriod();
-                        prdTest = prdsTest.NextPeriod(evtTest.WeekDay, evtTest.PeriodNo);
+                        prdTest = prdsTest.GetNextRandomPeriod();
+                        //prdTest = prdsTest.NextPeriod(evtTest.WeekDay, evtTest.PeriodNo);
                         ReleaseEvent(evtTest, true);
                     }
 
@@ -1789,16 +1796,31 @@ namespace Sunset.Data
                             AllocEvent(true);
                             break;
                         }
-                        //prdTest = prdsTest.GetNextRandomPeriod();
-                        prdTest = prdsTest.NextPeriod(prdTest.WeekDay, prdTest.PeriodNo);
+                        prdTest = prdsTest.GetNextRandomPeriod();
+                        //prdTest = prdsTest.NextPeriod(prdTest.WeekDay, prdTest.PeriodNo);
                     }
 
                     //Determine to move forward or backward
                     //沒有排課成功的情況
                     if (prdTest == null)
                     {
-                        bMoveForward = false;
-                        nCurIndex--;
+                        //在這邊記錄失敗次數，若太多則跳出
+                        if (!ErrorCount.ContainsKey(nCurIndex))
+                            ErrorCount.Add(nCurIndex, 1);
+                        else
+                            ErrorCount[nCurIndex]++;
+
+                        if (ErrorCount[nCurIndex] > 5)
+                        {
+                            bMoveForward = true;
+                            if (nMostNear < nCurIndex) nMostNear = nCurIndex;
+                            nCurIndex++;
+                        }
+                        else
+                        {
+                            bMoveForward = false;
+                            nCurIndex--;
+                        }
                     }
                     else
                     {
@@ -1808,11 +1830,13 @@ namespace Sunset.Data
                     }
                 }
 
+            //有可能一直往前或往後跳脫不出來
             }while(nCurIndex>=0 && nCurIndex<nTotItem);
             #endregion
 
             //若傳回空白代表排課成功，若傳回事件編號代表該事件無解
-            Result = nCurIndex>=nTotItem ? string.Empty : EventList[nMostNear].EventID;
+            //Result = nCurIndex>=nTotItem ? string.Empty : EventList[nMostNear].EventID;
+            Result = string.Empty;
 
             //Increase the alloc hour for relating resource
             foreach (CEvent each in EventList)
@@ -2205,28 +2229,33 @@ namespace Sunset.Data
                         if (evtEnum.AllowDuplicate != AllowDuplicate)
                             nEnumMaskOption |= MaskOptions.maskOther;
 
-                        if (evtEnum.TeacherID1 != WhoID1)
-                        {
-                            nEnumMaskOption |= MaskOptions.maskWho;
-                        }
+                        //if (evtEnum.TeacherID1 != WhoID1)
+                        //{
+                        //    nEnumMaskOption |= MaskOptions.maskWho;
+                        //}
 
-                        if (evtEnum.TeacherID1 != WhoID2)
-                        {
-                            nEnumMaskOption |= MaskOptions.maskWho;
-                        }
+                        //if (evtEnum.TeacherID2 != WhoID2)
+                        //{
+                        //    nEnumMaskOption |= MaskOptions.maskWho;
+                        //}
 
-                        if (evtEnum.TeacherID1 != WhoID3)
-                        {
-                            nEnumMaskOption |= MaskOptions.maskWho;
-                        }
+                        //if (evtEnum.TeacherID3 != WhoID3)
+                        //{
+                        //    nEnumMaskOption |= MaskOptions.maskWho;
+                        //}
 
                         if (EventPropertyBeforeChange != null)
                             EventPropertyBeforeChange(this, new EventPropertyBeforeChangeEventArgs(evtEnum.EventID, nEnumMaskOption));
 
                         DecTotalHour(evtEnum);
-                        evtEnum.TeacherID1 = WhoID1;
-                        evtEnum.TeacherID2 = WhoID2;
-                        evtEnum.TeacherID3 = WhoID3;
+
+                        //if (evtEnum.EventID.Equals(evtChange.EventID))
+                        //{
+                        //    evtEnum.TeacherID1 = WhoID1;
+                        //    evtEnum.TeacherID2 = WhoID2;
+                        //    evtEnum.TeacherID3 = WhoID3;
+                        //}
+
                         evtEnum.AllowDuplicate = AllowDuplicate;
                         IncTotalHour(evtEnum);
                         evtEnum.SolutionCount = -1;
@@ -2835,7 +2864,7 @@ namespace Sunset.Data
 
             //'Inerst NULL objects into related collections
 
-            Teachers.Add(new Teacher(Constants.NullString, "無", 0,null,null,null,Constants.NullString));
+            Teachers.Add(new Teacher(Constants.NullString, "無", 0,null,null,null,Constants.NullString,Constants.NullString,Constants.NullString));
             Classes.Add(new Class(Constants.NullString, "無",Constants.NullString,Constants.NullString,Constants.NullString,Constants.NullString));
             Classrooms.Add(new Classroom(Constants.NullString, "無", 0, Constants.NullString, true));
             Subjects.Add(new Subject(Constants.NullString, "無"));

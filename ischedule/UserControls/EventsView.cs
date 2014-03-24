@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using Sunset.Data;
+using System.Collections;
 
 namespace ischedule
 {
@@ -220,7 +221,21 @@ namespace ischedule
                                 InsertEvent(e.EventID);
                             break;
                     }
-                    RefreshEvent(e.EventID);
+
+                    IEnumerable<CEvent> CourseEvents = schLocal.CEvents
+                        .Where(x => 
+                            x.CourseID.Equals(schLocal.CEvents[e.EventID].CourseID) 
+                            && x.WeekDay==0);
+
+                    if (CourseEvents != null)
+                    {
+                        CEvents evtsRefresh = new CEvents();
+
+                        foreach (CEvent evtRefresh in CourseEvents)
+                            evtsRefresh.Add(evtRefresh);
+
+                        schLocal.GetSolutionCounts(evtsRefresh);
+                    }
                 }
             };
 
@@ -380,18 +395,18 @@ namespace ischedule
             this.btnProperty.Enabled = IsPropertyChangable();
 
             //判斷目前是屬於哪個資源，教師、班級或是場地
-            switch (mLPViewType)
-            {
-                case Constants.lvWho:
-                    this.btnPrint.Enabled = MainFormBL.Instance.TeacherList.SelectedIDs.Count>0;
-                    break;
-                case Constants.lvWhom:
-                    this.btnPrint.Enabled = MainFormBL.Instance.ClassList.SelectedIDs.Count>0;
-                    break;
-                case Constants.lvWhere:
-                    this.btnPrint.Enabled = MainFormBL.Instance.ClassroomList.SelectedIDs.Count>0;
-                    break;
-            }
+            //switch (mLPViewType)
+            //{
+            //    case Constants.lvWho:
+            //        this.btnPrint.Enabled = MainFormBL.Instance.TeacherList.SelectedIDs.Count>0;
+            //        break;
+            //    case Constants.lvWhom:
+            //        this.btnPrint.Enabled = MainFormBL.Instance.ClassList.SelectedIDs.Count>0;
+            //        break;
+            //    case Constants.lvWhere:
+            //        this.btnPrint.Enabled = MainFormBL.Instance.ClassroomList.SelectedIDs.Count>0;
+            //        break;
+            //}
 
             //當選取分課為一門時進行作業
             if (grdEvents.SelectedRows.Count == 1)

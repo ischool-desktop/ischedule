@@ -79,7 +79,6 @@
             this.btnImport.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnImport.TabIndex = 1;
             this.btnImport.Text = "確認下載";
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // panel2
             // 

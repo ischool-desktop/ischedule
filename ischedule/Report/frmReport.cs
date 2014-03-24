@@ -204,89 +204,102 @@ namespace ischedule
         {
             mLoadPreference = Task.Factory.StartNew(LoadPreference);
 
-            #region 初始化時間表
-            cboTimeTable.Items.Clear();
-            List<string> TimeTableIDs = new List<string>();
+            #region 列出名單
+            grdNameList.SelectionChanged -= grdNameList_SelectionChanged; 
 
-            AssocIDs = new List<string>();
+            grdNameList.Rows.Clear();
 
-            #region 取得關連的系統編號
+            SortedDictionary<string, string> NameIDs = new SortedDictionary<string, string>();
+
             switch (MainFormBL.Instance.GetSelectedType())
             {
                 //取得所有選取教師系統編號
                 case "Teacher":
+
                     AssocIDs = MainFormBL.Instance.TeacherList.SelectedIDs;
+
+                    foreach (Teacher vTeacher in schLocal.Teachers)
+                    {
+                         if (!string.IsNullOrWhiteSpace(vTeacher.TeacherID) &&
+                            vTeacher.TotalHour>0)
+                            NameIDs.Add(vTeacher.Name, vTeacher.TeacherID);
+                    }
+
+                    foreach (string ID in NameIDs.Values)
+                    {
+                        Teacher vTeacher = schLocal.Teachers[ID];
+
+                        int RowIndex = grdNameList.Rows.Add();
+                        grdNameList.Rows[RowIndex].Cells[0].Value = vTeacher.TeacherID;
+                        grdNameList.Rows[RowIndex].Cells[1].Value = vTeacher.Name;
+                        grdNameList.Rows[RowIndex].Selected = false;
+
+                        if (AssocIDs.Contains(ID))
+                            grdNameList.Rows[RowIndex].Selected = true;
+                    }
+
                     break;
                 //取得所有選取班級系統編號
                 case "Class":
                     AssocIDs = MainFormBL.Instance.ClassList.SelectedIDs;
+
+                    foreach (Class vClass in schLocal.Classes)
+                    {
+                        if (!string.IsNullOrWhiteSpace(vClass.ClassID) &&
+                            vClass.TotalHour>0)
+                            NameIDs.Add(vClass.Name, vClass.ClassID);
+                    }
+
+                    foreach (string ID in NameIDs.Values)
+                    {
+                        Class vClass = schLocal.Classes[ID];
+
+                        int RowIndex = grdNameList.Rows.Add();
+                        grdNameList.Rows[RowIndex].Cells[0].Value = vClass.ClassID;
+                        grdNameList.Rows[RowIndex].Cells[1].Value = vClass.Name;
+                        grdNameList.Rows[RowIndex].Selected = false;
+
+                        if (AssocIDs.Contains(ID))
+                            grdNameList.Rows[RowIndex].Selected = true;
+                    }
+
                     break;
                 //取得所有選取場地系統編號
                 case "Classroom":
                     AssocIDs = MainFormBL.Instance.ClassroomList.SelectedIDs;
+
+
+                    foreach (Classroom vClassroom in schLocal.Classrooms)
+                    {
+                        if (!string.IsNullOrWhiteSpace(vClassroom.ClassroomID) 
+                           && vClassroom.TotalHour>0)
+                            NameIDs.Add(vClassroom.Name,vClassroom.ClassroomID);
+                    }
+
+                    foreach (string ID in NameIDs.Values)
+                    {
+                        Classroom vClassroom = schLocal.Classrooms[ID];
+
+                        int RowIndex = grdNameList.Rows.Add();
+                        grdNameList.Rows[RowIndex].Cells[0].Value = vClassroom.ClassroomID;
+                        grdNameList.Rows[RowIndex].Cells[1].Value = vClassroom.Name;
+                        grdNameList.Rows[RowIndex].Selected = false;
+
+                        if (AssocIDs.Contains(ID))
+                            grdNameList.Rows[RowIndex].Selected = true;
+                    }
+
                     break;
             }
+
+            grdNameList.SelectionChanged += grdNameList_SelectionChanged;
             #endregion
-
-            AssocIDs.ForEach(x =>
-            {
-                switch (MainFormBL.Instance.GetSelectedType())
-                {
-                    case "Teacher":
-                        schLocal.Teachers[x].UseAppointments(0);    //預設使用第一個行事曆
-                        foreach (Appointment app in schLocal.Teachers[x].Appointments)
-                        {
-                            if (!string.IsNullOrEmpty(app.EventID))
-                            {
-                                string TimeTableID = GetTimeTableID(app.EventID);
-                                if (!TimeTableIDs.Contains(TimeTableID))
-                                    TimeTableIDs.Add(TimeTableID);
-                            }
-                        }
-                        break;
-                    case "Class":
-                        foreach (Appointment app in schLocal.Classes[x].Appointments)
-                        {
-                            if (!string.IsNullOrEmpty(app.EventID))
-                            {
-                                string TimeTableID = GetTimeTableID(app.EventID);
-                                if (!TimeTableIDs.Contains(TimeTableID))
-                                    TimeTableIDs.Add(TimeTableID);
-                            }
-                        }
-                        break;
-                    case "Classroom":
-                        schLocal.Classrooms[x].UseAppointments(0); //預設使用第一個行事曆
-                        foreach (Appointment app in schLocal.Classrooms[x].Appointments)
-                        {
-                            if (!string.IsNullOrEmpty(app.EventID))
-                            {
-                                string TimeTableID = GetTimeTableID(app.EventID);
-                                if (!TimeTableIDs.Contains(TimeTableID))
-                                    TimeTableIDs.Add(TimeTableID);
-                            }
-                        }
-                        break;
-                }
-            });
-
-            TimeTableIDs.ForEach(x => cboTimeTable.Items.Add(schLocal.TimeTables[x]));
-
-            if (cboTimeTable.Items.Count > 0)
-                cboTimeTable.SelectedIndex = 0;
-            else
-            {
-                MessageBox.Show("無時間表設定，無法列印！");
-                this.Close();
-                return;
-            }
 
             chkMergeTimeTable.CheckedChanged += (vsender, ve) =>
             {
                 cboTimeTable.Enabled = chkMergeTimeTable.Checked;
                 chkTeacherBusyDesc.Enabled = chkMergeTimeTable.Checked;
             };
-            #endregion
 
             #region 報表顯示項目
             switch (MainFormBL.Instance.GetSelectedType())
@@ -317,6 +330,11 @@ namespace ischedule
                     break;
             }
             #endregion
+        }
+
+        private void grdNameList_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -359,9 +377,14 @@ namespace ischedule
             AssocIDs.ForEach(x =>
             {
                 DataSet LPView = new DataSet("DataSection");
+
+                SortedDictionary<string, int> dicSubject = new SortedDictionary<string, int>();
+
                 string BasicLength = string.Empty;
                 string ExtraLength = string.Empty;
                 string CounselingLength = string.Empty;
+                string Code = string.Empty;
+                string Expertise = string.Empty;
                 string Comment = string.Empty;
 
                 switch (MainFormBL.Instance.GetSelectedType())
@@ -375,13 +398,69 @@ namespace ischedule
                         BasicLength = schLocal.Teachers[x].BasicLength.HasValue? ""+schLocal.Teachers[x].BasicLength:string.Empty;
                         ExtraLength = schLocal.Teachers[x].ExtraLength.HasValue? ""+schLocal.Teachers[x].ExtraLength:string.Empty;
                         CounselingLength = schLocal.Teachers[x].CounselingLength.HasValue? ""+schLocal.Teachers[x].CounselingLength:string.Empty;
-                        Comment = schLocal.Teachers[x].Comment;
+                        Code = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Code)?schLocal.Teachers[x].Code:string.Empty;
+                        Expertise = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Expertise)?schLocal.Teachers[x].Expertise:string.Empty;
+                        Comment =  !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Comment)?schLocal.Teachers[x].Comment:string.Empty;
+
+                        //當是教師時用班級及科目為鍵值統計
+                        foreach(Appointment apCur in apsCur)
+                            if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                            {
+                                CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                                string Subject = evtCur.DisplaySubjectName;
+                                string ClassName = evtCur.DisplayClassName;
+                                string Key = Subject + "," + ClassName;
+
+                                if (!dicSubject.ContainsKey(Key))
+                                    dicSubject.Add(Key, 0);
+                                dicSubject[Key] += evtCur.Length;
+                            };
+
                         break;
                     case "Class":
                         apsCur = schLocal.Classes[x].Appointments;
                         LPViewName = schLocal.Classes[x].Name;
                         LPViewType = "班級";
                         LPViewClassTeacherName = schLocal.Classes[x].TeacherName;
+
+                        //當是班級時用教師及科目為鍵值統計
+                        foreach(Appointment apCur in apsCur)
+                            if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                            {
+                                CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                                string Subject = evtCur.DisplaySubjectName;
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID1))
+                                {
+                                    string TeacherName = evtCur.TeacherID1;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID2))
+                                {
+                                    string TeacherName = evtCur.TeacherID2;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID3))
+                                {
+                                    string TeacherName = evtCur.TeacherID3;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+                            };
+
                         break;
                     case "Classroom":
                         schLocal.Classrooms[x].UseAppointments(0); //預設使用第一個行事曆
@@ -389,11 +468,68 @@ namespace ischedule
                         LPViewName = schLocal.Classrooms[x].Name;
                         LPViewType = "場地";
                         LPViewClassTeacherName = string.Empty;
+
+                        foreach(Appointment apCur in apsCur)
+                            if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                            {
+                                CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                                string Subject = evtCur.DisplaySubjectName;
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID1))
+                                {
+                                    string TeacherName = evtCur.TeacherID1;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID2))
+                                {
+                                    string TeacherName = evtCur.TeacherID2;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+
+                                if (!string.IsNullOrEmpty(evtCur.TeacherID3))
+                                {
+                                    string TeacherName = evtCur.TeacherID3;
+                                    string Key = Subject + "," + TeacherName;
+
+                                    if (!dicSubject.ContainsKey(Key))
+                                        dicSubject.Add(Key, 0);
+                                    dicSubject[Key] += evtCur.Length;
+                                }
+                            };
+
                         break;
                 }
 
                 if (!LPViews.ContainsKey(LPViewName))
                     LPViews.Add(LPViewName, new List<DataSet>());
+
+                DataTable tabSubject = new DataTable("Subject");
+
+                tabSubject.Columns.Add("Subject");
+                tabSubject.Columns.Add("Count");
+                tabSubject.Columns.Add("Name");
+
+                int Total = 0;
+
+                foreach (string Key in dicSubject.Keys)
+                {
+                    string[] Keys = Key.Split(new char[] { ',' });
+
+                    tabSubject.Rows.Add(Keys[0], dicSubject[Key], Keys[1]);
+
+                    Total += dicSubject[Key];
+                }
+
+                tabSubject.Rows.Add("總節數", "" + Total);
 
                 DataTable tabSchoolYear = ("" + schLocal.SchoolYear).ToDataTable("SchoolYear", "學年度");
                 DataTable tabSemester = ("" + schLocal.Semester).ToDataTable("Semester", "學期");
@@ -404,14 +540,22 @@ namespace ischedule
                 DataTable tabBasicLength = BasicLength.ToDataTable("TeacherBasicLength", "教師基本時數");
                 DataTable tabExtraLength = ExtraLength.ToDataTable("TeacherExtraLength", "教師兼課時數");
                 DataTable tabCounselingLength = CounselingLength.ToDataTable("TeacherCounselingLength", "教師輔導時數");
+                DataTable tabCode = Code.ToDataTable("TeacherCode", "教師代碼");
+                DataTable tabExpertise = Expertise.ToDataTable("TeacherExpertise", "教師專長");
                 DataTable tabComment = Comment.ToDataTable("TeacherComment", "教師註解");
 
+                DataTable tabPrintDate = DateTime.Today.ToShortDateString().ToDataTable("PrintDate","列印日期");
+
+                LPView.Tables.Add(tabSubject);
                 LPView.Tables.Add(tabSchoolYear);
                 LPView.Tables.Add(tabSemester);
                 LPView.Tables.Add(tabLPViewName);
                 LPView.Tables.Add(tabLPViewType);
                 LPView.Tables.Add(tabLPViewClassTeacherName);
+                LPView.Tables.Add(tabCode);
+                LPView.Tables.Add(tabExpertise);
                 LPView.Tables.Add(tabComment);
+                LPView.Tables.Add(tabPrintDate);
 
                 DataTable tabScheduleDetail = GetLPViewDetail();
 
@@ -520,53 +664,65 @@ namespace ischedule
 
             CEvent eventLocal = schLocal.CEvents[EventID];
 
-            if (chkTeacher.Checked) strEvtInfo = eventLocal.GetTeacherString();
+            if (chkLock.Checked)
+                if (eventLocal.ManualLock)
+                    strEvtInfo += "*";
+
+            if (chkComment.Checked)
+            {
+                strEvtInfo = eventLocal.Comment;
+            }
+
+            if (chkTeacher.Checked)
+            {
+                strEvtInfo += eventLocal.GetTeacherString();
+
+                if (!string.IsNullOrEmpty(strEvtInfo))
+                    strEvtInfo += System.Environment.NewLine;
+            }
 
             if (chkClassroom.Checked && !schLocal.Classrooms[eventLocal.ClassroomID].Name.Equals("無"))
             {
+                strEvtInfo += schLocal.Classrooms[eventLocal.ClassroomID].Name;
+
                 if (!string.IsNullOrEmpty(strEvtInfo))
                     strEvtInfo += System.Environment.NewLine;
-                strEvtInfo += schLocal.Classrooms[eventLocal.ClassroomID].Name;
             }
 
             if (chkClass.Checked)
             {
+                strEvtInfo += schLocal.Classes[eventLocal.ClassID].Name;
+
                 if (!string.IsNullOrEmpty(strEvtInfo))
                     strEvtInfo += System.Environment.NewLine;
-                strEvtInfo += schLocal.Classes[eventLocal.ClassID].Name;
             }
 
             if (chkSubject.Checked)
             {
+                strEvtInfo += schLocal.Subjects[eventLocal.SubjectID].Name + eventLocal.WeekFlag.GetWeekFlagStr();
+
                 if (!string.IsNullOrEmpty(strEvtInfo))
                     strEvtInfo += System.Environment.NewLine;
-                strEvtInfo += schLocal.Subjects[eventLocal.SubjectID].Name + eventLocal.WeekFlag.GetWeekFlagStr();
             }
 
             if (chkSubjectAlias.Checked)
             {
-                if (!string.IsNullOrEmpty(strEvtInfo))
-                    strEvtInfo += System.Environment.NewLine + eventLocal.WeekFlag.GetWeekFlagStr();
                 strEvtInfo += eventLocal.SubjectAlias;
+
+                if (!string.IsNullOrEmpty(strEvtInfo))
+                    strEvtInfo += eventLocal.WeekFlag.GetWeekFlagStr() + System.Environment.NewLine;
             }
 
             if (chkCourseName.Checked)
             {
-                if (!string.IsNullOrEmpty(strEvtInfo))
-                    strEvtInfo += System.Environment.NewLine + eventLocal.WeekFlag.GetWeekFlagStr();
                 strEvtInfo += eventLocal.CourseName;
-            }
 
-            if (chkComment.Checked)
-            {
                 if (!string.IsNullOrEmpty(strEvtInfo))
-                    strEvtInfo += System.Environment.NewLine;
-                strEvtInfo += eventLocal.Comment;
+                    strEvtInfo += eventLocal.WeekFlag.GetWeekFlagStr() + System.Environment.NewLine;
             }
 
-            if (chkLock.Checked)
-                if (eventLocal.ManualLock)
-                    strEvtInfo += "*";
+            if (strEvtInfo.EndsWith(System.Environment.NewLine))
+                strEvtInfo = strEvtInfo.Substring(0, strEvtInfo.Length - System.Environment.NewLine.Length);
 
             return strEvtInfo;
         }
@@ -687,6 +843,52 @@ namespace ischedule
             return tabSchedule;
         }
 
+        private string GetChineseNumber(int Number)
+        {
+            if (Number.Equals(1))
+                return "一";
+            else if (Number.Equals(2))
+                return "二";
+            else if (Number.Equals(3))
+                return "三";
+            else if (Number.Equals(4))
+                return "四";
+            else if (Number.Equals(5))
+                return "五";
+            else if (Number.Equals(6))
+                return "六";
+            else if (Number.Equals(7))
+                return "七";
+            else if (Number.Equals(8))
+                return "八";
+            else if (Number.Equals(9))
+                return "九";
+            else if (Number.Equals(10))
+                return "十";
+            else if (Number.Equals(11))
+                return "十一";
+            else if (Number.Equals(12))
+                return "十二";
+            else if (Number.Equals(13))
+                return "十三";
+            else if (Number.Equals(14))
+                return "十四";
+            else if (Number.Equals(15))
+                return "十五";
+            else if (Number.Equals(16))
+                return "十六";
+            else if (Number.Equals(17))
+                return "十七";
+            else if (Number.Equals(18))
+                return "十八";
+            else if (Number.Equals(19))
+                return "十九";
+            else if (Number.Equals(20))
+                return "二十";
+            else
+                return ""+Number;
+        }
+
         /// <summary>
         /// 取得單一時間表功課表
         /// </summary>
@@ -784,7 +986,7 @@ namespace ischedule
             {
                 DataRow Row = tabSchedule.NewRow();
 
-                Row.SetField("PeriodNo", Item.PeriodNo == 0 ? "中午" : "" + Item.PeriodNo);
+                Row.SetField("PeriodNo", Item.PeriodNo == 0 ? "午休" : "" + GetChineseNumber(Item.PeriodNo));
                 Row.SetField("Time", Item.Time);
 
                 for (int i = 1; i <= MaxWeekDay; i++)
@@ -818,6 +1020,77 @@ namespace ischedule
         private void txtPeriod_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 切換列印頁面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPrint_Click(object sender, EventArgs e)
+        {
+            #region 初始化時間表
+            cboTimeTable.Items.Clear();
+            List<string> TimeTableIDs = new List<string>();
+            AssocIDs = new List<string>();
+            #endregion
+
+            foreach (DataGridViewRow Row in grdNameList.SelectedRows)
+            {
+                string AssocID = "" + Row.Cells[0].Value;
+
+                if (!AssocIDs.Contains(AssocID))
+                    AssocIDs.Add(AssocID);
+            }
+
+            AssocIDs.ForEach(x =>
+            {
+                switch (MainFormBL.Instance.GetSelectedType())
+                {
+                    case "Teacher":
+                        schLocal.Teachers[x].UseAppointments(0);    //預設使用第一個行事曆
+                        foreach (Appointment app in schLocal.Teachers[x].Appointments)
+                        {
+                            if (!string.IsNullOrEmpty(app.EventID))
+                            {
+                                string TimeTableID = GetTimeTableID(app.EventID);
+                                if (!TimeTableIDs.Contains(TimeTableID))
+                                    TimeTableIDs.Add(TimeTableID);
+                            }
+                        }
+                        break;
+                    case "Class":
+                        foreach (Appointment app in schLocal.Classes[x].Appointments)
+                        {
+                            if (!string.IsNullOrEmpty(app.EventID))
+                            {
+                                string TimeTableID = GetTimeTableID(app.EventID);
+                                if (!TimeTableIDs.Contains(TimeTableID))
+                                    TimeTableIDs.Add(TimeTableID);
+                            }
+                        }
+                        break;
+                    case "Classroom":
+                        schLocal.Classrooms[x].UseAppointments(0); //預設使用第一個行事曆
+                        foreach (Appointment app in schLocal.Classrooms[x].Appointments)
+                        {
+                            if (!string.IsNullOrEmpty(app.EventID))
+                            {
+                                string TimeTableID = GetTimeTableID(app.EventID);
+                                if (!TimeTableIDs.Contains(TimeTableID))
+                                    TimeTableIDs.Add(TimeTableID);
+                            }
+                        }
+                        break;
+                }
+            });
+
+            TimeTableIDs.ForEach(x => cboTimeTable.Items.Add(schLocal.TimeTables[x]));
+
+            if (cboTimeTable.Items.Count == 0)
+                cboTimeTable.Items.Add(schLocal.TimeTables[0]);
+
+                cboTimeTable.SelectedIndex = 0;
         }
     }
 }

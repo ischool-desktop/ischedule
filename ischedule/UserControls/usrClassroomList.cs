@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevComponents.AdvTree;
 using Sunset.Data;
+using Sunset.Data.Integration;
 
 namespace ischedule
 {
@@ -332,6 +333,96 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 根據學校更新場地列表，同時考量到關鍵字搜尋
+        /// </summary>
+        private void RefreshBySchool(string idWhere)
+        {
+            int Total = 0;
+
+            SortedDictionary<string, List<string>> TotalClassrooms = new SortedDictionary<string, List<string>>();
+
+            foreach (Classroom Classroom in schLocal.Classrooms)
+            {
+                if (Classroom.Name.Equals("無"))
+                    continue;
+
+                foreach (SourceID SourceID in Classroom.SourceIDs)
+                {
+                    string SchoolName = SourceID.DSNS;
+
+                    if (Global.AvailDSNSNames != null)
+                    {
+                        SchoolDSNSName School = Global.AvailDSNSNames
+                        .Find(x => x.DSNSName.Equals(SourceID.DSNS));
+
+                        if (School != null)
+                            SchoolName = School.SchoolName;
+                    }
+
+                    if (!TotalClassrooms.ContainsKey(SchoolName))
+                        TotalClassrooms.Add(SchoolName, new List<string>());
+
+                    if (IsAddWhere(Classroom.Name))
+                        if (!TotalClassrooms[SchoolName].Contains(Classroom.ClassroomID))
+                            TotalClassrooms[SchoolName].Add(Classroom.ClassroomID); 
+                }
+            }
+
+            nodeTree.Nodes.Clear();
+
+            //Node nodeRoot = new Node("所有場地");
+            //nodeRoot.TagString = "所有場地";
+
+            //Node nodeNull = new Node("無場地");
+            //nodeNull.TagString = "無";
+
+            //nodeTree.Nodes.Add(nodeRoot);
+            //nodeTree.Nodes.Add(nodeNull);
+
+            foreach (string School in TotalClassrooms.Keys.ToList().OrderByDescending(x => x))
+            {
+                Node nodeTotal = new Node("" + School);
+                List<string> Names = new List<string>();
+
+                TotalClassrooms[School].Sort();
+
+                foreach (string Classroom in TotalClassrooms[School])
+                {
+                    if (schLocal.Classrooms.Exists(Classroom))
+                    {
+                        Classroom wherePaint = schLocal.Classrooms[Classroom];
+
+                        if (wherePaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = wherePaint.TotalHour - wherePaint.AllocHour;
+
+                            Node nodeClassroom = new Node(wherePaint.Name + "(" + UnAllocHour + "/" + wherePaint.TotalHour + ")");
+                            nodeClassroom.TagString = wherePaint.Name;
+                            Names.Add(wherePaint.Name);
+                            nodeTotal.Nodes.Add(nodeClassroom);
+
+                            Total++;
+                        }
+                    }
+                }
+
+                if (nodeTotal.Nodes.Count > 0)
+                {
+                    nodeTotal.Text = nodeTotal.Text + "(" + nodeTotal.Nodes.Count + ")";
+                    nodeTotal.TagString = string.Join(";", Names.ToArray());
+                    nodeTotal.Expand();
+                    nodeTree.Nodes.Add(nodeTotal);
+
+                    //nodeRoot.Nodes.Add(nodeTotal);
+                    //nodeRoot.Expand();
+                }
+            }
+
+            //nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classrooms.HasTotalHourCount + ")";
+            //nodeRoot.ExpandAll();
+        }
+
+        /// <summary>
         /// 根據姓名更新場地列表，同時考量到關鍵字搜尋
         /// </summary>
         private void RefreshByName(string idWhere)
@@ -393,7 +484,7 @@ namespace ischedule
             else if (chkUnAlloc.Checked)
                 RefreshByUnAlloc(idWhere);
             else if (chkTotalAlloc.Checked)
-                RefreshByTotalHour(idWhere);
+                RefreshBySchool(idWhere);
         }
 
         /// <summary>

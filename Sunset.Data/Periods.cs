@@ -34,6 +34,23 @@ namespace Sunset.Data
         }
 
         /// <summary>
+        /// 取得第一個亂數節次
+        /// </summary>
+        /// <returns></returns>
+        public Period GetFirstRandomPeriod()
+        {
+            try
+            {
+                mRandomIndex = 0;
+                return mRandomPeriods[0];
+            }
+            catch
+            {
+                return null;
+            } 
+        }
+
+        /// <summary>
         /// 取得亂數節次
         /// </summary>
         /// <returns></returns>

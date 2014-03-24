@@ -89,7 +89,7 @@ namespace Sunset.Data.Integration
             DateTime NewTestTime = TestTime.ToHourMinute();
 
             //判斷星期幾及WeekFlag是否相同
-            if ((WeekDay == TestWeekDay) && ((WeekFlag & TestWeekFlag) > 0))
+            if ((WeekDay == TestWeekDay) && (((WeekFlag & TestWeekFlag) > 0) || (WeekFlag.Equals(TestWeekFlag))))
             {
                 //將Appointment的NewBeginTime減去NewTestTime
                 int nTimeDif = (int)NewBeginTime.Subtract(NewTestTime).TotalMinutes;

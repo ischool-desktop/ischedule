@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevComponents.AdvTree;
 using Sunset.Data;
+using Sunset.Data.Integration;
 
 namespace ischedule
 {
@@ -319,6 +320,98 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 根據學校更新教師列表，同時考量到關鍵字搜尋
+        /// </summary>
+        /// <param name="idWho"></param>
+        private void RefreshBySchool(string idWho)
+        {
+            int Total = 0;
+
+            //根據分課的學校進行分類
+            SortedDictionary<string, List<string>> SchoolTeachers = new SortedDictionary<string, List<string>>();
+
+            foreach (Teacher Teacher in schLocal.Teachers)
+            {
+                if (Teacher.Name.Equals("無"))
+                    continue;
+
+                foreach (SourceID SourceID in Teacher.SourceIDs)
+                {
+                    string SchoolName = SourceID.DSNS;
+
+                    if (Global.AvailDSNSNames != null)
+                    {
+                        SchoolDSNSName School = Global.AvailDSNSNames
+                        .Find(x => x.DSNSName.Equals(SourceID.DSNS));
+
+                        if (School != null)
+                            SchoolName = School.SchoolName;
+                    }
+
+                    //若科目名稱不在字典中則新增
+                    if (!SchoolTeachers.ContainsKey(SchoolName))
+                        SchoolTeachers.Add(SchoolName, new List<string>());
+
+                    if (IsAddWho(Teacher.Name))
+                        if (!SchoolTeachers[SchoolName].Contains(Teacher.Name))
+                            SchoolTeachers[SchoolName].Add(Teacher.Name);
+                }
+            }
+
+            nodeTree.Nodes.Clear();
+
+            //Node nodeRoot = new Node("所有教師");
+            //nodeRoot.TagString = "所有教師";
+
+            //Node nodeNull = new Node("無教師");
+            //nodeNull.TagString = "無";
+
+            //nodeTree.Nodes.Add(nodeRoot);
+            //nodeTree.Nodes.Add(nodeNull);
+
+            foreach (string strSchool in SchoolTeachers.Keys.ToList().OrderByDescending(x => x))
+            {
+                Node nodeSchool = new Node("" + strSchool);
+                List<string> Names = new List<string>();
+
+                SchoolTeachers[strSchool].Sort();
+
+                foreach (string strTeacher in SchoolTeachers[strSchool])
+                {
+                    if (schLocal.Teachers.Exists(strTeacher))
+                    {
+                        Teacher whoPaint = schLocal.Teachers[strTeacher];
+
+                        if (whoPaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = whoPaint.TotalHour - whoPaint.AllocHour;
+
+                            Node nodeWho = new Node(whoPaint.Name + "(" + UnAllocHour + "/" + whoPaint.TotalHour + ")");
+                            nodeWho.TagString = whoPaint.Name;
+                            Names.Add(whoPaint.Name);
+                            nodeSchool.Nodes.Add(nodeWho);
+
+                            Total++;
+                        }
+                    }
+                }
+
+                if (nodeSchool.Nodes.Count > 0)
+                {
+                    nodeSchool.Text = nodeSchool.Text + "(" + nodeSchool.Nodes.Count + ")";
+                    nodeSchool.TagString = string.Join(";", Names.ToArray());
+                    nodeTree.Nodes.Add(nodeSchool);
+                    nodeSchool.Expand();
+                    //nodeRoot.Nodes.Add(nodeSchool);
+                    //nodeRoot.Expand();
+                }
+            }
+
+            //nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Teachers.HasTotalHourCount + ")";
+            //nodeRoot.ExpandAll(); 
+        }
+
+        /// <summary>
         /// 根據總時數更新教師列表，同時考量到關鍵字搜尋
         /// </summary>
         private void RefreshByTotalHour(string idWho)
@@ -463,7 +556,7 @@ namespace ischedule
             else if (chkUnAlloc.Checked)
                 RefreshByUnAlloc(idWho);
             else if (chkTotalHour.Checked)
-                RefreshByTotalHour(idWho);
+                RefreshBySchool(idWho);
         }
 
         /// <summary>

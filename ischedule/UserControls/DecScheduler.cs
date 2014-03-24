@@ -352,18 +352,120 @@ namespace ischedule
                 #region 若為可排課顏色則進行排課
                 if (Period.BackColor.Equals(SchedulerColor.lvSchedulableBackColor))
                 {
-                    if (idTestEvents.Count > 0)
+                    if (Period.Data.Count ==1 &&
+                        Period.Data[0].Week!=0 &&
+                        !string.IsNullOrEmpty(idTestEvent))
                     {
-                        Cursor.Current = Cursors.WaitCursor;
+                        string idEvent = idTestEvent;
 
-                        List<string> idAddEvents = new List<string>();
-                        List<string> idEvents = new List<string>();
-
-                        idTestEvents.ForEach(x => idEvents.Add(x));
-                        idTestEvents.Clear();
-
-                        foreach (string idEvent in idEvents)
+                        //判斷是否為相關事件或相同的時間表才繼續執行
+                        if (IsRelatedEvent(idEvent))
                         {
+                            if (IsScheduled(idEvent))
+                            {
+                                string idExchangeEvent = Period.Data[0].EventID;
+                                int ExchangeWeekDay = schLocal.CEvents[idEvent].WeekDay;
+                                int ExchangePeriodNo = schLocal.CEvents[idEvent].PeriodNo;
+
+                                WeekDay = schLocal.CEvents[Period.Data[0].EventID].WeekDay;
+                                PeriodNo = schLocal.CEvents[Period.Data[0].EventID].PeriodNo;
+
+                                schLocal.FreeEvent(idEvent);
+                                schLocal.FreeEvent(Period.Data[0].EventID);
+
+                                string nTimeTableID = GetTimeTableID(idEvent);
+
+                                if (nTimeTableID == ttCur.TimeTableID)
+                                {
+                                    Cursor.Current = Cursors.WaitCursor;
+
+                                    //若拖到畫面上的nPeriodNo或nWeekDay為0則加入測試事件
+                                    if (PeriodNo == 0 || WeekDay == 0)
+                                    {
+                                        AddTestEvent(idEvent);
+                                    }
+                                    else
+                                    {
+                                        idTestEvent = string.Empty;
+                                        idXchgEvent = string.Empty;
+                                        //實際安排事件
+                                        bool localScheduled = schLocal.ScheduleEvent(idEvent, WeekDay, PeriodNo);
+                                        bool localExchangeScheduled = schLocal.ScheduleEvent(idExchangeEvent,ExchangeWeekDay,ExchangePeriodNo);
+
+                                        //若無法安排事件，則發出Beep聲，並加入測試事件
+                                        if (!localScheduled || !localExchangeScheduled)
+                                        {
+                                            Beep(1, 1);
+                                            AddTestEvent(idEvent);
+                                        }
+                                    }
+
+                                    Cursor.Current = Cursors.Arrow;
+                                }
+                                else
+                                    AddTestEvent(idEvent);
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                        if (idTestEvents.Count > 0)
+                        {
+                            Cursor.Current = Cursors.WaitCursor;
+
+                            List<string> idAddEvents = new List<string>();
+                            List<string> idEvents = new List<string>();
+
+                            idTestEvents.ForEach(x => idEvents.Add(x));
+                            idTestEvents.Clear();
+
+                            foreach (string idEvent in idEvents)
+                            {
+                                if (IsRelatedEvent(idEvent))
+                                {
+                                    if (IsScheduled(idEvent))
+                                        schLocal.FreeEvent(idEvent);
+
+                                    string nTimeTableID = GetTimeTableID(idEvent);
+
+                                    if (nTimeTableID == ttCur.TimeTableID)
+                                    {
+                                        //若拖到畫面上的nPeriodNo或nWeekDay為0則加入測試事件
+                                        if (PeriodNo == 0 || WeekDay == 0)
+                                        {
+                                            AddTestEvent(idEvent);
+                                        }
+                                        else
+                                        {
+                                            //實際安排事件
+                                            bool localScheduled = schLocal.ScheduleEvent(idEvent, WeekDay, PeriodNo);
+
+                                            //若無法安排事件，則發出Beep聲，並加入測試事件
+                                            if (!localScheduled)
+                                            {
+                                                Beep(1, 1);
+                                                idAddEvents.Add(idEvent);
+                                            }
+                                        }
+                                    }
+                                    else
+                                        idAddEvents.Add(idEvent);
+                                }
+                            }
+
+                            idTestEvent = string.Empty;
+
+                            idAddEvents.ForEach(x => AddTestEvent(x));
+
+                            Cursor.Current = Cursors.Arrow;
+                        }
+                        //嘗試解析事件編號
+                        else if (!string.IsNullOrEmpty(idTestEvent))
+                        {
+                            string idEvent = idTestEvent;
+
+                            //判斷是否為相關事件或相同的時間表才繼續執行
                             if (IsRelatedEvent(idEvent))
                             {
                                 if (IsScheduled(idEvent))
@@ -373,6 +475,8 @@ namespace ischedule
 
                                 if (nTimeTableID == ttCur.TimeTableID)
                                 {
+                                    Cursor.Current = Cursors.WaitCursor;
+
                                     //若拖到畫面上的nPeriodNo或nWeekDay為0則加入測試事件
                                     if (PeriodNo == 0 || WeekDay == 0)
                                     {
@@ -380,6 +484,7 @@ namespace ischedule
                                     }
                                     else
                                     {
+                                        idTestEvent = string.Empty;
                                         //實際安排事件
                                         bool localScheduled = schLocal.ScheduleEvent(idEvent, WeekDay, PeriodNo);
 
@@ -387,61 +492,15 @@ namespace ischedule
                                         if (!localScheduled)
                                         {
                                             Beep(1, 1);
-                                            idAddEvents.Add(idEvent);
+                                            AddTestEvent(idEvent);
                                         }
                                     }
+
+                                    Cursor.Current = Cursors.Arrow;
                                 }
                                 else
-                                    idAddEvents.Add(idEvent);
-                            }
-                        }
-
-                        idTestEvent = string.Empty;
-
-                        idAddEvents.ForEach(x => AddTestEvent(x));
-
-                        Cursor.Current = Cursors.Arrow;
-                    }
-                    //嘗試解析事件編號
-                    else if (!string.IsNullOrEmpty(idTestEvent))
-                    {
-                        string idEvent = idTestEvent;
-
-                        //判斷是否為相關事件或相同的時間表才繼續執行
-                        if (IsRelatedEvent(idEvent))
-                        {
-                            if (IsScheduled(idEvent))
-                                schLocal.FreeEvent(idEvent);
-
-                            string nTimeTableID = GetTimeTableID(idEvent);
-
-                            if (nTimeTableID == ttCur.TimeTableID)
-                            {
-                                Cursor.Current = Cursors.WaitCursor;
-
-                                //若拖到畫面上的nPeriodNo或nWeekDay為0則加入測試事件
-                                if (PeriodNo == 0 || WeekDay == 0)
-                                {
                                     AddTestEvent(idEvent);
-                                }
-                                else
-                                {
-                                    idTestEvent = string.Empty;
-                                    //實際安排事件
-                                    bool localScheduled = schLocal.ScheduleEvent(idEvent, WeekDay, PeriodNo);
-
-                                    //若無法安排事件，則發出Beep聲，並加入測試事件
-                                    if (!localScheduled)
-                                    {
-                                        Beep(1, 1);
-                                        AddTestEvent(idEvent);
-                                    }
-                                }
-
-                                Cursor.Current = Cursors.Arrow;
                             }
-                            else
-                                AddTestEvent(idEvent);
                         }
                     }
                 }
@@ -460,6 +519,7 @@ namespace ischedule
                         if (!string.IsNullOrEmpty(idEvent) && !evtTest.ManualLock)
                         {
                             SetTestEvent(idEvent);
+                            idXchgEvent = idTestEvent;
                             UpdateContent();
                         };
                     }
@@ -1512,6 +1572,35 @@ namespace ischedule
                                 Datasource.Add(eventLocal);
                                 decPeriod.Data = Datasource;
                                 IsSetWeekDayText = true;
+                            }
+                            #endregion
+
+                            #region 查詢是否可調課
+                            if (!string.IsNullOrEmpty(idXchgEvent) && 
+                                idTestEvents.Count.Equals(0))
+                            {
+                                if (idXchgEvent == appTest.EventID)
+                                {
+                                    decPeriod.BackColor = SchedulerColor.lvScheduledBackColor;
+                                    //itemCurrent.SetWeekDayColor(prdMember.WeekDay, lvScheduledBackColor, lvScheduledForeColor);
+                                }
+                                else if (idLast == appTest.EventID)
+                                {
+                                    if (bLastXchgable)
+                                    {
+                                        decPeriod.BackColor = SchedulerColor.lvSchedulableBackColor;
+                                        //itemCurrent.SetWeekDayColor(prdMember.WeekDay, lvSchedulableBackColor, lvSchedulableForeColor); 
+                                    }
+                                }
+                                //else if (schLocal.CEvents[idXchgEvent].WhoID!=schLocal.CEvents[appTest.EventID].WhoID && schLocal.IsEventExchangable(idXchgEvent,appTest.EventID))
+                                else if (schLocal.IsEventExchangable(idXchgEvent, appTest.EventID))
+                                {
+                                    decPeriod.BackColor = SchedulerColor.lvSchedulableBackColor;
+                                    //itemCurrent.SetWeekDayColor(prdMember.WeekDay, lvSchedulableBackColor, lvSchedulableForeColor);
+                                    bLastXchgable = true;
+                                }
+                                else
+                                    bLastXchgable = false;
                             }
                             #endregion
                         }

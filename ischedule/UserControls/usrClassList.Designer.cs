@@ -88,7 +88,7 @@
             this.nodeTree.NodesConnector = this.nodeConnector1;
             this.nodeTree.NodeStyle = this.elementStyle1;
             this.nodeTree.PathSeparator = ";";
-            this.nodeTree.Size = new System.Drawing.Size(200, 385);
+            this.nodeTree.Size = new System.Drawing.Size(200, 360);
             this.nodeTree.Styles.Add(this.elementStyle1);
             this.nodeTree.TabIndex = 0;
             this.nodeTree.Text = "advTree1";
@@ -146,7 +146,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 385);
+            this.panel3.Size = new System.Drawing.Size(200, 360);
             this.panel3.TabIndex = 7;
             // 
             // txtSearch
@@ -172,9 +172,9 @@
             this.panel2.Controls.Add(this.chkWhat);
             this.panel2.Controls.Add(this.btnAddToTemp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 410);
+            this.panel2.Location = new System.Drawing.Point(0, 385);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 90);
+            this.panel2.Size = new System.Drawing.Size(200, 115);
             this.panel2.TabIndex = 6;
             // 
             // chkName
@@ -208,8 +208,7 @@
             this.chkTotalHour.Size = new System.Drawing.Size(100, 23);
             this.chkTotalHour.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.chkTotalHour.TabIndex = 4;
-            this.chkTotalHour.Text = "按照總時數";
-            this.chkTotalHour.Visible = false;
+            this.chkTotalHour.Text = "按照校別";
             // 
             // panel1
             // 

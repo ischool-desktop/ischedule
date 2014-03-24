@@ -251,6 +251,98 @@ namespace ischedule
         }
 
         /// <summary>
+        /// 根據學校更新班級列表，同時考量到關鍵字搜尋
+        /// </summary>
+        private void RefreshBySchool(string idWhom)
+        {
+            int Total = 0;
+
+            //根據分課的總時數進行分類
+            SortedDictionary<string, List<string>> TotalClasses = new SortedDictionary<string, List<string>>();
+
+            foreach (Class Class in schLocal.Classes)
+            {
+                if (Class.Name.Equals("無"))
+                    continue;
+
+                string[] ClassIDs = Class.ClassID.Split(new char[] { ',' });
+
+                string DSNS = ClassIDs[0];
+
+                string SchoolName = DSNS;
+
+                if (Global.AvailDSNSNames != null)
+                {
+                    SchoolDSNSName School = Global.AvailDSNSNames
+                    .Find(x => x.DSNSName.Equals(DSNS));
+
+                    if (School != null)
+                        SchoolName = School.SchoolName;
+                }
+                
+                if (!TotalClasses.ContainsKey(SchoolName))
+                        TotalClasses.Add(SchoolName, new List<string>());
+
+                    if (IsAddWhom(Class.Name))
+                        if (!TotalClasses[SchoolName].Contains(Class.ClassID))
+                            TotalClasses[SchoolName].Add(Class.ClassID);
+            }
+
+            nodeTree.Nodes.Clear();
+
+            //Node nodeRoot = new Node("所有班級");
+            //nodeRoot.TagString = "所有班級";
+
+            //Node nodeNull = new Node("無班級");
+            //nodeNull.TagString = "無";
+
+            //nodeTree.Nodes.Add(nodeRoot);
+            //nodeTree.Nodes.Add(nodeNull);
+
+            foreach (string School in TotalClasses.Keys.ToList().OrderByDescending(x => x))
+            {
+                Node nodeTotalHour = new Node("" + School);
+                List<string> Names = new List<string>();
+
+                TotalClasses[School].Sort();
+
+                foreach (string vWhomID in TotalClasses[School])
+                {
+                    if (schLocal.Classes.Exists(vWhomID))
+                    {
+                        Class whomPaint = schLocal.Classes[vWhomID];
+
+                        if (whomPaint.TotalHour > 0)
+                        {
+                            int UnAllocHour = whomPaint.TotalHour - whomPaint.AllocHour;
+
+                            Node nodeWhom = new Node(whomPaint.Name + "(" + UnAllocHour + "/" + whomPaint.TotalHour + ")");
+                            nodeWhom.TagString = whomPaint.ClassID;
+                            Names.Add(whomPaint.ClassID);
+                            nodeTotalHour.Nodes.Add(nodeWhom);
+                            Total++;
+                        }
+                    }
+                }
+
+                if (nodeTotalHour.Nodes.Count > 0)
+                {
+                    nodeTotalHour.Text = nodeTotalHour.Text + "(" + nodeTotalHour.Nodes.Count + ")";
+                    nodeTotalHour.TagString = string.Join(";", Names.ToArray());
+                    nodeTotalHour.Expand();
+
+                    nodeTree.Nodes.Add(nodeTotalHour);
+
+                    //nodeRoot.Nodes.Add(nodeTotalHour);
+                    //nodeRoot.Expand();
+                }
+            }
+
+            //nodeRoot.Text = nodeRoot.Text + "(" + schLocal.Classes.HasTotalHourCount + ")";
+            //nodeRoot.ExpandAll();
+        }
+
+        /// <summary>
         /// 根據總時數更新班級列表，同時考量到關鍵字搜尋
         /// </summary>
         private void RefreshByTotalHour(string idWhom)
@@ -387,7 +479,7 @@ namespace ischedule
             else if (chkUnAlloc.Checked)
                 RefreshByUnAlloc(idWhom);
             else if (chkTotalHour.Checked)
-                RefreshByTotalHour(idWhom);
+                RefreshBySchool(idWhom);
         }
 
         /// <summary>

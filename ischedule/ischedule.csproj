@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="Report\LPViewReportItem.cs" />
     <Compile Include="Report\ReportSaver.cs" />
+    <Compile Include="Report\SubjectCount.cs" />
     <Compile Include="test\DecPeriod.cs" />
     <Compile Include="test\DecScheduler.cs" />
     <Compile Include="test\frmTest.cs">

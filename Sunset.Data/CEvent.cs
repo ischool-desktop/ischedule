@@ -8,6 +8,8 @@ namespace Sunset.Data
     /// </summary>
     public static class CEventExtension
     {
+        private static Scheduler eventLocal = Scheduler.Instance;
+
         /// <summary>
         /// 取得教系統編號
         /// </summary>
@@ -31,16 +33,16 @@ namespace Sunset.Data
         /// </summary>
         /// <param name="Event"></param>
         /// <returns></returns>
-        public static string GetTeacherString(this CEvent Event)
+        public static string GetTeacherString(this CEvent Event,bool AddTeacherCode)
         {
             List<string> Names = new List<string>();
 
             if (!string.IsNullOrEmpty(Event.TeacherID1))
-                Names.Add(Event.TeacherID1);
+                Names.Add(Event.TeacherID1 + (AddTeacherCode? eventLocal.Teachers[Event.TeacherID1].Code :string.Empty) );
             if (!string.IsNullOrEmpty(Event.TeacherID2))
-                Names.Add(Event.TeacherID2);
+                Names.Add(Event.TeacherID2 + (AddTeacherCode ? eventLocal.Teachers[Event.TeacherID2].Code : string.Empty));
             if (!string.IsNullOrEmpty(Event.TeacherID3))
-                Names.Add(Event.TeacherID3);
+                Names.Add(Event.TeacherID3 + (AddTeacherCode ? eventLocal.Teachers[Event.TeacherID3].Code : string.Empty));
 
             return string.Join(",", Names.ToArray());
         }
@@ -522,7 +524,7 @@ namespace Sunset.Data
         {
             get
             {
-                return this.GetTeacherString();
+                return this.GetTeacherString(false);
             }
         }
 

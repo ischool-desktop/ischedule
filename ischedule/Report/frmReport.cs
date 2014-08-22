@@ -386,9 +386,11 @@ namespace ischedule
 
                     SortedDictionary<string, SubjectCount> dicSubject = new SortedDictionary<string, SubjectCount>();
 
-                    string BasicLength = string.Empty;
-                    string ExtraLength = string.Empty;
-                    string CounselingLength = string.Empty;
+                    int BasicLength = 0;
+                    int ExtraLength = 0;
+                    int CounselingLength = 0;
+                    int TotalLength = 0;
+
                     string Code = string.Empty;
                     string Expertise = string.Empty;
                     string Comment = string.Empty;
@@ -401,9 +403,7 @@ namespace ischedule
                             LPViewName = schLocal.Teachers[x].Name;
                             LPViewType = "教師";
                             LPViewClassTeacherName = string.Empty;
-                            BasicLength = schLocal.Teachers[x].BasicLength.HasValue ? "" + schLocal.Teachers[x].BasicLength : string.Empty;
-                            ExtraLength = schLocal.Teachers[x].ExtraLength.HasValue ? "" + schLocal.Teachers[x].ExtraLength : string.Empty;
-                            CounselingLength = schLocal.Teachers[x].CounselingLength.HasValue ? "" + schLocal.Teachers[x].CounselingLength : string.Empty;
+
                             Code = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Code) ? schLocal.Teachers[x].Code : string.Empty;
                             Expertise = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Expertise) ? schLocal.Teachers[x].Expertise : string.Empty;
                             Comment = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Comment) ? schLocal.Teachers[x].Comment : string.Empty;
@@ -416,6 +416,15 @@ namespace ischedule
                                     string Subject = evtCur.DisplaySubjectName;
                                     string ClassName = evtCur.DisplayClassName;
                                     string Key = Subject + "," + ClassName;
+
+                                    TotalLength += evtCur.Length;
+
+                                    if (evtCur.Comment.Equals("*"))
+                                        ExtraLength += evtCur.Length;
+                                    else if (evtCur.Comment.ToUpper().Equals("F"))
+                                        CounselingLength += evtCur.Length;
+                                    else
+                                        BasicLength += evtCur.Length;
 
                                     if (!dicSubject.ContainsKey(Key))
                                         dicSubject.Add(Key, new SubjectCount(Key));
@@ -587,11 +596,18 @@ namespace ischedule
                     DataTable tabBasicLength = BasicLength.ToDataTable("TeacherBasicLength", "教師基本時數");
                     DataTable tabExtraLength = ExtraLength.ToDataTable("TeacherExtraLength", "教師兼課時數");
                     DataTable tabCounselingLength = CounselingLength.ToDataTable("TeacherCounselingLength", "教師輔導時數");
+                    DataTable tabLength = TotalLength.ToDataTable("TeacherLength", "教師授課時數");
+
                     DataTable tabCode = Code.ToDataTable("TeacherCode", "教師代碼");
                     DataTable tabExpertise = Expertise.ToDataTable("TeacherExpertise", "教師專長");
                     DataTable tabComment = Comment.ToDataTable("TeacherComment", "教師註解");
 
                     DataTable tabPrintDate = DateTime.Today.ToShortDateString().ToDataTable("PrintDate", "列印日期");
+
+                    LPView.Tables.Add(tabBasicLength);
+                    LPView.Tables.Add(tabExtraLength);
+                    LPView.Tables.Add(tabCounselingLength);
+                    LPView.Tables.Add(tabLength);
 
                     LPView.Tables.Add(tabSubject);
                     LPView.Tables.Add(tabSchoolYear);

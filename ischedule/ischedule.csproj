@@ -63,27 +63,29 @@
   <ItemGroup>
     <Reference Include="Aspose.Cells">
       <HintPath>..\SharedLib\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>LibraryProject\DevComponents.DotNetBar2.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>Z:\Desktop\ischool desktop\components\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Authentication">
       <HintPath>..\SharedLib\FISCA.Authentication.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Core, Version=1.0.1.3, Culture=neutral, PublicKeyToken=a269f410f9e2a287, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SharedLib\FISCA.Core.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.DSAClient">
       <HintPath>..\SharedLib\FISCA.DSAClient.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ReportHelper">
       <HintPath>..\SharedLib\ReportHelper.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,7 +93,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />

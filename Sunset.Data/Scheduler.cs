@@ -29,7 +29,7 @@ namespace Sunset.Data
         }
 
         public event EventHandler<AutoScheduleStartEventArgs> AutoScheduleStart;
-        #endregion    
+        #endregion
 
         #region AutoScheduleProgress
         public class AutoScheduleProgressEventArgs : EventArgs
@@ -37,7 +37,7 @@ namespace Sunset.Data
             public int nCurIndex { get; set; }
             public bool Cancel { get; set; }
 
-            public AutoScheduleProgressEventArgs(int nCurIndex,bool Cancel)
+            public AutoScheduleProgressEventArgs(int nCurIndex, bool Cancel)
             {
                 this.nCurIndex = nCurIndex;
                 this.Cancel = Cancel;
@@ -79,9 +79,9 @@ namespace Sunset.Data
 
         #region EventScheduled
 
-        public class EventScheduledEventArgs : EventArgs     
+        public class EventScheduledEventArgs : EventArgs
         {
-            public string EventID { get; set;}
+            public string EventID { get; set; }
 
             public EventScheduledEventArgs(string EventID)
             {
@@ -95,7 +95,7 @@ namespace Sunset.Data
         #region EventsFreed
         public class EventsFreedEventArgs : EventArgs
         {
-            public CEvents EventList { get; set;}
+            public CEvents EventList { get; set; }
 
             public EventsFreedEventArgs(CEvents EventList)
             {
@@ -109,7 +109,7 @@ namespace Sunset.Data
         #region EventLocked
         public class EventLockedEventArgs : EventArgs
         {
-            public List<string> EventIDs { get; set;}
+            public List<string> EventIDs { get; set; }
 
             public EventLockedEventArgs(List<string> EventIDs)
             {
@@ -123,7 +123,7 @@ namespace Sunset.Data
         #region EventUnlocked
         public class EventUnlockedEventArgs : EventArgs
         {
-            public List<string> EventIDs {get; set;}
+            public List<string> EventIDs { get; set; }
 
             public EventUnlockedEventArgs(List<string> EventIDs)
             {
@@ -137,11 +137,11 @@ namespace Sunset.Data
         #region EventPropertyBeforeChange
         public class EventPropertyBeforeChangeEventArgs : EventArgs
         {
-            public string EventID{ get; set;}
+            public string EventID { get; set; }
 
-            public MaskOptions ChangeFlag { get; set;}
+            public MaskOptions ChangeFlag { get; set; }
 
-            public EventPropertyBeforeChangeEventArgs(string EventID,MaskOptions ChangeFlag)
+            public EventPropertyBeforeChangeEventArgs(string EventID, MaskOptions ChangeFlag)
             {
                 this.EventID = EventID;
                 this.ChangeFlag = ChangeFlag;
@@ -154,9 +154,9 @@ namespace Sunset.Data
         #region EventPropertyChanged
         public class EventPropertyChangedEventArgs : EventArgs
         {
-            public string EventID { get; set;}
+            public string EventID { get; set; }
 
-            public MaskOptions ChangeFlag { get; set;}
+            public MaskOptions ChangeFlag { get; set; }
 
             public EventPropertyChangedEventArgs(string EventID, MaskOptions ChangeFlag)
             {
@@ -171,7 +171,7 @@ namespace Sunset.Data
         #region EventInserted
         public class EventInsertedEventArgs : EventArgs
         {
-            public string EventID { get; set;}
+            public string EventID { get; set; }
 
             public EventInsertedEventArgs(string EventID)
             {
@@ -269,7 +269,7 @@ namespace Sunset.Data
         #region EventLoadConflict
         public class EventLoadConflictEventArgs : EventArgs
         {
-            public string EventID { get; set;}
+            public string EventID { get; set; }
 
             public EventLoadConflictEventArgs(string EventID)
             {
@@ -523,7 +523,7 @@ namespace Sunset.Data
             /// 建構式，傳入進度
             /// </summary>
             /// <param name="Progress"></param>
-            public UploadSourceProgressEventArgs(int Progress,string Message)
+            public UploadSourceProgressEventArgs(int Progress, string Message)
             {
                 this.Progress = Progress;
                 this.Message = Message;
@@ -550,7 +550,7 @@ namespace Sunset.Data
             /// <summary>
             /// 成功或失敗訊息
             /// </summary>
-            public string Message { get; set;}
+            public string Message { get; set; }
 
             /// <summary>
             /// 建構式
@@ -574,7 +574,7 @@ namespace Sunset.Data
         #region Private
         //constants
         private const int AutoScheduleNotifyThreshold = 5;
-        
+
         //local variables for private use
         //private OleDbConnection cnMain;  //reference to current database
         private SchedulerSource schSource = SchedulerSource.Source;
@@ -597,7 +597,7 @@ namespace Sunset.Data
 
         //調代課
         private List<CEventUpdate> mEventUpdateList = new List<CEventUpdate>();
-        public List<CEventUpdate> EventUpdateList {  get { return mEventUpdateList; }  set { mEventUpdateList = value; }}
+        public List<CEventUpdate> EventUpdateList { get { return mEventUpdateList; } set { mEventUpdateList = value; } }
         public DateTime StartWeekDate { get; private set; } //週開始日期
         public DateTime EndWeekDate { get; private set; }   //週結束日期
         #endregion
@@ -715,7 +715,7 @@ namespace Sunset.Data
         /// <summary>
         /// 資料庫是否開啟
         /// </summary>
-        public bool IsOpen { get; private set;}
+        public bool IsOpen { get; private set; }
         #endregion
 
         #region Constructor
@@ -731,13 +731,13 @@ namespace Sunset.Data
 
         internal class GroupCEvent
         {
-            public CEvent evtTested { get; set;}
-            public Classroom whrTest { get; set;}
-            public Teacher whoTest1 { get; set;}
+            public CEvent evtTested { get; set; }
+            public Classroom whrTest { get; set; }
+            public Teacher whoTest1 { get; set; }
             public Teacher whoTest2 { get; set; }
             public Teacher whoTest3 { get; set; }
-            public Class whmTest { get; set;}
-            public Periods prdsUse { get; set;}
+            public Class whmTest { get; set; }
+            public Periods prdsUse { get; set; }
         }
 
         #region Public functions
@@ -759,12 +759,12 @@ namespace Sunset.Data
                 if (DownloadSourceStart != null)
                     DownloadSourceStart(this, new DownloadSourceStartEventArgs(100));
 
-                    IsSuccess = schSource.Download(Connections, SchoolYear, Semester, 
-                    x =>
-                    {
-                        if (DownloadSourceProgress != null)
-                            DownloadSourceProgress(this, new DownloadSourceProgressEventArgs(x)); 
-                    });
+                IsSuccess = schSource.Download(Connections, SchoolYear, Semester,
+                x =>
+                {
+                    if (DownloadSourceProgress != null)
+                        DownloadSourceProgress(this, new DownloadSourceProgressEventArgs(x));
+                });
 
                 if (DownloadSourceComplete != null)
                     DownloadSourceComplete(this, null);
@@ -1223,7 +1223,7 @@ namespace Sunset.Data
             IsOpen = true;
         }
 
-        private long GetNext(long idNext,string EventID)
+        private long GetNext(long idNext, string EventID)
         {
             string[] strEventIDs = EventID.Split(new char[] { ',' });
 
@@ -1354,14 +1354,14 @@ namespace Sunset.Data
                 TeacherBusys,
                 ClassBusys,
                 ClassroomBusys,
-                (x,y) =>
+                (x, y) =>
                 {
                     if (UploadSourceProgress != null)
-                        UploadSourceProgress(this, new UploadSourceProgressEventArgs(x,y));
+                        UploadSourceProgress(this, new UploadSourceProgressEventArgs(x, y));
                 });
 
             if (UploadSourceComplete != null)
-                UploadSourceComplete(this, new UploadSourceCompleteEventArgs(UploadResult.Item1 , UploadResult.Item2));
+                UploadSourceComplete(this, new UploadSourceCompleteEventArgs(UploadResult.Item1, UploadResult.Item2));
 
             return UploadResult;
         }
@@ -1370,12 +1370,12 @@ namespace Sunset.Data
         /// 開啟資料庫，讀取資料庫的資料至物件模型
         /// </summary>
         /// <param name="FilePath">資料庫路徑</param>
-        public void OpenByBase64(string FilePath,string Password)
+        public void OpenByBase64(string FilePath, string Password)
         {
             if (IsOpen)
                 throw new Exception("scheduler source is open!");
 
-            SchedulerSource.Source.OpenByBase64(FilePath,Password, x =>
+            SchedulerSource.Source.OpenByBase64(FilePath, Password, x =>
             {
 
             });
@@ -1440,7 +1440,7 @@ namespace Sunset.Data
                 foreach (Appointment vApp in vTeacher.GetAppointments())
                 {
                     if (string.IsNullOrEmpty(vApp.EventID))
-                    {                       
+                    {
                         STeacherBusy TeacherBusy = new STeacherBusy();
 
                         TeacherBusy.DSNS = string.Empty;
@@ -1475,7 +1475,7 @@ namespace Sunset.Data
                 if (string.IsNullOrEmpty(vClass.ClassID))
                     continue;
 
-                string[] ClassIDs = vClass.ClassID.Split(new char[]{','});
+                string[] ClassIDs = vClass.ClassID.Split(new char[] { ',' });
                 string DSNS = ClassIDs[0];
                 string ClassID = ClassIDs[1];
 
@@ -1591,7 +1591,7 @@ namespace Sunset.Data
         /// 用Base64儲存排課資料
         /// </summary>
         /// <param name="FilePath"></param>
-        public void SaveByBase64(string FilePath,string Password)
+        public void SaveByBase64(string FilePath, string Password)
         {
             if (!SchedulerSource.Source.IsSuccess && !IsOpen)
                 throw new Exception("scheduler source is not open!");
@@ -1642,8 +1642,8 @@ namespace Sunset.Data
             if (!string.IsNullOrWhiteSpace(FilePath))
                 mSaveFilePath = FilePath;
 
-            if (SaveSourceStart!=null)
-                SaveSourceStart(this,new SaveSourceStartEventArgs(CEvents.Count));
+            if (SaveSourceStart != null)
+                SaveSourceStart(this, new SaveSourceStartEventArgs(CEvents.Count));
 
             List<SCourseSection> CourseSections = GetSCourseSection();
 
@@ -1672,14 +1672,14 @@ namespace Sunset.Data
         /// <summary>
         /// 改變週行事曆，下載週調代課記錄
         /// </summary>
-        public void ChangeWeekSchedule(List<Connection> Connections,DateTime StartDate,DateTime EndDate)
+        public void ChangeWeekSchedule(List<Connection> Connections, DateTime StartDate, DateTime EndDate)
         {
             Connections.ForEach
             (x =>
                 {
 
                 }
-            ); 
+            );
         }
 
         /// <summary>
@@ -1690,7 +1690,7 @@ namespace Sunset.Data
         public string AutoSchedule(CEvents EventList)
         {
             evtTested = null;
-            if (evtTesteds!=null)
+            if (evtTesteds != null)
                 evtTesteds.Clear();
 
             Dictionary<string, Periods> RandomPeriods = new Dictionary<string, Periods>();
@@ -1718,7 +1718,7 @@ namespace Sunset.Data
 
             #region Find first unscheduled event
             //找到事件列表第一個未排課分課
-            while (nCurIndex < nTotItem-1)
+            while (nCurIndex < nTotItem - 1)
             {
                 if (EventList[nCurIndex].WeekDay == 0)
                     break;
@@ -1731,7 +1731,7 @@ namespace Sunset.Data
             nMostNear = nCurIndex;
             bMoveForward = true;
 
-            do 
+            do
             {
                 //Notify 
                 nThreshold++;
@@ -1740,10 +1740,10 @@ namespace Sunset.Data
                 if (nThreshold > AutoScheduleNotifyThreshold)
                 {
                     if (AutoScheduleProgress != null)
-                    {                        
-                        AutoScheduleProgressEventArgs EventArgs = new AutoScheduleProgressEventArgs(nCurIndex,false);
+                    {
+                        AutoScheduleProgressEventArgs EventArgs = new AutoScheduleProgressEventArgs(nCurIndex, false);
 
-                        AutoScheduleProgress(this, EventArgs );
+                        AutoScheduleProgress(this, EventArgs);
 
                         if (EventArgs.Cancel)
                         {
@@ -1770,8 +1770,8 @@ namespace Sunset.Data
                     //取得事件對應時間表的節次，當第一次取得時將節次打算
                     //if (!RandomPeriods.ContainsKey(evtTest.TimeTableID))
                     //{
-                        Periods vPeriods = TimeTables[evtTest.TimeTableID].Periods;
-                        vPeriods.RandomPeriods();
+                    Periods vPeriods = TimeTables[evtTest.TimeTableID].Periods;
+                    vPeriods.RandomPeriods();
                     //}
 
                     prdsTest = TimeTables[evtTest.TimeTableID].Periods;
@@ -1779,7 +1779,7 @@ namespace Sunset.Data
                     //若事件未安排，則prdTest為第一節
                     if (evtTest.WeekDay == 0)
                         prdTest = prdsTest.GetFirstRandomPeriod();
-                        //prdTest = prdsTest.FirstPeriod(0);
+                    //prdTest = prdsTest.FirstPeriod(0);
                     else
                     {
                         //若事件有安排，則prdTest為目前節數的下一節
@@ -1791,7 +1791,7 @@ namespace Sunset.Data
                     //根據prdTest測試是否可安排事件
                     while (prdTest != null)
                     {
-                        if (TestSchedule(evtTest, prdTest.WeekDay, prdTest.PeriodNo,true) == 0)
+                        if (TestSchedule(evtTest, prdTest.WeekDay, prdTest.PeriodNo, true) == 0)
                         {
                             AllocEvent(true);
                             break;
@@ -1830,8 +1830,8 @@ namespace Sunset.Data
                     }
                 }
 
-            //有可能一直往前或往後跳脫不出來
-            }while(nCurIndex>=0 && nCurIndex<nTotItem);
+                //有可能一直往前或往後跳脫不出來
+            } while (nCurIndex >= 0 && nCurIndex < nTotItem);
             #endregion
 
             //若傳回空白代表排課成功，若傳回事件編號代表該事件無解
@@ -1843,7 +1843,7 @@ namespace Sunset.Data
                 if (each.WeekDay != 0) IncAllocHour(each);
 
             if (AutoScheduleComplete != null)
-                AutoScheduleComplete(this, new AutoScheduleCompleteEventArgs(EventList,nMostNear));
+                AutoScheduleComplete(this, new AutoScheduleCompleteEventArgs(EventList, nMostNear));
 
             //Update solution counts
             UpdateEventsSolutionCount(EventList);
@@ -1858,9 +1858,9 @@ namespace Sunset.Data
         /// <param name="WeekDay">星期</param>
         /// <param name="PeriodNo">節次</param>
         /// <returns>是否可安排事件，若可傳回true，若不行傳回false。</returns>
-        public bool IsSchedulable(string EventID,int WeekDay,int PeriodNo)
+        public bool IsSchedulable(string EventID, int WeekDay, int PeriodNo)
         {
-            Reason = TestSchedule(CEvents[EventID], WeekDay, PeriodNo,true);
+            Reason = TestSchedule(CEvents[EventID], WeekDay, PeriodNo, true);
 
             return Reason == 0 ? true : false;
 
@@ -1918,7 +1918,7 @@ namespace Sunset.Data
                         foreach (CEvent evtRelease in evtsRelease)
                         {
                             DecAllocHour(evtRelease);
-                            ReleaseEvent(evtRelease,false);
+                            ReleaseEvent(evtRelease, false);
                             evtsRelate.Add(evtRelease);
                         }
                         #endregion
@@ -1926,8 +1926,8 @@ namespace Sunset.Data
                         //減少事件的已排課節數
                         DecAllocHour(evt);
                         //釋放事件
-                        ReleaseEvent(evt,false);                       
-                   }
+                        ReleaseEvent(evt, false);
+                    }
             }
 
             foreach (CEvent evtRelate in evtsRelate)
@@ -1955,7 +1955,7 @@ namespace Sunset.Data
         /// <param name="WeekDay">星期</param>
         /// <param name="PeriodNo">節次</param>
         /// <returns>是否有安排成功，若是傳回true、若不是傳回false。</returns>
-        public bool ScheduleEvent(string EventID,int WeekDay,int PeriodNo)
+        public bool ScheduleEvent(string EventID, int WeekDay, int PeriodNo)
         {
             CEvent curEvent = CEvents[EventID];
 
@@ -1964,9 +1964,9 @@ namespace Sunset.Data
             {
                 //測試是否可以安排事件
                 evtTested = null;
-                if (evtTesteds!=null)
+                if (evtTesteds != null)
                     evtTesteds.Clear();
-                Reason = TestSchedule(curEvent, WeekDay, PeriodNo,true);
+                Reason = TestSchedule(curEvent, WeekDay, PeriodNo, true);
 
                 if (Reason == 0)
                 {
@@ -1985,13 +1985,13 @@ namespace Sunset.Data
                         CEvents evtsUpdate = new CEvents();
 
                         //針對現有的群組課程物件列表
-                        foreach(GroupCEvent evtGroup in evtTesteds)
+                        foreach (GroupCEvent evtGroup in evtTesteds)
                         {
                             //取得群組課程中的分課
                             CEvent evtUpdate = evtGroup.evtTested;
 
                             //若是群組課程分課系統編號不等於現在的系統編號，而且群組名稱相同
-                            if (!curEvent.EventID.Equals(evtUpdate.EventID) 
+                            if (!curEvent.EventID.Equals(evtUpdate.EventID)
                                 && curEvent.CourseGroup.Equals(evtUpdate.CourseGroup))
                             {
                                 //增加相關資源
@@ -2008,7 +2008,7 @@ namespace Sunset.Data
                             foreach (CEvent evtUpdate in evtsUpdate)
                             {
                                 if (EventScheduled != null)
-                                    EventScheduled(this, new EventScheduledEventArgs(evtUpdate.EventID)); 
+                                    EventScheduled(this, new EventScheduledEventArgs(evtUpdate.EventID));
                             }
                         }
                     }
@@ -2022,10 +2022,10 @@ namespace Sunset.Data
 
             #region VB
             //Dim curEvent As CEvent
-    
+
             //ScheduleEvent = False
             //Set curEvent = mCEvents(CStr(EventID))
-    
+
             //If curEvent.WeekDay = 0 Then
             //    mReason = TestSchedule(curEvent, WeekDay, PeriodNo)
             //    If mReason = 0 Then
@@ -2036,7 +2036,7 @@ namespace Sunset.Data
             //        RaiseEvent EventScheduled(EventID)
             //    End If
             //End If
-            #endregion 
+            #endregion
         }
 
         /// <summary>
@@ -2052,7 +2052,7 @@ namespace Sunset.Data
 
             foreach (string EventID in EventIDs)
             {
-                if (!string.IsNullOrWhiteSpace(EventID) && 
+                if (!string.IsNullOrWhiteSpace(EventID) &&
                     CEvents.Exists(EventID))
                 {
                     CEvent evtLock = CEvents["" + EventID];
@@ -2072,7 +2072,7 @@ namespace Sunset.Data
             }
 
             return false;
-       }
+        }
 
         /// <summary>
         /// 根據事件編號解除鎖定，當ManualLock為true時才會解除鎖定。
@@ -2094,10 +2094,10 @@ namespace Sunset.Data
                         evtLock.ManualLock = false;
                         UnlockEventIDs.Add(EventID);
                     }
-                } 
+                }
             }
 
-            if (UnlockEventIDs.Count > 0 && EventUnlocked!= null)
+            if (UnlockEventIDs.Count > 0 && EventUnlocked != null)
             {
                 EventUnlocked(this, new EventUnlockedEventArgs(EventIDs));
             }
@@ -2114,7 +2114,7 @@ namespace Sunset.Data
         /// <param name="PeriodCondition">節次條件</param>
         /// <param name="AllowLongBreak">是否允許跨中午</param>
         /// <param name="AllowDuplicate">是否允許重複</param>
-        public void ChangeEventProperty(string idEvent, 
+        public void ChangeEventProperty(string idEvent,
                                string WhoID1,
                                string WhoID2,
                                string WhoID3,
@@ -2150,7 +2150,7 @@ namespace Sunset.Data
             if (evtChange.TeacherID3 != WhoID3) MaskOption = MaskOptions.maskWho;
 
             if (evtChange.ClassroomID != WhereID) MaskOption |= MaskOptions.maskWhere;
-            if (evtChange.WeekFlag != WeekFlag) MaskOption |=  MaskOptions.maskOther;
+            if (evtChange.WeekFlag != WeekFlag) MaskOption |= MaskOptions.maskOther;
             if (evtChange.WeekDayCondition != DelSpaces(WeekDayCondition)) MaskOption |= MaskOptions.maskOther;
             if (evtChange.PeriodCondition != DelSpaces(PeriodCondition)) MaskOption |= MaskOptions.maskOther;
             if (evtChange.AllowLongBreak != AllowLongBreak) MaskOption |= MaskOptions.maskOther;
@@ -2160,7 +2160,7 @@ namespace Sunset.Data
 
             //觸發改變屬性前事件
             if (EventPropertyBeforeChange != null)
-                EventPropertyBeforeChange(this, new EventPropertyBeforeChangeEventArgs(evtChange.EventID,MaskOption));
+                EventPropertyBeforeChange(this, new EventPropertyBeforeChangeEventArgs(evtChange.EventID, MaskOption));
 
             #region 實際改變屬性
             DecTotalHour(evtChange);
@@ -2186,7 +2186,7 @@ namespace Sunset.Data
 
             //觸發改變屬性後事件
             if (EventPropertyChanged != null)
-                EventPropertyChanged(this, new EventPropertyChangedEventArgs(evtChange.EventID,MaskOption));
+                EventPropertyChanged(this, new EventPropertyChangedEventArgs(evtChange.EventID, MaskOption));
 
             #region VB
             //With evtChange
@@ -2301,7 +2301,7 @@ namespace Sunset.Data
         /// </summary>
         /// <param name="idEvent">事件編號</param>
         /// <param name="Length">長度</param>
-        public void ChangeEventLength(string idEvent,int Length)
+        public void ChangeEventLength(string idEvent, int Length)
         {
             CEvent evtChange = CEvents["" + idEvent];
 
@@ -2323,7 +2323,7 @@ namespace Sunset.Data
 
             #region VB
             //Dim evtChange As CEvent
-    
+
             //Set evtChange = mCEvents(CStr(idEvent))
             //'cannot change the property of a already scheduled event
             //If evtChange.WeekDay <> 0 Then Exit Sub
@@ -2361,7 +2361,7 @@ namespace Sunset.Data
             {
                 string[] strEventIDs = x.Split(new char[] { ',' });
 
-                return strEventIDs[0] +","+ y;
+                return strEventIDs[0] + "," + y;
             };
 
             evtInsert.EventID = SetEventID(evtInsert.EventID, idNext);
@@ -2380,7 +2380,7 @@ namespace Sunset.Data
             #region VB
             //Dim idRef As Long
             //Dim evtMember As CEvent
-    
+
             //idRef = 0
             //For Each evtMember In mCEvents
             //    If evtInsert.Priority < evtMember.Priority Then
@@ -2388,16 +2388,16 @@ namespace Sunset.Data
             //        Exit For
             //    End If
             //Next evtMember
-    
+
             //evtInsert.EventID = idNext
             //idNext = idNext + 1
-    
+
             //If idRef = 0 Then
             //    Set evtMember = mCEvents.Add(evtInsert)
             //Else
             //    Set evtMember = mCEvents.AddBefore(evtInsert, idRef)
             //End If
-    
+
             //If Not (evtMember Is Nothing) Then
             //    IncTotalHour evtMember
             //    RaiseEvent EventInserted(evtInsert.EventID)
@@ -2444,7 +2444,7 @@ namespace Sunset.Data
         /// <param name="Duration">持續分鐘</param>
         /// <param name="WeekFlag">單雙週，單週為1、單雙週為2、單雙週為3。</param>
         /// <returns>傳回有空的教師清單</returns>
-        public Teachers GetWhoAvailable(int WeekDay,DateTime BeginTime,int Duration,byte WeekFlag)
+        public Teachers GetWhoAvailable(int WeekDay, DateTime BeginTime, int Duration, byte WeekFlag)
         {
             Teachers whosCand = new Teachers();
 
@@ -2476,9 +2476,9 @@ namespace Sunset.Data
             //Dim whoCand As Who
             //Dim whosCand As Whos
             //Dim nWhichApp As Integer
-    
+
             //Set whosCand = New Whos
-    
+
             //For Each whoCand In mWhos
             //    If Not IsNullValue(whoCand.WhoID) Then
             //        For nWhichApp = 1 To whoCand.Capacity
@@ -2516,7 +2516,7 @@ namespace Sunset.Data
             //Dim idSaveWho As Long
             //Dim evtTest As CEvent
             //Dim evtMember As CEvent
-    
+
             //Set evtTest = mCEvents(CStr(EventID))
             //Set whosCand = New Whos
             #endregion
@@ -2526,8 +2526,8 @@ namespace Sunset.Data
             //針對每個Event尋找不同授課教師，但是相同科目的教師清單
             foreach (CEvent evtMember in CEvents)
             {
-                if (evtTest.TeacherID1!=evtMember.TeacherID1 && 
-                    (!evtMember.TeacherID1.IsNullValue()) && 
+                if (evtTest.TeacherID1 != evtMember.TeacherID1 &&
+                    (!evtMember.TeacherID1.IsNullValue()) &&
                     (evtTest.SubjectID == evtMember.SubjectID))
                 {
                     whosCand.Add(Teachers[evtMember.TeacherID1]);
@@ -2541,7 +2541,7 @@ namespace Sunset.Data
                 nSavePeriod = evtTest.PeriodNo;
                 idSaveWho = evtTest.TeacherID1;
 
-                ReleaseEvent(evtTest,false);
+                ReleaseEvent(evtTest, false);
 
                 List<string> RemoveIDs = new List<string>();
 
@@ -2549,18 +2549,18 @@ namespace Sunset.Data
                 foreach (Teacher whoCand in whosCand)
                 {
                     evtTest.TeacherID1 = whoCand.TeacherID;
-                    if (TestSchedule(evtTest, nSaveWeekDay, nSavePeriod,true) != 0)
+                    if (TestSchedule(evtTest, nSaveWeekDay, nSavePeriod, true) != 0)
                         RemoveIDs.Add(evtTest.TeacherID1);
                 }
                 #endregion
 
                 //移除不能代課教師
-                RemoveIDs.ForEach(x=>whosCand.Remove("" + x));
+                RemoveIDs.ForEach(x => whosCand.Remove("" + x));
 
                 #region 將事件重新安排至原教師
                 evtTest.TeacherID1 = idSaveWho;
 
-                if (TestSchedule(evtTest, nSaveWeekDay, nSavePeriod,false) == 0)
+                if (TestSchedule(evtTest, nSaveWeekDay, nSavePeriod, false) == 0)
                     AllocEvent(false);
                 #endregion
             }
@@ -2569,33 +2569,33 @@ namespace Sunset.Data
 
             #region VB
             //With evtTest
-    
+
             //For Each evtMember In mCEvents
             //    If (.WhoID <> evtMember.WhoID) And (Not IsNullValue(evtMember.WhoID)) _
             //       And (.WhatID = evtMember.WhatID) Then
             //        whosCand.Add mWhos(CStr(evtMember.WhoID))
             //    End If
             //Next evtMember
-    
+
             //If .WeekDay <> 0 Then
             //    nSaveWeekDay = .WeekDay
             //    nSavePeriod = .PeriodNo
             //    idSaveWho = .WhoID
             //    ReleaseEvent evtTest
-        
+
             //    For Each whoCand In whosCand
             //        .WhoID = whoCand.WhoID
             //        If TestSchedule(evtTest, nSaveWeekDay, nSavePeriod) <> 0 Then
             //            whosCand.Remove CStr(.WhoID)
             //        End If
             //    Next whoCand
-        
+
             //    .WhoID = idSaveWho
             //    If TestSchedule(evtTest, nSaveWeekDay, nSavePeriod) = 0 Then AllocEvent
             //End If
-    
+
             //End With
-    
+
             //Set GetCandidates = whosCand
             //Set whosCand = Nothing
             #endregion
@@ -2607,7 +2607,7 @@ namespace Sunset.Data
         /// <param name="EventIDA"></param>
         /// <param name="EventIDB"></param>
         /// <returns>是否能交換，若能交換傳回true，若不能交換傳回false。</returns>
-        public bool IsEventExchangable(string EventIDA,string EventIDB)
+        public bool IsEventExchangable(string EventIDA, string EventIDB)
         {
             bool IsExchangable = false;
 
@@ -2628,7 +2628,7 @@ namespace Sunset.Data
             //Dim nSavePeriodB As Integer
 
             //IsEventExchangable = False
-    
+
             //Set evtA = mCEvents(CStr(EventIDA))
             //Set evtB = mCEvents(CStr(EventIDB))
             #endregion
@@ -2647,37 +2647,37 @@ namespace Sunset.Data
             //假設evtA或evtB的星期不為0，就先釋放此事件（Event）
             if (nSaveWeekDayA != 0)
             {
-                ReleaseEvent(evtA,true);
+                ReleaseEvent(evtA, true);
             }
 
             if (nSaveWeekDayB != 0)
             {
-                ReleaseEvent(evtB,true);
+                ReleaseEvent(evtB, true);
             }
 
             //測試evtA是否可換到evtB的星期及節次
-            if (nSaveWeekDayB!=0)
-                if (TestSchedule(evtA,nSaveWeekDayB,nSavePeriodB,true) == 0)
+            if (nSaveWeekDayB != 0)
+                if (TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB, true) == 0)
                     IsExchangable = true;
 
             //測試evtB是否可換到evtA的星期及節次
             if ((IsExchangable) && (nSaveWeekDayA != 0))
-                if (TestSchedule(evtB, nSaveWeekDayA, nSavePeriodA,true) != 0)
+                if (TestSchedule(evtB, nSaveWeekDayA, nSavePeriodA, true) != 0)
                     IsExchangable = false;
 
             //重新安排evtA的星期及節次
             if (nSaveWeekDayA != 0)
-                if (TestSchedule(evtA, nSaveWeekDayA, nSavePeriodA,true) == 0)
+                if (TestSchedule(evtA, nSaveWeekDayA, nSavePeriodA, true) == 0)
                     AllocEvent(true);
 
             //重新安排evtB的星期及節次
             if (nSaveWeekDayB != 0)
-                if (TestSchedule(evtB, nSaveWeekDayB, nSavePeriodB,true) == 0)
+                if (TestSchedule(evtB, nSaveWeekDayB, nSavePeriodB, true) == 0)
                     AllocEvent(true);
 
             #region VB
             //If evtA.Length <> evtB.Length Then Exit Function
-    
+
             //'Save original weekday and period
             //nSaveWeekDayA = evtA.WeekDay
             //nSaveWeekDayB = evtB.WeekDay
@@ -2686,14 +2686,14 @@ namespace Sunset.Data
             //'Release events
             //If nSaveWeekDayA <> 0 Then ReleaseEvent evtA
             //If nSaveWeekDayB <> 0 Then ReleaseEvent evtB
-    
+
             //If nSaveWeekDayB <> 0 Then
             //    If TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB) = 0 Then IsEventExchangable = True
             //End If
             //If IsEventExchangable And nSaveWeekDayA <> 0 Then
             //    If TestSchedule(evtB, nSaveWeekDayA, nSavePeriodA) <> 0 Then IsEventExchangable = False
             //End If
-    
+
             //'Restore
             //If nSaveWeekDayA <> 0 Then
             //    If TestSchedule(evtA, nSaveWeekDayA, nSavePeriodA) = 0 Then AllocEvent
@@ -2719,8 +2719,8 @@ namespace Sunset.Data
             CEvent evtA = CEvents[EventIDA];
             CEvent evtB = CEvents[EventIDB];
 
-            int nSaveWeekDayA,nSaveWeekDayB;
-            int nSavePeriodA,nSavePeriodB;
+            int nSaveWeekDayA, nSaveWeekDayB;
+            int nSavePeriodA, nSavePeriodB;
 
             //兩個事件長度不一樣，則不可交換（傳回false）
             if (evtA.Length != evtB.Length) return false;
@@ -2734,24 +2734,24 @@ namespace Sunset.Data
             #endregion
 
             //假設evtA或evtB的星期不為0，釋放此事件（Event）
-            if (nSaveWeekDayA != 0) ReleaseEvent(evtA,true);
-            if (nSaveWeekDayB != 0) ReleaseEvent(evtB,true);
+            if (nSaveWeekDayA != 0) ReleaseEvent(evtA, true);
+            if (nSaveWeekDayB != 0) ReleaseEvent(evtB, true);
 
             //測試evtA是否可換到evtB的星期及節次
             if (nSaveWeekDayB != 0)
-                if (TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB,true) == 0)
+                if (TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB, true) == 0)
                     IsExchangable = true;
 
             //測試evtB是否可換到evtA的星期及節次
             if ((IsExchangable) && (nSaveWeekDayA != 0))
-                if (TestSchedule(evtB, nSaveWeekDayA, nSavePeriodA,true) != 0)
+                if (TestSchedule(evtB, nSaveWeekDayA, nSavePeriodA, true) != 0)
                     IsExchangable = false;
 
             if (IsExchangable)
             {
                 AllocEvent(true);
 
-                TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB,true);
+                TestSchedule(evtA, nSaveWeekDayB, nSavePeriodB, true);
 
                 AllocEvent(true);
 
@@ -2813,7 +2813,7 @@ namespace Sunset.Data
 
             #region VB
             //Dim evtCalc As CEvent
-    
+
             //For Each evtCalc In evtsCalc
             //    With evtCalc
             //    If .WeekDay = 0 Then
@@ -2864,8 +2864,8 @@ namespace Sunset.Data
 
             //'Inerst NULL objects into related collections
 
-            Teachers.Add(new Teacher(Constants.NullString, "無", 0,null,null,null,Constants.NullString,Constants.NullString,Constants.NullString));
-            Classes.Add(new Class(Constants.NullString, "無",Constants.NullString,Constants.NullString,Constants.NullString,Constants.NullString));
+            Teachers.Add(new Teacher(Constants.NullString, "無", 0, null, null, null, Constants.NullString, Constants.NullString, Constants.NullString));
+            Classes.Add(new Class(Constants.NullString, "無", Constants.NullString, Constants.NullString, Constants.NullString, Constants.NullString));
             Classrooms.Add(new Classroom(Constants.NullString, "無", 0, Constants.NullString, true));
             Subjects.Add(new Subject(Constants.NullString, "無"));
             TimeTables.Add(new TimeTable(Constants.NullString, "未指定"));
@@ -2876,23 +2876,23 @@ namespace Sunset.Data
             //Dim whrNew As Where
             //Dim ttbNew As TimeTable
             //Dim whtNew As What
-    
+
             //Set whoNew = New Who
             //whoNew.SetWho NullValue, LoadResString(rsWhoNull), 0
             //mWhos.Add whoNew
-    
+
             //Set whmNew = New Whom
             //whmNew.SetWhom NullValue, LoadResString(rsWhomNull), NullValue
             //mWhoms.Add whmNew
-    
+
             //Set whrNew = New Where
             //whrNew.SetWhere NullValue, LoadResString(rsWhereNull), 0, NullValue, True
             //mWheres.Add whrNew
-    
+
             //Set whtNew = New What
             //whtNew.SetWhat NullValue, LoadResString(rsWhatNull)
             //mWhats.Add whtNew
-    
+
             //Set ttbNew = New TimeTable
             //ttbNew.SetTimeTable NullValue, LoadResString(rsTimeTableNull)
             //mTimeTables.Add ttbNew 
@@ -2946,7 +2946,7 @@ namespace Sunset.Data
         /// <param name="WeekDay">星期幾</param>
         /// <param name="PeriodNo">節次</param>
         /// <returns></returns>
-        private int TestSchedule(CEvent NewEvent,int WeekDay,int PeriodNo,bool TestGroup)
+        private int TestSchedule(CEvent NewEvent, int WeekDay, int PeriodNo, bool TestGroup)
         {
             #region 宣告變數及初始化
             bool bPass;
@@ -2961,23 +2961,23 @@ namespace Sunset.Data
 
             //取得課程分段（CEvent、CourseSection）的場地
             whrTest = NewEvent.ClassroomID.IsNullValue() ? null : Classrooms["" + NewEvent.ClassroomID];
-    
+
             //取得課程分段（CEvent、CourseSection）的班級
             whmTest = NewEvent.ClassID.IsNullValue() ? null : Classes["" + NewEvent.ClassID];
-            
+
             //取得課程分段（CEvent、CourseSection）的授課教師一
             whoTest1 = NewEvent.TeacherID1.IsNullValue() ? null : Teachers["" + NewEvent.TeacherID1];
             //取得課程分段（CEvent、CourseSection）的授課教師二
             whoTest2 = NewEvent.TeacherID2.IsNullValue() ? null : Teachers["" + NewEvent.TeacherID2];
             //取得課程分段（CEvent、CourseSection）的授課教師三
             whoTest3 = NewEvent.TeacherID3.IsNullValue() ? null : Teachers["" + NewEvent.TeacherID3];
-            
+
             //取得課程分段（CEvent、CourseSection）時間表節次列表
             prdsTest = TimeTables["" + NewEvent.TimeTableID].Periods;
-            
+
             //取得星期幾的中午休息時間
             prdBreak = prdsTest.GetBreakPeriod(WeekDay);
-            
+
             //取得星期節次
             prdTest = prdsTest.GetPeriodIgroneDisable(WeekDay, PeriodNo);
 
@@ -2990,7 +2990,7 @@ namespace Sunset.Data
             else if (prdTest.Disable)
             {
                 ReasonDesc.Desc = prdTest.DisableMessage;
-                return Constants.tsCannotFit; 
+                return Constants.tsCannotFit;
             }
 
             #endregion
@@ -3008,7 +3008,7 @@ namespace Sunset.Data
             if (bPass) bPass = prdTest.BeginTime.Before(prdBreak.BeginTime);
 
             #region 檢查課程分段中時間表的節次地點，是否與課程分段中的場地地點一致；若不一致的話傳回地點衝突。
-            for (intTempVal = PeriodNo +1;intTempVal<= (PeriodNo+NewEvent.Length-1);intTempVal++)
+            for (intTempVal = PeriodNo + 1; intTempVal <= (PeriodNo + NewEvent.Length - 1); intTempVal++)
             {
                 prdTest = prdsTest.GetPeriodIgroneDisable(WeekDay, intTempVal);
 
@@ -3027,7 +3027,7 @@ namespace Sunset.Data
                     if (!(prdTest.LocID.IsNullValue() || whrTest.LocID.IsNullValue()))
                         if (prdTest.LocID != whrTest.LocID)
                         {
-                            ReasonDesc.Desc = "地點"+prdTest.LocID+"、"+whrTest.LocID +"不符";
+                            ReasonDesc.Desc = "地點" + prdTest.LocID + "、" + whrTest.LocID + "不符";
                             return Constants.tsLocConflict;
                         }
                 prdsUse.Add(prdTest);
@@ -3048,7 +3048,7 @@ namespace Sunset.Data
             {
                 int WeekDayVar;
 
-                if (int.TryParse(NewEvent.WeekDayVar ,out WeekDayVar))
+                if (int.TryParse(NewEvent.WeekDayVar, out WeekDayVar))
                 {
                     switch (NewEvent.WeekDayOp)
                     {
@@ -3143,11 +3143,11 @@ namespace Sunset.Data
             #region Check WHOM time conflict and duplicate WHAT
             if (whmTest != null)
             {
-                intTempVal = whmTest.Appointments.CheckWhom(prdsUse, NewEvent.SubjectID, NewEvent.WeekFlag,NewEvent.EventID,NewEvent.AllowDuplicate,NewEvent.LimitNextDay);
+                intTempVal = whmTest.Appointments.CheckWhom(prdsUse, NewEvent.SubjectID, NewEvent.WeekFlag, NewEvent.EventID, NewEvent.AllowDuplicate, NewEvent.LimitNextDay);
 
                 if (intTempVal != 0)
                 {
-                    switch(intTempVal)
+                    switch (intTempVal)
                     {
                         case 1:
                             ReasonDesc.AssocID = NewEvent.ClassID;
@@ -3174,13 +3174,13 @@ namespace Sunset.Data
                             ReasonDesc.Desc = "這節已排課";
                             return Constants.tsWhomConflict;
                     }
-                }   
+                }
             }
 
             #endregion
 
-            #region Check WHERE time conflict            
-            if (whrTest != null) 
+            #region Check WHERE time conflict
+            if (whrTest != null)
             {
                 if (!whrTest.LocOnly) //判斷是否不為無限制使用場地
                 {
@@ -3192,11 +3192,11 @@ namespace Sunset.Data
                         bPass = false;
 
                         //針對每個場地容納數尋找是否有空堂
-                        while(intTempVal < whrTest.Capacity)
+                        while (intTempVal < whrTest.Capacity)
                         {
                             whrTest.UseAppointments(intTempVal);
 
-                            testResult = whrTest.Appointments.IsFreePeriods(prdsUse,NewEvent.WeekFlag);
+                            testResult = whrTest.Appointments.IsFreePeriods(prdsUse, NewEvent.WeekFlag);
 
                             if (testResult == Constants.apsNoConflict)
                             {
@@ -3236,7 +3236,7 @@ namespace Sunset.Data
                             }
                         }
                     }
-                    else 
+                    else
                     {
                         testResult = whrTest.Appointments.IsFreePeriods(prdsUse, NewEvent.WeekFlag);
 
@@ -3292,7 +3292,7 @@ namespace Sunset.Data
                             whoTest.UseAppointments(intCapacity);
                             intTempVal = whoTest.Appointments.CheckWho(prdsUse, Distances, NewEvent.WeekFlag);
 
-                            if ( intTempVal == 0)
+                            if (intTempVal == 0)
                             {
                                 nWhoAvailable = intCapacity;
                                 bPass = true;
@@ -3338,14 +3338,14 @@ namespace Sunset.Data
                             switch (intTempVal)
                             {
                                 case 1:
-                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
-                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
                                     ReasonDesc.Desc = "這節已排課";
                                     return Constants.tsWhoConflict;
                                 case 5:
-                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
-                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
                                     ReasonDesc.Desc = "不排課時段";
                                     return Constants.tsWhoConflict;
@@ -3353,8 +3353,8 @@ namespace Sunset.Data
                                     ReasonDesc.Desc = "通車來不及";
                                     return Constants.tsDistanceFar;
                                 default:
-                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i+1);
-                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i+1)].Name;
+                                    ReasonDesc.AssocID = NewEvent.GetTeacherID(i + 1);
+                                    ReasonDesc.AssocName = Teachers[NewEvent.GetTeacherID(i + 1)].Name;
                                     ReasonDesc.AssocType = Constants.lvWho;
                                     ReasonDesc.Desc = "這節已排課";
                                     return Constants.tsWhoConflict;
@@ -3567,7 +3567,7 @@ namespace Sunset.Data
 
             #region Clear shared variables
             evtTested = null;
-            whrTest  = null;
+            whrTest = null;
             whoTest1 = null;
             whoTest2 = null;
             whoTest3 = null;
@@ -3596,7 +3596,7 @@ namespace Sunset.Data
         /// 釋放Event排定的特會
         /// </summary>
         /// <param name="TargetEvent"></param>
-        private void ReleaseEvent(CEvent TargetEvent,bool ReleaseGroup)
+        private void ReleaseEvent(CEvent TargetEvent, bool ReleaseGroup)
         {
             if (TargetEvent.WeekDay == 0) return;
 
@@ -3633,7 +3633,7 @@ namespace Sunset.Data
                         }
                         else
                             whoRemove.Appointments.RemoveByID(TargetEvent.EventID); //根據Event編號移除對應的約會
-                    } 
+                    }
             }
             #endregion
 
@@ -3790,7 +3790,7 @@ namespace Sunset.Data
 
             if (!TargetEvent.ClassroomID.IsNullValue())
                 if (Classrooms.Exists(TargetEvent.ClassroomID))
-                    Classrooms[TargetEvent.ClassroomID].AllocHour += TargetEvent.Length; 
+                    Classrooms[TargetEvent.ClassroomID].AllocHour += TargetEvent.Length;
         }
 
         /// <summary>
@@ -3834,7 +3834,7 @@ namespace Sunset.Data
 
             #region VB
             //Dim evtsCalc As CEvents
-    
+
             //Set evtsCalc = New CEvents
             //evtsCalc.Add mCEvents(CStr(EventID))
             //UpdateEventsSolutionCount evtsCalc 
@@ -3900,7 +3900,7 @@ namespace Sunset.Data
                 evtCalc.SolutionCount = evtCalc.WeekDay == 0 ? GetSolutionCount(evtCalc.EventID) : -1;
 
             watch.Stop();
-            Console.WriteLine(""+watch.Elapsed.TotalMilliseconds);
+            Console.WriteLine("" + watch.Elapsed.TotalMilliseconds);
 
             if (EventSolCountUpdated != null)
                 EventSolCountUpdated(this, new EventSolCountUpdatedEventArgs(evtsCalc));
@@ -3930,9 +3930,9 @@ namespace Sunset.Data
             //Dim prdsTest As Periods
             //Dim prdTest As Period
             //Dim nSolutions As Long
-    
+
             //Set prdsTest = mTimeTables(CStr(mCEvents(CStr(EventID)).TimeTableID)).Periods
-    
+
             //nSolutions = 0
             //For Each prdTest In prdsTest
             //    With prdTest
@@ -3955,7 +3955,7 @@ namespace Sunset.Data
         /// <returns>傳回已將空白刪除的字串</returns>
         private string DelSpaces(string strSource)
         {
-            return strSource.Replace(" ","");
+            return strSource.Replace(" ", "");
         }
 
         #endregion

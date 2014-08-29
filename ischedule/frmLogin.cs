@@ -79,10 +79,10 @@ namespace ischedule
                     SchoolDSNSNames.Add(vSchoolDSNSName);
                 }
 
-                SchoolDSNSName SchoolDSNSName = new SchoolDSNSName();
-                SchoolDSNSName.DSNSName = "ischool@debug";
-                SchoolDSNSName.SchoolName = "ischool@debug";
-                SchoolDSNSNames.Add(SchoolDSNSName);
+                //SchoolDSNSName SchoolDSNSName = new SchoolDSNSName();
+                //SchoolDSNSName.DSNSName = "ischool@debug";
+                //SchoolDSNSName.SchoolName = "ischool@debug";
+                //SchoolDSNSNames.Add(SchoolDSNSName);
 
                 Global.AvailDSNSNames = SchoolDSNSNames;
 

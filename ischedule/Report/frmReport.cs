@@ -962,7 +962,7 @@ namespace ischedule
             string strEvtInfo = string.Empty;
             SortedDictionary<int, LPViewReportItem> LPViewItems = new SortedDictionary<int, LPViewReportItem>();
             DataTable tabSchedule = new DataTable("ScheduleDetail");
-
+                
             #region 針對每筆時間表分段
             foreach (Period prdMember in ttCur.Periods)
             {

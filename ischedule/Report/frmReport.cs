@@ -417,14 +417,14 @@ namespace ischedule
                                     string ClassName = evtCur.DisplayClassName;
                                     string Key = Subject + "," + ClassName;
 
-                                    TotalLength += evtCur.Length;
+                                    TotalLength ++;
 
                                     if (evtCur.Comment.Equals("*"))
-                                        ExtraLength += evtCur.Length;
+                                        ExtraLength ++;
                                     else if (evtCur.Comment.ToUpper().Equals("F"))
-                                        CounselingLength += evtCur.Length;
+                                        CounselingLength ++;
                                     else
-                                        BasicLength += evtCur.Length;
+                                        BasicLength ++;
 
                                     if (!dicSubject.ContainsKey(Key))
                                         dicSubject.Add(Key, new SubjectCount(Key));
@@ -432,7 +432,7 @@ namespace ischedule
                                     dicSubject[Key].Subject = Subject;
                                     dicSubject[Key].SubjectAlias = evtCur.SubjectAlias;
                                     dicSubject[Key].ResourceName = ClassName;
-                                    dicSubject[Key].Len += evtCur.Length;
+                                    dicSubject[Key].Len ++;
                                 };
 
                             break;
@@ -461,7 +461,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
 
                                     if (!string.IsNullOrEmpty(evtCur.TeacherID2))
@@ -475,7 +475,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
 
                                     if (!string.IsNullOrEmpty(evtCur.TeacherID3))
@@ -489,7 +489,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
                                 };
 
@@ -519,7 +519,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
 
                                     if (!string.IsNullOrEmpty(evtCur.TeacherID2))
@@ -533,7 +533,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
 
                                     if (!string.IsNullOrEmpty(evtCur.TeacherID3))
@@ -547,7 +547,7 @@ namespace ischedule
                                         dicSubject[Key].Subject = Subject;
                                         dicSubject[Key].SubjectAlias = SubjectAlias;
                                         dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len += evtCur.Length;
+                                        dicSubject[Key].Len ++;
                                     }
                                 };
 

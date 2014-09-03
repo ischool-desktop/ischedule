@@ -31,6 +31,16 @@ namespace ischedule
         public string ResourceName { get; set; }
 
         /// <summary>
+        /// 一個科目可能有兩個老師、或單雙週會有兩個班級。
+        /// </summary>
+        public List<string> Resources { get; set; }
+
+        public string GetResources()
+        {
+            return string.Join(",", Resources.ToArray());
+        }
+
+        /// <summary>
         /// 節數
         /// </summary>
         public int Len { get; set; }
@@ -41,6 +51,7 @@ namespace ischedule
             this.Subject = string.Empty;
             this.SubjectAlias = string.Empty;
             this.Len = 0;
+            Resources = new List<string>();
         }
     }
 }

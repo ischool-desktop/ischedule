@@ -206,7 +206,7 @@ namespace ischedule
             mLoadPreference = Task.Factory.StartNew(LoadPreference);
 
             #region 列出名單
-            grdNameList.SelectionChanged -= grdNameList_SelectionChanged; 
+            grdNameList.SelectionChanged -= grdNameList_SelectionChanged;
 
             grdNameList.Rows.Clear();
 
@@ -221,8 +221,8 @@ namespace ischedule
 
                     foreach (Teacher vTeacher in schLocal.Teachers)
                     {
-                         if (!string.IsNullOrWhiteSpace(vTeacher.TeacherID) &&
-                            vTeacher.TotalHour>0)
+                        if (!string.IsNullOrWhiteSpace(vTeacher.TeacherID) &&
+                           vTeacher.TotalHour > 0)
                             NameIDs.Add(vTeacher.Name, vTeacher.TeacherID);
                     }
 
@@ -250,7 +250,7 @@ namespace ischedule
                     foreach (Class vClass in schLocal.Classes)
                     {
                         if (!string.IsNullOrWhiteSpace(vClass.ClassID) &&
-                            vClass.TotalHour>0)
+                            vClass.TotalHour > 0)
                             NameIDs.Add(vClass.Name, vClass.ClassID);
                     }
 
@@ -275,9 +275,9 @@ namespace ischedule
 
                     foreach (Classroom vClassroom in schLocal.Classrooms)
                     {
-                        if (!string.IsNullOrWhiteSpace(vClassroom.ClassroomID) 
-                           && vClassroom.TotalHour>0)
-                            NameIDs.Add(vClassroom.Name,vClassroom.ClassroomID);
+                        if (!string.IsNullOrWhiteSpace(vClassroom.ClassroomID)
+                           && vClassroom.TotalHour > 0)
+                            NameIDs.Add(vClassroom.Name, vClassroom.ClassroomID);
                     }
 
                     foreach (string ID in NameIDs.Values)
@@ -382,249 +382,349 @@ namespace ischedule
             {
                 string x = AssocIDs[AssocIDs.Count - i];
 
-                    DataSet LPView = new DataSet("DataSection");
+                DataSet LPView = new DataSet("DataSection");
 
-                    SortedDictionary<string, SubjectCount> dicSubject = new SortedDictionary<string, SubjectCount>();
+                SortedDictionary<string, SubjectCount> dicSubject = new SortedDictionary<string, SubjectCount>();
 
-                    int BasicLength = 0;
-                    int ExtraLength = 0;
-                    int CounselingLength = 0;
-                    int TotalLength = 0;
+                int BasicLength = 0;
+                int ExtraLength = 0;
+                int CounselingLength = 0;
+                int TotalLength = 0;
 
-                    string Code = string.Empty;
-                    string Expertise = string.Empty;
-                    string Comment = string.Empty;
+                string Code = string.Empty;
+                string Expertise = string.Empty;
+                string Comment = string.Empty;
 
-                    switch (MainFormBL.Instance.GetSelectedType())
-                    {
-                        case "Teacher":
-                            schLocal.Teachers[x].UseAppointments(0);    //預設使用第一個行事曆
-                            apsCur = schLocal.Teachers[x].Appointments; //取得資源已被排定的約會
-                            LPViewName = schLocal.Teachers[x].Name;
-                            LPViewType = "教師";
-                            LPViewClassTeacherName = string.Empty;
+                switch (MainFormBL.Instance.GetSelectedType())
+                {
+                    case "Teacher":
+                        schLocal.Teachers[x].UseAppointments(0);    //預設使用第一個行事曆
+                        apsCur = schLocal.Teachers[x].Appointments; //取得資源已被排定的約會
+                        LPViewName = schLocal.Teachers[x].Name;
+                        LPViewType = "教師";
+                        LPViewClassTeacherName = string.Empty;
 
-                            Code = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Code) ? schLocal.Teachers[x].Code : string.Empty;
-                            Expertise = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Expertise) ? schLocal.Teachers[x].Expertise : string.Empty;
-                            Comment = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Comment) ? schLocal.Teachers[x].Comment : string.Empty;
+                        Code = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Code) ? schLocal.Teachers[x].Code : string.Empty;
+                        Expertise = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Expertise) ? schLocal.Teachers[x].Expertise : string.Empty;
+                        Comment = !string.IsNullOrWhiteSpace(schLocal.Teachers[x].Comment) ? schLocal.Teachers[x].Comment : string.Empty;
 
-                            //當是教師時用班級及科目為鍵值統計
-                            foreach (Appointment apCur in apsCur)
-                                if (!string.IsNullOrWhiteSpace(apCur.EventID))
-                                {
-                                    CEvent evtCur = schLocal.CEvents[apCur.EventID];
-                                    string Subject = evtCur.DisplaySubjectName;
-                                    string ClassName = evtCur.DisplayClassName;
-                                    string Key = Subject + "," + ClassName;
+                        Dictionary<string, DayPeriod> tevents = GroupByToEvents(apsCur);
 
-                                    TotalLength ++;
+                        foreach (DayPeriod evtCur in tevents.Values)
+                        {
+                            string Subject = evtCur.Subject;
+                            string SubjectAlias = evtCur.SubjectAlias;
 
-                                    if (evtCur.Comment.Equals("*"))
-                                        ExtraLength ++;
-                                    else if (evtCur.Comment.ToUpper().Equals("F"))
-                                        CounselingLength ++;
-                                    else
-                                        BasicLength ++;
+                            //有群組課程的話，使用群組當 Key。
+                            string key = Subject + "," + (string.IsNullOrWhiteSpace(evtCur.Group) ? evtCur.ClassName : evtCur.Group);
 
-                                    if (!dicSubject.ContainsKey(Key))
-                                        dicSubject.Add(Key, new SubjectCount(Key));
+                            if (!dicSubject.ContainsKey(key))
+                            {
+                                dicSubject.Add(key, new SubjectCount(key));
 
-                                    dicSubject[Key].Subject = Subject;
-                                    dicSubject[Key].SubjectAlias = evtCur.SubjectAlias;
-                                    dicSubject[Key].ResourceName = ClassName;
-                                    dicSubject[Key].Len ++;
-                                };
+                                dicSubject[key].Subject = Subject;
+                                dicSubject[key].SubjectAlias = SubjectAlias;
+                            }
 
-                            break;
-                        case "Class":
-                            apsCur = schLocal.Classes[x].Appointments;
-                            LPViewName = schLocal.Classes[x].Name;
-                            LPViewType = "班級";
-                            LPViewClassTeacherName = schLocal.Classes[x].TeacherName;
+                            dicSubject[key].Len += evtCur.Length;
 
-                            //當是班級時用教師及科目為鍵值統計
-                            foreach (Appointment apCur in apsCur)
-                                if (!string.IsNullOrWhiteSpace(apCur.EventID))
-                                {
-                                    CEvent evtCur = schLocal.CEvents[apCur.EventID];
-                                    string Subject = evtCur.DisplaySubjectName;
-                                    string SubjectAlias = evtCur.SubjectAlias;
+                            SubjectCount sc = dicSubject[key];
+                            foreach (CEvent e in evtCur.Events)
+                            {
+                                CheckAddResource(sc, e.DisplayClassName.Trim());
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID1))
-                                    {
-                                        string TeacherName = evtCur.TeacherID1;
-                                        string Key = Subject + "," + TeacherName;
+                                //統計教師上課節數。
+                                TotalLength += e.Length;
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                                if (e.Comment.Equals("*"))
+                                    ExtraLength += e.Length;
+                                else if (e.Comment.ToUpper().Equals("F"))
+                                    CounselingLength += e.Length;
+                                else
+                                    BasicLength += e.Length;
+                            }
+                        }
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
+                        #region 舊程式
+                        //當是教師時用班級及科目為鍵值統計
+                        //foreach (Appointment apCur in apsCur)
+                        //    if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                        //    {
+                        //        CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                        //        string Subject = evtCur.DisplaySubjectName;
+                        //        string ClassName = evtCur.DisplayClassName;
+                        //        string Key = Subject + "," + ClassName;
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID2))
-                                    {
-                                        string TeacherName = evtCur.TeacherID2;
-                                        string Key = Subject + "," + TeacherName;
+                        //        TotalLength++;
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                        //        if (evtCur.Comment.Equals("*"))
+                        //            ExtraLength++;
+                        //        else if (evtCur.Comment.ToUpper().Equals("F"))
+                        //            CounselingLength++;
+                        //        else
+                        //            BasicLength++;
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
+                        //        if (!dicSubject.ContainsKey(Key))
+                        //            dicSubject.Add(Key, new SubjectCount(Key));
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID3))
-                                    {
-                                        string TeacherName = evtCur.TeacherID3;
-                                        string Key = Subject + "," + TeacherName;
+                        //        dicSubject[Key].Subject = Subject;
+                        //        dicSubject[Key].SubjectAlias = evtCur.SubjectAlias;
+                        //        dicSubject[Key].ResourceName = ClassName;
+                        //        dicSubject[Key].Len++;
+                        //    };
+                        #endregion
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                        break;
+                    case "Class":
+                        apsCur = schLocal.Classes[x].Appointments;
+                        LPViewName = schLocal.Classes[x].Name;
+                        LPViewType = "班級";
+                        LPViewClassTeacherName = schLocal.Classes[x].TeacherName;
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
-                                };
+                        Dictionary<string, DayPeriod> cevents = GroupByToEvents(apsCur);
 
-                            break;
-                        case "Classroom":
-                            schLocal.Classrooms[x].UseAppointments(0); //預設使用第一個行事曆
-                            apsCur = schLocal.Classrooms[x].Appointments;
-                            LPViewName = schLocal.Classrooms[x].Name;
-                            LPViewType = "場地";
-                            LPViewClassTeacherName = string.Empty;
+                        foreach (DayPeriod evtCur in cevents.Values)
+                        {
+                            string Subject = evtCur.Subject;
+                            string SubjectAlias = evtCur.SubjectAlias;
 
-                            foreach (Appointment apCur in apsCur)
-                                if (!string.IsNullOrWhiteSpace(apCur.EventID))
-                                {
-                                    CEvent evtCur = schLocal.CEvents[apCur.EventID];
-                                    string Subject = evtCur.DisplaySubjectName;
-                                    string SubjectAlias = evtCur.SubjectAlias;
+                            //有群組課程的話，使用群組當 Key。
+                            string key = Subject;
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID1))
-                                    {
-                                        string TeacherName = evtCur.TeacherID1;
-                                        string Key = Subject + "," + TeacherName;
+                            if (!dicSubject.ContainsKey(key))
+                            {
+                                dicSubject.Add(key, new SubjectCount(key));
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                                dicSubject[key].Subject = Subject;
+                                dicSubject[key].SubjectAlias = SubjectAlias;
+                            }
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
+                            dicSubject[key].Len += evtCur.Length;
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID2))
-                                    {
-                                        string TeacherName = evtCur.TeacherID2;
-                                        string Key = Subject + "," + TeacherName;
+                            SubjectCount sc = dicSubject[key];
+                            foreach (CEvent e in evtCur.Events)
+                            {
+                                CheckAddResource(sc, e.TeacherID1);
+                                CheckAddResource(sc, e.TeacherID2);
+                                CheckAddResource(sc, e.TeacherID3);
+                            }
+                        }
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                        #region 舊程式
+                        ////當是班級時用教師及科目為鍵值統計
+                        //foreach (Appointment apCur in apsCur)
+                        //    if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                        //    {
+                        //        CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                        //        string Subject = evtCur.DisplaySubjectName;
+                        //        string SubjectAlias = evtCur.SubjectAlias;
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID1))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID1;
+                        //            string Key = Subject + "," + TeacherName;
 
-                                    if (!string.IsNullOrEmpty(evtCur.TeacherID3))
-                                    {
-                                        string TeacherName = evtCur.TeacherID3;
-                                        string Key = Subject + "," + TeacherName;
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
 
-                                        if (!dicSubject.ContainsKey(Key))
-                                            dicSubject.Add(Key, new SubjectCount(Key));
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
 
-                                        dicSubject[Key].Subject = Subject;
-                                        dicSubject[Key].SubjectAlias = SubjectAlias;
-                                        dicSubject[Key].ResourceName = TeacherName;
-                                        dicSubject[Key].Len ++;
-                                    }
-                                };
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID2))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID2;
+                        //            string Key = Subject + "," + TeacherName;
 
-                            break;
-                    }
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
 
-                    if (!LPViews.ContainsKey(LPViewName))
-                        LPViews.Add(LPViewName, new List<DataSet>());
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
 
-                    DataTable tabSubject = new DataTable("Subject");
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID3))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID3;
+                        //            string Key = Subject + "," + TeacherName;
 
-                    tabSubject.Columns.Add("Subject");
-                    tabSubject.Columns.Add("Count");
-                    tabSubject.Columns.Add("Name");
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
 
-                    int Total = 0;
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
+                        //    };
+                        #endregion
 
-                    foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.Len))
-                    {
+                        break;
+                    case "Classroom":
+                        schLocal.Classrooms[x].UseAppointments(0); //預設使用第一個行事曆
+                        apsCur = schLocal.Classrooms[x].Appointments;
+                        LPViewName = schLocal.Classrooms[x].Name;
+                        LPViewType = "場地";
+                        LPViewClassTeacherName = string.Empty;
 
-                        tabSubject.Rows.Add(
-                            chkSubjectAlias.Checked ? vSubjectCount.SubjectAlias : vSubjectCount.Subject,
-                            vSubjectCount.Len,
-                            vSubjectCount.ResourceName);
+                        Dictionary<string, DayPeriod> crevents = GroupByToEvents(apsCur);
 
-                        Total += vSubjectCount.Len;
-                    }
+                        foreach (DayPeriod evtCur in crevents.Values)
+                        {
+                            string Subject = evtCur.Subject;
+                            string SubjectAlias = evtCur.SubjectAlias;
 
-                    //foreach (string Key in dicSubject.Values)
-                    //{
-                    //    string[] Keys = Key.Split(new char[] { ',' });
+                            string key = Subject;
 
-                    //    tabSubject.Rows.Add(Keys[0], dicSubject[Key], Keys[1]);
+                            if (!dicSubject.ContainsKey(key))
+                            {
+                                dicSubject.Add(key, new SubjectCount(key));
 
-                    //    Total += dicSubject[Key].Len;
-                    //}
+                                dicSubject[key].Subject = Subject;
+                                dicSubject[key].SubjectAlias = SubjectAlias;
+                            }
 
-                    tabSubject.Rows.Add("總節數", "" + Total);
+                            dicSubject[key].Len += evtCur.Length;
 
-                    DataTable tabSchoolYear = ("" + schLocal.SchoolYear).ToDataTable("SchoolYear", "學年度");
-                    DataTable tabSemester = ("" + schLocal.Semester).ToDataTable("Semester", "學期");
-                    DataTable tabLPViewName = LPViewName.ToDataTable("ScheduleName", "資源名稱");
-                    DataTable tabLPViewType = LPViewType.ToDataTable("ScheduleType", "資源類別");
-                    DataTable tabLPViewClassTeacherName = LPViewClassTeacherName.ToDataTable("ClassTeacherName", "班導師姓名");
+                            SubjectCount sc = dicSubject[key];
+                            foreach (CEvent e in evtCur.Events)
+                            {
+                                CheckAddResource(sc, e.TeacherID1);
+                                CheckAddResource(sc, e.TeacherID2);
+                                CheckAddResource(sc, e.TeacherID3);
+                            }
+                        }
 
-                    DataTable tabBasicLength = BasicLength.ToDataTable("TeacherBasicLength", "教師基本時數");
-                    DataTable tabExtraLength = ExtraLength.ToDataTable("TeacherExtraLength", "教師兼課時數");
-                    DataTable tabCounselingLength = CounselingLength.ToDataTable("TeacherCounselingLength", "教師輔導時數");
-                    DataTable tabLength = TotalLength.ToDataTable("TeacherLength", "教師授課時數");
+                        #region 舊程式
+                        //foreach (Appointment apCur in apsCur)
+                        //    if (!string.IsNullOrWhiteSpace(apCur.EventID))
+                        //    {
+                        //        CEvent evtCur = schLocal.CEvents[apCur.EventID];
+                        //        string Subject = evtCur.DisplaySubjectName;
+                        //        string SubjectAlias = evtCur.SubjectAlias;
 
-                    DataTable tabCode = Code.ToDataTable("TeacherCode", "教師代碼");
-                    DataTable tabExpertise = Expertise.ToDataTable("TeacherExpertise", "教師專長");
-                    DataTable tabComment = Comment.ToDataTable("TeacherComment", "教師註解");
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID1))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID1;
+                        //            string Key = Subject + "," + TeacherName;
 
-                    DataTable tabPrintDate = DateTime.Today.ToShortDateString().ToDataTable("PrintDate", "列印日期");
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
 
-                    LPView.Tables.Add(tabBasicLength);
-                    LPView.Tables.Add(tabExtraLength);
-                    LPView.Tables.Add(tabCounselingLength);
-                    LPView.Tables.Add(tabLength);
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
 
-                    LPView.Tables.Add(tabSubject);
-                    LPView.Tables.Add(tabSchoolYear);
-                    LPView.Tables.Add(tabSemester);
-                    LPView.Tables.Add(tabLPViewName);
-                    LPView.Tables.Add(tabLPViewType);
-                    LPView.Tables.Add(tabLPViewClassTeacherName);
-                    LPView.Tables.Add(tabCode);
-                    LPView.Tables.Add(tabExpertise);
-                    LPView.Tables.Add(tabComment);
-                    LPView.Tables.Add(tabPrintDate);
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID2))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID2;
+                        //            string Key = Subject + "," + TeacherName;
 
-                    DataTable tabScheduleDetail = GetLPViewDetail();
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
 
-                    LPView.Tables.Add(tabScheduleDetail);
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
 
-                    LPViews[LPViewName].Add(LPView);
+                        //        if (!string.IsNullOrEmpty(evtCur.TeacherID3))
+                        //        {
+                        //            string TeacherName = evtCur.TeacherID3;
+                        //            string Key = Subject + "," + TeacherName;
+
+                        //            if (!dicSubject.ContainsKey(Key))
+                        //                dicSubject.Add(Key, new SubjectCount(Key));
+
+                        //            dicSubject[Key].Subject = Subject;
+                        //            dicSubject[Key].SubjectAlias = SubjectAlias;
+                        //            dicSubject[Key].ResourceName = TeacherName;
+                        //            dicSubject[Key].Len++;
+                        //        }
+                        //    };
+                        #endregion
+
+                        break;
+                }
+
+                if (!LPViews.ContainsKey(LPViewName))
+                    LPViews.Add(LPViewName, new List<DataSet>());
+
+                DataTable tabSubject = new DataTable("Subject");
+
+                tabSubject.Columns.Add("Subject");
+                tabSubject.Columns.Add("Count");
+                tabSubject.Columns.Add("Name");
+
+                int Total = 0;
+
+                foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.Len))
+                {
+
+                    tabSubject.Rows.Add(
+                        chkSubjectAlias.Checked ? vSubjectCount.SubjectAlias : vSubjectCount.Subject,
+                        vSubjectCount.Len,
+                        vSubjectCount.GetResources());
+
+                    Total += vSubjectCount.Len;
+                }
+
+                //foreach (string Key in dicSubject.Values)
+                //{
+                //    string[] Keys = Key.Split(new char[] { ',' });
+
+                //    tabSubject.Rows.Add(Keys[0], dicSubject[Key], Keys[1]);
+
+                //    Total += dicSubject[Key].Len;
+                //}
+
+                tabSubject.Rows.Add("總節數", "" + Total);
+
+                DataTable tabSchoolYear = ("" + schLocal.SchoolYear).ToDataTable("SchoolYear", "學年度");
+                DataTable tabSemester = ("" + schLocal.Semester).ToDataTable("Semester", "學期");
+                DataTable tabLPViewName = LPViewName.ToDataTable("ScheduleName", "資源名稱");
+                DataTable tabLPViewType = LPViewType.ToDataTable("ScheduleType", "資源類別");
+                DataTable tabLPViewClassTeacherName = LPViewClassTeacherName.ToDataTable("ClassTeacherName", "班導師姓名");
+
+                DataTable tabBasicLength = BasicLength.ToDataTable("TeacherBasicLength", "教師基本時數");
+                DataTable tabExtraLength = ExtraLength.ToDataTable("TeacherExtraLength", "教師兼課時數");
+                DataTable tabCounselingLength = CounselingLength.ToDataTable("TeacherCounselingLength", "教師輔導時數");
+                DataTable tabLength = TotalLength.ToDataTable("TeacherLength", "教師授課時數");
+
+                DataTable tabCode = Code.ToDataTable("TeacherCode", "教師代碼");
+                DataTable tabExpertise = Expertise.ToDataTable("TeacherExpertise", "教師專長");
+                DataTable tabComment = Comment.ToDataTable("TeacherComment", "教師註解");
+
+                DataTable tabPrintDate = DateTime.Today.ToShortDateString().ToDataTable("PrintDate", "列印日期");
+
+                LPView.Tables.Add(tabBasicLength);
+                LPView.Tables.Add(tabExtraLength);
+                LPView.Tables.Add(tabCounselingLength);
+                LPView.Tables.Add(tabLength);
+
+                LPView.Tables.Add(tabSubject);
+                LPView.Tables.Add(tabSchoolYear);
+                LPView.Tables.Add(tabSemester);
+                LPView.Tables.Add(tabLPViewName);
+                LPView.Tables.Add(tabLPViewType);
+                LPView.Tables.Add(tabLPViewClassTeacherName);
+                LPView.Tables.Add(tabCode);
+                LPView.Tables.Add(tabExpertise);
+                LPView.Tables.Add(tabComment);
+                LPView.Tables.Add(tabPrintDate);
+
+                DataTable tabScheduleDetail = GetLPViewDetail();
+
+                LPView.Tables.Add(tabScheduleDetail);
+
+                LPViews[LPViewName].Add(LPView);
             };
 
             try
@@ -654,6 +754,62 @@ namespace ischedule
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private static void CheckAddResource(SubjectCount sc, string rc)
+        {
+            if (!string.IsNullOrEmpty(rc))
+            {
+                if (!sc.Resources.Contains(rc))
+                    sc.Resources.Add(rc);
+            }
+        }
+
+        private Dictionary<string, DayPeriod> GroupByToEvents(Appointments apts)
+        {
+            //群組出 Event 清單，因為數個  Appointment 可能對應到同一個 Event。
+            Dictionary<string, DayPeriod> events = new Dictionary<string, DayPeriod>();
+            foreach (Appointment apt in apts)
+            {
+                if (string.IsNullOrWhiteSpace(apt.EventID))
+                    continue;
+
+                CEvent evtCur = schLocal.CEvents[apt.EventID];
+
+                DayPeriod dp = new DayPeriod(evtCur.WeekDay, evtCur.PeriodNo);
+
+                if (!events.ContainsKey(dp.Key))
+                    events.Add(dp.Key, dp);
+
+                events[dp.Key].Events.Add(evtCur);
+            }
+            return events;
+        }
+
+        /// <summary>
+        /// 代表節次，但是包含星期幾。
+        /// </summary>
+        class DayPeriod
+        {
+            public DayPeriod(int week, int period)
+            {
+                Key = string.Format("{0}:{1}", week, period);
+                Events = new List<CEvent>();
+            }
+
+            public string Key { get; private set; }
+
+            public List<CEvent> Events { get; private set; }
+
+            public string Subject { get { return Events[0].DisplaySubjectName.Trim(); } }
+
+            public string SubjectAlias { get { return Events[0].SubjectAlias.Trim(); } }
+
+            public string ClassName { get { return Events[0].DisplayClassName.Trim(); } }
+
+            public int Length { get { return Events[0].Length; } }
+
+            public string Group { get { return Events[0].CourseGroup.Trim(); } }
         }
 
         /// <summary>
@@ -948,7 +1104,7 @@ namespace ischedule
             else if (Number.Equals(20))
                 return "二十";
             else
-                return ""+Number;
+                return "" + Number;
         }
 
         /// <summary>
@@ -962,7 +1118,7 @@ namespace ischedule
             string strEvtInfo = string.Empty;
             SortedDictionary<int, LPViewReportItem> LPViewItems = new SortedDictionary<int, LPViewReportItem>();
             DataTable tabSchedule = new DataTable("ScheduleDetail");
-                
+
             #region 針對每筆時間表分段
             foreach (Period prdMember in ttCur.Periods)
             {
@@ -1152,7 +1308,7 @@ namespace ischedule
             if (cboTimeTable.Items.Count == 0)
                 cboTimeTable.Items.Add(schLocal.TimeTables[0]);
 
-                cboTimeTable.SelectedIndex = 0;
+            cboTimeTable.SelectedIndex = 0;
         }
     }
 }

@@ -31,6 +31,13 @@ namespace ischedule
 
                     SchoolDSNSName vSchool =  Global.AvailDSNSNames.Find(x => x.SchoolName.Equals(SchoolName));
 
+					if (vSchool == null)
+					{
+						vSchool = new SchoolDSNSName();
+						vSchool.DSNSName = SchoolName;
+						vSchool.SchoolName = SchoolName;
+					}
+
                     if (vSchool != null)
                         Result.Add(vSchool);
                 }

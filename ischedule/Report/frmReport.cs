@@ -665,7 +665,7 @@ namespace ischedule
 
                 int Total = 0;
 
-                foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.Len))
+                foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.GetResources()).Reverse())
                 {
 
                     tabSubject.Rows.Add(

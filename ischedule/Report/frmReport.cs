@@ -657,35 +657,13 @@ namespace ischedule
                 if (!LPViews.ContainsKey(LPViewName))
                     LPViews.Add(LPViewName, new List<DataSet>());
 
-                DataTable tabSubject = new DataTable("Subject");
+                DataTable tabSubject = SubjectSummaryOrderbyResource(dicSubject);
+                DataTable tabSubjectOrderByLen = SubjectSummaryOrderbyLength(dicSubject);
 
-                tabSubject.Columns.Add("Subject");
-                tabSubject.Columns.Add("Count");
-                tabSubject.Columns.Add("Name");
-
-                int Total = 0;
-
-                foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.GetResources()).Reverse())
-                {
-
-                    tabSubject.Rows.Add(
-                        chkSubjectAlias.Checked ? vSubjectCount.SubjectAlias : vSubjectCount.Subject,
-                        vSubjectCount.Len,
-                        vSubjectCount.GetResources());
-
-                    Total += vSubjectCount.Len;
-                }
-
-                //foreach (string Key in dicSubject.Values)
-                //{
-                //    string[] Keys = Key.Split(new char[] { ',' });
-
-                //    tabSubject.Rows.Add(Keys[0], dicSubject[Key], Keys[1]);
-
-                //    Total += dicSubject[Key].Len;
-                //}
+                int Total = dicSubject.Values.Sum(subj => subj.Len);
 
                 tabSubject.Rows.Add("總節數", "" + Total);
+                tabSubjectOrderByLen.Rows.Add("總節數", "" + Total);
 
                 DataTable tabSchoolYear = ("" + schLocal.SchoolYear).ToDataTable("SchoolYear", "學年度");
                 DataTable tabSemester = ("" + schLocal.Semester).ToDataTable("Semester", "學期");
@@ -710,6 +688,7 @@ namespace ischedule
                 LPView.Tables.Add(tabLength);
 
                 LPView.Tables.Add(tabSubject);
+                LPView.Tables.Add(tabSubjectOrderByLen);
                 LPView.Tables.Add(tabSchoolYear);
                 LPView.Tables.Add(tabSemester);
                 LPView.Tables.Add(tabLPViewName);
@@ -754,6 +733,43 @@ namespace ischedule
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private DataTable SubjectSummaryOrderbyResource(SortedDictionary<string, SubjectCount> dicSubject)
+        {
+            DataTable tabSubject = new DataTable("Subject");
+
+            tabSubject.Columns.Add("Subject");
+            tabSubject.Columns.Add("Count");
+            tabSubject.Columns.Add("Name");
+
+            foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.GetResources()).Reverse())
+            {
+
+                tabSubject.Rows.Add(
+                    chkSubjectAlias.Checked ? vSubjectCount.SubjectAlias : vSubjectCount.Subject,
+                    vSubjectCount.Len,
+                    vSubjectCount.GetResources());
+            }
+            return tabSubject;
+        }
+
+        private DataTable SubjectSummaryOrderbyLength(SortedDictionary<string, SubjectCount> dicSubject)
+        {
+            DataTable tabSubject = new DataTable("SubjectOrderByLength");
+
+            tabSubject.Columns.Add("Subject");
+            tabSubject.Columns.Add("Count");
+            tabSubject.Columns.Add("Name");
+
+            foreach (SubjectCount vSubjectCount in dicSubject.Values.OrderByDescending(y => y.Len))
+            {
+                tabSubject.Rows.Add(
+                    chkSubjectAlias.Checked ? vSubjectCount.SubjectAlias : vSubjectCount.Subject,
+                    vSubjectCount.Len,
+                    vSubjectCount.GetResources());
+            }
+            return tabSubject;
         }
 
         private static void CheckAddResource(SubjectCount sc, string rc)

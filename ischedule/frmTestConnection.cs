@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using FISCA.DSAClient;
 using Sunset.Data.Integration;
+using DevComponents.DotNetBar.Controls;
 
 namespace ischedule
 {
@@ -30,6 +31,13 @@ namespace ischedule
                     string SchoolName = "" + Cell.Value;
 
                     SchoolDSNSName vSchool =  Global.AvailDSNSNames.Find(x => x.SchoolName.Equals(SchoolName));
+
+					if (vSchool == null)
+					{
+						vSchool = new SchoolDSNSName();
+						vSchool.DSNSName = SchoolName;
+						vSchool.SchoolName = SchoolName;
+					}
 
                     if (vSchool != null)
                         Result.Add(vSchool);
@@ -281,7 +289,7 @@ namespace ischedule
 
                         int RowIndex = grdSchool.Rows.Add();
 
-                        DataGridViewComboBoxCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxCell;
+						DataGridViewComboBoxExCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxExCell;
 
                         Cell.Value = School.SchoolName;
                         Cell.Tag = School;
@@ -293,7 +301,7 @@ namespace ischedule
                     {
                         int RowIndex = grdSchool.Rows.Add();
 
-                        DataGridViewComboBoxCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxCell;
+						DataGridViewComboBoxExCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxExCell;
 
                         Cell.Value = School.SchoolName;
                         Cell.Tag = School;
@@ -308,7 +316,7 @@ namespace ischedule
                 {
                     int RowIndex = grdSchool.Rows.Add();
 
-                    DataGridViewComboBoxCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxCell;
+					DataGridViewComboBoxExCell Cell = grdSchool.Rows[RowIndex].Cells[0] as DataGridViewComboBoxExCell;
 
                     Cell.Value = School.SchoolName;
                     Cell.Tag = School;
@@ -330,6 +338,8 @@ namespace ischedule
 
             foreach (SchoolDSNSName SchoolDSNS in DSNSNames)
             {
+				if (SchoolDSNS.DSNSName+"" == "")
+					continue;
                 XElement elmDSNSName = new XElement("DSNSName", SchoolDSNS.DSNSName);
                 elmDSNSName.SetAttributeValue("SchoolName", SchoolDSNS.SchoolName);
 

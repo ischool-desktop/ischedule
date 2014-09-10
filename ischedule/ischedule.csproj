@@ -87,6 +87,12 @@
       <HintPath>..\SharedLib\ReportHelper.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sunset.Data">
+      <HintPath>bin\Debug\kernel\Sunset.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Sunset.Data.Integration">
+      <HintPath>bin\Debug\kernel\Sunset.Data.Integration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -419,18 +425,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lock.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sunset.Data.Integration\Sunset.Data.Integration.csproj">
-      <Project>{FE668DA3-B2D4-417D-985E-3703C6FC78D2}</Project>
-      <Name>Sunset.Data.Integration</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Sunset.Data\Sunset.Data.csproj">
-      <Project>{60CB6BBF-9147-4117-9053-DB3ACCBAACB2}</Project>
-      <Name>Sunset.Data</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\上載.png" />

@@ -1157,7 +1157,7 @@ namespace ischedule
         {
             if (schLocal.IsOpen == true)
             {
-                if (MessageBox.Show("提醒您是否已將排課資料上傳或存檔？", "確認關閉", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                if (MessageBox.Show("確定要關閉排課系統？\n\n提醒您關閉系統前要儲存或是上傳資料。", "確認關閉", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }

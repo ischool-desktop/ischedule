@@ -31,7 +31,7 @@ namespace ischedule
             InitializeComponent();
 
             this.txtPassword.Text = Password;
-            this.TitleText = Title;
+            this.Text = Title;
             this.IsConfirm = IsConfirm;
         }
 
@@ -58,14 +58,14 @@ namespace ischedule
 
         private void frmPasspordInput_Load(object sender, EventArgs e)
         {
-            if (!this.IsConfirm)
-            {
-                btnConfirm.Top = 43;
-                btnCancel.Top = 43;
-                this.Height = 100;
-                this.MaximumSize = new System.Drawing.Size(this.Width,100); 
-                this.MinimumSize = new System.Drawing.Size(this.Width,100);
-            }
+            //if (!this.IsConfirm)
+            //{
+            //    btnConfirm.Top = 43;
+            //    btnCancel.Top = 43;
+            //    this.Height = 100;
+            //    this.MaximumSize = new System.Drawing.Size(this.Width,100); 
+            //    this.MinimumSize = new System.Drawing.Size(this.Width,100);
+            //}
         }
     }
 }

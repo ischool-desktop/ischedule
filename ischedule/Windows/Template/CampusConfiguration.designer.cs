@@ -59,8 +59,8 @@ namespace ischedule
             this.pnlContent.Controls.Add(this.pnlEditor);
             this.pnlContent.Controls.Add(this.expandableSplitter1);
             this.pnlContent.Controls.Add(this.panelEx1);
-            this.pnlContent.Location = new System.Drawing.Point(173, 19);
-            this.pnlContent.Size = new System.Drawing.Size(798, 616);
+            this.pnlContent.Location = new System.Drawing.Point(0, 19);
+            this.pnlContent.Size = new System.Drawing.Size(971, 616);
             // 
             // panelEx1
             // 
@@ -132,7 +132,7 @@ namespace ischedule
             this.Column1});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("·L³n¥¿¶ÂÅé", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -235,7 +235,7 @@ namespace ischedule
             this.pnlEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEditor.Location = new System.Drawing.Point(159, 0);
             this.pnlEditor.Name = "pnlEditor";
-            this.pnlEditor.Size = new System.Drawing.Size(639, 616);
+            this.pnlEditor.Size = new System.Drawing.Size(812, 616);
             this.pnlEditor.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1

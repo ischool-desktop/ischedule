@@ -37,6 +37,7 @@
             // btnConfirm
             // 
             this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirm.BackColor = System.Drawing.Color.Transparent;
             this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnConfirm.Location = new System.Drawing.Point(102, 48);
@@ -64,6 +65,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -78,6 +80,7 @@
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -91,14 +94,13 @@
             // frmPasspordInput
             // 
             this.AcceptButton = this.btnConfirm;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 83);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(251, 83);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.btnConfirm);
-            this.MaximumSize = new System.Drawing.Size(258, 110);
+            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(258, 110);
             this.Name = "frmPasspordInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

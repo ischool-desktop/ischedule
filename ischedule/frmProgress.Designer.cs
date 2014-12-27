@@ -83,12 +83,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 86);
+            this.ClientSize = new System.Drawing.Size(350, 89);
             this.Controls.Add(this.pbProgress);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblNotice);
             this.Controls.Add(this.btnCancel);
-            this.MaximumSize = new System.Drawing.Size(349, 113);
+            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(349, 113);
             this.Name = "frmProgress";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

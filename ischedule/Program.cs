@@ -54,9 +54,6 @@ namespace ischedule
             //更新位置。
             string appUrl = "http://module.ischool.com.tw/module/89/MOD_ischedule/app.xml";
 
-            if (System.IO.File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, "測試版本")))
-                appUrl = "http://10.1.1.167/modules/FiscaAEModules/MOD_ischedule/app.xml";
-
             string script_path = Path.Combine(basePath, "update_padding.xml");
             ManifestResolver resolver = new ManifestResolver(appUrl, VersionOption.Stable);
             resolver.VerifySignature = true;
@@ -92,9 +89,10 @@ namespace ischedule
 
                     script.Save(script_path);
 
-                    MessageBox.Show("系統自動更新完成，將重新啟動。");
+                    string msg = "系統新版本下載完成，需要重新啟動進行更新。\n\n 要立即重新啟動嗎？";
 
-                    Application.Restart();
+                    if (MessageBox.Show(msg, "ischeduler", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        Application.Restart();
                 }
                 else
                 {
@@ -105,7 +103,7 @@ namespace ischedule
 
         static void au_ProgressMessage(object sender, ProgressMessageEventArgs e)
         {
-           // MainForm.SetBarMessage(e.Message);
+            // MainForm.SetBarMessage(e.Message);
         }
 
         static void au_DownloadCompleted(object sender, EventArgs e)

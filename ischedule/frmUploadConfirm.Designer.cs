@@ -31,10 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdSchool = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.colSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.colSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchool)).BeginInit();
             this.SuspendLayout();
@@ -46,9 +46,10 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.grdSchool);
             this.groupPanel1.DrawTitleBox = false;
-            this.groupPanel1.Location = new System.Drawing.Point(4, 3);
+            this.groupPanel1.Location = new System.Drawing.Point(7, 6);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(325, 122);
+            this.groupPanel1.Padding = new System.Windows.Forms.Padding(3);
+            this.groupPanel1.Size = new System.Drawing.Size(342, 145);
             // 
             // 
             // 
@@ -89,7 +90,7 @@
             this.colSchool});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -97,11 +98,19 @@
             this.grdSchool.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdSchool.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdSchool.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.grdSchool.Location = new System.Drawing.Point(0, 0);
+            this.grdSchool.Location = new System.Drawing.Point(3, 3);
             this.grdSchool.Name = "grdSchool";
             this.grdSchool.RowTemplate.Height = 24;
-            this.grdSchool.Size = new System.Drawing.Size(319, 95);
+            this.grdSchool.Size = new System.Drawing.Size(330, 112);
             this.grdSchool.TabIndex = 0;
+            // 
+            // colSchool
+            // 
+            this.colSchool.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colSchool.HeaderText = "";
+            this.colSchool.Name = "colSchool";
+            this.colSchool.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSchool.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // btnConfirm
             // 
@@ -109,7 +118,7 @@
             this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirm.BackColor = System.Drawing.Color.Transparent;
             this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnConfirm.Location = new System.Drawing.Point(175, 131);
+            this.btnConfirm.Location = new System.Drawing.Point(191, 163);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -123,7 +132,7 @@
             this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTest.BackColor = System.Drawing.Color.Transparent;
             this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTest.Location = new System.Drawing.Point(94, 131);
+            this.btnTest.Location = new System.Drawing.Point(110, 163);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -139,7 +148,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(255, 131);
+            this.btnCancel.Location = new System.Drawing.Point(271, 163);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -147,25 +156,17 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // colSchool
-            // 
-            this.colSchool.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colSchool.HeaderText = "";
-            this.colSchool.Name = "colSchool";
-            this.colSchool.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSchool.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // frmUploadConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 160);
+            this.ClientSize = new System.Drawing.Size(360, 197);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.groupPanel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximumSize = new System.Drawing.Size(345, 185);
             this.MinimumSize = new System.Drawing.Size(345, 185);
             this.Name = "frmUploadConfirm";
             this.Text = "上傳資料";

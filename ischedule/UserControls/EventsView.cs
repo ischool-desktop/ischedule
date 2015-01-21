@@ -144,7 +144,7 @@ namespace ischedule
             this.btnUnLock.Click -= new EventHandler(btnUnLock_Click);
             this.btnFree.Click -= new EventHandler(btnFree_Click);
             this.btnProperty.Click -= new EventHandler(btnProperty_Click);
-            this.btnPrint.Click -= new EventHandler(btnPrint_Click);
+            this.btnPrint.Click -= new EventHandler(btnPrint_Click); 
 
             this.grdEvents.CellFormatting -= new DataGridViewCellFormattingEventHandler(grdEvents_CellFormatting);
             this.grdEvents.SelectionChanged -= new EventHandler(grdEvents_SelectionChanged);
@@ -305,6 +305,7 @@ namespace ischedule
 
         void grdEvents_DoubleClick(object sender, EventArgs e)
         {
+            
             if (IsPropertyChangable())
                 ChangeProperty();
         }
@@ -516,7 +517,14 @@ namespace ischedule
 
         void btnPrint_Click(object sender, EventArgs e)
         {
-            Print();
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                new frmWordReport().ShowDialog();
+            }
+            else
+            {
+                Print();
+            }
         }
 
         void btnProperty_Click(object sender, EventArgs e)

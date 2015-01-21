@@ -79,10 +79,13 @@ namespace ischedule
 
             #region 設定Aspose License
             Aspose.Cells.License License = new Aspose.Cells.License();
+            Aspose.Words.License License_word = new Aspose.Words.License();
 
             FileStream Stream = new FileStream(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\components\\Aspose.Total.lic", FileMode.Open);
+            FileStream Stream_word = new FileStream(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\components\\Aspose.Total.lic_b", FileMode.Open);
 
             License.SetLicense(Stream);
+            License_word.SetLicense(Stream_word);
             #endregion
 
             SetScheduleSourceCloseMenu();

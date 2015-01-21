@@ -65,6 +65,9 @@
       <HintPath>..\SharedLib\Aspose.Cells.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\SharedLib\components\Aspose.Words.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Z:\Desktop\ischool desktop\components\DevComponents.DotNetBar2.dll</HintPath>
@@ -132,6 +135,12 @@
     </Compile>
     <Compile Include="Report\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmWordReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmWordReport.Designer.cs">
+      <DependentUpon>frmWordReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\LPViewReportItem.cs" />
     <Compile Include="Report\ReportSaver.cs" />
@@ -358,6 +367,9 @@
     <EmbeddedResource Include="Report\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmWordReport.resx">
+      <DependentUpon>frmWordReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="test\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,6 +446,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\功課表.xls" />
+    <None Include="Resources\功課表template.doc" />
     <None Include="Resources\另存新檔.png" />
   </ItemGroup>
   <ItemGroup>

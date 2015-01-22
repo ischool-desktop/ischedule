@@ -453,6 +453,7 @@
     <None Include="Resources\設定.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\課表功能變數.doc" />
     <None Include="Resources\開啟檔案.png" />
   </ItemGroup>
   <ItemGroup>

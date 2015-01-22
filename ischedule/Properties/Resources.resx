@@ -214,4 +214,7 @@
   <data name="功課表template" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\功課表template.doc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="課表功能變數" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\課表功能變數.doc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

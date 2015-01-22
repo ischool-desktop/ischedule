@@ -331,6 +331,16 @@ namespace ischedule.Properties {
         }
         
         /// <summary>
+        ///   查詢類型 System.Byte[] 的當地語系化資源。
+        /// </summary>
+        internal static byte[] 課表功能變數 {
+            get {
+                object obj = ResourceManager.GetObject("課表功能變數", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
         internal static System.Drawing.Bitmap 選項設定 {

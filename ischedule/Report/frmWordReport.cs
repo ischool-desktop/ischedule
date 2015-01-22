@@ -810,7 +810,7 @@ namespace ischedule
 
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "Word檔案 (*.doc)|*.doc|所有檔案 (*.*)|*.*";
-                sfd.FileName = "好課表不存嗎.doc";
+                sfd.FileName = "功課表.doc";
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {

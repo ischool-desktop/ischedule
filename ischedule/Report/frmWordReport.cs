@@ -1479,6 +1479,25 @@ namespace ischedule
 
             cboTimeTable.SelectedIndex = 0;
         }
+
+        private void lnkMergeField_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "另存新檔";
+            sfd.FileName = "合併欄位總表.doc";
+            sfd.Filter = "相容於 Word 2003 檔案 (*.doc)|*.doc|所有檔案 (*.*)|*.*";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK == true)
+            {
+                try
+                {
+                    DownloadTemplate(sfd, Properties.Resources.課表功能變數);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 
     public static class MyTools

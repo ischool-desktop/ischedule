@@ -47,6 +47,8 @@
             this.txtPeriod = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkEven = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.chkOdd = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkTeacherBusyDesc = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkMergeTimeTable = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.cboTimeTable = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -57,8 +59,7 @@
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSelectName = new DevComponents.DotNetBar.TabItem(this.components);
-            this.chkOdd = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.chkEven = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.lnkMergeField = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tabControlPanel2
             // 
+            this.tabControlPanel2.Controls.Add(this.lnkMergeField);
             this.tabControlPanel2.Controls.Add(this.btnExit);
             this.tabControlPanel2.Controls.Add(this.btnPrint);
             this.tabControlPanel2.Controls.Add(this.groupBox3);
@@ -324,6 +326,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "選項設定";
             // 
+            // chkEven
+            // 
+            // 
+            // 
+            // 
+            this.chkEven.BackgroundStyle.Class = "";
+            this.chkEven.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkEven.Location = new System.Drawing.Point(166, 51);
+            this.chkEven.Name = "chkEven";
+            this.chkEven.Size = new System.Drawing.Size(100, 23);
+            this.chkEven.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkEven.TabIndex = 3;
+            this.chkEven.Text = "雙週列印";
+            // 
+            // chkOdd
+            // 
+            // 
+            // 
+            // 
+            this.chkOdd.BackgroundStyle.Class = "";
+            this.chkOdd.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkOdd.Location = new System.Drawing.Point(166, 24);
+            this.chkOdd.Name = "chkOdd";
+            this.chkOdd.Size = new System.Drawing.Size(100, 23);
+            this.chkOdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkOdd.TabIndex = 2;
+            this.chkOdd.Text = "單週列印";
+            // 
             // chkTeacherBusyDesc
             // 
             this.chkTeacherBusyDesc.AutoSize = true;
@@ -453,33 +483,16 @@
             this.tabSelectName.Name = "tabSelectName";
             this.tabSelectName.Text = "步驟一：選擇名單";
             // 
-            // chkOdd
+            // lnkMergeField
             // 
-            // 
-            // 
-            // 
-            this.chkOdd.BackgroundStyle.Class = "";
-            this.chkOdd.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkOdd.Location = new System.Drawing.Point(166, 24);
-            this.chkOdd.Name = "chkOdd";
-            this.chkOdd.Size = new System.Drawing.Size(100, 23);
-            this.chkOdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkOdd.TabIndex = 2;
-            this.chkOdd.Text = "單週列印";
-            // 
-            // chkEven
-            // 
-            // 
-            // 
-            // 
-            this.chkEven.BackgroundStyle.Class = "";
-            this.chkEven.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkEven.Location = new System.Drawing.Point(166, 51);
-            this.chkEven.Name = "chkEven";
-            this.chkEven.Size = new System.Drawing.Size(100, 23);
-            this.chkEven.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkEven.TabIndex = 3;
-            this.chkEven.Text = "雙週列印";
+            this.lnkMergeField.AutoSize = true;
+            this.lnkMergeField.Location = new System.Drawing.Point(26, 466);
+            this.lnkMergeField.Name = "lnkMergeField";
+            this.lnkMergeField.Size = new System.Drawing.Size(112, 17);
+            this.lnkMergeField.TabIndex = 25;
+            this.lnkMergeField.TabStop = true;
+            this.lnkMergeField.Text = "檢視合併欄位總表";
+            this.lnkMergeField.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMergeField_LinkClicked);
             // 
             // frmWordReport
             // 
@@ -538,6 +551,7 @@
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colPrintItem;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkEven;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkOdd;
+        private System.Windows.Forms.LinkLabel lnkMergeField;
 
     }
 }

@@ -90,12 +90,6 @@
       <HintPath>..\SharedLib\ReportHelper.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Sunset.Data">
-      <HintPath>bin\Debug\kernel\Sunset.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunset.Data.Integration">
-      <HintPath>bin\Debug\kernel\Sunset.Data.Integration.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -323,6 +317,7 @@
     </Compile>
     <EmbeddedResource Include="Common\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEventSelector.resx">
       <DependentUpon>frmEventSelector.cs</DependentUpon>
@@ -332,6 +327,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDownloadConfirm.resx">
       <DependentUpon>frmDownloadConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDownloadDetail.resx">
       <DependentUpon>frmDownloadDetail.cs</DependentUpon>
@@ -581,6 +577,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sunset.Data.Integration\Sunset.Data.Integration.csproj">
+      <Project>{fe668da3-b2d4-417d-985e-3703c6fc78d2}</Project>
+      <Name>Sunset.Data.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sunset.Data\Sunset.Data.csproj">
+      <Project>{60cb6bbf-9147-4117-9053-db3accbaacb2}</Project>
+      <Name>Sunset.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
